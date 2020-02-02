@@ -1,0 +1,15 @@
+COMP = kernel/arch/x86
+
+CXX_FILES = \
+	vga.cpp \
+	utilities.cpp \
+	kernel.cpp
+S_FILES = 
+
+DIR = ${TOPDIR}/${COMP}
+COMP_SRC += ${S_FILES:%=${DIR}/%} ${CXX_FILES:%=${DIR}/%}
+
+#${DIR}/${CXX_FILES:%o}: ${DIR}/${CXX_FILES:%cpp}
+#	@echo -e "\tCompiling" $@
+#	$(CC) $(CXXFLAGS) -o $@ $^
+
