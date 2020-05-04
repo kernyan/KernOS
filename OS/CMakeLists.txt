@@ -1,13 +1,18 @@
 cmake_minimum_required(VERSION 3.10)
-project(KernOS VERSION 0.1.0 LANGUAGES C CXX)
+project(KernOS VERSION 0.1.0 LANGUAGES C CXX ASM)
 
 # set toolchain
-set(TOOLCHAIN_PREFIX i686-elf-)
+set(TOOLCHAIN_PREFIX /home/osboxes/opt/cross/bin/i686-elf-)
 set(CMAKE_C_COMPILER   ${TOOLCHAIN_PREFIX}gcc)
 set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PREFIX}g++)
 set(CMAKE_ASM_COMPILER ${TOOLCHAIN_PREFIX}as)
 set(CMAKE_LINKER       ${TOOLCHAIN_PREFIX}ld)
 set(CMAKE_ASM_OBJECT_FORMAT elf) 
+
+# linker configuration
+set(LDSCRIPT ${CMAKE_CURRENT_LIST_DIR}/compile/linker.ld)
+list(APPEND CMAKE_EXE_LINKER_FLAGS "-ffreestanding -Og -nostdlib \
+  -T${LDSCRIPT}")
 
 # architecture
 set(ARCH_CONFIG arch/x86/)
@@ -29,68 +34,72 @@ endif()
 message(STATUS "CMake_command: ${CMAKE_COMMAND}")
 message(STATUS "CMake_generator: ${CMAKE_GENERATOR}")
 
-configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
-execute_process(COMMAND ${CMAKE_COMMAND}
-  -g "${CMAKE_GENERATOR}" .
-  RESULT_VARIABLE result
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download
-  )
-
-if (result)
-  message(FATAL_ERROR "CMake step for gtest failed: ${result}")
-endif()
-
-execute_process(COMMAND ${CMAKE_COMMAND} -- build .
-  RESULT_VARIABLE result
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download
-  )
-
-if (result)
-  message(FATAL_ERROR "Build step for gtest failed: ${result}")
-endif()
-
-# add googletest directly to project
-add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src
-  ${CMAKE_BINARY_DIR}/googletest-build
-  EXCLUDE_FROM_ALL
-  )
+#configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
+#execute_process(COMMAND ${CMAKE_COMMAND}
+#  -g "${CMAKE_GENERATOR}" .
+#  RESULT_VARIABLE result
+#  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download
+#  )
+#
+#if (result)
+#  message(FATAL_ERROR "CMake step for gtest failed: ${result}")
+#endif()
+#
+#execute_process(COMMAND ${CMAKE_COMMAND} --build .
+#  RESULT_VARIABLE result
+#  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download
+#  )
+#
+#if (result)
+#  message(FATAL_ERROR "Build step for gtest failed: ${result}")
+#endif()
+#
+## add googletest directly to project
+#add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src
+#  ${CMAKE_BINARY_DIR}/googletest-build
+#  EXCLUDE_FROM_ALL
+#  )
 
 # include modules
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/CMake)
 include(TestFunctions)
 
 # include all src and header directories in include search path
 include_directories(${CMAKE_CURRENT_LIST_DIR}/..)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
 
 # collect source files by modules
-## boot
+
+## Module: boot
 set(BootFile ${CMAKE_CURRENT_LIST_DIR}/boot/${ARCH_CONFIG}/boot.S)
 
-## kernel
-add_library(MOD_kernel PUBLIC
+## Module: kernel
+set(KernelFiles 
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${ARCH_CONFIG}/kernel.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${ARCH_CONFIG}/utilities.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${ARCH_CONFIG}/vga.cpp
   )
+add_library(MOD_kernel STATIC ${KernelFiles})
+target_compile_options(MOD_kernel PRIVATE -c -Og -Wall -Wextra -ggdb -fno-exceptions -fno-rtti -ffreestanding)
 
 # ctest
 enable_testing()
 
 # build tests
-if (BUILD_TESTS)
-  add_utest(VGATest "${CMAKE_CURRENT_LIST_DIR}/test/display/VGATest.cpp" MOD_kernel)
-endif()
+#if (BUILD_TESTS)
+#  add_utest(VGATest "${CMAKE_CURRENT_LIST_DIR}/test/display/VGATest.cpp" ${MOD_kernel})
+#endif()
 
 # main executable
 add_executable(kern.bin ${BootFile})
-target_link_libraries(kern.bin ${MOD_boot})
+target_link_libraries(kern.bin MOD_kernel)
 
 # copy compiler flags for ycm-completer
 if (CMAKE_EXPORT_COMPILE_COMMANDS)
   add_custom_command(
-    TARGET main
+    TARGET kern.bin
     POST_BUILD
-    COMMAND ${cmake_command} -E copy
+    COMMAND ${CMAKE_COMMAND} -E copy
     ${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json
     ${CMAKE_CURRENT_LIST_DIR}/compile_commands.json
     )
