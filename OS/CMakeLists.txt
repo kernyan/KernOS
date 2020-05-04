@@ -15,7 +15,7 @@ list(APPEND CMAKE_EXE_LINKER_FLAGS "-ffreestanding -Og -nostdlib \
   -T${LDSCRIPT}")
 
 # architecture
-set(ARCH_CONFIG arch/x86/)
+set(PLATFORM arch/x86/)
 
 # options
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -71,13 +71,13 @@ include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
 # collect source files by modules
 
 ## Module: boot
-set(BootFile ${CMAKE_CURRENT_LIST_DIR}/boot/${ARCH_CONFIG}/boot.S)
+set(BootFile ${CMAKE_CURRENT_LIST_DIR}/boot/${PLATFORM}/boot.S)
 
 ## Module: kernel
 set(KernelFiles 
-  ${CMAKE_CURRENT_LIST_DIR}/kernel/${ARCH_CONFIG}/kernel.cpp
-  ${CMAKE_CURRENT_LIST_DIR}/kernel/${ARCH_CONFIG}/utilities.cpp
-  ${CMAKE_CURRENT_LIST_DIR}/kernel/${ARCH_CONFIG}/vga.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/kernel.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/utilities.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/vga.cpp
   )
 add_library(MOD_kernel STATIC ${KernelFiles})
 target_compile_options(MOD_kernel PRIVATE -c -Og -Wall -Wextra -ggdb -fno-exceptions -fno-rtti -ffreestanding)
