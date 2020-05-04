@@ -8,5 +8,5 @@ Minimal feature educational operating system
 
 # Miscellaneous
 1. 05/03/2020
-  - migrate from Makefile to CMake
+  - migrate from Makefile to [CMake](OS/CMakeLists.txt)
   - set up GTest
