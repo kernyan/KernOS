@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(KernOS VERSION 0.1.0 LANGUAGES C CXX ASM)
 
 # set toolchain
-set(TOOLCHAIN_PREFIX /home/osboxes/opt/cross/bin/i686-elf-)
+set(TOOLCHAIN_PREFIX   $ENV{HOME}/opt/cross/bin/i686-elf-)
 set(CMAKE_C_COMPILER   ${TOOLCHAIN_PREFIX}gcc)
 set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PREFIX}g++)
 set(CMAKE_ASM_COMPILER ${TOOLCHAIN_PREFIX}as)
