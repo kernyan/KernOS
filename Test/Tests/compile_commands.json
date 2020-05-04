@@ -1,0 +1,47 @@
+[
+{
+  "directory": "/home/osboxes/Documents/Source/KernOS/Test/build",
+  "command": "/usr/bin/c++   -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS/include -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS/kernel/arch/x86  -g   -o CMakeFiles/dummy.dir/dummy.cpp.o -c /home/osboxes/Documents/Source/KernOS/Test/Tests/dummy.cpp",
+  "file": "/home/osboxes/Documents/Source/KernOS/Test/Tests/dummy.cpp"
+},
+{
+  "directory": "/home/osboxes/Documents/Source/KernOS/Test/build",
+  "command": "/usr/bin/c++   -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS/include -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS/kernel/arch/x86 -isystem /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest/include -isystem /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest  -g   -o CMakeFiles/VGATest.dir/display/VGATest.cpp.o -c /home/osboxes/Documents/Source/KernOS/Test/Tests/display/VGATest.cpp",
+  "file": "/home/osboxes/Documents/Source/KernOS/Test/Tests/display/VGATest.cpp"
+},
+{
+  "directory": "/home/osboxes/Documents/Source/KernOS/Test/build",
+  "command": "/usr/bin/c++   -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS/include -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS/kernel/arch/x86  -g   -c -Og -Wall -Wextra -ggdb -fno-exceptions -fno-rtti -ffreestanding -o CMakeFiles/MOD_kernel.dir/home/osboxes/Documents/Source/KernOS/OS/kernel/arch/x86/kernel.cpp.o -c /home/osboxes/Documents/Source/KernOS/OS/kernel/arch/x86/kernel.cpp",
+  "file": "/home/osboxes/Documents/Source/KernOS/OS/kernel/arch/x86/kernel.cpp"
+},
+{
+  "directory": "/home/osboxes/Documents/Source/KernOS/Test/build",
+  "command": "/usr/bin/c++   -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS/include -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS/kernel/arch/x86  -g   -c -Og -Wall -Wextra -ggdb -fno-exceptions -fno-rtti -ffreestanding -o CMakeFiles/MOD_kernel.dir/home/osboxes/Documents/Source/KernOS/OS/kernel/arch/x86/utilities.cpp.o -c /home/osboxes/Documents/Source/KernOS/OS/kernel/arch/x86/utilities.cpp",
+  "file": "/home/osboxes/Documents/Source/KernOS/OS/kernel/arch/x86/utilities.cpp"
+},
+{
+  "directory": "/home/osboxes/Documents/Source/KernOS/Test/build",
+  "command": "/usr/bin/c++   -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS/include -I/home/osboxes/Documents/Source/KernOS/Test/Tests/../../OS/kernel/arch/x86  -g   -c -Og -Wall -Wextra -ggdb -fno-exceptions -fno-rtti -ffreestanding -o CMakeFiles/MOD_kernel.dir/home/osboxes/Documents/Source/KernOS/OS/kernel/arch/x86/vga.cpp.o -c /home/osboxes/Documents/Source/KernOS/OS/kernel/arch/x86/vga.cpp",
+  "file": "/home/osboxes/Documents/Source/KernOS/OS/kernel/arch/x86/vga.cpp"
+},
+{
+  "directory": "/home/osboxes/Documents/Source/KernOS/Test/build/googletest-build/googlemock",
+  "command": "/usr/bin/c++   -isystem /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googlemock/include -isystem /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googlemock -isystem /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest/include -isystem /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googlemock/src/gmock_main.cc",
+  "file": "/home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googlemock/src/gmock_main.cc"
+},
+{
+  "directory": "/home/osboxes/Documents/Source/KernOS/Test/build/googletest-build/googlemock",
+  "command": "/usr/bin/c++   -I/home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googlemock/include -I/home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googlemock -isystem /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest/include -isystem /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googlemock/src/gmock-all.cc",
+  "file": "/home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googlemock/src/gmock-all.cc"
+},
+{
+  "directory": "/home/osboxes/Documents/Source/KernOS/Test/build/googletest-build/googletest",
+  "command": "/usr/bin/c++   -isystem /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest/include -isystem /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest/src/gtest_main.cc",
+  "file": "/home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest/src/gtest_main.cc"
+},
+{
+  "directory": "/home/osboxes/Documents/Source/KernOS/Test/build/googletest-build/googletest",
+  "command": "/usr/bin/c++   -I/home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest/include -I/home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest/src/gtest-all.cc",
+  "file": "/home/osboxes/Documents/Source/KernOS/Test/build/googletest-src/googletest/src/gtest-all.cc"
+}
+]

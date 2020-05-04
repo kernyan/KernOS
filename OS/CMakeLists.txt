@@ -29,41 +29,6 @@ else ()
   set(CMAKE_BUILD_TYPE "Release")
 endif()
 
-# downlaod and unpack googletest at configure time
-
-message(STATUS "CMake_command: ${CMAKE_COMMAND}")
-message(STATUS "CMake_generator: ${CMAKE_GENERATOR}")
-
-#configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
-#execute_process(COMMAND ${CMAKE_COMMAND}
-#  -g "${CMAKE_GENERATOR}" .
-#  RESULT_VARIABLE result
-#  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download
-#  )
-#
-#if (result)
-#  message(FATAL_ERROR "CMake step for gtest failed: ${result}")
-#endif()
-#
-#execute_process(COMMAND ${CMAKE_COMMAND} --build .
-#  RESULT_VARIABLE result
-#  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download
-#  )
-#
-#if (result)
-#  message(FATAL_ERROR "Build step for gtest failed: ${result}")
-#endif()
-#
-## add googletest directly to project
-#add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src
-#  ${CMAKE_BINARY_DIR}/googletest-build
-#  EXCLUDE_FROM_ALL
-#  )
-
-# include modules
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/CMake)
-include(TestFunctions)
-
 # include all src and header directories in include search path
 include_directories(${CMAKE_CURRENT_LIST_DIR}/..)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
@@ -81,14 +46,6 @@ set(KernelFiles
   )
 add_library(MOD_kernel STATIC ${KernelFiles})
 target_compile_options(MOD_kernel PRIVATE -c -Og -Wall -Wextra -ggdb -fno-exceptions -fno-rtti -ffreestanding)
-
-# ctest
-enable_testing()
-
-# build tests
-#if (BUILD_TESTS)
-#  add_utest(VGATest "${CMAKE_CURRENT_LIST_DIR}/test/display/VGATest.cpp" ${MOD_kernel})
-#endif()
 
 # main executable
 add_executable(kern.bin ${BootFile})

@@ -2,9 +2,10 @@
 #include <vga.cpp>
 #include <utilities.cpp>
 
-TEST(Display, VGAPrint)
+TEST(Utilities, Strlen)
 {
-  EXPECT_EQ(1, 1);
+  const char Str[] = "Hello World";
+  EXPECT_EQ(Strlen(Str), 11);
 }
 
 int main(int argc, char** argv)
