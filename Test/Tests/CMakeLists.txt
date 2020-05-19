@@ -11,6 +11,7 @@ set(PLATFORM arch/x86/)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(USE_DEBUG "Compile debug if enable." ON)
 option(BUILD_TESTS "Compile tests if enable." ON)
+option(REBUILD_GTEST "Update GTest Repo from github if enable." OFF)
 
 # build type
 if (USE_DEBUG)
@@ -20,29 +21,27 @@ else ()
 endif()
 
 # download and unpack googletest at configure time
+if (REBUILD_GTEST)
+  configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
+  execute_process(COMMAND ${CMAKE_COMMAND}
+    -g "${CMAKE_GENERATOR}" .
+    RESULT_VARIABLE result
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download
+    )
 
-message(STATUS "CMake_command: ${CMAKE_COMMAND}")
-message(STATUS "CMake_generator: ${CMAKE_GENERATOR}")
+  if (result)
+    message(FATAL_ERROR "CMake step for gtest failed: ${result}")
+  endif()
 
-configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
-execute_process(COMMAND ${CMAKE_COMMAND}
-  -g "${CMAKE_GENERATOR}" .
-  RESULT_VARIABLE result
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download
-  )
+  execute_process(COMMAND ${CMAKE_COMMAND} --build .
+    RESULT_VARIABLE result
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download
+    )
 
-if (result)
-  message(FATAL_ERROR "CMake step for gtest failed: ${result}")
-endif()
-
-execute_process(COMMAND ${CMAKE_COMMAND} --build .
-  RESULT_VARIABLE result
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download
-  )
-
-if (result)
-  message(FATAL_ERROR "Build step for gtest failed: ${result}")
-endif()
+  if (result)
+    message(FATAL_ERROR "Build step for gtest failed: ${result}")
+  endif()
+endif() # REBUILD_GTEST
 
 # add googletest directly to project
 add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src

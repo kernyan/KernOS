@@ -17,6 +17,11 @@ stack_bottom:
 .skip 32768 # 32 KiB
 stack_top:
 
+.section .page_tables
+.align 4096
+page_tables_start:
+.skip 4096*3 # 12 KiB
+
 .section .text
 
 .global _start
@@ -32,7 +37,9 @@ _start:
   mov $stack_top, %esp /* set up stack pointer */
   and $-16, %esp       /* align stack pointer to 16 bits (%esp AND FFFFFFF0) */
 
+  pushl $page_tables_start
   call kernel_main
+  add $4, %esp         /* pop page_tables_start address */
 
   cli
 

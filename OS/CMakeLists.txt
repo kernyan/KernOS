@@ -16,6 +16,13 @@ list(APPEND CMAKE_EXE_LINKER_FLAGS "-ffreestanding -Og -nostdlib \
 
 # architecture
 set(PLATFORM arch/x86/)
+option(32_BITS "Address size is 32 bits at configure time." OFF) # off indicates 64 bits
+
+if(32_BITS)
+  list(APPEND BUILD_DEF "ARCH_32=1;")
+else()
+  list(APPEND BUILD_DEF "ARCH_32=0;")
+endif()
 
 # options
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -39,13 +46,14 @@ include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
 set(BootFile ${CMAKE_CURRENT_LIST_DIR}/boot/${PLATFORM}/boot.S)
 
 ## Module: kernel
-set(KernelFiles 
+set(KernelFiles
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/kernel.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/utilities.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/vga.cpp
   )
 add_library(MOD_kernel STATIC ${KernelFiles})
 target_compile_options(MOD_kernel PRIVATE -c -Og -Wall -Wextra -ggdb -fno-exceptions -fno-rtti -ffreestanding)
+set_target_properties(MOD_kernel PROPERTIES COMPILE_DEFINITIONS ${BUILD_DEF})
 
 # main executable
 add_executable(kern.bin ${BootFile})
