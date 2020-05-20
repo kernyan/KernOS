@@ -8,7 +8,6 @@
 namespace INIT
 {
   void SSE ();
-
 }
 
 #endif //KERNOS_CPU_H
