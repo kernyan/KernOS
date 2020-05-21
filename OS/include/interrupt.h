@@ -9,9 +9,8 @@
 
 namespace INIT
 {
-  void Idt ();
+    void idt();
 }
-
 
 
 #endif //KERNOS_INTERRUPT_H

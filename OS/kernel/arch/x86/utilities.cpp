@@ -1,13 +1,13 @@
 #include <utilities.h>
 
-size_t Strlen (const char* Str)
+size_t Strlen(const char *Str)
 {
-  size_t i = 0;
+    size_t i = 0;
 
-  while (Str[i] != '\0') {
-    ++i;
-  }
+    while (Str[i] != '\0') {
+        ++i;
+    }
 
-  return i;
+    return i;
 }
 
