@@ -41,6 +41,7 @@ endif()
 # include all src and header directories in include search path
 include_directories(${CMAKE_CURRENT_LIST_DIR}/..)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM})
 
 # collect source files by modules
 
@@ -56,6 +57,7 @@ set(KernelFiles
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/interrupt.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/gdt.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/global.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/kprintf.cpp
   )
 add_library(MOD_kernel STATIC ${KernelFiles})
 target_compile_options(MOD_kernel PRIVATE -c -Og -Wall -Wextra -ggdb -fno-exceptions -fno-rtti -ffreestanding)

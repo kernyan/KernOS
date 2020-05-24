@@ -2,6 +2,7 @@
 #define __utilities_h__
 
 #include <common.h>
+#include <kprintf.h>
 
 size_t Strlen(const char *Str);
 
@@ -25,26 +26,58 @@ namespace
         }
     }
 
-    #define GHETTO_GET_CONTROL_REGISTERS  uint32_t Local_cr0, Local_cr2 , Local_cr3;                \
-                                          asm volatile                                              \
-                                          (                                                         \
-                                          "mov %%cr0, %%eax\n\t"                                    \
-                                          "mov %%eax, %0\n\t"                                       \
-                                          "mov %%cr2, %%eax\n\t"                                    \
-                                          "mov %%eax, %1\n\t"                                       \
-                                          "mov %%cr3, %%eax\n\t"                                    \
-                                          "mov %%eax, %2\n\t"                                       \
-                                          : "=m"(Local_cr0), "=m"(Local_cr2), "=m"(Local_cr3)       \
-                                          :                                                         \
-                                          : "%eax"                                                  \
-                                          );
-
-
-    inline void kassert (bool Condition)
+    template<uint8_t N>
+    inline uint32_t DWord()
     {
-       if (!Condition)
-       {
-          Hang();
+        return (1 << N);
+    }
+
+    #define GHETTO_GET_CR(x)  uint32_t Local_##x;     \
+                              asm volatile            \
+                              (                       \
+                              "mov %%"#x", %%eax\n\t" \
+                              "mov %%eax, %0\n\t"     \
+                              : "=m"(Local_##x)       \
+                              :                       \
+                              : "%eax"                \
+                              );
+
+    inline uint32_t ReadCR0()
+    {
+        GHETTO_GET_CR(cr0)
+        return Local_cr0;
+    }
+
+    inline uint32_t ReadCR1()
+    {
+        GHETTO_GET_CR(cr1)
+        return Local_cr1;
+    }
+
+    inline uint32_t ReadCR2()
+    {
+        GHETTO_GET_CR(cr2)
+        return Local_cr2;
+    }
+
+    inline uint32_t ReadCR3()
+    {
+        GHETTO_GET_CR(cr3)
+        return Local_cr3;
+    }
+
+    inline uint32_t ReadCR4()
+    {
+        GHETTO_GET_CR(cr4)
+        return Local_cr4;
+    }
+
+    inline void kassert (bool Condition, const char *Str = nullptr)
+    {
+       if (!Condition) {
+           if (Str)
+               kprintf (Str);
+           Hang();
        }
     }
 } // unnamed namespace

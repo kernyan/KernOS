@@ -5,6 +5,7 @@
 #include <common.h>
 #include <gdt.h>
 #include <utilities.h>
+#include <registers.h>
 
 namespace GDT
 {
@@ -117,21 +118,18 @@ namespace GDT
     {
         constexpr struct Selector SelTable[GDT_ENTRIES] =
         {
-            {Null, SEG_OFFSET(Null), NULL_BASE,    NULL_LIMIT,    NULL_ACCESS,    NULL_GRANULARITY    },
-            {K_CS, SEG_OFFSET(K_CS), KERN_CS_BASE, KERN_CS_LIMIT, KERN_CS_ACCESS, KERN_CS_GRANULARITY },
-            {K_DS, SEG_OFFSET(K_DS), KERN_DS_BASE, KERN_DS_LIMIT, KERN_DS_ACCESS, KERN_DS_GRANULARITY },
-            {U_CS, SEG_OFFSET(U_CS), USER_CS_BASE, USER_CS_LIMIT, USER_CS_ACCESS, USER_CS_GRANULARITY },
-            {U_DS, SEG_OFFSET(U_DS), USER_DS_BASE, USER_DS_LIMIT, USER_DS_ACCESS, USER_DS_GRANULARITY }
+            { Null, SEG_OFFSET(Null), NULL_BASE,    NULL_LIMIT,    NULL_ACCESS,    NULL_GRANULARITY    },
+            { K_CS, SEG_OFFSET(K_CS), KERN_CS_BASE, KERN_CS_LIMIT, KERN_CS_ACCESS, KERN_CS_GRANULARITY },
+            { K_DS, SEG_OFFSET(K_DS), KERN_DS_BASE, KERN_DS_LIMIT, KERN_DS_ACCESS, KERN_DS_GRANULARITY },
+            { U_CS, SEG_OFFSET(U_CS), USER_CS_BASE, USER_CS_LIMIT, USER_CS_ACCESS, USER_CS_GRANULARITY },
+            { U_DS, SEG_OFFSET(U_DS), USER_DS_BASE, USER_DS_LIMIT, USER_DS_ACCESS, USER_DS_GRANULARITY }
         };
 
         SetGlobalDescriptorEntry(gdt_table, SelTable);
 
         Load_gdt(gdt_table, GDT_ENTRIES * 8 - 1);
 
-        #if DEBUG
-        GHETTO_GET_CONTROL_REGISTERS
-        kassert (Local_cr0 & 0x1); // bit 0 of cr0 must be 1 to be in protected mode
-        #endif
+        kassert (ReadCR0() & DWord<CR0::PE>(), "PE bit of cr0 must be set for protected mode\n");
 
         // while grub sets CS, DS, ES, FS, GS, and SS, the exact values are undefined, thus manually set them
         // http://www.gnu.org/software/grub/manual/multiboot/multiboot.html#Machine-state

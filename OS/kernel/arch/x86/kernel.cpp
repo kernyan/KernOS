@@ -11,9 +11,9 @@
 
 extern "C" void kernel_main()
 {
+    INIT::ctors();
+    INIT::VGA();
     INIT::SSE();
     INIT::gdt();
     INIT::idt();
-    INIT::ctors();
-    INIT::VGA();
 }
