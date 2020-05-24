@@ -45,3 +45,13 @@ void Vga::Puts(const char *Str)
         PutChar(Str[i]);
     }
 }
+
+namespace INIT
+{
+   void VGA()
+   {
+       VGA::Vga Display;
+       Display.Puts("KernOS - v0.1\n");
+       Display.Puts("Hello World!\n");
+   }
+}

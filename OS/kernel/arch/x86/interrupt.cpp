@@ -10,55 +10,91 @@ namespace PIC
 {
     // 8259 Programmable interrupt controller
 
-    #define PIC1_COMM 0x20
-    #define PIC1_DATA 0x21
-    #define PIC2_COMM 0xA0
-    #define PIC2_DATA 0xA1
-    #define IRQ_MASTER_OFFSET 0x20 // 32
-    #define IRQ_SLAVE_OFFSET  0x28 // 40
+    const uint8_t MASTER_COMMAND_PORT = 0x20;
+    const uint8_t MASTER_DATA_PORT    = 0x21;
+    const uint8_t SLAVE_COMMAND_PORT  = 0xA0;
+    const uint8_t SLAVE_DATA_PORT     = 0xA1;
 
-    // refer https://www.eeeguide.com/8259-programmable-interrupt-controller/
+    // refer http://www.brokenthorn.com/Resources/OSDevPic.html
     // ICW1
-    #define ICW1_ICW4NEEDED 0x1  // 0x1 needed, 0x0 unneeded
-    #define ICW1_MODE       0x0  // 0x2 single, 0x0 cascade
-    #define ICW1_ADI        0x0  // 0x4 interval of 4, 0x0 interval of 8
-    #define ICW1_TRIGGER    0x0  // 0x8 level, 0x0 edge
-    #define ICW1_INIT       0x10 // initialize PIC
+    // to configure PIC
+    /*
+     *   | bit | on (off)                        |
+     *   |   0 | expect ICW 4 (not expect)       |
+     *   |   1 | cascade with slave (only 1 PIC) |
+     *   |   2 | 8 byte interval (4 byte)        |
+     *   |   3 | edge triggered (level)          |
+     *   |   4 | initialize PIC (not initialize) |
+     *   | 5-7 | zero for x86                    |
+     */
+    const uint8_t ICW1_ICW4NEEDED = 0x1;  // expect ICW 4
+    const uint8_t ICW1_INIT       = 0x10; // initialize PIC
+    const uint8_t ICW1_CONFIG     = ICW1_ICW4NEEDED | ICW1_INIT;
 
     // ICW2
-    // Upper five bits is master interrupt vector offset
-    #define ICW2_MASTER_OFFSET IRQ_MASTER_OFFSET
-    #define ICW2_SLAVE_OFFSET  IRQ_SLAVE_OFFSET
+    // to map base IRQ address to PIC
+    /*
+     *   | bit | description                                                                         |
+     *   | 0-7 | specifies start of interrupt number, must be byte aligned on x86, thus 0-3 not used |
+     */
+    const uint8_t ICW2_MASTER_OFFSET = 0x20; // IVT 0-31 are reserved for intel exception
+    const uint8_t ICW2_SLAVE_OFFSET  = 0x28; // master handles IRQ0-7 (IVT 0x20), slave handles IRQ8-15 (IVT 0x28)
 
     // ICW3
-    #define ICW3_MASTER_SLAVE_POS 0x4 // tells master that slave is IRQ2 (3rd position)
-    #define ICW3_SLAVE_ID         0x2 // tells slave that its identity is IRQ2
+    // to specify relationship of master/slave to slave/master
+    /*  Master
+     * | bit | description                     |
+     * | 0-7 | IRQ position connected to slave |
+     *
+     * Slave
+     * | bit | description                                  |
+     * | 0-2 | IRQ number assigned by master, starts from 1 |
+     * | 3-7 | must be zero                                 |
+     */
+    const uint8_t ICW3_MASTER_SLAVE_POS = 0x4; // tells master that slave is in 3rd position (IRQ2)
+    const uint8_t ICW3_SLAVE_ID         = 0x2; // tells slave that it is assigned as IRQ2 on master
 
     // ICW4
-    #define ICW4_CPU 0x1 // 0x1 8086/8088 mode, 0x0 MCS 80/85 mode
+    // to specify PIC operation
+    /*
+     *   | bit | on (off)                                  |
+     *   |   0 | MCS-80/86 mode (x86 mode)                 |
+     *   |   1 | perform EOI on last interrupt acknowledge |
+     *   | 2-4 | not used                                  |
+     *   | 5-7 | must be 0                                 |
+     */
+    const uint8_t ICW4_CPU = 0x1; // 8086/8088 mode
 
 
     void Remap()
     {
-        constexpr uint8_t ICW1_Config =
-            ICW1_ICW4NEEDED
-            | ICW1_MODE
-            | ICW1_ADI
-            | ICW1_TRIGGER
-            | ICW1_INIT;
+        // In protected mode,
+        // Bios sets master PIC interrupt number to 0x8:0xF
+        // Bios sets slave  PIC interrupt number to 0x70:0x77
+        // However master's 0x8:0xF clashes with Intel reserved exception from 0x0:0x1F
+        // Thus we remap PIC's interrupt number to 0x20:0x27 (master) and 0x28:0x2F
+        // While we only care about ICW2, resetting PIC requires specifying all ICW1-4
 
-        out8(PIC1_COMM, ICW1_Config); // init flag asks PIC1 to read ICW2,3,4
-        out8(PIC2_COMM, ICW1_Config); // init flag asks PIC2 to read ICW2,3,4
-        out8(PIC1_DATA, ICW2_MASTER_OFFSET); // set offset of IRQ1
-        out8(PIC2_DATA, ICW2_SLAVE_OFFSET);  // set offset of IRQ2
-        out8(PIC1_DATA, ICW3_MASTER_SLAVE_POS); // tells IRQ1 position of IRQ2 in cascade
-        out8(PIC2_DATA, ICW3_SLAVE_ID);         // tells IRQ2 its identity
-        out8(PIC1_DATA, ICW4_CPU); // set intel CPU mode
-        out8(PIC2_DATA, ICW4_CPU); // set intel CPU mode
+        // ICW1 - initialize PIC1, PIC2, and tell them to receive ICW 2,3,4 next
+        out8(MASTER_COMMAND_PORT, ICW1_CONFIG); // init flag asks PIC1 to read ICW2,3,4
+        out8(SLAVE_COMMAND_PORT,  ICW1_CONFIG); // init flag asks PIC2 to read ICW2,3,4
 
-        out8(PIC1_DATA, 0xff); // disable interrupts
-        out8(PIC2_DATA, 0xff); // disable interrupts
-        out8(PIC1_DATA, ~ICW3_MASTER_SLAVE_POS); // enable IRQ2 as cascade on IRQ1
+        // ICW2 - remap IRQ
+        out8(MASTER_DATA_PORT, ICW2_MASTER_OFFSET); // specify new interrupt number for master
+        out8(SLAVE_DATA_PORT,  ICW2_SLAVE_OFFSET);  // specify new interrupt number for slave
+
+        // ICW3 - inform master/slave about each other
+        out8(MASTER_DATA_PORT, ICW3_MASTER_SLAVE_POS); // tells master position of slave in cascade (use IRQ2)
+        out8(SLAVE_DATA_PORT,  ICW3_SLAVE_ID);         // tells slave its IRQ number assigned on master
+
+        // ICW4 - set PIC operation
+        out8(MASTER_DATA_PORT, ICW4_CPU); // set master PIC to x86 mode
+        out8(SLAVE_DATA_PORT, ICW4_CPU);  // set slave PIC to x86 mode
+
+        // disable interrupts (bit set indicates masking of interrupt)
+        out8(MASTER_DATA_PORT, 0xff);
+        out8(SLAVE_DATA_PORT,  0xff);
+        out8(MASTER_DATA_PORT, ~ICW3_MASTER_SLAVE_POS); // enable IRQ2 as cascade on IRQ1
     }
 
     #define IDT_ENTRIES 256
@@ -126,7 +162,7 @@ namespace INIT
 {
     void idt()
     {
-        PIC::Remap();
+        PIC::Remap();  // remap PIC's interrupt number as default by Bios unsuitable in protected mode
         PIC::Install_idt();
     }
 }

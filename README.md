@@ -4,10 +4,13 @@ Minimal feature educational operating system
 # Timeline
 1. 02/02/2020
   - boot to [kernel_main](OS/kernel/arch/x86/kernel.cpp)
-  - display through [VGA display](OS/include/vga.h)
-2. 23/05/2020
-  - load [global descriptor table](OS/kernel/arch/x86/gdt.cpp) for x86 protected mode
+  - setup [VGA display](OS/include/vga.h)
+2. 19/05/2020
+  - initialize [8259 PIC](OS/kernel/arch/x86/interrupt.cpp)
   - load [interrupt descriptor table](OS/kernel/arch/x86/interrupt.cpp)
+3. 23/05/2020
+  - load [global descriptor table](OS/kernel/arch/x86/gdt.cpp) for x86 protected mode
+  - call [global constructors](OS/kernel/arch/x86/global.cpp)
 
 # Miscellaneous
 1. 05/03/2020

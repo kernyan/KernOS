@@ -24,7 +24,12 @@ SECTIONS
 	/* Read-only data. */
 	.rodata BLOCK(4K) : ALIGN(4K)
 	{
-		*(.rodata)
+        /* label start, end of global constructors */
+        start_ctors = .;
+        *(.ctors)
+        end_ctors = .;
+
+        *(.rodata)
 	}
  
 	/* Read-write data (initialized) */

@@ -55,6 +55,7 @@ set(KernelFiles
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/cpu.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/interrupt.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/gdt.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/global.cpp
   )
 add_library(MOD_kernel STATIC ${KernelFiles})
 target_compile_options(MOD_kernel PRIVATE -c -Og -Wall -Wextra -ggdb -fno-exceptions -fno-rtti -ffreestanding)

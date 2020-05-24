@@ -95,4 +95,9 @@ namespace VGA
 
 } // namespace VGA
 
+namespace INIT
+{
+    void VGA();
+}
+
 #endif // __vga_h__
