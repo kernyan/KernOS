@@ -82,7 +82,7 @@ namespace PIC
 
     static DescriptorEntry idt_table[IDT_ENTRIES];
 
-    void SetInterruptHandler(DescriptorEntry IdtTable[], uint8_t Idx, void (*Handler)())
+    void SetInterruptHandler(DescriptorEntry IdtTable[], size_t Idx, void (*Handler)())
     {
         IdtTable[Idx].OffsetLow = (ptr_t) (Handler) & 0xFFFF;
         IdtTable[Idx].Selector = 0x8; // TODO: match up to gdt
@@ -102,19 +102,19 @@ namespace PIC
         {
             uint16_t Limit;
             void *Base;
-        } IDTR = {LimitUse, lidtAddress};
+        } IDTR = { LimitUse, lidtAddress };
 
         asm volatile
         (
         "lidt %0"   // load interrupt descriptor table
-        :           // no input
+        :           // no output
         : "m"(IDTR) // memory operand allowed, with any kind of address that the machine supports
         );
     }
 
-    void Create_idt()
+    void Install_idt()
     {
-        for (uint16_t Idx = 0; Idx <= 0xFF; ++Idx) {
+        for (size_t Idx = 0; Idx < IDT_ENTRIES; ++Idx) {
             SetInterruptHandler(idt_table, Idx, UnhandledIrq);
         }
 
@@ -127,7 +127,7 @@ namespace INIT
     void idt()
     {
         PIC::Remap();
-        PIC::Create_idt();
+        PIC::Install_idt();
     }
 }
 

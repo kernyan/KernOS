@@ -7,7 +7,7 @@
 
 namespace GDT
 {
-
+    #define GDT_ENTRIES 5
 }
 
 namespace INIT

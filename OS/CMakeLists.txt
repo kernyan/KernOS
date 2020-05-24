@@ -19,9 +19,9 @@ set(PLATFORM arch/x86/)
 option(32_BITS "Address size is 32 bits at configure time." OFF) # off indicates 64 bits
 
 if(32_BITS)
-  list(APPEND BUILD_DEF "ARCH_32=1;")
+  list(APPEND BUILD_DEF "ARCH_32=1")
 else()
-  list(APPEND BUILD_DEF "ARCH_32=0;")
+  list(APPEND BUILD_DEF "ARCH_32=0")
 endif()
 
 # options
@@ -32,8 +32,10 @@ option(BUILD_TESTS "Compile tests if enable." ON)
 # build type
 if (USE_DEBUG)
   set(CMAKE_BUILD_TYPE "Debug")
+  list(APPEND BUILD_DEF "DEBUG=1")
 else ()
   set(CMAKE_BUILD_TYPE "Release")
+  list(APPEND BUILD_DEF "DEBUG=0")
 endif()
 
 # include all src and header directories in include search path
@@ -56,7 +58,7 @@ set(KernelFiles
   )
 add_library(MOD_kernel STATIC ${KernelFiles})
 target_compile_options(MOD_kernel PRIVATE -c -Og -Wall -Wextra -ggdb -fno-exceptions -fno-rtti -ffreestanding)
-set_target_properties(MOD_kernel PROPERTIES COMPILE_DEFINITIONS ${BUILD_DEF})
+set_target_properties(MOD_kernel PROPERTIES COMPILE_DEFINITIONS "${BUILD_DEF}")
 
 # main executable
 add_executable(kern.bin ${BootFile})
