@@ -7,14 +7,20 @@ namespace VGA
     void Vga::PutChar(unsigned char Char)
     {
         if (Char == '\n') { // new line
-            _Col = 0;
-            (_Row == VGA_HEIGHT) ? _Row = 0 : ++_Row;
+
+            m_Col = 0;
+            (m_Row == VGA_HEIGHT) ? m_Row = 0 : ++m_Row; // wrap around display
+
         } else {
-            PutChar(Entry(Char, _Color), _Row, _Col);
-            if (++_Col == VGA_WIDTH) { // wrap around display
-                _Col = 0;
-                if (++_Row == VGA_HEIGHT) {
-                    _Row = 0;
+
+            PutChar(Entry(Char, m_Color), m_Row, m_Col);
+
+            if (++m_Col == VGA_WIDTH) { // wrap around display
+
+                m_Col = 0;
+
+                if (++m_Row == VGA_HEIGHT) {
+                    m_Row = 0;
                 }
             }
         }
@@ -22,30 +28,29 @@ namespace VGA
 
     void Vga::Fill(const VgaChar Char)
     {
-        for (_Row = 0; _Row < VGA_HEIGHT; ++_Row) {
-            for (_Col = 0; _Col < VGA_WIDTH; ++_Col) {
-                PutChar(Char, _Row, _Col);
+        for (m_Row = 0; m_Row < VGA_HEIGHT; ++m_Row) {
+            for (m_Col = 0; m_Col < VGA_WIDTH; ++m_Col) {
+                PutChar(Char, m_Row, m_Col);
             }
         }
 
-        _Row = 0;
-        _Col = 0;
+        m_Row = 0;
+        m_Col = 0;
     }
 
     void Vga::Initialize()
     {
         SetColor(EntryColor(COLOR::LIGHT_GREY, COLOR::BLACK));
 
-        const auto Char = Entry(' ', _Color);
+        const auto Char = Entry(' ', m_Color);
 
         Fill(Char);
     }
 
     void Vga::Puts(const char *Str)
     {
-        for (size_t i = 0; i < Strlen(Str); ++i) {
+        for (size_t i = 0; i < Strlen(Str); ++i)
             PutChar(Str[i]);
-        }
     }
 } // namespace VGA
 

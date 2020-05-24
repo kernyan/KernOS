@@ -8,7 +8,6 @@
 namespace INIT
 {
     void ctors();
-    void dtors();
 }
 
 #endif //KERNOS_GLOBAL_H

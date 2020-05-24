@@ -14,9 +14,12 @@ set(LDSCRIPT ${CMAKE_CURRENT_LIST_DIR}/compile/linker.ld)
 list(APPEND CMAKE_EXE_LINKER_FLAGS "-ffreestanding -Og -nostdlib \
   -T${LDSCRIPT}")
 
+# compile flags
+set(COMPILE_FLAGS "-c;-Og;-Wall;-Wextra;-ggdb;-fno-exceptions;-fno-rtti;-ffreestanding;")
+
 # architecture
 set(PLATFORM arch/x86/)
-option(32_BITS "Address size is 32 bits at configure time." OFF) # off indicates 64 bits
+option(32_BITS "Address size is 32 bits at configure time." ON) # off indicates 64 bits
 
 if(32_BITS)
   list(APPEND BUILD_DEF "ARCH_32=1")
@@ -60,7 +63,7 @@ set(KernelFiles
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/kprintf.cpp
   )
 add_library(MOD_kernel STATIC ${KernelFiles})
-target_compile_options(MOD_kernel PRIVATE -c -Og -Wall -Wextra -ggdb -fno-exceptions -fno-rtti -ffreestanding)
+target_compile_options(MOD_kernel PRIVATE ${COMPILE_FLAGS})
 set_target_properties(MOD_kernel PROPERTIES COMPILE_DEFINITIONS "${BUILD_DEF}")
 
 # main executable

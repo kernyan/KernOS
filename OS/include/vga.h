@@ -1,5 +1,5 @@
-#ifndef __vga_h__
-#define __vga_h__
+#ifndef KERNOS_VGA_H
+#define KERNOS_VGA_H
 
 #include <utilities.h>
 
@@ -41,10 +41,10 @@ namespace VGA
         static const size_t VGA_WIDTH = 80;
         static const size_t VGA_HEIGHT = 25;
 
-        size_t _Row;
-        size_t _Col;
-        uint16_t *const _Buffer = (uint16_t *) 0xB8000; // VGA text buffer address, by convention
-        VgaColor _Color;
+        size_t m_Row;
+        size_t m_Col;
+        uint16_t *const m_Buffer = (uint16_t *) 0xB8000; // VGA text buffer address, by convention
+        VgaColor m_Color;
 
         VgaColor EntryColor(COLOR Fore, COLOR Back) const;
 
@@ -84,12 +84,12 @@ namespace VGA
 
     inline void Vga::PutChar(VgaChar Char, size_t Row, size_t Col)
     {
-        _Buffer[Row * VGA_WIDTH + Col] = Char;
+        m_Buffer[Row * VGA_WIDTH + Col] = Char;
     }
 
     inline void Vga::SetColor(VgaColor Color)
     {
-        _Color = Color;
+        m_Color = Color;
     }
 
 
@@ -100,4 +100,4 @@ namespace INIT
     void VGA();
 }
 
-#endif // __vga_h__
+#endif //KERNOS_VGA_H

@@ -97,8 +97,6 @@ namespace PIC
         out8(MASTER_DATA_PORT, ~ICW3_MASTER_SLAVE_POS); // enable IRQ2 as cascade on IRQ1
     }
 
-    #define IDT_ENTRIES 256
-
     union __attribute__((packed)) DescriptorEntry
     {
         struct
@@ -115,6 +113,8 @@ namespace PIC
             uint32_t High;
         };
     };
+
+    const uint16_t IDT_ENTRIES = 256;
 
     static DescriptorEntry idt_table[IDT_ENTRIES];
 

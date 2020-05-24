@@ -42,7 +42,10 @@ namespace GDT
         U_DS,     // user data segment
     };
 
-    #define SEG_OFFSET(x)  (((x) << 3) & 0xFF) // each gdt entry is 8 bytes
+    inline constexpr uint8_t SEG_OFFSET(size_t x)
+    {
+        return (((x) << 3) & 0xFF); // each gdt entry is 8 bytes
+    }
 
     const uint32_t NULL_LIMIT    = 0x00000000;
     const uint32_t KERN_CS_LIMIT = 0x000FFFFF; // only low 20 bits used

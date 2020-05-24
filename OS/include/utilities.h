@@ -1,5 +1,5 @@
-#ifndef __utilities_h__
-#define __utilities_h__
+#ifndef KERNOS_UTILITIES_H
+#define KERNOS_UTILITIES_H
 
 #include <common.h>
 #include <kprintf.h>
@@ -82,4 +82,4 @@ namespace
     }
 } // unnamed namespace
 
-#endif // __utilities_h__
+#endif //KERNOS_UTILITIES_H
