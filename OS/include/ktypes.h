@@ -13,4 +13,6 @@ typedef uint32_t ptr_t;
 typedef uint64_t ptr_t;
 #endif
 
+using func_ptr = void(*)();
+
 #endif //KERNOS_TYPES_H

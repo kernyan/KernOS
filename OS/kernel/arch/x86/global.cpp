@@ -3,8 +3,7 @@
 //
 
 #include <global.h>
-
-using func_ptr = void(*)();
+#include <ktypes.h>
 
 // symbols defined in linker.ld
 extern func_ptr start_ctors;

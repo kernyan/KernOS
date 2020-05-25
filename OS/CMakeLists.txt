@@ -15,7 +15,7 @@ list(APPEND CMAKE_EXE_LINKER_FLAGS "-ffreestanding -Og -nostdlib \
   -T${LDSCRIPT}")
 
 # compile flags
-set(COMPILE_FLAGS "-c;-Og;-Wall;-Wextra;-ggdb;-fno-exceptions;-fno-rtti;-ffreestanding;")
+set(COMPILE_FLAGS "-c;-O0;-Wall;-Wextra;-ggdb;-fno-exceptions;-fno-rtti;-ffreestanding;")
 
 # architecture
 set(PLATFORM arch/x86/)

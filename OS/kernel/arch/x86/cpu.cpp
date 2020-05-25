@@ -24,8 +24,7 @@ namespace INIT
          *  |  10 | OSXMMEXCPT | set when OS provides SIMD floating point exception, #XF handler                      |
          */
 
-        asm volatile
-        (
+        asm volatile (
         "mov %%cr0, %%eax\n\t"
         "orl %0, %%eax\n\t"
         "andl %1, %%eax\n\t"

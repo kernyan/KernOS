@@ -10,8 +10,7 @@ namespace
 {
     inline void out8(uint16_t Port, uint8_t Value)
     {
-        asm volatile // extended asm syntax, volatile to prevent optimization
-        (
+        asm volatile (
         "outb %0, %1"
         :              // No output
         : "a"(Value),  // Input 0: "a" constraint is to place Value in eax before asm command
@@ -21,13 +20,17 @@ namespace
 
     [[noreturn]] inline void Hang()
     {
-        asm volatile("cli; hlt");
-        for (;;) {
+        asm volatile (
+        "cli\n\t"         // clear interrupt
+        "hlt\n\t"         // halt processor when interrupt occurs, only non-maskable interrupt, NMI possible after cli
+        );
+
+        for (;;) {        // to prevent [[noreturn]] warning, and in case NMI occur
         }
     }
 
     template<uint8_t N>
-    inline uint32_t DWord()
+    inline constexpr uint32_t DWord()
     {
         return (1 << N);
     }
@@ -46,12 +49,6 @@ namespace
     {
         GHETTO_GET_CR(cr0)
         return Local_cr0;
-    }
-
-    inline uint32_t ReadCR1()
-    {
-        GHETTO_GET_CR(cr1)
-        return Local_cr1;
     }
 
     inline uint32_t ReadCR2()

@@ -5,6 +5,8 @@
 #include <common.h>
 #include <interrupt.h>
 #include <utilities.h>
+#include <gdt.h>
+#include <accessright.h>
 
 namespace PIC
 {
@@ -89,23 +91,35 @@ namespace PIC
 
         // ICW4 - set PIC operation
         out8(MASTER_DATA_PORT, ICW4_CPU); // set master PIC to x86 mode
-        out8(SLAVE_DATA_PORT, ICW4_CPU);  // set slave PIC to x86 mode
+        out8(SLAVE_DATA_PORT,  ICW4_CPU); // set slave PIC to x86 mode
 
         // disable interrupts (bit set indicates masking of interrupt)
         out8(MASTER_DATA_PORT, 0xff);
         out8(SLAVE_DATA_PORT,  0xff);
         out8(MASTER_DATA_PORT, ~ICW3_MASTER_SLAVE_POS); // enable IRQ2 as cascade on IRQ1
     }
+} // namespace PIC
+
+namespace INTRP // interrupt
+{
+    const uint16_t IDT_ENTRIES = 256;
+
+    // See AMD64 Architecture Programmer's Manual Volume 2: System Programming (PDF) (Technical report). 2013. p. 86.
+    /* Interrupt & Trap gate descriptor entry
+     *   |31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|12|11|10|09|08|07|06|05|04|03|02|01|00|
+     *   | Higher 16 bits of target code address         |P |DPL  |0|    Type    | Reserved              |
+     *   | Target code-segment selector                  | Lower 16 bits of target code address          |
+     */
 
     union __attribute__((packed)) DescriptorEntry
     {
         struct
         {
-            uint16_t OffsetLow;
-            uint16_t Selector;
-            uint8_t Zero;
-            uint8_t TypeAttr;
-            uint16_t OffsetHi;
+            uint16_t m_OffsetLow;
+            uint16_t m_CS_Selector;
+            uint8_t m_Reserve;
+            uint8_t m_Access;
+            uint16_t m_OffsetHigh;
         };
         struct
         {
@@ -114,22 +128,39 @@ namespace PIC
         };
     };
 
-    const uint16_t IDT_ENTRIES = 256;
-
     static DescriptorEntry idt_table[IDT_ENTRIES];
 
-    void SetInterruptHandler(DescriptorEntry IdtTable[], size_t Idx, void (*Handler)())
+    void RegisterHandler(DescriptorEntry IdtTable[], size_t Idx, func_ptr Handler)
     {
-        IdtTable[Idx].OffsetLow = (ptr_t) (Handler) & 0xFFFF;
-        IdtTable[Idx].Selector = 0x8; // TODO: match up to gdt
-        IdtTable[Idx].Zero = 0x0;
-        IdtTable[Idx].TypeAttr = 0x8e;   // TypeAttribute = 0b1000_1110 (P = 1, DPL = 00, S = 0, Type 1110 = 32-bit interrupt gate)
-        IdtTable[Idx].OffsetHi = ((ptr_t) (Handler) >> 16) & 0xFFFF;
+        IdtTable[Idx].m_OffsetLow   = (ptr_t) (Handler) & 0xFFFF;
+        IdtTable[Idx].m_CS_Selector = GDT::SEG_OFFSET(GDT::Segment::K_CS);
+        IdtTable[Idx].m_Reserve     = 0x0;
+        IdtTable[Idx].m_Access      = AR::INTERRUPT_ACCESS;
+        IdtTable[Idx].m_OffsetHigh  = ((ptr_t) (Handler) >> 16) & 0xFFFF;
     }
 
-    void UnhandledIrq()
+    void UnhandledException()
     {
+        kprintf("Unhandled exception encountered\n");
         Hang();
+    }
+
+    void UnhandledInterrupt()
+    {
+        kprintf("Unhandled interrupt encountered\n");
+        Hang();
+    }
+
+    void SetExceptionHandler(DescriptorEntry IdtTable[])
+    {
+        for (size_t Idx = IVT::RESERVED_START; Idx <= IVT::RESERVED_END; ++Idx)
+            RegisterHandler(IdtTable, Idx, UnhandledException);
+    }
+
+    void SetInterruptHandler(DescriptorEntry IdtTable[])
+    {
+        for (size_t Idx = IVT::USER_DEFINED_START; Idx <= IVT::USER_DEFINED_END; ++Idx)
+            RegisterHandler(IdtTable, Idx, UnhandledInterrupt);
     }
 
     inline void Load_lidt(void *lidtAddress, uint16_t LimitUse)
@@ -150,20 +181,18 @@ namespace PIC
 
     void Install_idt()
     {
-        for (size_t Idx = 0; Idx < IDT_ENTRIES; ++Idx) {
-            SetInterruptHandler(idt_table, Idx, UnhandledIrq);
-        }
-
+        SetExceptionHandler (idt_table);
+        SetInterruptHandler (idt_table);
         Load_lidt(idt_table, IDT_ENTRIES * 8 - 1);
     }
-}
+} // namespace INTRP
 
 namespace INIT
 {
     void idt()
     {
-        PIC::Remap();  // remap PIC's interrupt number as default by Bios unsuitable in protected mode
-        PIC::Install_idt();
+        PIC::Remap();         // remap PIC's interrupt number as default by Bios unsuitable in protected mode
+        INTRP::Install_idt(); // install exception, and interrupt handlers
     }
 }
 
