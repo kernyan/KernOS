@@ -1,0 +1,8 @@
+//
+// Created  on 5/26/20.
+//
+
+#ifndef KERNOS_MEMORYALLOCATOR_H
+#define KERNOS_MEMORYALLOCATOR_H
+
+#endif //KERNOS_MEMORYALLOCATOR_H

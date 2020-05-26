@@ -1,5 +1,4 @@
 #include "gtest/gtest.h"
-#include <vga.cpp>
 #include <utilities.cpp>
 
 TEST(Utilities, Strlen)
