@@ -4,14 +4,25 @@ project(KernOS VERSION 0.1.0 LANGUAGES C CXX ASM)
 # test directory indirection
 set(TEST_DIR ${CMAKE_CURRENT_LIST_DIR}/../../OS)
 
+# compile flags
+list(APPEND CMAKE_CXX_FLAGS "-m32")
+set(COMPILE_FLAGS "-O0;-Wall;-Wextra;-ggdb;-m32;")
+
 # architecture
 set(PLATFORM arch/x86/)
+option(32_BITS "Address size is 32 bits at configure time." ON) # off indicates 64 bits
+
+if(32_BITS)
+  list(APPEND BUILD_DEF "ARCH_32=1")
+else()
+  list(APPEND BUILD_DEF "ARCH_32=0")
+endif()
 
 # options
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(USE_DEBUG "Compile debug if enable." ON)
 option(BUILD_TESTS "Compile tests if enable." ON)
-option(REBUILD_GTEST "Update GTest Repo from github if enable." OFF)
+option(REBUILD_GTEST "Update GTest Repo from github if enable." ON)
 
 # build type
 if (USE_DEBUG)
@@ -60,19 +71,27 @@ include_directories(${TEST_DIR}/kernel/${PLATFORM})
 
 # collect source files by modules
 ## Module: kernel
-set(KernelFiles 
-  ${TEST_DIR}/kernel/${PLATFORM}/utilities.cpp
-  ${TEST_DIR}/kernel/${PLATFORM}/vga.cpp
-  )
+set(KernelFiles
+   # ${TEST_DIR}/kernel/${PLATFORM}/kernel.cpp
+    ${TEST_DIR}/kernel/${PLATFORM}/utilities.cpp
+    ${TEST_DIR}/kernel/${PLATFORM}/vga.cpp
+    ${TEST_DIR}/kernel/${PLATFORM}/cpu.cpp
+    ${TEST_DIR}/kernel/${PLATFORM}/interrupt.cpp
+   # ${TEST_DIR}/kernel/${PLATFORM}/gdt.cpp
+    ${TEST_DIR}/kernel/${PLATFORM}/global.cpp
+    ${TEST_DIR}/kernel/${PLATFORM}/kprintf.cpp
+    )
 add_library(MOD_kernel STATIC ${KernelFiles})
-target_compile_options(MOD_kernel PRIVATE -c -Og -Wall -Wextra -ggdb -fno-exceptions -fno-rtti -ffreestanding)
+target_compile_options(MOD_kernel PRIVATE ${COMPILE_FLAGS})
+set_target_properties(MOD_kernel PROPERTIES COMPILE_DEFINITIONS "${BUILD_DEF}")
 
 # ctest
 enable_testing()
 
 # build tests
 if (BUILD_TESTS)
-  add_utest(UtilityTest "${CMAKE_CURRENT_LIST_DIR}/utility/UtilityTest.cpp" ${MOD_kernel})
+  add_utest(UtilityTest "${CMAKE_CURRENT_LIST_DIR}/utility_test.cpp" ${MOD_kernel})
+  add_utest(kmallocTest "${CMAKE_CURRENT_LIST_DIR}/kmalloc_test.cpp" ${MOD_kernel})
 endif()
 
 # main executable

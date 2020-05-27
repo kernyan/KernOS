@@ -3,6 +3,7 @@ function(add_utest targetName)
   target_link_libraries(${targetName}
     PRIVATE
       gtest
+      MOD_kernel
     )
   add_test(NAME ${targetName}
     COMMAND ${targetName}

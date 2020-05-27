@@ -30,7 +30,6 @@ endif()
 # options
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(USE_DEBUG "Compile debug if enable." ON)
-option(BUILD_TESTS "Compile tests if enable." ON)
 
 # build type
 if (USE_DEBUG)

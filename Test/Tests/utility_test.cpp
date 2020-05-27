@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include <utilities.cpp>
+#include <utilities.h>
 
 TEST(Utilities, Strlen)
 {
