@@ -14,6 +14,7 @@
 #error "Failed - use 32 bit architecture"
 #endif
 
+//![Kernel entry function]
 extern "C" void kernel_main()
 {
     INIT::ctors();   // initialize global constructors
@@ -23,3 +24,4 @@ extern "C" void kernel_main()
     INIT::gdt();     // prepare global descriptor table for x86 protected mode
     INIT::idt();     // install exceptions, interrupts, e.g. page fault handler for paging use later
 }
+//![Kernel entry function]
