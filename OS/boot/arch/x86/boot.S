@@ -14,7 +14,7 @@
 .long MULTIBOOT_FLAGS
 .long CHECKSUM
 
-.section .stack, "aw", @nobits /* aw: allocatable/writable, nobits: space onlu exist on runtime */
+.section .stack, "aw", @nobits /* aw: allocatable/writable, nobits: space only exist on runtime */
 stack_bottom:
 .skip 32768 # 32 KiB
 stack_top:
@@ -24,7 +24,7 @@ stack_top:
 page_tables_start:
 .skip KPAGETABLE_SIZE
 
-.section .kheap_mem
+.section .kheap_mem, "aw", @nobits /* aw: allocatable/writable, nobits: space only exist on runtime*/
 .align 4096
 kheap_start:
 .skip KHEAP_SIZE
