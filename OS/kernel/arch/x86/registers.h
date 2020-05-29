@@ -41,4 +41,26 @@ namespace CR4 // control register cr4
     };
 }
 
+namespace FLAGS
+{
+   enum : uint32_t
+   {
+       CF  =      0x0001, // carry flag
+       PF  =      0x0004, // parity flag
+       AF  =      0x0010, // adjust flag
+       ZF  =      0x0040, // zero flag
+       SF  =      0x0080, // sign flag
+       TF  =      0x0100, // trap flag
+       IF  =      0x0200, // interrupt enable flag
+       DF  =      0x0400, // direction flag
+       OF  =      0x0800, // overflow flag
+       RF  = 0x0001'0000, // resume flag
+       VM  = 0x0002'0000, // virtual 8086 mode
+       AC  = 0x0004'0000, // alignment check
+       VIF = 0x0008'0000, // virtual interrupt flag
+       VIP = 0x0010'0000, // virtual interrupt pending
+       ID  = 0x0020'0000, // cpuid supported
+   };
+}
+
 #endif //KERNOS_REGISTERS_H

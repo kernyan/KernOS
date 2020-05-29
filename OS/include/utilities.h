@@ -8,6 +8,40 @@ size_t Strlen(const char *Str);
 
 namespace
 {
+    inline void cli() // disable maskable interrupt
+    {
+        asm volatile (
+        "cli"
+        : // no output
+        : // no input
+        : "memory"
+        );
+    }
+
+    inline void sti() // enable maskable interrupt
+    {
+        asm volatile (
+        "sti"
+        : // no output
+        : // no input
+        : "memory" // memory barrier
+        );
+
+    }
+
+    inline uint32_t FlagsRegister()
+    {
+        uint32_t Flags;
+        asm volatile (
+        "pushf\n"
+        "pop %0\n"
+        : "=rm"(Flags)  // output
+        :               // no input
+        :"memory"       // memory barrier
+        );
+        return Flags;
+    }
+
     inline void out8(uint16_t Port, uint8_t Value)
     {
         asm volatile (
@@ -21,11 +55,11 @@ namespace
     [[noreturn]] inline void Hang()
     {
         asm volatile (
-        "cli\n\t"         // clear interrupt
-        "hlt\n\t"         // halt processor when interrupt occurs, only non-maskable interrupt, NMI possible after cli
+        "cli\n"         // disable interrupt
+        "hlt\n"         // halt processor when interrupt occurs, only non-maskable interrupt, NMI possible after cli
         );
 
-        for (;;) {        // to prevent [[noreturn]] warning, and in case NMI occur
+        for (;;) {      // to prevent [[noreturn]] warning, and in case NMI occur
         }
     }
 
@@ -38,8 +72,8 @@ namespace
     #define GHETTO_GET_CR(x)  uint32_t Local_##x;     \
                               asm volatile            \
                               (                       \
-                              "mov %%"#x", %%eax\n\t" \
-                              "mov %%eax, %0\n\t"     \
+                              "mov %%"#x", %%eax\n"   \
+                              "mov %%eax, %0\n"       \
                               : "=m"(Local_##x)       \
                               :                       \
                               : "%eax"                \
@@ -73,9 +107,15 @@ namespace
     {
        if (!Condition) {
            if (Str)
-               kprintf (Str);
+               kprintf(Str);
            Hang();
        }
+    }
+
+    [[noreturn]] inline void kpanic (const char *Str = nullptr)
+    {
+       kprintf(Str);
+       Hang();
     }
 } // unnamed namespace
 

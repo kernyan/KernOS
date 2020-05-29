@@ -3,6 +3,8 @@
 .set MULTIBOOT_MEM_INFO, 0x2     #/* pass memory info to OS */
 .set MULTIBOOT_FLAGS, MULTIBOOT_PAGE_ALIGN #| MULTIBOOT_MEM_INFO
 .set CHECKSUM, -(MULTIBOOT_MAGIC + MULTIBOOT_FLAGS) #/* to prove is multiboot */
+.set KHEAP_SIZE, 4096*3
+.set KPAGETABLE_SIZE, 4096*3
 
 /* header for kernel */
 .section .multiboot
@@ -20,7 +22,16 @@ stack_top:
 .section .page_tables
 .align 4096
 page_tables_start:
-.skip 4096*3 # 12 KiB
+.skip KPAGETABLE_SIZE
+
+.section .kheap_mem
+.align 4096
+kheap_start:
+.skip KHEAP_SIZE
+
+.section .data
+.extern kheap
+.extern kpagetable
 
 .section .text
 
@@ -36,6 +47,9 @@ _start:
 
   mov $stack_top, %esp /* set up stack pointer */
   and $-16, %esp       /* align stack pointer to 16 bits (%esp AND FFFFFFF0) */
+
+  movl $page_tables_start, kpagetable
+  movl $kheap_start, kheap
 
   call kernel_main
 

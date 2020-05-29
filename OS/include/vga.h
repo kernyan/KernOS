@@ -60,7 +60,9 @@ namespace VGA
 
         Vga()
         {
+#ifndef TEST_BUILD  // TODO: temporary until we mock vga's direct memory map
             Initialize();
+#endif
         }
 
         void Puts(const char *Str);

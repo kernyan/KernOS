@@ -6,6 +6,8 @@
 #define KERNOS_INTERRUPT_H
 
 #include <common.h>
+#include <utilities.h>
+#include <registers.h>
 
 namespace INTRP // interrupt
 {
@@ -38,6 +40,28 @@ namespace INTRP // interrupt
         USER_DEFINED_END      = 0xFF
     };
 
+    class Mask
+    {
+    private:
+        bool m_InterruptFlag;
+
+    public:
+        Mask() : m_InterruptFlag (FlagsRegister() & FLAGS::IF)
+        {
+#ifndef TEST_BUILD // TODO: have cleaner test_build setup
+           cli();
+#endif
+        }
+
+        ~Mask()
+        {
+#ifndef TEST_BUILD
+            if (m_InterruptFlag) // restore interrupts if enabled previously
+                sti();
+#endif
+        }
+
+    };
 } // namespace INTRP
 
 namespace INIT

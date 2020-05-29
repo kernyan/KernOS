@@ -15,4 +15,6 @@ typedef uint64_t ptr_t;
 
 using func_ptr = void(*)();
 
+const uint32_t SYSERR = -1;
+
 #endif //KERNOS_TYPES_H

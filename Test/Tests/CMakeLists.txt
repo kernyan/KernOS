@@ -23,6 +23,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(USE_DEBUG "Compile debug if enable." ON)
 option(BUILD_TESTS "Compile tests if enable." ON)
 option(REBUILD_GTEST "Update GTest Repo from github if enable." ON)
+option(TEST_BUILD "Enables mocks/fixtures used for unit testing." ON)
 
 # build type
 if (USE_DEBUG)
@@ -30,6 +31,13 @@ if (USE_DEBUG)
 else ()
   set(CMAKE_BUILD_TYPE "Release")
 endif()
+
+if (TEST_BUILD)
+  list(APPEND BUILD_DEF "TEST_BUILD=1")
+else()
+  list(APPEND BUILD_DEF "TEST_BUILD=0")
+endif()
+
 
 # download and unpack googletest at configure time
 if (REBUILD_GTEST)
@@ -80,6 +88,7 @@ set(KernelFiles
    # ${TEST_DIR}/kernel/${PLATFORM}/gdt.cpp
     ${TEST_DIR}/kernel/${PLATFORM}/global.cpp
     ${TEST_DIR}/kernel/${PLATFORM}/kprintf.cpp
+    ${TEST_DIR}/kernel/${PLATFORM}/memoryallocator.cpp
     )
 add_library(MOD_kernel STATIC ${KernelFiles})
 target_compile_options(MOD_kernel PRIVATE ${COMPILE_FLAGS})

@@ -11,6 +11,9 @@ Minimal feature educational operating system
 3. 23/05/2020
   - load [global descriptor table](OS/kernel/arch/x86/gdt.cpp) for x86 protected mode
   - call [global constructors](OS/kernel/arch/x86/global.cpp)
+4. 29/05/2020
+  - kernel malloc [implementation](OS/kernel/arch/x86/memoryallocator.cpp)
+  - kernel malloc [test](Test/Tests/kmalloc_test.cpp)
 
 # Miscellaneous
 1. 05/03/2020

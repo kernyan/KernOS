@@ -60,6 +60,7 @@ set(KernelFiles
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/gdt.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/global.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/kprintf.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/memoryallocator.cpp
   )
 add_library(MOD_kernel STATIC ${KernelFiles})
 target_compile_options(MOD_kernel PRIVATE ${COMPILE_FLAGS})
