@@ -1,0 +1,13 @@
+<map id="OS/include/kprintf.h" name="OS/include/kprintf.h">
+<area shape="rect" id="node2" href="$utilities_8h.html" title="OS/include/utilities.h" alt="" coords="484,80,627,107"/>
+<area shape="rect" id="node8" href="$kprintf_8cpp.html" title="OS/kernel/arch/x86\l/kprintf.cpp" alt="" coords="781,244,916,285"/>
+<area shape="rect" id="node10" href="$cpu_8cpp.html" title="OS/kernel/arch/x86\l/cpu.cpp" alt="" coords="805,155,940,196"/>
+<area shape="rect" id="node3" href="$interrupt_8h.html" title="OS/include/interrupt.h" alt="" coords="165,162,313,189"/>
+<area shape="rect" id="node4" href="$interrupt_8cpp.html" title="OS/kernel/arch/x86\l/interrupt.cpp" alt="" coords="5,244,140,285"/>
+<area shape="rect" id="node7" href="$vga_8h.html" title="OS/include/vga.h" alt="" coords="341,162,463,189"/>
+<area shape="rect" id="node11" href="$gdt_8cpp.html" title="OS/kernel/arch/x86\l/gdt.cpp" alt="" coords="488,155,623,196"/>
+<area shape="rect" id="node12" href="$utilities_8cpp.html" title="OS/kernel/arch/x86\l/utilities.cpp" alt="" coords="647,155,781,196"/>
+<area shape="rect" id="node5" href="$kernel_8cpp.html" title="OS/kernel/arch/x86\l/kernel.cpp" alt="" coords="336,244,471,285"/>
+<area shape="rect" id="node6" href="$memoryallocator_8cpp.html" title="OS/kernel/arch/x86\l/memoryallocator.cpp" alt="" coords="165,244,311,285"/>
+<area shape="rect" id="node9" href="$vga_8cpp.html" title="OS/kernel/arch/x86\l/vga.cpp" alt="" coords="495,244,629,285"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="OS/kernel/arch/x86/registers.h" name="OS/kernel/arch/x86/registers.h">
+<area shape="rect" id="node2" href="$interrupt_8h.html" title="OS/include/interrupt.h" alt="" coords="157,102,305,129"/>
+<area shape="rect" id="node6" href="$cpu_8cpp.html" title="OS/kernel/arch/x86\l/cpu.cpp" alt="" coords="329,95,464,136"/>
+<area shape="rect" id="node7" href="$gdt_8cpp.html" title="OS/kernel/arch/x86\l/gdt.cpp" alt="" coords="488,95,623,136"/>
+<area shape="rect" id="node3" href="$interrupt_8cpp.html" title="OS/kernel/arch/x86\l/interrupt.cpp" alt="" coords="5,184,140,225"/>
+<area shape="rect" id="node4" href="$kernel_8cpp.html" title="OS/kernel/arch/x86\l/kernel.cpp" alt="" coords="164,184,299,225"/>
+<area shape="rect" id="node5" href="$memoryallocator_8cpp.html" title="OS/kernel/arch/x86\l/memoryallocator.cpp" alt="" coords="323,184,470,225"/>
+</map>

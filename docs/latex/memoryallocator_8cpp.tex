@@ -1,0 +1,59 @@
+\hypertarget{memoryallocator_8cpp}{}\section{O\+S/kernel/arch/x86/memoryallocator.cpp File Reference}
+\label{memoryallocator_8cpp}\index{O\+S/kernel/arch/x86/memoryallocator.\+cpp@{O\+S/kernel/arch/x86/memoryallocator.\+cpp}}
+{\ttfamily \#include $<$memoryallocator.\+h$>$}\newline
+{\ttfamily \#include $<$interrupt.\+h$>$}\newline
+{\ttfamily \#include $<$ktypes.\+h$>$}\newline
+Include dependency graph for memoryallocator.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memoryallocator_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace_k_m}{KM}
+\item 
+ \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{namespace_k_m_aaeb8403b430af6311bb3c1df6ae520b6}{K\+M\+::kmalloc} (size\+\_\+t Size)
+\item 
+void \hyperlink{namespace_k_m_a08363437a217255f3f9d2a393a54714b}{K\+M\+::free} (void $\ast$Ptr)
+\item 
+void \hyperlink{namespace_i_n_i_t_ac811302ce0948a6a097b445b811f9c14}{I\+N\+I\+T\+::\+K\+M\+A\+L\+L\+OC} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{memoryallocator_8cpp_ace9c1b0c23dfc96b6f7432bdde6b1370}{kheap}
+\item 
+void $\ast$ \hyperlink{memoryallocator_8cpp_a6f6f3cc49b2c83f2fc2944156cdca42f}{kpagetable}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{memoryallocator_8cpp_ace9c1b0c23dfc96b6f7432bdde6b1370}\label{memoryallocator_8cpp_ace9c1b0c23dfc96b6f7432bdde6b1370}} 
+\index{memoryallocator.\+cpp@{memoryallocator.\+cpp}!kheap@{kheap}}
+\index{kheap@{kheap}!memoryallocator.\+cpp@{memoryallocator.\+cpp}}
+\subsubsection{\texorpdfstring{kheap}{kheap}}
+{\footnotesize\ttfamily void$\ast$ kheap}
+
+
+
+Definition at line 9 of file memoryallocator.\+cpp.
+
+\mbox{\Hypertarget{memoryallocator_8cpp_a6f6f3cc49b2c83f2fc2944156cdca42f}\label{memoryallocator_8cpp_a6f6f3cc49b2c83f2fc2944156cdca42f}} 
+\index{memoryallocator.\+cpp@{memoryallocator.\+cpp}!kpagetable@{kpagetable}}
+\index{kpagetable@{kpagetable}!memoryallocator.\+cpp@{memoryallocator.\+cpp}}
+\subsubsection{\texorpdfstring{kpagetable}{kpagetable}}
+{\footnotesize\ttfamily void$\ast$ kpagetable}
+
+
+
+Definition at line 10 of file memoryallocator.\+cpp.
+
