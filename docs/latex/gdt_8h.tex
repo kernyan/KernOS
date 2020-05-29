@@ -1,7 +1,6 @@
 \hypertarget{gdt_8h}{}\section{O\+S/include/gdt.h File Reference}
 \label{gdt_8h}\index{O\+S/include/gdt.\+h@{O\+S/include/gdt.\+h}}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,9 +11,9 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
  \hyperlink{namespace_g_d_t}{G\+DT}
-\item 
+\begin{DoxyCompactList}\small\item\em global descriptor table \end{DoxyCompactList}\item 
  \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em contains all kernel initialization routines \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,15 +24,15 @@ enum \hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154}{G\+D\+T\+::\+
 \hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a1d5e8e72d040439207b2341afb78e530}{G\+D\+T\+::\+U\+\_\+\+CS}, 
 \newline
 \hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a62f547535bd854846bc3d457a3f37eeb}{G\+D\+T\+::\+U\+\_\+\+DS}
- \}
+ \}\begin{DoxyCompactList}\small\item\em Code segments. \end{DoxyCompactList}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 constexpr uint8\+\_\+t \hyperlink{namespace_g_d_t_a3f6672477fedb061897f9c710f539ccb}{G\+D\+T\+::\+S\+E\+G\+\_\+\+O\+F\+F\+S\+ET} (const Segment Seg)
-\item 
+\begin{DoxyCompactList}\small\item\em Translates code segment enum to code segment selector. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_i_t_a3462d7bc51bce77cc240d05b62b1b777}{I\+N\+I\+T\+::gdt} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em creates global descriptor table and loads it into C\+PU \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 

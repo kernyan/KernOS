@@ -88,10 +88,17 @@ $(document).ready(function(){initNavTree('namespace_i_n_t_r_p.html','');});
 <div class="title">INTRP Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>interrupt namespace  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_i_n_t_r_p_1_1_descriptor_entry.html">DescriptorEntry</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception and interrupt gate descriptor entry.  <a href="union_i_n_t_r_p_1_1_descriptor_entry.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_n_t_r_p_1_1_mask.html">Mask</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables interrupt on construction, restores previous interrupt mask on scope exit.  <a href="class_i_n_t_r_p_1_1_mask.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -132,21 +139,26 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a626306273908f18155dca2fc7092a8e8"><td class="memItemLeft" align="right" valign="top">union&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a626306273908f18155dca2fc7092a8e8">__attribute__</a> ((packed)) DescriptorEntry</td></tr>
-<tr class="separator:a626306273908f18155dca2fc7092a8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91a6a2668bfa9961a9ed265f6ceac47d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a91a6a2668bfa9961a9ed265f6ceac47d">RegisterHandler</a> (DescriptorEntry IdtTable[], size_t Idx, <a class="el" href="ktypes_8h.html#a46bbb9e776183ed6a8eca9d919756434">func_ptr</a> Handler)</td></tr>
+<tr class="memitem:a91a6a2668bfa9961a9ed265f6ceac47d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a91a6a2668bfa9961a9ed265f6ceac47d">RegisterHandler</a> (<a class="el" href="union_i_n_t_r_p_1_1_descriptor_entry.html">DescriptorEntry</a> IdtTable[], size_t Idx, <a class="el" href="ktypes_8h.html#a46bbb9e776183ed6a8eca9d919756434">func_ptr</a> Handler)</td></tr>
+<tr class="memdesc:a91a6a2668bfa9961a9ed265f6ceac47d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates interrupt descriptor entries in idt_table, and loads into CPU.  <a href="#a91a6a2668bfa9961a9ed265f6ceac47d">More...</a><br /></td></tr>
 <tr class="separator:a91a6a2668bfa9961a9ed265f6ceac47d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7732859732913734b09dd07030c41991"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a7732859732913734b09dd07030c41991">UnhandledException</a> ()</td></tr>
+<tr class="memdesc:a7732859732913734b09dd07030c41991"><td class="mdescLeft">&#160;</td><td class="mdescRight">default unhandled exception handler  <a href="#a7732859732913734b09dd07030c41991">More...</a><br /></td></tr>
 <tr class="separator:a7732859732913734b09dd07030c41991"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13c03019c9d7b305743516310096a82a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a13c03019c9d7b305743516310096a82a">UnhandledInterrupt</a> ()</td></tr>
+<tr class="memdesc:a13c03019c9d7b305743516310096a82a"><td class="mdescLeft">&#160;</td><td class="mdescRight">default unhandled interrupt handler  <a href="#a13c03019c9d7b305743516310096a82a">More...</a><br /></td></tr>
 <tr class="separator:a13c03019c9d7b305743516310096a82a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a1a1ff73a4e9bb1c17daf205170daa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a4a1a1ff73a4e9bb1c17daf205170daa9">SetExceptionHandler</a> (DescriptorEntry IdtTable[])</td></tr>
+<tr class="memitem:a4a1a1ff73a4e9bb1c17daf205170daa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a4a1a1ff73a4e9bb1c17daf205170daa9">SetExceptionHandler</a> (<a class="el" href="union_i_n_t_r_p_1_1_descriptor_entry.html">DescriptorEntry</a> IdtTable[])</td></tr>
+<tr class="memdesc:a4a1a1ff73a4e9bb1c17daf205170daa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Installs default exception handler to all exceptions.  <a href="#a4a1a1ff73a4e9bb1c17daf205170daa9">More...</a><br /></td></tr>
 <tr class="separator:a4a1a1ff73a4e9bb1c17daf205170daa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf09ee877603981fe255cd050cbbb110"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#abf09ee877603981fe255cd050cbbb110">SetInterruptHandler</a> (DescriptorEntry IdtTable[])</td></tr>
+<tr class="memitem:abf09ee877603981fe255cd050cbbb110"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#abf09ee877603981fe255cd050cbbb110">SetInterruptHandler</a> (<a class="el" href="union_i_n_t_r_p_1_1_descriptor_entry.html">DescriptorEntry</a> IdtTable[])</td></tr>
+<tr class="memdesc:abf09ee877603981fe255cd050cbbb110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Installs default interrupt handler to all interrupts.  <a href="#abf09ee877603981fe255cd050cbbb110">More...</a><br /></td></tr>
 <tr class="separator:abf09ee877603981fe255cd050cbbb110"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a194f85d6c873615e9125466e3b23c30f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a194f85d6c873615e9125466e3b23c30f">Load_lidt</a> (void *lidtAddress, uint16_t LimitUse)</td></tr>
+<tr class="memdesc:a194f85d6c873615e9125466e3b23c30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">assembly instruction to load idt table to CPU  <a href="#a194f85d6c873615e9125466e3b23c30f">More...</a><br /></td></tr>
 <tr class="separator:a194f85d6c873615e9125466e3b23c30f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a139b273cc1e45d3c2fdfe0d387a98518"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a139b273cc1e45d3c2fdfe0d387a98518">Install_idt</a> ()</td></tr>
+<tr class="memdesc:a139b273cc1e45d3c2fdfe0d387a98518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns exception and interrupt handler to idt_table, and load to CPU.  <a href="#a139b273cc1e45d3c2fdfe0d387a98518">More...</a><br /></td></tr>
 <tr class="separator:a139b273cc1e45d3c2fdfe0d387a98518"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -154,7 +166,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a1022b4dc1d9af1ea393f7f038ff421ce"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a1022b4dc1d9af1ea393f7f038ff421ce">IDT_ENTRIES</a> = 256</td></tr>
 <tr class="separator:a1022b4dc1d9af1ea393f7f038ff421ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>interrupt namespace </p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a790699fb2953ef4ab70c7dc7148a1c94"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a790699fb2953ef4ab70c7dc7148a1c94">&#9670;&nbsp;</a></span>IVT</h2>
 
@@ -167,57 +181,61 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a58f4b58ae6281e7599c8cf5eecb34aac"></a>RESERVED_START&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94aa4812872ae63e8dd2531baae7ae7af8c"></a>DIV_0_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a3e90a0065c250e74b2e79839e6dd9531"></a>DEBUG_TRAP&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a60c43a2567dc9655eac98fe90703e4e4"></a>NMI_INTERRUPT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94ac40b8e367b8789ee9a9138c7e5c5e7b9"></a>BREAKPOINT_TRAP&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a6bf9679b51b0ae4fc7d0b89b62ae19c2"></a>OVERFLOW_TRAP&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94aecc41fcce90166e7c060af4df3eb85e9"></a>OUT_OF_BOUNDS_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94af5e5df39002d4114a23ea47772b24993"></a>INVALID_OPCODE_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a917bad20e5e7152140c3bc4a32f0c946"></a>NO_MATH_COP_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a4dc8cc2535405b9892ebb823cc708724"></a>DOUBLE_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a777235d584c5919bd2b1ce4f436515bd"></a>COP_SEG_OVERRUN_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a5b1eba48c3b793f1335078cd5231f50d"></a>INVALID_TSS_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a654096aa14bd7f00822273e7fe86525f"></a>SEG_NOT_PRESENT_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94aa151e7e1c98c688471f4e9b60fd11de9"></a>STACK_SEG_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a2494cab6d93c57a9adcb3d7309192b79"></a>GEN_PROTECTION_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a72999410be9f8206ea01268b6306f59a"></a>PAGE_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a24b3949bacfadc75ecddaf0a638b1c49"></a>RESERVED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a44642a04b137a14fd789a6936b7762dd"></a>MATH_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a4ae4571bf9290f732b429dd0b30002c3"></a>ALIGNMENT_CHECK_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a67d00b54b2bade5a703dbbbc2ea93711"></a>MACHINE_CHECK_ABORT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a7f928e26348ad94a198cdb0b8758068b"></a>SIMD_FP_XF_FAULT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94ad3c957dd69dc16828a748d3e07499633"></a>RESERVED_END&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a6896b72dca7a4ffbd39151b6fb9be9b1"></a>USER_DEFINED_START&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94ae081b819aecf9800dc041fec2b47286c"></a>USER_DEFINED_END&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a58f4b58ae6281e7599c8cf5eecb34aac"></a>RESERVED_START&#160;</td><td class="fielddoc"><p>0x0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94aa4812872ae63e8dd2531baae7ae7af8c"></a>DIV_0_FAULT&#160;</td><td class="fielddoc"><p>0x0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a3e90a0065c250e74b2e79839e6dd9531"></a>DEBUG_TRAP&#160;</td><td class="fielddoc"><p>0x1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a60c43a2567dc9655eac98fe90703e4e4"></a>NMI_INTERRUPT&#160;</td><td class="fielddoc"><p>0x2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94ac40b8e367b8789ee9a9138c7e5c5e7b9"></a>BREAKPOINT_TRAP&#160;</td><td class="fielddoc"><p>0x3 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a6bf9679b51b0ae4fc7d0b89b62ae19c2"></a>OVERFLOW_TRAP&#160;</td><td class="fielddoc"><p>0x4 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94aecc41fcce90166e7c060af4df3eb85e9"></a>OUT_OF_BOUNDS_FAULT&#160;</td><td class="fielddoc"><p>0x5 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94af5e5df39002d4114a23ea47772b24993"></a>INVALID_OPCODE_FAULT&#160;</td><td class="fielddoc"><p>0x6 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a917bad20e5e7152140c3bc4a32f0c946"></a>NO_MATH_COP_FAULT&#160;</td><td class="fielddoc"><p>0x7 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a4dc8cc2535405b9892ebb823cc708724"></a>DOUBLE_FAULT&#160;</td><td class="fielddoc"><p>0x8 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a777235d584c5919bd2b1ce4f436515bd"></a>COP_SEG_OVERRUN_FAULT&#160;</td><td class="fielddoc"><p>0x9 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a5b1eba48c3b793f1335078cd5231f50d"></a>INVALID_TSS_FAULT&#160;</td><td class="fielddoc"><p>0x0A </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a654096aa14bd7f00822273e7fe86525f"></a>SEG_NOT_PRESENT_FAULT&#160;</td><td class="fielddoc"><p>0x0B </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94aa151e7e1c98c688471f4e9b60fd11de9"></a>STACK_SEG_FAULT&#160;</td><td class="fielddoc"><p>0x0C </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a2494cab6d93c57a9adcb3d7309192b79"></a>GEN_PROTECTION_FAULT&#160;</td><td class="fielddoc"><p>0x0D </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a72999410be9f8206ea01268b6306f59a"></a>PAGE_FAULT&#160;</td><td class="fielddoc"><p>0x0E </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a24b3949bacfadc75ecddaf0a638b1c49"></a>RESERVED&#160;</td><td class="fielddoc"><p>0x0F </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a44642a04b137a14fd789a6936b7762dd"></a>MATH_FAULT&#160;</td><td class="fielddoc"><p>0x10 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a4ae4571bf9290f732b429dd0b30002c3"></a>ALIGNMENT_CHECK_FAULT&#160;</td><td class="fielddoc"><p>0x11 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a67d00b54b2bade5a703dbbbc2ea93711"></a>MACHINE_CHECK_ABORT&#160;</td><td class="fielddoc"><p>0x12 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a7f928e26348ad94a198cdb0b8758068b"></a>SIMD_FP_XF_FAULT&#160;</td><td class="fielddoc"><p>0x13 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94ad3c957dd69dc16828a748d3e07499633"></a>RESERVED_END&#160;</td><td class="fielddoc"><p>0x1F </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a6896b72dca7a4ffbd39151b6fb9be9b1"></a>USER_DEFINED_START&#160;</td><td class="fielddoc"><p>0x20 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94ae081b819aecf9800dc041fec2b47286c"></a>USER_DEFINED_END&#160;</td><td class="fielddoc"><p>0xFF </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8h_source.html#l00014">14</a> of file <a class="el" href="interrupt_8h_source.html">interrupt.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8h_source.html#l00016">16</a> of file <a class="el" href="interrupt_8h_source.html">interrupt.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a626306273908f18155dca2fc7092a8e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a626306273908f18155dca2fc7092a8e8">&#9670;&nbsp;</a></span>__attribute__()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">union INTRP::__attribute__ </td>
-          <td>(</td>
-          <td class="paramtype">(packed)&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00114">114</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
-
-</div>
-</div>
 <a id="a139b273cc1e45d3c2fdfe0d387a98518"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a139b273cc1e45d3c2fdfe0d387a98518">&#9670;&nbsp;</a></span>Install_idt()</h2>
 
@@ -233,7 +251,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00182">182</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p>Assigns exception and interrupt handler to idt_table, and load to CPU. </p>
+
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00214">214</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -271,7 +291,16 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00166">166</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p>assembly instruction to load idt table to CPU </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lidtAddress</td><td></td></tr>
+    <tr><td class="paramname">LimitUse</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00196">196</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -284,7 +313,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void INTRP::RegisterHandler </td>
           <td>(</td>
-          <td class="paramtype">DescriptorEntry&#160;</td>
+          <td class="paramtype"><a class="el" href="union_i_n_t_r_p_1_1_descriptor_entry.html">DescriptorEntry</a>&#160;</td>
           <td class="paramname"><em>IdtTable</em>[], </td>
         </tr>
         <tr>
@@ -307,7 +336,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00133">133</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p>Creates interrupt descriptor entries in idt_table, and loads into CPU. </p>
+<p>Installing exception or interrupt handler by mapping handler address to idt_table </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">IdtTable</td><td>to be loaded into CPU later </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Idx</td><td>into IdtTable for corresponding exception/interrupt number </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Handler</td><td>address of exception/interrupt handler </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00149">149</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -320,14 +359,22 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void INTRP::SetExceptionHandler </td>
           <td>(</td>
-          <td class="paramtype">DescriptorEntry&#160;</td>
+          <td class="paramtype"><a class="el" href="union_i_n_t_r_p_1_1_descriptor_entry.html">DescriptorEntry</a>&#160;</td>
           <td class="paramname"><em>IdtTable</em>[]</td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00154">154</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p>Installs default exception handler to all exceptions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">IdtTable</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00177">177</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -340,14 +387,22 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void INTRP::SetInterruptHandler </td>
           <td>(</td>
-          <td class="paramtype">DescriptorEntry&#160;</td>
+          <td class="paramtype"><a class="el" href="union_i_n_t_r_p_1_1_descriptor_entry.html">DescriptorEntry</a>&#160;</td>
           <td class="paramname"><em>IdtTable</em>[]</td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00160">160</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p>Installs default interrupt handler to all interrupts. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">IdtTable</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00186">186</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -366,7 +421,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00142">142</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p>default unhandled exception handler </p>
+
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00160">160</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -385,7 +442,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00148">148</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p>default unhandled interrupt handler </p>
+
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00168">168</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -402,7 +461,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00105">105</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00111">111</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>

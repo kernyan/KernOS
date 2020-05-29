@@ -88,25 +88,36 @@ $(document).ready(function(){initNavTree('class_k_m_1_1_memory_allocator.html','
 </div><!--header-->
 <div class="contents">
 
+<p>Manages kernel heap memory.  
+ <a href="class_k_m_1_1_memory_allocator.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="memoryallocator_8h_source.html">memoryallocator.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acf0f1026d4b06044f1e4f21735ce6e5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_m_1_1_memory_allocator.html#acf0f1026d4b06044f1e4f21735ce6e5a">Initialize</a> (const uint32_t StartAdd, const uint32_t EndAdd)</td></tr>
+<tr class="memdesc:acf0f1026d4b06044f1e4f21735ce6e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Points to range of reserved physical memory for heap allocator use.  <a href="#acf0f1026d4b06044f1e4f21735ce6e5a">More...</a><br /></td></tr>
 <tr class="separator:acf0f1026d4b06044f1e4f21735ce6e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a7c20d888ecece0f856a4300f3134a5b8"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_m_1_1_memory_allocator.html#a7c20d888ecece0f856a4300f3134a5b8">m_StartAdd</a> = 0</td></tr>
+<tr class="memdesc:a7c20d888ecece0f856a4300f3134a5b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">range of reserved address for kernel heap memory  <a href="#a7c20d888ecece0f856a4300f3134a5b8">More...</a><br /></td></tr>
 <tr class="separator:a7c20d888ecece0f856a4300f3134a5b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebd2cb25d4536312f915b1d65d724934"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_m_1_1_memory_allocator.html#aebd2cb25d4536312f915b1d65d724934">m_EndAdd</a> = 0</td></tr>
+<tr class="memdesc:aebd2cb25d4536312f915b1d65d724934"><td class="mdescLeft">&#160;</td><td class="mdescRight">range of reserved address for kernel heap memory  <a href="#aebd2cb25d4536312f915b1d65d724934">More...</a><br /></td></tr>
 <tr class="separator:aebd2cb25d4536312f915b1d65d724934"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa69b432479e7d67731ff420ce9b904a4"><td class="memItemLeft" align="right" valign="top">Header&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_m_1_1_memory_allocator.html#aa69b432479e7d67731ff420ce9b904a4">m_Base</a> {nullptr, 0}</td></tr>
+<tr class="memdesc:aa69b432479e7d67731ff420ce9b904a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">list start  <a href="#aa69b432479e7d67731ff420ce9b904a4">More...</a><br /></td></tr>
 <tr class="separator:aa69b432479e7d67731ff420ce9b904a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="memoryallocator_8h_source.html#l00041">41</a> of file <a class="el" href="memoryallocator_8h_source.html">memoryallocator.h</a>.</p>
+<div class="textblock"><p>Manages kernel heap memory. </p>
+<p>1) Keeps track of linked list of free memory,<br />
+2) allocates requested memory,<br />
+3) and coalesces freed memory if adjacent with other free block </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>figure out a way to enforce singleton without heap alloc, or function static variable </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="memoryallocator_8h_source.html#l00054">54</a> of file <a class="el" href="memoryallocator_8h_source.html">memoryallocator.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="acf0f1026d4b06044f1e4f21735ce6e5a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf0f1026d4b06044f1e4f21735ce6e5a">&#9670;&nbsp;</a></span>Initialize()</h2>
@@ -134,6 +145,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Points to range of reserved physical memory for heap allocator use. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">StartAdd</td><td>start of reserved physical memory </td></tr>
+    <tr><td class="paramname">EndAdd</td><td>end of reserved physical memory </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="memoryallocator_8cpp_source.html#l00016">16</a> of file <a class="el" href="memoryallocator_8cpp_source.html">memoryallocator.cpp</a>.</p>
 
 </div>
@@ -151,7 +171,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="memoryallocator_8h_source.html#l00048">48</a> of file <a class="el" href="memoryallocator_8h_source.html">memoryallocator.h</a>.</p>
+<p>list start </p>
+
+<p class="definition">Definition at line <a class="el" href="memoryallocator_8h_source.html#l00061">61</a> of file <a class="el" href="memoryallocator_8h_source.html">memoryallocator.h</a>.</p>
 
 </div>
 </div>
@@ -167,7 +189,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="memoryallocator_8h_source.html#l00046">46</a> of file <a class="el" href="memoryallocator_8h_source.html">memoryallocator.h</a>.</p>
+<p>range of reserved address for kernel heap memory </p>
+
+<p class="definition">Definition at line <a class="el" href="memoryallocator_8h_source.html#l00059">59</a> of file <a class="el" href="memoryallocator_8h_source.html">memoryallocator.h</a>.</p>
 
 </div>
 </div>
@@ -183,7 +207,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="memoryallocator_8h_source.html#l00045">45</a> of file <a class="el" href="memoryallocator_8h_source.html">memoryallocator.h</a>.</p>
+<p>range of reserved address for kernel heap memory </p>
+
+<p class="definition">Definition at line <a class="el" href="memoryallocator_8h_source.html#l00058">58</a> of file <a class="el" href="memoryallocator_8h_source.html">memoryallocator.h</a>.</p>
 
 </div>
 </div>

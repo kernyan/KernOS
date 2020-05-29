@@ -1,7 +1,7 @@
 var gdt_8cpp =
 [
+    [ "GdtEntry", "union_g_d_t_1_1_gdt_entry.html", "union_g_d_t_1_1_gdt_entry" ],
     [ "Selector", "struct_g_d_t_1_1_selector.html", "struct_g_d_t_1_1_selector" ],
-    [ "__attribute__", "gdt_8cpp.html#aafeef73468f65116a440104dd6359e4c", null ],
     [ "gdt", "gdt_8cpp.html#a3462d7bc51bce77cc240d05b62b1b777", null ],
     [ "Install_gdt", "gdt_8cpp.html#a174feb7c5a037cc991bf4eb27c256366", null ],
     [ "Load_gdt", "gdt_8cpp.html#a3660563d28e3bab08ddac58ca6844b58", null ],

@@ -1,10 +1,17 @@
 \hypertarget{namespace_g_d_t}{}\section{G\+DT Namespace Reference}
 \label{namespace_g_d_t}\index{G\+DT@{G\+DT}}
+
+
+global descriptor table  
+
+
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+union \hyperlink{union_g_d_t_1_1_gdt_entry}{Gdt\+Entry}
+\begin{DoxyCompactList}\small\item\em Global descriptor table entry. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_g_d_t_1_1_selector}{Selector}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em convenience structure used to set bits of \hyperlink{union_g_d_t_1_1_gdt_entry}{Gdt\+Entry} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,21 +22,19 @@ enum \hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154}{Segment} \+: 
 \hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a1d5e8e72d040439207b2341afb78e530}{U\+\_\+\+CS}, 
 \newline
 \hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a62f547535bd854846bc3d457a3f37eeb}{U\+\_\+\+DS}
- \}
+ \}\begin{DoxyCompactList}\small\item\em Code segments. \end{DoxyCompactList}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 constexpr uint8\+\_\+t \hyperlink{namespace_g_d_t_a3f6672477fedb061897f9c710f539ccb}{S\+E\+G\+\_\+\+O\+F\+F\+S\+ET} (const \hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154}{Segment} Seg)
-\item 
-union \hyperlink{namespace_g_d_t_aafeef73468f65116a440104dd6359e4c}{\+\_\+\+\_\+attribute\+\_\+\+\_\+} ((packed)) Gdt\+Entry
-\item 
-void \hyperlink{namespace_g_d_t_a5d0041eb890e6c1f40d8a919494c2354}{Set\+Global\+Descriptor\+Entry} (Gdt\+Entry Gdt\+Table\mbox{[}$\,$\mbox{]}, const \hyperlink{struct_g_d_t_1_1_selector}{Selector} Selector\+Table\mbox{[}$\,$\mbox{]})
-\item 
+\begin{DoxyCompactList}\small\item\em Translates code segment enum to code segment selector. \end{DoxyCompactList}\item 
+void \hyperlink{namespace_g_d_t_a5d0041eb890e6c1f40d8a919494c2354}{Set\+Global\+Descriptor\+Entry} (\hyperlink{union_g_d_t_1_1_gdt_entry}{Gdt\+Entry} Gdt\+Table\mbox{[}$\,$\mbox{]}, const \hyperlink{struct_g_d_t_1_1_selector}{Selector} Selector\+Table\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Set entries in Gdt\+Table from array of \hyperlink{struct_g_d_t_1_1_selector}{Selector}. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_g_d_t_a3660563d28e3bab08ddac58ca6844b58}{Load\+\_\+gdt} (void $\ast$gdt\+Address, uint16\+\_\+t Limit\+Use)
-\item 
+\begin{DoxyCompactList}\small\item\em assembly instruction to load gdt table to C\+PU \end{DoxyCompactList}\item 
 void \hyperlink{namespace_g_d_t_a174feb7c5a037cc991bf4eb27c256366}{Install\+\_\+gdt} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creates global descriptor entries in gdt\+\_\+table, and loads into C\+PU. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -67,6 +72,9 @@ const uint8\+\_\+t \hyperlink{namespace_g_d_t_a1d41acb5aa3d1b3690fb1fa6e843f110}
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+global descriptor table 
+
 \subsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154}\label{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154}} 
 \index{G\+DT@{G\+DT}!Segment@{Segment}}
@@ -74,45 +82,39 @@ const uint8\+\_\+t \hyperlink{namespace_g_d_t_a1d41acb5aa3d1b3690fb1fa6e843f110}
 \subsubsection{\texorpdfstring{Segment}{Segment}}
 {\footnotesize\ttfamily enum \hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154}{G\+D\+T\+::\+Segment} \+: uint16\+\_\+t}
 
+
+
+Code segments. 
+
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{Null@{Null}!G\+DT@{G\+DT}}\index{G\+DT@{G\+DT}!Null@{Null}}}\mbox{\Hypertarget{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a86e32c8df1a16bdd2971d97063048cff}\label{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a86e32c8df1a16bdd2971d97063048cff}} 
-Null&\\
+Null&null descriptor \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{K\+\_\+\+CS@{K\+\_\+\+CS}!G\+DT@{G\+DT}}\index{G\+DT@{G\+DT}!K\+\_\+\+CS@{K\+\_\+\+CS}}}\mbox{\Hypertarget{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a9ec147ba7f4244a0e047c92f24a920b9}\label{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a9ec147ba7f4244a0e047c92f24a920b9}} 
-K\+\_\+\+CS&\\
+K\+\_\+\+CS&kernel code segment \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{K\+\_\+\+DS@{K\+\_\+\+DS}!G\+DT@{G\+DT}}\index{G\+DT@{G\+DT}!K\+\_\+\+DS@{K\+\_\+\+DS}}}\mbox{\Hypertarget{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a71647052ea8761e0f719dfb481a72f0b}\label{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a71647052ea8761e0f719dfb481a72f0b}} 
-K\+\_\+\+DS&\\
+K\+\_\+\+DS&kernel data segment \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{U\+\_\+\+CS@{U\+\_\+\+CS}!G\+DT@{G\+DT}}\index{G\+DT@{G\+DT}!U\+\_\+\+CS@{U\+\_\+\+CS}}}\mbox{\Hypertarget{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a1d5e8e72d040439207b2341afb78e530}\label{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a1d5e8e72d040439207b2341afb78e530}} 
-U\+\_\+\+CS&\\
+U\+\_\+\+CS&user code segment \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{U\+\_\+\+DS@{U\+\_\+\+DS}!G\+DT@{G\+DT}}\index{G\+DT@{G\+DT}!U\+\_\+\+DS@{U\+\_\+\+DS}}}\mbox{\Hypertarget{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a62f547535bd854846bc3d457a3f37eeb}\label{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a62f547535bd854846bc3d457a3f37eeb}} 
-U\+\_\+\+DS&\\
+U\+\_\+\+DS&user data segment \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line 12 of file gdt.\+h.
+Definition at line 16 of file gdt.\+h.
 
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{namespace_g_d_t_aafeef73468f65116a440104dd6359e4c}\label{namespace_g_d_t_aafeef73468f65116a440104dd6359e4c}} 
-\index{G\+DT@{G\+DT}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
-\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!G\+DT@{G\+DT}}
-\subsubsection{\texorpdfstring{\+\_\+\+\_\+attribute\+\_\+\+\_\+()}{\_\_attribute\_\_()}}
-{\footnotesize\ttfamily union G\+D\+T\+::\+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(packed)}]{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line 26 of file gdt.\+cpp.
-
 \mbox{\Hypertarget{namespace_g_d_t_a174feb7c5a037cc991bf4eb27c256366}\label{namespace_g_d_t_a174feb7c5a037cc991bf4eb27c256366}} 
 \index{G\+DT@{G\+DT}!Install\+\_\+gdt@{Install\+\_\+gdt}}
 \index{Install\+\_\+gdt@{Install\+\_\+gdt}!G\+DT@{G\+DT}}
@@ -121,7 +123,14 @@ Definition at line 26 of file gdt.\+cpp.
 
 
 
-Definition at line 107 of file gdt.\+cpp.
+Creates global descriptor entries in gdt\+\_\+table, and loads into C\+PU. 
+
+We are going to use x86 protected mode, thus the segment selectors won\textquotesingle{}t be used for either virtual memory, or memory protection. However since segmentation cannot be turned off on an x86, we simply set the kernel/user space segments to 0 base to simulate flat memory model \begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/X86_memory_segmentation#Practices}{\tt Segmentation in x86 in practice} 
+\end{DoxySeeAlso}
+
+
+Definition at line 125 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_a3660563d28e3bab08ddac58ca6844b58}\label{namespace_g_d_t_a3660563d28e3bab08ddac58ca6844b58}} 
 \index{G\+DT@{G\+DT}!Load\+\_\+gdt@{Load\+\_\+gdt}}
@@ -131,7 +140,18 @@ Definition at line 107 of file gdt.\+cpp.
 
 
 
-Definition at line 92 of file gdt.\+cpp.
+assembly instruction to load gdt table to C\+PU 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gdt\+Address} & \\
+\hline
+{\em Limit\+Use} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 104 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_a3f6672477fedb061897f9c710f539ccb}\label{namespace_g_d_t_a3f6672477fedb061897f9c710f539ccb}} 
 \index{G\+DT@{G\+DT}!S\+E\+G\+\_\+\+O\+F\+F\+S\+ET@{S\+E\+G\+\_\+\+O\+F\+F\+S\+ET}}
@@ -141,17 +161,40 @@ Definition at line 92 of file gdt.\+cpp.
 
 
 
-Definition at line 21 of file gdt.\+h.
+Translates code segment enum to code segment selector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Seg} & -\/ enum of kernel/user space code/data segment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Byte position of code segment in gdt\+\_\+table 
+\end{DoxyReturn}
+
+
+Definition at line 29 of file gdt.\+h.
 
 \mbox{\Hypertarget{namespace_g_d_t_a5d0041eb890e6c1f40d8a919494c2354}\label{namespace_g_d_t_a5d0041eb890e6c1f40d8a919494c2354}} 
 \index{G\+DT@{G\+DT}!Set\+Global\+Descriptor\+Entry@{Set\+Global\+Descriptor\+Entry}}
 \index{Set\+Global\+Descriptor\+Entry@{Set\+Global\+Descriptor\+Entry}!G\+DT@{G\+DT}}
 \subsubsection{\texorpdfstring{Set\+Global\+Descriptor\+Entry()}{SetGlobalDescriptorEntry()}}
-{\footnotesize\ttfamily void G\+D\+T\+::\+Set\+Global\+Descriptor\+Entry (\begin{DoxyParamCaption}\item[{Gdt\+Entry}]{Gdt\+Table\mbox{[}$\,$\mbox{]},  }\item[{const \hyperlink{struct_g_d_t_1_1_selector}{Selector}}]{Selector\+Table\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void G\+D\+T\+::\+Set\+Global\+Descriptor\+Entry (\begin{DoxyParamCaption}\item[{\hyperlink{union_g_d_t_1_1_gdt_entry}{Gdt\+Entry}}]{Gdt\+Table\mbox{[}$\,$\mbox{]},  }\item[{const \hyperlink{struct_g_d_t_1_1_selector}{Selector}}]{Selector\+Table\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
 
 
 
-Definition at line 74 of file gdt.\+cpp.
+Set entries in Gdt\+Table from array of \hyperlink{struct_g_d_t_1_1_selector}{Selector}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em Gdt\+Table} & to be loaded into C\+PU later \\
+\hline
+\mbox{\tt in}  & {\em Selector\+Table} & used to specify entries to Gdt\+Table \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 82 of file gdt.\+cpp.
 
 
 
@@ -164,7 +207,7 @@ Definition at line 74 of file gdt.\+cpp.
 
 
 
-Definition at line 10 of file gdt.\+h.
+Definition at line 12 of file gdt.\+h.
 
 \mbox{\Hypertarget{namespace_g_d_t_aa468dabc4b15ceac65292f59b3d98e76}\label{namespace_g_d_t_aa468dabc4b15ceac65292f59b3d98e76}} 
 \index{G\+DT@{G\+DT}!K\+E\+R\+N\+\_\+\+C\+S\+\_\+\+B\+A\+SE@{K\+E\+R\+N\+\_\+\+C\+S\+\_\+\+B\+A\+SE}}
@@ -174,7 +217,7 @@ Definition at line 10 of file gdt.\+h.
 
 
 
-Definition at line 61 of file gdt.\+cpp.
+Definition at line 65 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_a1ff5f5e1d41e01c0c4c32711264a5e23}\label{namespace_g_d_t_a1ff5f5e1d41e01c0c4c32711264a5e23}} 
 \index{G\+DT@{G\+DT}!K\+E\+R\+N\+\_\+\+C\+S\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY@{K\+E\+R\+N\+\_\+\+C\+S\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY}}
@@ -184,7 +227,7 @@ Definition at line 61 of file gdt.\+cpp.
 
 
 
-Definition at line 67 of file gdt.\+cpp.
+Definition at line 71 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_ab6d06fd71d054410909a4aacafca32b7}\label{namespace_g_d_t_ab6d06fd71d054410909a4aacafca32b7}} 
 \index{G\+DT@{G\+DT}!K\+E\+R\+N\+\_\+\+C\+S\+\_\+\+L\+I\+M\+IT@{K\+E\+R\+N\+\_\+\+C\+S\+\_\+\+L\+I\+M\+IT}}
@@ -194,7 +237,7 @@ Definition at line 67 of file gdt.\+cpp.
 
 
 
-Definition at line 55 of file gdt.\+cpp.
+Definition at line 59 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_a2a50b369a9ea36da4724c269a2c005a2}\label{namespace_g_d_t_a2a50b369a9ea36da4724c269a2c005a2}} 
 \index{G\+DT@{G\+DT}!K\+E\+R\+N\+\_\+\+D\+S\+\_\+\+B\+A\+SE@{K\+E\+R\+N\+\_\+\+D\+S\+\_\+\+B\+A\+SE}}
@@ -204,7 +247,7 @@ Definition at line 55 of file gdt.\+cpp.
 
 
 
-Definition at line 62 of file gdt.\+cpp.
+Definition at line 66 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_a93b62ba7a382d7801e63bd32655a87c3}\label{namespace_g_d_t_a93b62ba7a382d7801e63bd32655a87c3}} 
 \index{G\+DT@{G\+DT}!K\+E\+R\+N\+\_\+\+D\+S\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY@{K\+E\+R\+N\+\_\+\+D\+S\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY}}
@@ -214,7 +257,7 @@ Definition at line 62 of file gdt.\+cpp.
 
 
 
-Definition at line 68 of file gdt.\+cpp.
+Definition at line 72 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_a0b19f62da26fef63c425face3191a75b}\label{namespace_g_d_t_a0b19f62da26fef63c425face3191a75b}} 
 \index{G\+DT@{G\+DT}!K\+E\+R\+N\+\_\+\+D\+S\+\_\+\+L\+I\+M\+IT@{K\+E\+R\+N\+\_\+\+D\+S\+\_\+\+L\+I\+M\+IT}}
@@ -224,7 +267,7 @@ Definition at line 68 of file gdt.\+cpp.
 
 
 
-Definition at line 56 of file gdt.\+cpp.
+Definition at line 60 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_a99c336ac1e41e7292c0da263389748d7}\label{namespace_g_d_t_a99c336ac1e41e7292c0da263389748d7}} 
 \index{G\+DT@{G\+DT}!N\+U\+L\+L\+\_\+\+B\+A\+SE@{N\+U\+L\+L\+\_\+\+B\+A\+SE}}
@@ -234,7 +277,7 @@ Definition at line 56 of file gdt.\+cpp.
 
 
 
-Definition at line 60 of file gdt.\+cpp.
+Definition at line 64 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_ac7317e2289378a4e654f8137e837e954}\label{namespace_g_d_t_ac7317e2289378a4e654f8137e837e954}} 
 \index{G\+DT@{G\+DT}!N\+U\+L\+L\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY@{N\+U\+L\+L\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY}}
@@ -244,7 +287,7 @@ Definition at line 60 of file gdt.\+cpp.
 
 
 
-Definition at line 66 of file gdt.\+cpp.
+Definition at line 70 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_aa1bc8e5b9e4868b6006698829d396724}\label{namespace_g_d_t_aa1bc8e5b9e4868b6006698829d396724}} 
 \index{G\+DT@{G\+DT}!N\+U\+L\+L\+\_\+\+L\+I\+M\+IT@{N\+U\+L\+L\+\_\+\+L\+I\+M\+IT}}
@@ -254,7 +297,7 @@ Definition at line 66 of file gdt.\+cpp.
 
 
 
-Definition at line 54 of file gdt.\+cpp.
+Definition at line 58 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_a17592b6bcda3da0b4162793c5ab25d34}\label{namespace_g_d_t_a17592b6bcda3da0b4162793c5ab25d34}} 
 \index{G\+DT@{G\+DT}!U\+S\+E\+R\+\_\+\+C\+S\+\_\+\+B\+A\+SE@{U\+S\+E\+R\+\_\+\+C\+S\+\_\+\+B\+A\+SE}}
@@ -264,7 +307,7 @@ Definition at line 54 of file gdt.\+cpp.
 
 
 
-Definition at line 63 of file gdt.\+cpp.
+Definition at line 67 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_abca29cbf8c95b79a247c1b7af347deba}\label{namespace_g_d_t_abca29cbf8c95b79a247c1b7af347deba}} 
 \index{G\+DT@{G\+DT}!U\+S\+E\+R\+\_\+\+C\+S\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY@{U\+S\+E\+R\+\_\+\+C\+S\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY}}
@@ -274,7 +317,7 @@ Definition at line 63 of file gdt.\+cpp.
 
 
 
-Definition at line 69 of file gdt.\+cpp.
+Definition at line 73 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_af9547432d12ed931a8aafe2f078bfdb9}\label{namespace_g_d_t_af9547432d12ed931a8aafe2f078bfdb9}} 
 \index{G\+DT@{G\+DT}!U\+S\+E\+R\+\_\+\+C\+S\+\_\+\+L\+I\+M\+IT@{U\+S\+E\+R\+\_\+\+C\+S\+\_\+\+L\+I\+M\+IT}}
@@ -284,7 +327,7 @@ Definition at line 69 of file gdt.\+cpp.
 
 
 
-Definition at line 57 of file gdt.\+cpp.
+Definition at line 61 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_af3b358f3263317a93fb70214db0fe9df}\label{namespace_g_d_t_af3b358f3263317a93fb70214db0fe9df}} 
 \index{G\+DT@{G\+DT}!U\+S\+E\+R\+\_\+\+D\+S\+\_\+\+B\+A\+SE@{U\+S\+E\+R\+\_\+\+D\+S\+\_\+\+B\+A\+SE}}
@@ -294,7 +337,7 @@ Definition at line 57 of file gdt.\+cpp.
 
 
 
-Definition at line 64 of file gdt.\+cpp.
+Definition at line 68 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_a1d41acb5aa3d1b3690fb1fa6e843f110}\label{namespace_g_d_t_a1d41acb5aa3d1b3690fb1fa6e843f110}} 
 \index{G\+DT@{G\+DT}!U\+S\+E\+R\+\_\+\+D\+S\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY@{U\+S\+E\+R\+\_\+\+D\+S\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY}}
@@ -304,7 +347,7 @@ Definition at line 64 of file gdt.\+cpp.
 
 
 
-Definition at line 70 of file gdt.\+cpp.
+Definition at line 74 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_g_d_t_a65f624eed850cd303b27f014e43576e4}\label{namespace_g_d_t_a65f624eed850cd303b27f014e43576e4}} 
 \index{G\+DT@{G\+DT}!U\+S\+E\+R\+\_\+\+D\+S\+\_\+\+L\+I\+M\+IT@{U\+S\+E\+R\+\_\+\+D\+S\+\_\+\+L\+I\+M\+IT}}
@@ -314,5 +357,5 @@ Definition at line 70 of file gdt.\+cpp.
 
 
 
-Definition at line 58 of file gdt.\+cpp.
+Definition at line 62 of file gdt.\+cpp.
 

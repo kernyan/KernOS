@@ -1,10 +1,15 @@
 \hypertarget{namespace_v_g_a}{}\section{V\+GA Namespace Reference}
 \label{namespace_v_g_a}\index{V\+GA@{V\+GA}}
+
+
+Video Graphics Array namespace.  
+
+
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_v_g_a_1_1_vga}{Vga}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Manages access to \hyperlink{namespace_v_g_a}{V\+GA} driver. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -35,7 +40,7 @@ enum \hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71}{C\+O\+L\+OR} 
 \hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a0bdcb18cd1ed53fe818fb73e9e9589ef}{C\+O\+L\+O\+R\+::\+L\+I\+G\+H\+T\+\_\+\+M\+A\+G\+E\+N\+TA}, 
 \hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a91787c73bd6b00fe2723ed0194921dc4}{C\+O\+L\+O\+R\+::\+L\+I\+G\+H\+T\+\_\+\+B\+R\+O\+WN}, 
 \hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71ab5bf627e448384cf3a4c35121ca6008d}{C\+O\+L\+O\+R\+::\+W\+H\+I\+TE}
- \}
+ \}\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_v_g_a}{V\+GA} text buffer convention. \end{DoxyCompactList}
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -43,6 +48,9 @@ enum \hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71}{C\+O\+L\+OR} 
 \hyperlink{class_v_g_a_1_1_vga}{Vga} \hyperlink{namespace_v_g_a_a97690b6d72f447f3e5e1b744af8f47fe}{Display}
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Video Graphics Array namespace. 
 
 \subsection{Typedef Documentation}
 \mbox{\Hypertarget{namespace_v_g_a_adb876ce4a116e09f39708ca16ef25f74}\label{namespace_v_g_a_adb876ce4a116e09f39708ca16ef25f74}} 
@@ -53,7 +61,7 @@ enum \hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71}{C\+O\+L\+OR} 
 
 
 
-Definition at line 37 of file vga.\+h.
+Definition at line 42 of file vga.\+h.
 
 \mbox{\Hypertarget{namespace_v_g_a_afa3882cddefd08a3f33aaf6fcbcbcd7f}\label{namespace_v_g_a_afa3882cddefd08a3f33aaf6fcbcbcd7f}} 
 \index{V\+GA@{V\+GA}!Vga\+Color@{Vga\+Color}}
@@ -63,7 +71,7 @@ Definition at line 37 of file vga.\+h.
 
 
 
-Definition at line 36 of file vga.\+h.
+Definition at line 41 of file vga.\+h.
 
 
 
@@ -74,6 +82,18 @@ Definition at line 36 of file vga.\+h.
 \subsubsection{\texorpdfstring{C\+O\+L\+OR}{COLOR}}
 {\footnotesize\ttfamily enum \hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71}{V\+G\+A\+::\+C\+O\+L\+OR} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
 
+
+
+\hyperlink{namespace_v_g_a}{V\+GA} text buffer convention. 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/VGA-compatible_text_mode}{\tt V\+GA compatible text mode} \begin{DoxyVerb}________________________________________________
+|         Attribute           |    Character    |
+|   7   |   6 5 4  | 3 2 1 0  | 7 6 5 4 3 2 1 0 |
+| Blink | Bg color | Fg color | Code point      |
+\end{DoxyVerb}
+ 
+\end{DoxySeeAlso}
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{B\+L\+A\+CK@{B\+L\+A\+CK}!V\+GA@{V\+GA}}\index{V\+GA@{V\+GA}!B\+L\+A\+CK@{B\+L\+A\+CK}}}\mbox{\Hypertarget{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a08d0012388564e95c3b4a7407cf04965}\label{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a08d0012388564e95c3b4a7407cf04965}} 
 B\+L\+A\+CK&\\
@@ -142,7 +162,7 @@ W\+H\+I\+TE&\\
 \end{DoxyEnumFields}
 
 
-Definition at line 16 of file vga.\+h.
+Definition at line 21 of file vga.\+h.
 
 
 

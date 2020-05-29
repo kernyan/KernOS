@@ -3,16 +3,14 @@
 {\ttfamily \#include $<$common.\+h$>$}\newline
 {\ttfamily \#include $<$utilities.\+h$>$}\newline
 {\ttfamily \#include $<$registers.\+h$>$}\newline
-Include dependency graph for interrupt.\+h\+:
-\nopagebreak
+Include dependency graph for interrupt.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{interrupt_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,14 +21,14 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_i_n_t_r_p_1_1_mask}{I\+N\+T\+R\+P\+::\+Mask}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Disables interrupt on construction, restores previous interrupt mask on scope exit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
  \hyperlink{namespace_i_n_t_r_p}{I\+N\+T\+RP}
-\item 
+\begin{DoxyCompactList}\small\item\em interrupt namespace \end{DoxyCompactList}\item 
  \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em contains all kernel initialization routines \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -70,4 +68,4 @@ enum \hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94}{I\+N\+T\+
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{namespace_i_n_i_t_aec8e9f01cb09653075b6e610096b3ca9}{I\+N\+I\+T\+::idt} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creates interrupt descriptor table and loads to C\+PU. \end{DoxyCompactList}\end{DoxyCompactItemize}

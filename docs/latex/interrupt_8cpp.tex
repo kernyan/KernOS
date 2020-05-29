@@ -5,72 +5,74 @@
 {\ttfamily \#include $<$utilities.\+h$>$}\newline
 {\ttfamily \#include $<$gdt.\+h$>$}\newline
 {\ttfamily \#include $<$accessright.\+h$>$}\newline
-Include dependency graph for interrupt.\+cpp\+:
-\nopagebreak
+Include dependency graph for interrupt.\+cpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{interrupt_8cpp__incl}
 \end{center}
 \end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{union_i_n_t_r_p_1_1_descriptor_entry}{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}
+\begin{DoxyCompactList}\small\item\em Exception and interrupt gate descriptor entry. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
  \hyperlink{namespace_p_i_c}{P\+IC}
-\item 
+\begin{DoxyCompactList}\small\item\em 8259 Progammable interrupt controller \end{DoxyCompactList}\item 
  \hyperlink{namespace_i_n_t_r_p}{I\+N\+T\+RP}
-\item 
+\begin{DoxyCompactList}\small\item\em interrupt namespace \end{DoxyCompactList}\item 
  \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em contains all kernel initialization routines \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{namespace_p_i_c_a2a04fe95329faacc43f00ad30fe554b9}{P\+I\+C\+::\+Remap} ()
-\item 
-union \hyperlink{namespace_i_n_t_r_p_a626306273908f18155dca2fc7092a8e8}{I\+N\+T\+R\+P\+::\+\_\+\+\_\+attribute\+\_\+\+\_\+} ((packed)) Descriptor\+Entry
-\item 
+\begin{DoxyCompactList}\small\item\em Remap default 8259 \hyperlink{namespace_p_i_c}{P\+IC} interrupt number to new range. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_a91a6a2668bfa9961a9ed265f6ceac47d}{I\+N\+T\+R\+P\+::\+Register\+Handler} (Descriptor\+Entry Idt\+Table\mbox{[}$\,$\mbox{]}, size\+\_\+t Idx, \hyperlink{ktypes_8h_a46bbb9e776183ed6a8eca9d919756434}{func\+\_\+ptr} Handler)
-\item 
+\begin{DoxyCompactList}\small\item\em Creates interrupt descriptor entries in idt\+\_\+table, and loads into C\+PU. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_a7732859732913734b09dd07030c41991}{I\+N\+T\+R\+P\+::\+Unhandled\+Exception} ()
-\item 
+\begin{DoxyCompactList}\small\item\em default unhandled exception handler \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_a13c03019c9d7b305743516310096a82a}{I\+N\+T\+R\+P\+::\+Unhandled\+Interrupt} ()
-\item 
+\begin{DoxyCompactList}\small\item\em default unhandled interrupt handler \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_a4a1a1ff73a4e9bb1c17daf205170daa9}{I\+N\+T\+R\+P\+::\+Set\+Exception\+Handler} (Descriptor\+Entry Idt\+Table\mbox{[}$\,$\mbox{]})
-\item 
+\begin{DoxyCompactList}\small\item\em Installs default exception handler to all exceptions. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_abf09ee877603981fe255cd050cbbb110}{I\+N\+T\+R\+P\+::\+Set\+Interrupt\+Handler} (Descriptor\+Entry Idt\+Table\mbox{[}$\,$\mbox{]})
-\item 
+\begin{DoxyCompactList}\small\item\em Installs default interrupt handler to all interrupts. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_a194f85d6c873615e9125466e3b23c30f}{I\+N\+T\+R\+P\+::\+Load\+\_\+lidt} (void $\ast$lidt\+Address, uint16\+\_\+t Limit\+Use)
-\item 
+\begin{DoxyCompactList}\small\item\em assembly instruction to load idt table to C\+PU \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_a139b273cc1e45d3c2fdfe0d387a98518}{I\+N\+T\+R\+P\+::\+Install\+\_\+idt} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Assigns exception and interrupt handler to idt\+\_\+table, and load to C\+PU. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_i_t_aec8e9f01cb09653075b6e610096b3ca9}{I\+N\+I\+T\+::idt} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creates interrupt descriptor table and loads to C\+PU. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 const uint8\+\_\+t \hyperlink{namespace_p_i_c_aae56765eb24eb75e1498e22c05ac29ee}{P\+I\+C\+::\+M\+A\+S\+T\+E\+R\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT} = 0x20
-\item 
+\begin{DoxyCompactList}\small\item\em P\+I\+C1 command port. \end{DoxyCompactList}\item 
 const uint8\+\_\+t \hyperlink{namespace_p_i_c_a7b19e701740b8b1b19db1f1a14af63a6}{P\+I\+C\+::\+M\+A\+S\+T\+E\+R\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT} = 0x21
-\item 
+\begin{DoxyCompactList}\small\item\em P\+I\+C1 data port. \end{DoxyCompactList}\item 
 const uint8\+\_\+t \hyperlink{namespace_p_i_c_a4cdc374612119bd13b1a28e4cc82864f}{P\+I\+C\+::\+S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT} = 0x\+A0
-\item 
+\begin{DoxyCompactList}\small\item\em P\+I\+C2 command port. \end{DoxyCompactList}\item 
 const uint8\+\_\+t \hyperlink{namespace_p_i_c_a6e06fae4a0139a207173ff2b94be3283}{P\+I\+C\+::\+S\+L\+A\+V\+E\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT} = 0x\+A1
-\item 
+\begin{DoxyCompactList}\small\item\em P\+I\+C2 data port. \end{DoxyCompactList}\item 
 const uint8\+\_\+t \hyperlink{namespace_p_i_c_a63beb0c60fdab8c997f42291a7c2baf5}{P\+I\+C\+::\+I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED} = 0x1
-\item 
+\begin{DoxyCompactList}\small\item\em expect I\+CW 4 \end{DoxyCompactList}\item 
 const uint8\+\_\+t \hyperlink{namespace_p_i_c_a8bb2fc0a772eabbbf6adb002f578290e}{P\+I\+C\+::\+I\+C\+W1\+\_\+\+I\+N\+IT} = 0x10
-\item 
+\begin{DoxyCompactList}\small\item\em initialize \hyperlink{namespace_p_i_c}{P\+IC} \end{DoxyCompactList}\item 
 const uint8\+\_\+t \hyperlink{namespace_p_i_c_aa3b99beaed95a8a51f1e855723e05d48}{P\+I\+C\+::\+I\+C\+W1\+\_\+\+C\+O\+N\+F\+IG} = I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED $\vert$ I\+C\+W1\+\_\+\+I\+N\+IT
 \item 
 const uint8\+\_\+t \hyperlink{namespace_p_i_c_a4eada3349fe4b6740074b1adecdb080b}{P\+I\+C\+::\+I\+C\+W2\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+O\+F\+F\+S\+ET} = 0x20
-\item 
+\begin{DoxyCompactList}\small\item\em I\+VT 0-\/31 are reserved for intel exception. \end{DoxyCompactList}\item 
 const uint8\+\_\+t \hyperlink{namespace_p_i_c_a33b48f750baf61bf1820e5b36ce44a48}{P\+I\+C\+::\+I\+C\+W2\+\_\+\+S\+L\+A\+V\+E\+\_\+\+O\+F\+F\+S\+ET} = 0x28
-\item 
+\begin{DoxyCompactList}\small\item\em master handles I\+R\+Q0-\/7 (I\+VT 0x20), slave handles I\+R\+Q8-\/15 (I\+VT 0x28) \end{DoxyCompactList}\item 
 const uint8\+\_\+t \hyperlink{namespace_p_i_c_ade78b65e9f0859d0d5ca14df7148b305}{P\+I\+C\+::\+I\+C\+W3\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+P\+OS} = 0x4
-\item 
+\begin{DoxyCompactList}\small\item\em tells master that slave is in 3rd position (I\+R\+Q2) \end{DoxyCompactList}\item 
 const uint8\+\_\+t \hyperlink{namespace_p_i_c_abe9c403a4caa1dd885595bd27c803122}{P\+I\+C\+::\+I\+C\+W3\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID} = 0x2
-\item 
+\begin{DoxyCompactList}\small\item\em tells slave that it is assigned as I\+R\+Q2 on master \end{DoxyCompactList}\item 
 const uint8\+\_\+t \hyperlink{namespace_p_i_c_a3d092deea6581b86dddc5fb5c7fde403}{P\+I\+C\+::\+I\+C\+W4\+\_\+\+C\+PU} = 0x1
-\item 
+\begin{DoxyCompactList}\small\item\em 8086/8088 mode \end{DoxyCompactList}\item 
 const uint16\+\_\+t \hyperlink{namespace_i_n_t_r_p_a1022b4dc1d9af1ea393f7f038ff421ce}{I\+N\+T\+R\+P\+::\+I\+D\+T\+\_\+\+E\+N\+T\+R\+I\+ES} = 256
 \end{DoxyCompactItemize}

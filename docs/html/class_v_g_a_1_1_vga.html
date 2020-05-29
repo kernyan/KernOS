@@ -87,6 +87,9 @@ $(document).ready(function(){initNavTree('class_v_g_a_1_1_vga.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Manages access to <a class="el" href="namespace_v_g_a.html" title="Video Graphics Array namespace. ">VGA</a> driver.  
+ <a href="class_v_g_a_1_1_vga.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="vga_8h_source.html">vga.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -94,15 +97,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a40f0b5de5a1687eca3c47738d8232bc7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_g_a_1_1_vga.html#a40f0b5de5a1687eca3c47738d8232bc7">Vga</a> ()</td></tr>
 <tr class="separator:a40f0b5de5a1687eca3c47738d8232bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9977be41b05972a0366f8448b669a71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_g_a_1_1_vga.html#ad9977be41b05972a0366f8448b669a71">Puts</a> (const char *Str)</td></tr>
+<tr class="memdesc:ad9977be41b05972a0366f8448b669a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print string to display.  <a href="#ad9977be41b05972a0366f8448b669a71">More...</a><br /></td></tr>
 <tr class="separator:ad9977be41b05972a0366f8448b669a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29fa008c7c3c71535e0502063451bea7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_g_a_1_1_vga.html#a29fa008c7c3c71535e0502063451bea7">PutChar</a> (<a class="el" href="namespace_v_g_a.html#adb876ce4a116e09f39708ca16ef25f74">VgaChar</a> Char, size_t Row, size_t Col)</td></tr>
+<tr class="memdesc:a29fa008c7c3c71535e0502063451bea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Put single character to display.  <a href="#a29fa008c7c3c71535e0502063451bea7">More...</a><br /></td></tr>
 <tr class="separator:a29fa008c7c3c71535e0502063451bea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af865dcb8b0e73497fa242601619f5570"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_g_a_1_1_vga.html#af865dcb8b0e73497fa242601619f5570">SetColor</a> (<a class="el" href="namespace_v_g_a.html#afa3882cddefd08a3f33aaf6fcbcbcd7f">VgaColor</a> Color)</td></tr>
+<tr class="memdesc:af865dcb8b0e73497fa242601619f5570"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set text color.  <a href="#af865dcb8b0e73497fa242601619f5570">More...</a><br /></td></tr>
 <tr class="separator:af865dcb8b0e73497fa242601619f5570"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00039">39</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
+<div class="textblock"><p>Manages access to <a class="el" href="namespace_v_g_a.html" title="Video Graphics Array namespace. ">VGA</a> driver. </p>
+<p>Provides primitive console-like line printing, newline, and wrap-around </p>
+
+<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00047">47</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a40f0b5de5a1687eca3c47738d8232bc7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40f0b5de5a1687eca3c47738d8232bc7">&#9670;&nbsp;</a></span>Vga()</h2>
@@ -127,7 +135,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00061">61</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00069">69</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
 
 </div>
 </div>
@@ -172,7 +180,17 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00087">87</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
+<p>Put single character to display. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Char</td><td></td></tr>
+    <tr><td class="paramname">Row</td><td></td></tr>
+    <tr><td class="paramname">Col</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00107">107</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
 
 </div>
 </div>
@@ -191,6 +209,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Print string to display. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Str</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="vga_8cpp_source.html#l00054">54</a> of file <a class="el" href="vga_8cpp_source.html">vga.cpp</a>.</p>
 
@@ -220,7 +246,17 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00092">92</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
+<p>Set text color. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">VgaColor</td><td>text color </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71" title="VGA text buffer convention. ">COLOR</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00112">112</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
 
 </div>
 </div>

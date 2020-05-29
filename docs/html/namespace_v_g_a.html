@@ -88,10 +88,14 @@ $(document).ready(function(){initNavTree('namespace_v_g_a.html','');});
 <div class="title">VGA Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Video Graphics Array namespace.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_g_a_1_1_vga.html">Vga</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages access to <a class="el" href="namespace_v_g_a.html" title="Video Graphics Array namespace. ">VGA</a> driver.  <a href="class_v_g_a_1_1_vga.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -124,7 +128,8 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71a91787c73bd6b00fe2723ed0194921dc4">COLOR::LIGHT_BROWN</a>, 
 <a class="el" href="namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71ab5bf627e448384cf3a4c35121ca6008d">COLOR::WHITE</a>
 <br />
- }</td></tr>
+ }<tr class="memdesc:ace1c3156a8d3975ff783ff7a1fa8eb71"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespace_v_g_a.html" title="Video Graphics Array namespace. ">VGA</a> text buffer convention.  <a href="namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:ace1c3156a8d3975ff783ff7a1fa8eb71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -132,7 +137,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a97690b6d72f447f3e5e1b744af8f47fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_v_g_a_1_1_vga.html">Vga</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_v_g_a.html#a97690b6d72f447f3e5e1b744af8f47fe">Display</a></td></tr>
 <tr class="separator:a97690b6d72f447f3e5e1b744af8f47fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Video Graphics Array namespace. </p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="adb876ce4a116e09f39708ca16ef25f74"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb876ce4a116e09f39708ca16ef25f74">&#9670;&nbsp;</a></span>VgaChar</h2>
 
@@ -145,7 +152,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00037">37</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00042">42</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
 
 </div>
 </div>
@@ -161,7 +168,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00036">36</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00041">41</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
 
 </div>
 </div>
@@ -185,6 +192,13 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p><a class="el" href="namespace_v_g_a.html" title="Video Graphics Array namespace. ">VGA</a> text buffer convention. </p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/VGA-compatible_text_mode">VGA compatible text mode</a> <pre class="fragment">________________________________________________
+|         Attribute           |    Character    |
+|   7   |   6 5 4  | 3 2 1 0  | 7 6 5 4 3 2 1 0 |
+| Blink | Bg color | Fg color | Code point      |
+</pre> </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ace1c3156a8d3975ff783ff7a1fa8eb71a08d0012388564e95c3b4a7407cf04965"></a>BLACK&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ace1c3156a8d3975ff783ff7a1fa8eb71a1b3e1ee9bff86431dea6b181365ba65f"></a>BLUE&#160;</td><td class="fielddoc"></td></tr>
@@ -204,7 +218,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="ace1c3156a8d3975ff783ff7a1fa8eb71ab5bf627e448384cf3a4c35121ca6008d"></a>WHITE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00016">16</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vga_8h_source.html#l00021">21</a> of file <a class="el" href="vga_8h_source.html">vga.h</a>.</p>
 
 </div>
 </div>

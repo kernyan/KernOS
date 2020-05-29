@@ -87,49 +87,33 @@ $(document).ready(function(){initNavTree('namespace_k_m.html','');});
 <div class="title">KM Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Kernel memory namespace.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_m_1_1_memory_allocator.html">MemoryAllocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages kernel heap memory.  <a href="class_k_m_1_1_memory_allocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aaeb8403b430af6311bb3c1df6ae520b6"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k_m.html#aaeb8403b430af6311bb3c1df6ae520b6">kmalloc</a> (size_t Size)</td></tr>
+<tr class="memdesc:aaeb8403b430af6311bb3c1df6ae520b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">kernel malloc  <a href="#aaeb8403b430af6311bb3c1df6ae520b6">More...</a><br /></td></tr>
 <tr class="separator:aaeb8403b430af6311bb3c1df6ae520b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08363437a217255f3f9d2a393a54714b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k_m.html#a08363437a217255f3f9d2a393a54714b">free</a> (void *Ptr)</td></tr>
+<tr class="memdesc:a08363437a217255f3f9d2a393a54714b"><td class="mdescLeft">&#160;</td><td class="mdescRight">kernel free  <a href="#a08363437a217255f3f9d2a393a54714b">More...</a><br /></td></tr>
 <tr class="separator:a08363437a217255f3f9d2a393a54714b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4d93384d0523f6f9ae8fd51aca12199"><td class="memItemLeft" align="right" valign="top">struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k_m.html#af4d93384d0523f6f9ae8fd51aca12199">__attribute__</a> ((aligned(sizeof(uint32_t)))) Header</td></tr>
-<tr class="separator:af4d93384d0523f6f9ae8fd51aca12199"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ff0d2f89e64f1d4a08bf40e8fa096cc"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k_m.html#a7ff0d2f89e64f1d4a08bf40e8fa096cc">RoundHeader</a> (uint32_t Size)</td></tr>
-<tr class="separator:a7ff0d2f89e64f1d4a08bf40e8fa096cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ab71afb37d9950edf604f583b657905aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k_m_1_1_memory_allocator.html">MemoryAllocator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k_m.html#ab71afb37d9950edf604f583b657905aa">mem_alloc</a></td></tr>
 <tr class="separator:ab71afb37d9950edf604f583b657905aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="af4d93384d0523f6f9ae8fd51aca12199"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4d93384d0523f6f9ae8fd51aca12199">&#9670;&nbsp;</a></span>__attribute__()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct KM::__attribute__ </td>
-          <td>(</td>
-          <td class="paramtype">(aligned(sizeof(uint32_t)))&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="memoryallocator_8h_source.html#l00023">23</a> of file <a class="el" href="memoryallocator_8h_source.html">memoryallocator.h</a>.</p>
-
-</div>
-</div>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Kernel memory namespace. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a08363437a217255f3f9d2a393a54714b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a08363437a217255f3f9d2a393a54714b">&#9670;&nbsp;</a></span>free()</h2>
 
@@ -145,6 +129,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>kernel free </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Ptr</td><td>to memory to be returned </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="memoryallocator_8cpp_source.html#l00071">71</a> of file <a class="el" href="memoryallocator_8cpp_source.html">memoryallocator.cpp</a>.</p>
 
@@ -166,27 +158,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>kernel malloc </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Size</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Ptr to allocated memory </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="memoryallocator_8cpp_source.html#l00027">27</a> of file <a class="el" href="memoryallocator_8cpp_source.html">memoryallocator.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a7ff0d2f89e64f1d4a08bf40e8fa096cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ff0d2f89e64f1d4a08bf40e8fa096cc">&#9670;&nbsp;</a></span>RoundHeader()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint32_t KM::RoundHeader </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>Size</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="memoryallocator_8h_source.html#l00036">36</a> of file <a class="el" href="memoryallocator_8h_source.html">memoryallocator.h</a>.</p>
 
 </div>
 </div>

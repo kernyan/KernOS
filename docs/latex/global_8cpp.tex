@@ -2,8 +2,7 @@
 \label{global_8cpp}\index{O\+S/kernel/arch/x86/global.\+cpp@{O\+S/kernel/arch/x86/global.\+cpp}}
 {\ttfamily \#include $<$global.\+h$>$}\newline
 {\ttfamily \#include $<$ktypes.\+h$>$}\newline
-Include dependency graph for global.\+cpp\+:
-\nopagebreak
+Include dependency graph for global.\+cpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -14,19 +13,19 @@ Include dependency graph for global.\+cpp\+:
 \begin{DoxyCompactItemize}
 \item 
  \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em contains all kernel initialization routines \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{namespace_i_n_i_t_a6608557e41ad37cdb4a408e2f05c9783}{I\+N\+I\+T\+::ctors} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em calls constructors on all global objects \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{ktypes_8h_a46bbb9e776183ed6a8eca9d919756434}{func\+\_\+ptr} \hyperlink{global_8cpp_a00261bc929e9f609199f22bc18ff9d95}{start\+\_\+ctors}
-\item 
+\begin{DoxyCompactList}\small\item\em starting address of pointers to global constructors \end{DoxyCompactList}\item 
 \hyperlink{ktypes_8h_a46bbb9e776183ed6a8eca9d919756434}{func\+\_\+ptr} \hyperlink{global_8cpp_a81e8429b21b9b2903ec5fa67d3328eae}{end\+\_\+ctors}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em ending address of pointers to global constructors \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Variable Documentation}
@@ -36,9 +35,18 @@ void \hyperlink{namespace_i_n_i_t_a6608557e41ad37cdb4a408e2f05c9783}{I\+N\+I\+T\
 \subsubsection{\texorpdfstring{end\+\_\+ctors}{end\_ctors}}
 {\footnotesize\ttfamily \hyperlink{ktypes_8h_a46bbb9e776183ed6a8eca9d919756434}{func\+\_\+ptr} end\+\_\+ctors}
 
-\mbox{\Hypertarget{global_8cpp_a00261bc929e9f609199f22bc18ff9d95}\label{global_8cpp_a00261bc929e9f609199f22bc18ff9d95}} 
+
+
+ending address of pointers to global constructors 
+
+symbol defined in \hyperlink{linker_8ld}{linker.\+ld}. \mbox{\Hypertarget{global_8cpp_a00261bc929e9f609199f22bc18ff9d95}\label{global_8cpp_a00261bc929e9f609199f22bc18ff9d95}} 
 \index{global.\+cpp@{global.\+cpp}!start\+\_\+ctors@{start\+\_\+ctors}}
 \index{start\+\_\+ctors@{start\+\_\+ctors}!global.\+cpp@{global.\+cpp}}
 \subsubsection{\texorpdfstring{start\+\_\+ctors}{start\_ctors}}
 {\footnotesize\ttfamily \hyperlink{ktypes_8h_a46bbb9e776183ed6a8eca9d919756434}{func\+\_\+ptr} start\+\_\+ctors}
 
+
+
+starting address of pointers to global constructors 
+
+symbol defined in \hyperlink{linker_8ld}{linker.\+ld}. 

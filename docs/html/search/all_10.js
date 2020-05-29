@@ -8,7 +8,7 @@ var searchData=
   ['setexceptionhandler',['SetExceptionHandler',['../namespace_i_n_t_r_p.html#a4a1a1ff73a4e9bb1c17daf205170daa9',1,'INTRP']]],
   ['setglobaldescriptorentry',['SetGlobalDescriptorEntry',['../namespace_g_d_t.html#a5d0041eb890e6c1f40d8a919494c2354',1,'GDT']]],
   ['setinterrupthandler',['SetInterruptHandler',['../namespace_i_n_t_r_p.html#abf09ee877603981fe255cd050cbbb110',1,'INTRP']]],
-  ['sf',['SF',['../namespace_f_l_a_g_s.html#a14e24f40a6d353d39c36f2eb221db9e9aa824ab195ddb83a9e5a8894457e1e6de',1,'FLAGS']]],
+  ['sf',['SF',['../namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95aa824ab195ddb83a9e5a8894457e1e6de',1,'FLAGS']]],
   ['simd_5ffp_5fxf_5ffault',['SIMD_FP_XF_FAULT',['../namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a7f928e26348ad94a198cdb0b8758068b',1,'INTRP']]],
   ['slave_5fcommand_5fport',['SLAVE_COMMAND_PORT',['../namespace_p_i_c.html#a4cdc374612119bd13b1a28e4cc82864f',1,'PIC']]],
   ['slave_5fdata_5fport',['SLAVE_DATA_PORT',['../namespace_p_i_c.html#a6e06fae4a0139a207173ff2b94be3283',1,'PIC']]],

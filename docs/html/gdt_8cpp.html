@@ -112,27 +112,35 @@ Include dependency graph for gdt.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_g_d_t_1_1_gdt_entry.html">GDT::GdtEntry</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global descriptor table entry.  <a href="union_g_d_t_1_1_gdt_entry.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_d_t_1_1_selector.html">GDT::Selector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">convenience structure used to set bits of <a class="el" href="union_g_d_t_1_1_gdt_entry.html" title="Global descriptor table entry. ">GdtEntry</a>  <a href="struct_g_d_t_1_1_selector.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespace_g_d_t"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_d_t.html">GDT</a></td></tr>
+<tr class="memdesc:namespace_g_d_t"><td class="mdescLeft">&#160;</td><td class="mdescRight">global descriptor table <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespace_i_n_i_t"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_i_t.html">INIT</a></td></tr>
+<tr class="memdesc:namespace_i_n_i_t"><td class="mdescLeft">&#160;</td><td class="mdescRight">contains all kernel initialization routines <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aafeef73468f65116a440104dd6359e4c"><td class="memItemLeft" align="right" valign="top">union&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_d_t.html#aafeef73468f65116a440104dd6359e4c">GDT::__attribute__</a> ((packed)) GdtEntry</td></tr>
-<tr class="separator:aafeef73468f65116a440104dd6359e4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d0041eb890e6c1f40d8a919494c2354"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_d_t.html#a5d0041eb890e6c1f40d8a919494c2354">GDT::SetGlobalDescriptorEntry</a> (GdtEntry GdtTable[], const Selector SelectorTable[])</td></tr>
+<tr class="memdesc:a5d0041eb890e6c1f40d8a919494c2354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set entries in GdtTable from array of <a class="el" href="struct_g_d_t_1_1_selector.html" title="convenience structure used to set bits of GdtEntry ">Selector</a>.  <a href="namespace_g_d_t.html#a5d0041eb890e6c1f40d8a919494c2354">More...</a><br /></td></tr>
 <tr class="separator:a5d0041eb890e6c1f40d8a919494c2354"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3660563d28e3bab08ddac58ca6844b58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_d_t.html#a3660563d28e3bab08ddac58ca6844b58">GDT::Load_gdt</a> (void *gdtAddress, uint16_t LimitUse)</td></tr>
+<tr class="memdesc:a3660563d28e3bab08ddac58ca6844b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">assembly instruction to load gdt table to CPU  <a href="namespace_g_d_t.html#a3660563d28e3bab08ddac58ca6844b58">More...</a><br /></td></tr>
 <tr class="separator:a3660563d28e3bab08ddac58ca6844b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a174feb7c5a037cc991bf4eb27c256366"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_d_t.html#a174feb7c5a037cc991bf4eb27c256366">GDT::Install_gdt</a> ()</td></tr>
+<tr class="memdesc:a174feb7c5a037cc991bf4eb27c256366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates global descriptor entries in gdt_table, and loads into CPU.  <a href="namespace_g_d_t.html#a174feb7c5a037cc991bf4eb27c256366">More...</a><br /></td></tr>
 <tr class="separator:a174feb7c5a037cc991bf4eb27c256366"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3462d7bc51bce77cc240d05b62b1b777"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_i_t.html#a3462d7bc51bce77cc240d05b62b1b777">INIT::gdt</a> ()</td></tr>
+<tr class="memdesc:a3462d7bc51bce77cc240d05b62b1b777"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates global descriptor table and loads it into CPU  <a href="namespace_i_n_i_t.html#a3462d7bc51bce77cc240d05b62b1b777">More...</a><br /></td></tr>
 <tr class="separator:a3462d7bc51bce77cc240d05b62b1b777"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>

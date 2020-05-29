@@ -2,6 +2,11 @@
 \label{class_v_g_a_1_1_vga}\index{V\+G\+A\+::\+Vga@{V\+G\+A\+::\+Vga}}
 
 
+Manages access to \hyperlink{namespace_v_g_a}{V\+GA} driver.  
+
+
+
+
 {\ttfamily \#include $<$vga.\+h$>$}
 
 \subsection*{Public Member Functions}
@@ -10,17 +15,19 @@
 \hyperlink{class_v_g_a_1_1_vga_a40f0b5de5a1687eca3c47738d8232bc7}{Vga} ()
 \item 
 void \hyperlink{class_v_g_a_1_1_vga_ad9977be41b05972a0366f8448b669a71}{Puts} (const char $\ast$Str)
-\item 
+\begin{DoxyCompactList}\small\item\em Print string to display. \end{DoxyCompactList}\item 
 void \hyperlink{class_v_g_a_1_1_vga_a29fa008c7c3c71535e0502063451bea7}{Put\+Char} (\hyperlink{namespace_v_g_a_adb876ce4a116e09f39708ca16ef25f74}{Vga\+Char} Char, size\+\_\+t Row, size\+\_\+t Col)
-\item 
+\begin{DoxyCompactList}\small\item\em Put single character to display. \end{DoxyCompactList}\item 
 void \hyperlink{class_v_g_a_1_1_vga_af865dcb8b0e73497fa242601619f5570}{Set\+Color} (\hyperlink{namespace_v_g_a_afa3882cddefd08a3f33aaf6fcbcbcd7f}{Vga\+Color} Color)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Set text color. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Manages access to \hyperlink{namespace_v_g_a}{V\+GA} driver. 
 
+Provides primitive console-\/like line printing, newline, and wrap-\/around 
 
-Definition at line 39 of file vga.\+h.
+Definition at line 47 of file vga.\+h.
 
 
 
@@ -33,7 +40,7 @@ Definition at line 39 of file vga.\+h.
 
 
 
-Definition at line 61 of file vga.\+h.
+Definition at line 69 of file vga.\+h.
 
 
 
@@ -46,7 +53,20 @@ Definition at line 61 of file vga.\+h.
 
 
 
-Definition at line 87 of file vga.\+h.
+Put single character to display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Char} & \\
+\hline
+{\em Row} & \\
+\hline
+{\em Col} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 107 of file vga.\+h.
 
 \mbox{\Hypertarget{class_v_g_a_1_1_vga_ad9977be41b05972a0366f8448b669a71}\label{class_v_g_a_1_1_vga_ad9977be41b05972a0366f8448b669a71}} 
 \index{V\+G\+A\+::\+Vga@{V\+G\+A\+::\+Vga}!Puts@{Puts}}
@@ -54,6 +74,15 @@ Definition at line 87 of file vga.\+h.
 \subsubsection{\texorpdfstring{Puts()}{Puts()}}
 {\footnotesize\ttfamily void V\+G\+A\+::\+Vga\+::\+Puts (\begin{DoxyParamCaption}\item[{const char $\ast$}]{Str }\end{DoxyParamCaption})}
 
+
+
+Print string to display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Str} & \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line 54 of file vga.\+cpp.
@@ -66,7 +95,22 @@ Definition at line 54 of file vga.\+cpp.
 
 
 
-Definition at line 92 of file vga.\+h.
+Set text color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vga\+Color} & text color \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71}{C\+O\+L\+OR} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 112 of file vga.\+h.
 
 
 

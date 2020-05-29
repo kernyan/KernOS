@@ -1,21 +1,29 @@
 \hypertarget{namespace_i_n_i_t}{}\section{I\+N\+IT Namespace Reference}
 \label{namespace_i_n_i_t}\index{I\+N\+IT@{I\+N\+IT}}
+
+
+contains all kernel initialization routines  
+
+
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{namespace_i_n_i_t_a8928ddbb4ca671dfe1c740da380fa0c4}{S\+SE} ()
-\item 
+\begin{DoxyCompactList}\small\item\em initialize Streaming Single Instruction Multiple Data (S\+I\+MD) Extensions, (S\+SE) \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_i_t_a3462d7bc51bce77cc240d05b62b1b777}{gdt} ()
-\item 
+\begin{DoxyCompactList}\small\item\em creates global descriptor table and loads it into C\+PU \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_i_t_a6608557e41ad37cdb4a408e2f05c9783}{ctors} ()
-\item 
+\begin{DoxyCompactList}\small\item\em calls constructors on all global objects \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_i_t_aec8e9f01cb09653075b6e610096b3ca9}{idt} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Creates interrupt descriptor table and loads to C\+PU. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_i_t_ac811302ce0948a6a097b445b811f9c14}{K\+M\+A\+L\+L\+OC} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Provides memory allocator with range of reserved memory address to manage. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_i_t_abae5789d80f8edd37455f3b167779654}{V\+GA} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Clear \hyperlink{namespace_v_g_a}{V\+GA} display, and print kernel banner. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+contains all kernel initialization routines 
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{namespace_i_n_i_t_a6608557e41ad37cdb4a408e2f05c9783}\label{namespace_i_n_i_t_a6608557e41ad37cdb4a408e2f05c9783}} 
@@ -26,7 +34,16 @@ void \hyperlink{namespace_i_n_i_t_abae5789d80f8edd37455f3b167779654}{V\+GA} ()
 
 
 
-Definition at line 14 of file global.\+cpp.
+calls constructors on all global objects 
+
+as kernel is linked with -\/nostdlib, \+\_\+\+\_\+do\+\_\+global\+\_\+ctors\+\_\+aux are not called thus we have to call global constructors ourselves
+
+\begin{DoxySeeAlso}{See also}
+\href{https://github.com/gcc-mirror/gcc/blob/master/libgcc/crtstuff.c}{\tt crtstuff.\+c} 
+\end{DoxySeeAlso}
+
+
+Definition at line 29 of file global.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_i_t_a3462d7bc51bce77cc240d05b62b1b777}\label{namespace_i_n_i_t_a3462d7bc51bce77cc240d05b62b1b777}} 
 \index{I\+N\+IT@{I\+N\+IT}!gdt@{gdt}}
@@ -36,7 +53,14 @@ Definition at line 14 of file global.\+cpp.
 
 
 
-Definition at line 151 of file gdt.\+cpp.
+creates global descriptor table and loads it into C\+PU 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespace_g_d_t_a174feb7c5a037cc991bf4eb27c256366}{G\+D\+T\+::\+Install\+\_\+gdt} 
+\end{DoxySeeAlso}
+
+
+Definition at line 172 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_i_t_aec8e9f01cb09653075b6e610096b3ca9}\label{namespace_i_n_i_t_aec8e9f01cb09653075b6e610096b3ca9}} 
 \index{I\+N\+IT@{I\+N\+IT}!idt@{idt}}
@@ -46,7 +70,17 @@ Definition at line 151 of file gdt.\+cpp.
 
 
 
-Definition at line 192 of file interrupt.\+cpp.
+Creates interrupt descriptor table and loads to C\+PU. 
+
+1) Remaps Programmable interrupt controller\textquotesingle{}s interrupt number~\newline
+2) Assigns exceptions and interrupt handlers \begin{DoxySeeAlso}{See also}
+\hyperlink{namespace_p_i_c_a2a04fe95329faacc43f00ad30fe554b9}{P\+I\+C\+::\+Remap} 
+
+\hyperlink{namespace_i_n_t_r_p_a139b273cc1e45d3c2fdfe0d387a98518}{I\+N\+T\+R\+P\+::\+Install\+\_\+idt} 
+\end{DoxySeeAlso}
+
+
+Definition at line 224 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_i_t_ac811302ce0948a6a097b445b811f9c14}\label{namespace_i_n_i_t_ac811302ce0948a6a097b445b811f9c14}} 
 \index{I\+N\+IT@{I\+N\+IT}!K\+M\+A\+L\+L\+OC@{K\+M\+A\+L\+L\+OC}}
@@ -56,7 +90,13 @@ Definition at line 192 of file interrupt.\+cpp.
 
 
 
-Definition at line 112 of file memoryallocator.\+cpp.
+Provides memory allocator with range of reserved memory address to manage. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]don\textquotesingle{}t hardcode heap size \end{DoxyRefDesc}
+
+
+Definition at line 115 of file memoryallocator.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_i_t_a8928ddbb4ca671dfe1c740da380fa0c4}\label{namespace_i_n_i_t_a8928ddbb4ca671dfe1c740da380fa0c4}} 
 \index{I\+N\+IT@{I\+N\+IT}!S\+SE@{S\+SE}}
@@ -66,13 +106,40 @@ Definition at line 112 of file memoryallocator.\+cpp.
 
 
 
-Definition at line 12 of file cpu.\+cpp.
+initialize Streaming Single Instruction Multiple Data (S\+I\+MD) Extensions, (S\+SE) 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions}{\tt Streaming S\+I\+MD Extensions}
+
+I\+A-\/32 Intel Architecture Software Developer\textquotesingle{}s Manual Volume 3\+: System Programming Guide -\/ Section 12.\+1.\+4 Initialization of the S\+S\+E/\+S\+S\+E2/\+S\+S\+E3 Extensions 
+
+\href{https://en.wikipedia.org/wiki/Control_register#CR0}{\tt cr0} 
+
+\href{https://en.wikipedia.org/wiki/Control_register#CR4}{\tt cr4}
+\end{DoxySeeAlso}
+\begin{DoxyVerb}CPU control register 0
+| bit | val | description                           |
+|   1 |  MP | required for IA-32 support of SSE     |
+|   2 |  EM | clear to disable emulation of x87 FPU |
+
+CPU control register 4
+| bit |        val | description                                                                          |
+|   9 |     OSFXSR | set when OS provides facilities for saving/restoring SSE states using FXSAVE/FXRSTOR |
+|  10 | OSXMMEXCPT | set when OS provides SIMD floating point exception, #XF handler                      |
+\end{DoxyVerb}
+ 
+
+Definition at line 30 of file cpu.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_i_t_abae5789d80f8edd37455f3b167779654}\label{namespace_i_n_i_t_abae5789d80f8edd37455f3b167779654}} 
 \index{I\+N\+IT@{I\+N\+IT}!V\+GA@{V\+GA}}
 \index{V\+GA@{V\+GA}!I\+N\+IT@{I\+N\+IT}}
 \subsubsection{\texorpdfstring{V\+G\+A()}{VGA()}}
 {\footnotesize\ttfamily void I\+N\+I\+T\+::\+V\+GA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear \hyperlink{namespace_v_g_a}{V\+GA} display, and print kernel banner. 
 
 
 

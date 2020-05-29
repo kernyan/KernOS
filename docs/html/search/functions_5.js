@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['kernel_5fmain',['kernel_main',['../kernel_8cpp.html#ada8402e0c504af8cafef5cc76c076003',1,'kernel.cpp']]],
-  ['kmalloc',['kmalloc',['../namespace_k_m.html#aaeb8403b430af6311bb3c1df6ae520b6',1,'KM::kmalloc()'],['../namespace_i_n_i_t.html#ac811302ce0948a6a097b445b811f9c14',1,'INIT::KMALLOC()']]],
-  ['kprintf',['kprintf',['../kprintf_8h.html#ae610f6b2bc90ea3eed7852d591c48116',1,'kprintf(const char *Str):&#160;kprintf.cpp'],['../kprintf_8cpp.html#ae610f6b2bc90ea3eed7852d591c48116',1,'kprintf(const char *Str):&#160;kprintf.cpp']]]
+  ['load_5fgdt',['Load_gdt',['../namespace_g_d_t.html#a3660563d28e3bab08ddac58ca6844b58',1,'GDT']]],
+  ['load_5flidt',['Load_lidt',['../namespace_i_n_t_r_p.html#a194f85d6c873615e9125466e3b23c30f',1,'INTRP']]]
 ];

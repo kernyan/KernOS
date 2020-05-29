@@ -4,7 +4,7 @@ var NAVTREE =
     [ "KernOS Documentation", "index.html", [
       [ "How to use", "index.html#intro_sec", null ]
     ] ],
-    [ "References", "md__o_s_references__r_e_a_d_m_e.html", null ],
+    [ "Todo List", "todo.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -41,7 +41,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "accessright_8h.html",
-"vga_8cpp_source.html"
+"union_i_n_t_r_p_1_1_descriptor_entry.html#a431c102e5f096230dbe44160e7a611c1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

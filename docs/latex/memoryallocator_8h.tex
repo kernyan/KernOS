@@ -1,16 +1,14 @@
 \hypertarget{memoryallocator_8h}{}\section{O\+S/include/memoryallocator.h File Reference}
 \label{memoryallocator_8h}\index{O\+S/include/memoryallocator.\+h@{O\+S/include/memoryallocator.\+h}}
 {\ttfamily \#include $<$common.\+h$>$}\newline
-Include dependency graph for memoryallocator.\+h\+:
-\nopagebreak
+Include dependency graph for memoryallocator.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=346pt]{memoryallocator_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,27 +19,23 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_k_m_1_1_memory_allocator}{K\+M\+::\+Memory\+Allocator}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Manages kernel heap memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
  \hyperlink{namespace_k_m}{KM}
-\item 
+\begin{DoxyCompactList}\small\item\em Kernel memory namespace. \end{DoxyCompactList}\item 
  \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em contains all kernel initialization routines \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void $\ast$ \hyperlink{namespace_k_m_aaeb8403b430af6311bb3c1df6ae520b6}{K\+M\+::kmalloc} (size\+\_\+t Size)
-\item 
+\begin{DoxyCompactList}\small\item\em kernel malloc \end{DoxyCompactList}\item 
 void \hyperlink{namespace_k_m_a08363437a217255f3f9d2a393a54714b}{K\+M\+::free} (void $\ast$Ptr)
-\item 
-struct \hyperlink{namespace_k_m_af4d93384d0523f6f9ae8fd51aca12199}{K\+M\+::\+\_\+\+\_\+attribute\+\_\+\+\_\+} ((aligned(sizeof(uint32\+\_\+t)))) Header
-\item 
-constexpr uint32\+\_\+t \hyperlink{namespace_k_m_a7ff0d2f89e64f1d4a08bf40e8fa096cc}{K\+M\+::\+Round\+Header} (uint32\+\_\+t Size)
-\item 
+\begin{DoxyCompactList}\small\item\em kernel free \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_i_t_ac811302ce0948a6a097b445b811f9c14}{I\+N\+I\+T\+::\+K\+M\+A\+L\+L\+OC} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Provides memory allocator with range of reserved memory address to manage. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 

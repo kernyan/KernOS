@@ -86,25 +86,35 @@ $(document).ready(function(){initNavTree('struct_g_d_t_1_1_selector.html','');})
 <div class="title">GDT::Selector Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>convenience structure used to set bits of <a class="el" href="union_g_d_t_1_1_gdt_entry.html" title="Global descriptor table entry. ">GdtEntry</a>  
+ <a href="struct_g_d_t_1_1_selector.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a7bff1504d5c83c498334332274bef26d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_d_t.html#af2b09941ee46a489ebaccfed5c839154">Segment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_d_t_1_1_selector.html#a7bff1504d5c83c498334332274bef26d">m_Seg</a></td></tr>
+<tr class="memdesc:a7bff1504d5c83c498334332274bef26d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Segment enum.  <a href="#a7bff1504d5c83c498334332274bef26d">More...</a><br /></td></tr>
 <tr class="separator:a7bff1504d5c83c498334332274bef26d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc557df8df987b1dc2d523156ea0ef85"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_d_t_1_1_selector.html#abc557df8df987b1dc2d523156ea0ef85">m_Offset</a></td></tr>
+<tr class="memdesc:abc557df8df987b1dc2d523156ea0ef85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Segment byte position in gdt_table.  <a href="#abc557df8df987b1dc2d523156ea0ef85">More...</a><br /></td></tr>
 <tr class="separator:abc557df8df987b1dc2d523156ea0ef85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac98d387038fb7ad18aab22332cb6350c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_d_t_1_1_selector.html#ac98d387038fb7ad18aab22332cb6350c">m_Base</a></td></tr>
+<tr class="memdesc:ac98d387038fb7ad18aab22332cb6350c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base address of segment.  <a href="#ac98d387038fb7ad18aab22332cb6350c">More...</a><br /></td></tr>
 <tr class="separator:ac98d387038fb7ad18aab22332cb6350c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a954aaf8e76a1f1aaaba2a7ca1b558e9f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_d_t_1_1_selector.html#a954aaf8e76a1f1aaaba2a7ca1b558e9f">m_Limit</a></td></tr>
+<tr class="memdesc:a954aaf8e76a1f1aaaba2a7ca1b558e9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limit address of segment.  <a href="#a954aaf8e76a1f1aaaba2a7ca1b558e9f">More...</a><br /></td></tr>
 <tr class="separator:a954aaf8e76a1f1aaaba2a7ca1b558e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeba15cbab5fa33e66d06b136ece34ed3"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_d_t_1_1_selector.html#aeba15cbab5fa33e66d06b136ece34ed3">m_Access</a></td></tr>
+<tr class="memdesc:aeba15cbab5fa33e66d06b136ece34ed3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access right bytes.  <a href="#aeba15cbab5fa33e66d06b136ece34ed3">More...</a><br /></td></tr>
 <tr class="separator:aeba15cbab5fa33e66d06b136ece34ed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b5d40047c58c483e74a9037418c2203"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_d_t_1_1_selector.html#a7b5d40047c58c483e74a9037418c2203">m_Granularity</a></td></tr>
+<tr class="memdesc:a7b5d40047c58c483e74a9037418c2203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Granularity setting.  <a href="#a7b5d40047c58c483e74a9037418c2203">More...</a><br /></td></tr>
 <tr class="separator:a7b5d40047c58c483e74a9037418c2203"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00044">44</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
+<div class="textblock"><p>convenience structure used to set bits of <a class="el" href="union_g_d_t_1_1_gdt_entry.html" title="Global descriptor table entry. ">GdtEntry</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00048">48</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="aeba15cbab5fa33e66d06b136ece34ed3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeba15cbab5fa33e66d06b136ece34ed3">&#9670;&nbsp;</a></span>m_Access</h2>
@@ -118,7 +128,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00050">50</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
+<p>Access right bytes. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespace_a_r.html" title="Access right byte convention - part of descriptor entry. ">AR</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00054">54</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
 
 </div>
 </div>
@@ -134,7 +147,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00048">48</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
+<p>Base address of segment. </p>
+
+<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00052">52</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
 
 </div>
 </div>
@@ -150,7 +165,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00051">51</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
+<p>Granularity setting. </p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Global_Descriptor_Table">bit 16-23</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00055">55</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
 
 </div>
 </div>
@@ -166,7 +184,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00049">49</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
+<p>Limit address of segment. </p>
+
+<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00053">53</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
 
 </div>
 </div>
@@ -182,7 +202,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00047">47</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
+<p>Segment byte position in gdt_table. </p>
+
+<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00051">51</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
 
 </div>
 </div>
@@ -198,7 +220,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00046">46</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
+<p>Segment enum. </p>
+
+<p class="definition">Definition at line <a class="el" href="gdt_8cpp_source.html#l00050">50</a> of file <a class="el" href="gdt_8cpp_source.html">gdt.cpp</a>.</p>
 
 </div>
 </div>

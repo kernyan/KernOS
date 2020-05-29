@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['putchar',['PutChar',['../class_v_g_a_1_1_vga.html#a29fa008c7c3c71535e0502063451bea7',1,'VGA::Vga']]],
-  ['puts',['Puts',['../class_v_g_a_1_1_vga.html#ad9977be41b05972a0366f8448b669a71',1,'VGA::Vga']]]
+  ['registerhandler',['RegisterHandler',['../namespace_i_n_t_r_p.html#a91a6a2668bfa9961a9ed265f6ceac47d',1,'INTRP']]],
+  ['remap',['Remap',['../namespace_p_i_c.html#a2a04fe95329faacc43f00ad30fe554b9',1,'PIC']]]
 ];

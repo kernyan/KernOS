@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mask',['Mask',['../class_i_n_t_r_p_1_1_mask.html#addd528b308ed524deeac0c632e07d467',1,'INTRP::Mask']]]
+  ['putchar',['PutChar',['../class_v_g_a_1_1_vga.html#a29fa008c7c3c71535e0502063451bea7',1,'VGA::Vga']]],
+  ['puts',['Puts',['../class_v_g_a_1_1_vga.html#ad9977be41b05972a0366f8448b669a71',1,'VGA::Vga']]]
 ];

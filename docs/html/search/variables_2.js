@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gdt_5fentries',['GDT_ENTRIES',['../namespace_g_d_t.html#aab056cef2c3ca53ed66a58f7ae7edfce',1,'GDT']]]
+  ['display',['Display',['../namespace_v_g_a.html#a97690b6d72f447f3e5e1b744af8f47fe',1,'VGA']]]
 ];

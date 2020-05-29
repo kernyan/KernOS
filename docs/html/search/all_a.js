@@ -7,6 +7,10 @@ var searchData=
   ['light_5fgrey',['LIGHT_GREY',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71a0e9d5dda7abbbd2114b24cacd5a6b7af',1,'VGA']]],
   ['light_5fmagenta',['LIGHT_MAGENTA',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71a0bdcb18cd1ed53fe818fb73e9e9589ef',1,'VGA']]],
   ['light_5fred',['LIGHT_RED',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71a72722ff9e2a9326d5813c4045d3b4a23',1,'VGA']]],
+  ['limithighandgranularity',['LimitHighAndGranularity',['../union_g_d_t_1_1_gdt_entry.html#a6d6f4070f4f1f45de0a52cb0d3b85fd5',1,'GDT::GdtEntry']]],
+  ['limitlow',['LimitLow',['../union_g_d_t_1_1_gdt_entry.html#aa14653f9f38fbb5e60a917afb5f744fc',1,'GDT::GdtEntry']]],
+  ['linker_2eld',['linker.ld',['../linker_8ld.html',1,'']]],
   ['load_5fgdt',['Load_gdt',['../namespace_g_d_t.html#a3660563d28e3bab08ddac58ca6844b58',1,'GDT']]],
-  ['load_5flidt',['Load_lidt',['../namespace_i_n_t_r_p.html#a194f85d6c873615e9125466e3b23c30f',1,'INTRP']]]
+  ['load_5flidt',['Load_lidt',['../namespace_i_n_t_r_p.html#a194f85d6c873615e9125466e3b23c30f',1,'INTRP']]],
+  ['low',['Low',['../union_g_d_t_1_1_gdt_entry.html#a92c8422ad96383d5c548f8e022a99278',1,'GDT::GdtEntry::Low()'],['../union_i_n_t_r_p_1_1_descriptor_entry.html#ab3b735689731cd8b58ae8f9bf0f9fc42',1,'INTRP::DescriptorEntry::Low()']]]
 ];

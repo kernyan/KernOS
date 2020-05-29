@@ -2,28 +2,39 @@
 \label{class_k_m_1_1_memory_allocator}\index{K\+M\+::\+Memory\+Allocator@{K\+M\+::\+Memory\+Allocator}}
 
 
+Manages kernel heap memory.  
+
+
+
+
 {\ttfamily \#include $<$memoryallocator.\+h$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{class_k_m_1_1_memory_allocator_acf0f1026d4b06044f1e4f21735ce6e5a}{Initialize} (const uint32\+\_\+t Start\+Add, const uint32\+\_\+t End\+Add)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Points to range of reserved physical memory for heap allocator use. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 uint32\+\_\+t \hyperlink{class_k_m_1_1_memory_allocator_a7c20d888ecece0f856a4300f3134a5b8}{m\+\_\+\+Start\+Add} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em range of reserved address for kernel heap memory \end{DoxyCompactList}\item 
 uint32\+\_\+t \hyperlink{class_k_m_1_1_memory_allocator_aebd2cb25d4536312f915b1d65d724934}{m\+\_\+\+End\+Add} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em range of reserved address for kernel heap memory \end{DoxyCompactList}\item 
 Header \hyperlink{class_k_m_1_1_memory_allocator_aa69b432479e7d67731ff420ce9b904a4}{m\+\_\+\+Base} \{nullptr, 0\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em list start \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Manages kernel heap memory. 
+
+1) Keeps track of linked list of free memory,~\newline
+2) allocates requested memory,~\newline
+3) and coalesces freed memory if adjacent with other free block \begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]figure out a way to enforce singleton without heap alloc, or function static variable \end{DoxyRefDesc}
 
 
-Definition at line 41 of file memoryallocator.\+h.
+Definition at line 54 of file memoryallocator.\+h.
 
 
 
@@ -34,6 +45,17 @@ Definition at line 41 of file memoryallocator.\+h.
 \subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
 {\footnotesize\ttfamily void K\+M\+::\+Memory\+Allocator\+::\+Initialize (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{Start\+Add,  }\item[{const uint32\+\_\+t}]{End\+Add }\end{DoxyParamCaption})}
 
+
+
+Points to range of reserved physical memory for heap allocator use. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Start\+Add} & start of reserved physical memory \\
+\hline
+{\em End\+Add} & end of reserved physical memory \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line 16 of file memoryallocator.\+cpp.
@@ -49,7 +71,11 @@ Definition at line 16 of file memoryallocator.\+cpp.
 
 
 
-Definition at line 48 of file memoryallocator.\+h.
+list start 
+
+
+
+Definition at line 61 of file memoryallocator.\+h.
 
 \mbox{\Hypertarget{class_k_m_1_1_memory_allocator_aebd2cb25d4536312f915b1d65d724934}\label{class_k_m_1_1_memory_allocator_aebd2cb25d4536312f915b1d65d724934}} 
 \index{K\+M\+::\+Memory\+Allocator@{K\+M\+::\+Memory\+Allocator}!m\+\_\+\+End\+Add@{m\+\_\+\+End\+Add}}
@@ -59,7 +85,11 @@ Definition at line 48 of file memoryallocator.\+h.
 
 
 
-Definition at line 46 of file memoryallocator.\+h.
+range of reserved address for kernel heap memory 
+
+
+
+Definition at line 59 of file memoryallocator.\+h.
 
 \mbox{\Hypertarget{class_k_m_1_1_memory_allocator_a7c20d888ecece0f856a4300f3134a5b8}\label{class_k_m_1_1_memory_allocator_a7c20d888ecece0f856a4300f3134a5b8}} 
 \index{K\+M\+::\+Memory\+Allocator@{K\+M\+::\+Memory\+Allocator}!m\+\_\+\+Start\+Add@{m\+\_\+\+Start\+Add}}
@@ -69,7 +99,11 @@ Definition at line 46 of file memoryallocator.\+h.
 
 
 
-Definition at line 45 of file memoryallocator.\+h.
+range of reserved address for kernel heap memory 
+
+
+
+Definition at line 58 of file memoryallocator.\+h.
 
 
 

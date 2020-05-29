@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['display',['Display',['../namespace_v_g_a.html#a97690b6d72f447f3e5e1b744af8f47fe',1,'VGA']]]
+  ['access',['Access',['../union_g_d_t_1_1_gdt_entry.html#a9e362a6b3aad509ffc6620df7d3bca21',1,'GDT::GdtEntry']]]
 ];

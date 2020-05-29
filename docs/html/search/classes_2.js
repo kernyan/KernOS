@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vga',['Vga',['../class_v_g_a_1_1_vga.html',1,'VGA']]]
+  ['mask',['Mask',['../class_i_n_t_r_p_1_1_mask.html',1,'INTRP']]],
+  ['memoryallocator',['MemoryAllocator',['../class_k_m_1_1_memory_allocator.html',1,'KM']]]
 ];

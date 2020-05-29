@@ -1,6 +1,6 @@
 var interrupt_8cpp =
 [
-    [ "__attribute__", "interrupt_8cpp.html#a626306273908f18155dca2fc7092a8e8", null ],
+    [ "DescriptorEntry", "union_i_n_t_r_p_1_1_descriptor_entry.html", "union_i_n_t_r_p_1_1_descriptor_entry" ],
     [ "idt", "interrupt_8cpp.html#aec8e9f01cb09653075b6e610096b3ca9", null ],
     [ "Install_idt", "interrupt_8cpp.html#a139b273cc1e45d3c2fdfe0d387a98518", null ],
     [ "Load_lidt", "interrupt_8cpp.html#a194f85d6c873615e9125466e3b23c30f", null ],

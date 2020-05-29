@@ -1,26 +1,31 @@
 \hypertarget{struct_g_d_t_1_1_selector}{}\section{G\+DT\+:\+:Selector Struct Reference}
 \label{struct_g_d_t_1_1_selector}\index{G\+D\+T\+::\+Selector@{G\+D\+T\+::\+Selector}}
+
+
+convenience structure used to set bits of \hyperlink{union_g_d_t_1_1_gdt_entry}{Gdt\+Entry}  
+
+
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154}{Segment} \hyperlink{struct_g_d_t_1_1_selector_a7bff1504d5c83c498334332274bef26d}{m\+\_\+\+Seg}
-\item 
+\begin{DoxyCompactList}\small\item\em Segment enum. \end{DoxyCompactList}\item 
 uint8\+\_\+t \hyperlink{struct_g_d_t_1_1_selector_abc557df8df987b1dc2d523156ea0ef85}{m\+\_\+\+Offset}
-\item 
+\begin{DoxyCompactList}\small\item\em Segment byte position in gdt\+\_\+table. \end{DoxyCompactList}\item 
 uint32\+\_\+t \hyperlink{struct_g_d_t_1_1_selector_ac98d387038fb7ad18aab22332cb6350c}{m\+\_\+\+Base}
-\item 
+\begin{DoxyCompactList}\small\item\em Base address of segment. \end{DoxyCompactList}\item 
 uint32\+\_\+t \hyperlink{struct_g_d_t_1_1_selector_a954aaf8e76a1f1aaaba2a7ca1b558e9f}{m\+\_\+\+Limit}
-\item 
+\begin{DoxyCompactList}\small\item\em Limit address of segment. \end{DoxyCompactList}\item 
 uint8\+\_\+t \hyperlink{struct_g_d_t_1_1_selector_aeba15cbab5fa33e66d06b136ece34ed3}{m\+\_\+\+Access}
-\item 
+\begin{DoxyCompactList}\small\item\em Access right bytes. \end{DoxyCompactList}\item 
 uint8\+\_\+t \hyperlink{struct_g_d_t_1_1_selector_a7b5d40047c58c483e74a9037418c2203}{m\+\_\+\+Granularity}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Granularity setting. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+convenience structure used to set bits of \hyperlink{union_g_d_t_1_1_gdt_entry}{Gdt\+Entry} 
 
-
-Definition at line 44 of file gdt.\+cpp.
+Definition at line 48 of file gdt.\+cpp.
 
 
 
@@ -33,7 +38,14 @@ Definition at line 44 of file gdt.\+cpp.
 
 
 
-Definition at line 50 of file gdt.\+cpp.
+Access right bytes. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespace_a_r}{AR} 
+\end{DoxySeeAlso}
+
+
+Definition at line 54 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{struct_g_d_t_1_1_selector_ac98d387038fb7ad18aab22332cb6350c}\label{struct_g_d_t_1_1_selector_ac98d387038fb7ad18aab22332cb6350c}} 
 \index{G\+D\+T\+::\+Selector@{G\+D\+T\+::\+Selector}!m\+\_\+\+Base@{m\+\_\+\+Base}}
@@ -43,7 +55,11 @@ Definition at line 50 of file gdt.\+cpp.
 
 
 
-Definition at line 48 of file gdt.\+cpp.
+Base address of segment. 
+
+
+
+Definition at line 52 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{struct_g_d_t_1_1_selector_a7b5d40047c58c483e74a9037418c2203}\label{struct_g_d_t_1_1_selector_a7b5d40047c58c483e74a9037418c2203}} 
 \index{G\+D\+T\+::\+Selector@{G\+D\+T\+::\+Selector}!m\+\_\+\+Granularity@{m\+\_\+\+Granularity}}
@@ -53,7 +69,14 @@ Definition at line 48 of file gdt.\+cpp.
 
 
 
-Definition at line 51 of file gdt.\+cpp.
+Granularity setting. 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Global_Descriptor_Table}{\tt bit 16-\/23} 
+\end{DoxySeeAlso}
+
+
+Definition at line 55 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{struct_g_d_t_1_1_selector_a954aaf8e76a1f1aaaba2a7ca1b558e9f}\label{struct_g_d_t_1_1_selector_a954aaf8e76a1f1aaaba2a7ca1b558e9f}} 
 \index{G\+D\+T\+::\+Selector@{G\+D\+T\+::\+Selector}!m\+\_\+\+Limit@{m\+\_\+\+Limit}}
@@ -63,7 +86,11 @@ Definition at line 51 of file gdt.\+cpp.
 
 
 
-Definition at line 49 of file gdt.\+cpp.
+Limit address of segment. 
+
+
+
+Definition at line 53 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{struct_g_d_t_1_1_selector_abc557df8df987b1dc2d523156ea0ef85}\label{struct_g_d_t_1_1_selector_abc557df8df987b1dc2d523156ea0ef85}} 
 \index{G\+D\+T\+::\+Selector@{G\+D\+T\+::\+Selector}!m\+\_\+\+Offset@{m\+\_\+\+Offset}}
@@ -73,7 +100,11 @@ Definition at line 49 of file gdt.\+cpp.
 
 
 
-Definition at line 47 of file gdt.\+cpp.
+Segment byte position in gdt\+\_\+table. 
+
+
+
+Definition at line 51 of file gdt.\+cpp.
 
 \mbox{\Hypertarget{struct_g_d_t_1_1_selector_a7bff1504d5c83c498334332274bef26d}\label{struct_g_d_t_1_1_selector_a7bff1504d5c83c498334332274bef26d}} 
 \index{G\+D\+T\+::\+Selector@{G\+D\+T\+::\+Selector}!m\+\_\+\+Seg@{m\+\_\+\+Seg}}
@@ -83,7 +114,11 @@ Definition at line 47 of file gdt.\+cpp.
 
 
 
-Definition at line 46 of file gdt.\+cpp.
+Segment enum. 
+
+
+
+Definition at line 50 of file gdt.\+cpp.
 
 
 

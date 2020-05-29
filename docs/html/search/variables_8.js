@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['user_5fcs_5faccess',['USER_CS_ACCESS',['../namespace_a_r.html#af35b80337e742e9605c8b3a863889545',1,'AR']]],
-  ['user_5fcs_5fbase',['USER_CS_BASE',['../namespace_g_d_t.html#a17592b6bcda3da0b4162793c5ab25d34',1,'GDT']]],
-  ['user_5fcs_5fgranularity',['USER_CS_GRANULARITY',['../namespace_g_d_t.html#abca29cbf8c95b79a247c1b7af347deba',1,'GDT']]],
-  ['user_5fcs_5flimit',['USER_CS_LIMIT',['../namespace_g_d_t.html#af9547432d12ed931a8aafe2f078bfdb9',1,'GDT']]],
-  ['user_5fds_5faccess',['USER_DS_ACCESS',['../namespace_a_r.html#a1b8796b06b020a1610233d041b60e101',1,'AR']]],
-  ['user_5fds_5fbase',['USER_DS_BASE',['../namespace_g_d_t.html#af3b358f3263317a93fb70214db0fe9df',1,'GDT']]],
-  ['user_5fds_5fgranularity',['USER_DS_GRANULARITY',['../namespace_g_d_t.html#a1d41acb5aa3d1b3690fb1fa6e843f110',1,'GDT']]],
-  ['user_5fds_5flimit',['USER_DS_LIMIT',['../namespace_g_d_t.html#a65f624eed850cd303b27f014e43576e4',1,'GDT']]]
+  ['limithighandgranularity',['LimitHighAndGranularity',['../union_g_d_t_1_1_gdt_entry.html#a6d6f4070f4f1f45de0a52cb0d3b85fd5',1,'GDT::GdtEntry']]],
+  ['limitlow',['LimitLow',['../union_g_d_t_1_1_gdt_entry.html#aa14653f9f38fbb5e60a917afb5f744fc',1,'GDT::GdtEntry']]],
+  ['low',['Low',['../union_g_d_t_1_1_gdt_entry.html#a92c8422ad96383d5c548f8e022a99278',1,'GDT::GdtEntry::Low()'],['../union_i_n_t_r_p_1_1_descriptor_entry.html#ab3b735689731cd8b58ae8f9bf0f9fc42',1,'INTRP::DescriptorEntry::Low()']]]
 ];

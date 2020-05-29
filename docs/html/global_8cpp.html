@@ -105,18 +105,22 @@ Include dependency graph for global.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespace_i_n_i_t"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_i_t.html">INIT</a></td></tr>
+<tr class="memdesc:namespace_i_n_i_t"><td class="mdescLeft">&#160;</td><td class="mdescRight">contains all kernel initialization routines <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6608557e41ad37cdb4a408e2f05c9783"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_i_t.html#a6608557e41ad37cdb4a408e2f05c9783">INIT::ctors</a> ()</td></tr>
+<tr class="memdesc:a6608557e41ad37cdb4a408e2f05c9783"><td class="mdescLeft">&#160;</td><td class="mdescRight">calls constructors on all global objects  <a href="namespace_i_n_i_t.html#a6608557e41ad37cdb4a408e2f05c9783">More...</a><br /></td></tr>
 <tr class="separator:a6608557e41ad37cdb4a408e2f05c9783"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a00261bc929e9f609199f22bc18ff9d95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ktypes_8h.html#a46bbb9e776183ed6a8eca9d919756434">func_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8cpp.html#a00261bc929e9f609199f22bc18ff9d95">start_ctors</a></td></tr>
+<tr class="memdesc:a00261bc929e9f609199f22bc18ff9d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">starting address of pointers to global constructors  <a href="#a00261bc929e9f609199f22bc18ff9d95">More...</a><br /></td></tr>
 <tr class="separator:a00261bc929e9f609199f22bc18ff9d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81e8429b21b9b2903ec5fa67d3328eae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ktypes_8h.html#a46bbb9e776183ed6a8eca9d919756434">func_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8cpp.html#a81e8429b21b9b2903ec5fa67d3328eae">end_ctors</a></td></tr>
+<tr class="memdesc:a81e8429b21b9b2903ec5fa67d3328eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">ending address of pointers to global constructors  <a href="#a81e8429b21b9b2903ec5fa67d3328eae">More...</a><br /></td></tr>
 <tr class="separator:a81e8429b21b9b2903ec5fa67d3328eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -132,6 +136,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>ending address of pointers to global constructors </p>
+<p>symbol defined in <a class="el" href="linker_8ld.html">linker.ld</a>. </p>
+
 </div>
 </div>
 <a id="a00261bc929e9f609199f22bc18ff9d95"></a>
@@ -145,6 +152,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>starting address of pointers to global constructors </p>
+<p>symbol defined in <a class="el" href="linker_8ld.html">linker.ld</a>. </p>
 
 </div>
 </div>
