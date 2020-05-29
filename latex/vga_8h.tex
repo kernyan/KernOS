@@ -1,0 +1,66 @@
+\hypertarget{vga_8h}{}\section{O\+S/include/vga.h File Reference}
+\label{vga_8h}\index{O\+S/include/vga.\+h@{O\+S/include/vga.\+h}}
+{\ttfamily \#include $<$utilities.\+h$>$}\newline
+Include dependency graph for vga.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vga_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vga_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_v_g_a_1_1_vga}{V\+G\+A\+::\+Vga}
+\begin{DoxyCompactList}\small\item\em Manages access to \hyperlink{namespace_v_g_a}{V\+GA} driver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace_v_g_a}{V\+GA}
+\begin{DoxyCompactList}\small\item\em Video Graphics Array namespace. \end{DoxyCompactList}\item 
+ \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
+\begin{DoxyCompactList}\small\item\em contains all kernel initialization routines \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\+\_\+t \hyperlink{namespace_v_g_a_afa3882cddefd08a3f33aaf6fcbcbcd7f}{V\+G\+A\+::\+Vga\+Color}
+\item 
+typedef uint16\+\_\+t \hyperlink{namespace_v_g_a_adb876ce4a116e09f39708ca16ef25f74}{V\+G\+A\+::\+Vga\+Char}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71}{V\+G\+A\+::\+C\+O\+L\+OR} \+: uint8\+\_\+t \{ \newline
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a08d0012388564e95c3b4a7407cf04965}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+B\+L\+A\+CK} = 0, 
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a1b3e1ee9bff86431dea6b181365ba65f}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+B\+L\+UE}, 
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a9de0e5dd94e861317e74964bed179fa0}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+G\+R\+E\+EN}, 
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a344dd8cd533280795b9db82ef0c92749}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+C\+Y\+AN}, 
+\newline
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71aa2d9547b5d3dd9f05984475f7c926da0}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+R\+ED}, 
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71ac634ffea7195608364671ac52ee59a61}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+M\+A\+G\+E\+N\+TA}, 
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a493cacf6f6a2ae4798b319b8b9ba9488}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+B\+R\+O\+WN}, 
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a0e9d5dda7abbbd2114b24cacd5a6b7af}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+L\+I\+G\+H\+T\+\_\+\+G\+R\+EY}, 
+\newline
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71aca9bc0b0de22cd472b6f2716c30dfa94}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+D\+A\+R\+K\+\_\+\+G\+R\+EY}, 
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a75841220482e3739a9158033b7508cf0}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+L\+I\+G\+H\+T\+\_\+\+B\+L\+UE}, 
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a555a47662547aa7870851b2ef9ade925}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+L\+I\+G\+H\+T\+\_\+\+G\+R\+E\+EN}, 
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71af3d26561b2c9540ce0714321012a959e}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+L\+I\+G\+H\+T\+\_\+\+C\+Y\+AN}, 
+\newline
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a72722ff9e2a9326d5813c4045d3b4a23}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+L\+I\+G\+H\+T\+\_\+\+R\+ED}, 
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a0bdcb18cd1ed53fe818fb73e9e9589ef}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+L\+I\+G\+H\+T\+\_\+\+M\+A\+G\+E\+N\+TA}, 
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71a91787c73bd6b00fe2723ed0194921dc4}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+L\+I\+G\+H\+T\+\_\+\+B\+R\+O\+WN}, 
+\hyperlink{namespace_v_g_a_ace1c3156a8d3975ff783ff7a1fa8eb71ab5bf627e448384cf3a4c35121ca6008d}{V\+G\+A\+::\+C\+O\+L\+O\+R\+::\+W\+H\+I\+TE}
+ \}\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_v_g_a}{V\+GA} text buffer convention. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespace_i_n_i_t_abae5789d80f8edd37455f3b167779654}{I\+N\+I\+T\+::\+V\+GA} ()
+\begin{DoxyCompactList}\small\item\em Clear \hyperlink{namespace_v_g_a}{V\+GA} display, and print kernel banner. \end{DoxyCompactList}\end{DoxyCompactItemize}

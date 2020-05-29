@@ -109,8 +109,11 @@ namespace KM // kernel memory
 
 namespace INIT
 {
+    /*! @brief Provides memory allocator with range of reserved memory address to manage
+     *  @todo don't hardcode heap size
+     */
     void KMALLOC()
     {
-        KM::mem_alloc.Initialize((uint32_t) kheap, (uint32_t)(kheap) + 4096*3); // TODO: don't hardcode heap size
+        KM::mem_alloc.Initialize((uint32_t) kheap, (uint32_t)(kheap) + 4096*3);
     }
 }

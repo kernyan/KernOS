@@ -14,6 +14,8 @@
 #error "Failed - use 32 bit architecture"
 #endif
 
+/*! @brief Kernel entry function
+ */
 //![Kernel entry function]
 extern "C" void kernel_main()
 {

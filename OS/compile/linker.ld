@@ -1,4 +1,6 @@
-/* https://wiki.osdev.org/Bare_Bones#Linking_the_Kernel */
+/*! @brief linker script to specify kernel binary's section locations
+ *  @see <a href="https://wiki.osdev.org/Bare_Bones#Linking_the_Kernel">Osdev's Linking the kernel</a>
+ */
 
 /* The bootloader will look at this image and start execution at the symbol
    designated as the entry point. */

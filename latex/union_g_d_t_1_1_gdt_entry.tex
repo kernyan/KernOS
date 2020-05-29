@@ -1,0 +1,148 @@
+\hypertarget{union_g_d_t_1_1_gdt_entry}{}\section{G\+DT\+:\+:Gdt\+Entry Union Reference}
+\label{union_g_d_t_1_1_gdt_entry}\index{G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}}
+
+
+Global descriptor table entry.  
+
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint16\_t \hyperlink{union_g_d_t_1_1_gdt_entry_aa14653f9f38fbb5e60a917afb5f744fc}{LimitLow}\\
+\>uint16\_t \hyperlink{union_g_d_t_1_1_gdt_entry_aec057b26779c052018db45ba282a0ba1}{BaseLow}\\
+\>uint8\_t \hyperlink{union_g_d_t_1_1_gdt_entry_a19107af4f815c15e0bf77344dd101b29}{BaseMid}\\
+\>uint8\_t \hyperlink{union_g_d_t_1_1_gdt_entry_a9e362a6b3aad509ffc6620df7d3bca21}{Access}\\
+\>uint8\_t \hyperlink{union_g_d_t_1_1_gdt_entry_a6d6f4070f4f1f45de0a52cb0d3b85fd5}{LimitHighAndGranularity}\\
+\>uint8\_t \hyperlink{union_g_d_t_1_1_gdt_entry_a47143a87d7830418346a672d5cb34e94}{BaseHigh}\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint32\_t \hyperlink{union_g_d_t_1_1_gdt_entry_a92c8422ad96383d5c548f8e022a99278}{Low}\\
+\>uint32\_t \hyperlink{union_g_d_t_1_1_gdt_entry_a12fe18bbb192b0d1ebcb58f4e408242c}{High}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Global descriptor table entry. 
+
+\begin{DoxyVerb}Code segment descriptor entry
+|31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|12|11|10|09|08|07|06|05|04|03|02|01|00|
+| Base address (24-31)  |G |D |  |A |Limit 16-19|P | DPL |1 |1 |C |R |A | Base address (16-23)  |
+| Base address ( 0-15)                          |                         Segment limit (0-15)  |
+
+Data segment descriptor entry
+|31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|12|11|10|09|08|07|06|05|04|03|02|01|00|
+| Base address (24-31)  |G |DB|  |A |Limit 16-19|P | DPL |1 |0 |E |W |A | Base address (16-23)  |
+| Base address ( 0-15)                          |                         Segment limit (0-15)  |
+\end{DoxyVerb}
+ \begin{DoxySeeAlso}{See also}
+A\+M\+D64 Architecture Programmer\textquotesingle{}s Manual Volume 2\+: System Programming (P\+DF) (Technical report). 2013. p. 80. 
+\end{DoxySeeAlso}
+
+
+Definition at line 28 of file gdt.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{union_g_d_t_1_1_gdt_entry_ab665b6ef68844c06d13c79f7b1d01fd1}\label{union_g_d_t_1_1_gdt_entry_ab665b6ef68844c06d13c79f7b1d01fd1}} 
+\subsubsection{\texorpdfstring{"@1}{@1}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{union_g_d_t_1_1_gdt_entry_a269676ff24ab8fa05e0b639a2f7052ab}\label{union_g_d_t_1_1_gdt_entry_a269676ff24ab8fa05e0b639a2f7052ab}} 
+\subsubsection{\texorpdfstring{"@3}{@3}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{union_g_d_t_1_1_gdt_entry_a9e362a6b3aad509ffc6620df7d3bca21}\label{union_g_d_t_1_1_gdt_entry_a9e362a6b3aad509ffc6620df7d3bca21}} 
+\index{G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}!Access@{Access}}
+\index{Access@{Access}!G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}}
+\subsubsection{\texorpdfstring{Access}{Access}}
+{\footnotesize\ttfamily uint8\+\_\+t G\+D\+T\+::\+Gdt\+Entry\+::\+Access}
+
+
+
+Definition at line 35 of file gdt.\+cpp.
+
+\mbox{\Hypertarget{union_g_d_t_1_1_gdt_entry_a47143a87d7830418346a672d5cb34e94}\label{union_g_d_t_1_1_gdt_entry_a47143a87d7830418346a672d5cb34e94}} 
+\index{G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}!Base\+High@{Base\+High}}
+\index{Base\+High@{Base\+High}!G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}}
+\subsubsection{\texorpdfstring{Base\+High}{BaseHigh}}
+{\footnotesize\ttfamily uint8\+\_\+t G\+D\+T\+::\+Gdt\+Entry\+::\+Base\+High}
+
+
+
+Definition at line 37 of file gdt.\+cpp.
+
+\mbox{\Hypertarget{union_g_d_t_1_1_gdt_entry_aec057b26779c052018db45ba282a0ba1}\label{union_g_d_t_1_1_gdt_entry_aec057b26779c052018db45ba282a0ba1}} 
+\index{G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}!Base\+Low@{Base\+Low}}
+\index{Base\+Low@{Base\+Low}!G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}}
+\subsubsection{\texorpdfstring{Base\+Low}{BaseLow}}
+{\footnotesize\ttfamily uint16\+\_\+t G\+D\+T\+::\+Gdt\+Entry\+::\+Base\+Low}
+
+
+
+Definition at line 33 of file gdt.\+cpp.
+
+\mbox{\Hypertarget{union_g_d_t_1_1_gdt_entry_a19107af4f815c15e0bf77344dd101b29}\label{union_g_d_t_1_1_gdt_entry_a19107af4f815c15e0bf77344dd101b29}} 
+\index{G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}!Base\+Mid@{Base\+Mid}}
+\index{Base\+Mid@{Base\+Mid}!G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}}
+\subsubsection{\texorpdfstring{Base\+Mid}{BaseMid}}
+{\footnotesize\ttfamily uint8\+\_\+t G\+D\+T\+::\+Gdt\+Entry\+::\+Base\+Mid}
+
+
+
+Definition at line 34 of file gdt.\+cpp.
+
+\mbox{\Hypertarget{union_g_d_t_1_1_gdt_entry_a12fe18bbb192b0d1ebcb58f4e408242c}\label{union_g_d_t_1_1_gdt_entry_a12fe18bbb192b0d1ebcb58f4e408242c}} 
+\index{G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}!High@{High}}
+\index{High@{High}!G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}}
+\subsubsection{\texorpdfstring{High}{High}}
+{\footnotesize\ttfamily uint32\+\_\+t G\+D\+T\+::\+Gdt\+Entry\+::\+High}
+
+
+
+Definition at line 42 of file gdt.\+cpp.
+
+\mbox{\Hypertarget{union_g_d_t_1_1_gdt_entry_a6d6f4070f4f1f45de0a52cb0d3b85fd5}\label{union_g_d_t_1_1_gdt_entry_a6d6f4070f4f1f45de0a52cb0d3b85fd5}} 
+\index{G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}!Limit\+High\+And\+Granularity@{Limit\+High\+And\+Granularity}}
+\index{Limit\+High\+And\+Granularity@{Limit\+High\+And\+Granularity}!G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}}
+\subsubsection{\texorpdfstring{Limit\+High\+And\+Granularity}{LimitHighAndGranularity}}
+{\footnotesize\ttfamily uint8\+\_\+t G\+D\+T\+::\+Gdt\+Entry\+::\+Limit\+High\+And\+Granularity}
+
+
+
+Definition at line 36 of file gdt.\+cpp.
+
+\mbox{\Hypertarget{union_g_d_t_1_1_gdt_entry_aa14653f9f38fbb5e60a917afb5f744fc}\label{union_g_d_t_1_1_gdt_entry_aa14653f9f38fbb5e60a917afb5f744fc}} 
+\index{G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}!Limit\+Low@{Limit\+Low}}
+\index{Limit\+Low@{Limit\+Low}!G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}}
+\subsubsection{\texorpdfstring{Limit\+Low}{LimitLow}}
+{\footnotesize\ttfamily uint16\+\_\+t G\+D\+T\+::\+Gdt\+Entry\+::\+Limit\+Low}
+
+
+
+Definition at line 32 of file gdt.\+cpp.
+
+\mbox{\Hypertarget{union_g_d_t_1_1_gdt_entry_a92c8422ad96383d5c548f8e022a99278}\label{union_g_d_t_1_1_gdt_entry_a92c8422ad96383d5c548f8e022a99278}} 
+\index{G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}!Low@{Low}}
+\index{Low@{Low}!G\+D\+T\+::\+Gdt\+Entry@{G\+D\+T\+::\+Gdt\+Entry}}
+\subsubsection{\texorpdfstring{Low}{Low}}
+{\footnotesize\ttfamily uint32\+\_\+t G\+D\+T\+::\+Gdt\+Entry\+::\+Low}
+
+
+
+Definition at line 41 of file gdt.\+cpp.
+
+
+
+The documentation for this union was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+O\+S/kernel/arch/x86/\hyperlink{gdt_8cpp}{gdt.\+cpp}\end{DoxyCompactItemize}

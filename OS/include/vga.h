@@ -3,16 +3,21 @@
 
 #include <utilities.h>
 
+/*! @brief Video Graphics Array namespace
+ *  @details
+ */
 namespace VGA
 {
 
-// https://en.wikipedia.org/wiki/VGA-compatible_text_mode
-// VGA text buffer convention
-// ________________________________________________
-// |         Attribute           |    Character    |
-// |   7   |   6 5 4  | 3 2 1 0  | 7 6 5 4 3 2 1 0 |
-// | Blink | Bg color | Fg color | Code point      |
-
+    /*! @brief VGA text buffer convention
+     *  @see <a href="https://en.wikipedia.org/wiki/VGA-compatible_text_mode">VGA compatible text mode</a>
+     *  @verbatim
+        ________________________________________________
+        |         Attribute           |    Character    |
+        |   7   |   6 5 4  | 3 2 1 0  | 7 6 5 4 3 2 1 0 |
+        | Blink | Bg color | Fg color | Code point      |
+        @endverbatim
+     */
     enum class COLOR : uint8_t
     {
         BLACK = 0,
@@ -36,6 +41,9 @@ namespace VGA
     typedef uint8_t VgaColor;
     typedef uint16_t VgaChar;
 
+    /*! @brief Manages access to VGA driver
+     *  @details Provides primitive console-like line printing, newline, and wrap-around
+     */
     class Vga
     {
         static const size_t VGA_WIDTH = 80;
@@ -43,7 +51,7 @@ namespace VGA
 
         size_t m_Row;
         size_t m_Col;
-        uint16_t *const m_Buffer = (uint16_t *) 0xB8000; // VGA text buffer address, by convention
+        uint16_t *const m_Buffer = (uint16_t *) 0xB8000; ///< VGA memory mapped text buffer address
         VgaColor m_Color;
 
         VgaColor EntryColor(COLOR Fore, COLOR Back) const;
@@ -65,10 +73,22 @@ namespace VGA
 #endif
         }
 
+        /*! @brief Print string to display
+         * @param Str
+         */
         void Puts(const char *Str);
 
+        /*! @brief Put single character to display
+         * @param Char
+         * @param Row
+         * @param Col
+         */
         void PutChar(VgaChar Char, size_t Row, size_t Col);
 
+        /*! @brief Set text color
+         * @param VgaColor text color @see COLOR
+         * @return
+         */
         void SetColor(VgaColor Color);
     };
 
@@ -99,6 +119,8 @@ namespace VGA
 
 namespace INIT
 {
+    /*! @brief Clear VGA display, and print kernel banner
+     */
     void VGA();
 }
 

@@ -1,0 +1,132 @@
+\hypertarget{union_i_n_t_r_p_1_1_descriptor_entry}{}\section{I\+N\+T\+RP\+:\+:Descriptor\+Entry Union Reference}
+\label{union_i_n_t_r_p_1_1_descriptor_entry}\index{I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}}
+
+
+Exception and interrupt gate descriptor entry.  
+
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint16\_t \hyperlink{union_i_n_t_r_p_1_1_descriptor_entry_ad1b891ed37e3770aa5329ba8dc768cc7}{m\_OffsetLow}\\
+\>uint16\_t \hyperlink{union_i_n_t_r_p_1_1_descriptor_entry_acc9a18e707a0396fa95b51e2737d172f}{m\_CS\_Selector}\\
+\>uint8\_t \hyperlink{union_i_n_t_r_p_1_1_descriptor_entry_a47989742adb5c6d56c7d4bcf943770b5}{m\_Reserve}\\
+\>uint8\_t \hyperlink{union_i_n_t_r_p_1_1_descriptor_entry_a431c102e5f096230dbe44160e7a611c1}{m\_Access}\\
+\>uint16\_t \hyperlink{union_i_n_t_r_p_1_1_descriptor_entry_a9c62dca789f6a7c02513eb17f1a3de04}{m\_OffsetHigh}\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint32\_t \hyperlink{union_i_n_t_r_p_1_1_descriptor_entry_ab3b735689731cd8b58ae8f9bf0f9fc42}{Low}\\
+\>uint32\_t \hyperlink{union_i_n_t_r_p_1_1_descriptor_entry_a479e62ef6f3e27e03e121d965d6bab99}{High}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Exception and interrupt gate descriptor entry. 
+
+\begin{DoxySeeAlso}{See also}
+See A\+M\+D64 Architecture Programmer\textquotesingle{}s Manual Volume 2\+: System Programming (P\+DF) (Technical report). 2013. p. 86.
+\end{DoxySeeAlso}
+\begin{DoxyVerb}Interrupt & Trap gate descriptor entry
+|31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|12|11|10|09|08|07|06|05|04|03|02|01|00|
+| Higher 16 bits of target code address         |P |DPL  |0|    Type    | Reserved              |
+| Target code-segment selector                  | Lower 16 bits of target code address          |
+\end{DoxyVerb}
+ 
+
+Definition at line 123 of file interrupt.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{union_i_n_t_r_p_1_1_descriptor_entry_aa3e5f0c4f7186d01165a8a5c68c19cd7}\label{union_i_n_t_r_p_1_1_descriptor_entry_aa3e5f0c4f7186d01165a8a5c68c19cd7}} 
+\subsubsection{\texorpdfstring{"@5}{@5}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{union_i_n_t_r_p_1_1_descriptor_entry_a2af38a2e445b1edbf0e8da359aca6f42}\label{union_i_n_t_r_p_1_1_descriptor_entry_a2af38a2e445b1edbf0e8da359aca6f42}} 
+\subsubsection{\texorpdfstring{"@7}{@7}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{union_i_n_t_r_p_1_1_descriptor_entry_a479e62ef6f3e27e03e121d965d6bab99}\label{union_i_n_t_r_p_1_1_descriptor_entry_a479e62ef6f3e27e03e121d965d6bab99}} 
+\index{I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}!High@{High}}
+\index{High@{High}!I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}}
+\subsubsection{\texorpdfstring{High}{High}}
+{\footnotesize\ttfamily uint32\+\_\+t I\+N\+T\+R\+P\+::\+Descriptor\+Entry\+::\+High}
+
+
+
+Definition at line 136 of file interrupt.\+cpp.
+
+\mbox{\Hypertarget{union_i_n_t_r_p_1_1_descriptor_entry_ab3b735689731cd8b58ae8f9bf0f9fc42}\label{union_i_n_t_r_p_1_1_descriptor_entry_ab3b735689731cd8b58ae8f9bf0f9fc42}} 
+\index{I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}!Low@{Low}}
+\index{Low@{Low}!I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}}
+\subsubsection{\texorpdfstring{Low}{Low}}
+{\footnotesize\ttfamily uint32\+\_\+t I\+N\+T\+R\+P\+::\+Descriptor\+Entry\+::\+Low}
+
+
+
+Definition at line 135 of file interrupt.\+cpp.
+
+\mbox{\Hypertarget{union_i_n_t_r_p_1_1_descriptor_entry_a431c102e5f096230dbe44160e7a611c1}\label{union_i_n_t_r_p_1_1_descriptor_entry_a431c102e5f096230dbe44160e7a611c1}} 
+\index{I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}!m\+\_\+\+Access@{m\+\_\+\+Access}}
+\index{m\+\_\+\+Access@{m\+\_\+\+Access}!I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}}
+\subsubsection{\texorpdfstring{m\+\_\+\+Access}{m\_Access}}
+{\footnotesize\ttfamily uint8\+\_\+t I\+N\+T\+R\+P\+::\+Descriptor\+Entry\+::m\+\_\+\+Access}
+
+
+
+Definition at line 130 of file interrupt.\+cpp.
+
+\mbox{\Hypertarget{union_i_n_t_r_p_1_1_descriptor_entry_acc9a18e707a0396fa95b51e2737d172f}\label{union_i_n_t_r_p_1_1_descriptor_entry_acc9a18e707a0396fa95b51e2737d172f}} 
+\index{I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}!m\+\_\+\+C\+S\+\_\+\+Selector@{m\+\_\+\+C\+S\+\_\+\+Selector}}
+\index{m\+\_\+\+C\+S\+\_\+\+Selector@{m\+\_\+\+C\+S\+\_\+\+Selector}!I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}}
+\subsubsection{\texorpdfstring{m\+\_\+\+C\+S\+\_\+\+Selector}{m\_CS\_Selector}}
+{\footnotesize\ttfamily uint16\+\_\+t I\+N\+T\+R\+P\+::\+Descriptor\+Entry\+::m\+\_\+\+C\+S\+\_\+\+Selector}
+
+
+
+Definition at line 128 of file interrupt.\+cpp.
+
+\mbox{\Hypertarget{union_i_n_t_r_p_1_1_descriptor_entry_a9c62dca789f6a7c02513eb17f1a3de04}\label{union_i_n_t_r_p_1_1_descriptor_entry_a9c62dca789f6a7c02513eb17f1a3de04}} 
+\index{I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}!m\+\_\+\+Offset\+High@{m\+\_\+\+Offset\+High}}
+\index{m\+\_\+\+Offset\+High@{m\+\_\+\+Offset\+High}!I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}}
+\subsubsection{\texorpdfstring{m\+\_\+\+Offset\+High}{m\_OffsetHigh}}
+{\footnotesize\ttfamily uint16\+\_\+t I\+N\+T\+R\+P\+::\+Descriptor\+Entry\+::m\+\_\+\+Offset\+High}
+
+
+
+Definition at line 131 of file interrupt.\+cpp.
+
+\mbox{\Hypertarget{union_i_n_t_r_p_1_1_descriptor_entry_ad1b891ed37e3770aa5329ba8dc768cc7}\label{union_i_n_t_r_p_1_1_descriptor_entry_ad1b891ed37e3770aa5329ba8dc768cc7}} 
+\index{I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}!m\+\_\+\+Offset\+Low@{m\+\_\+\+Offset\+Low}}
+\index{m\+\_\+\+Offset\+Low@{m\+\_\+\+Offset\+Low}!I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}}
+\subsubsection{\texorpdfstring{m\+\_\+\+Offset\+Low}{m\_OffsetLow}}
+{\footnotesize\ttfamily uint16\+\_\+t I\+N\+T\+R\+P\+::\+Descriptor\+Entry\+::m\+\_\+\+Offset\+Low}
+
+
+
+Definition at line 127 of file interrupt.\+cpp.
+
+\mbox{\Hypertarget{union_i_n_t_r_p_1_1_descriptor_entry_a47989742adb5c6d56c7d4bcf943770b5}\label{union_i_n_t_r_p_1_1_descriptor_entry_a47989742adb5c6d56c7d4bcf943770b5}} 
+\index{I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}!m\+\_\+\+Reserve@{m\+\_\+\+Reserve}}
+\index{m\+\_\+\+Reserve@{m\+\_\+\+Reserve}!I\+N\+T\+R\+P\+::\+Descriptor\+Entry@{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}}
+\subsubsection{\texorpdfstring{m\+\_\+\+Reserve}{m\_Reserve}}
+{\footnotesize\ttfamily uint8\+\_\+t I\+N\+T\+R\+P\+::\+Descriptor\+Entry\+::m\+\_\+\+Reserve}
+
+
+
+Definition at line 129 of file interrupt.\+cpp.
+
+
+
+The documentation for this union was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+O\+S/kernel/arch/x86/\hyperlink{interrupt_8cpp}{interrupt.\+cpp}\end{DoxyCompactItemize}

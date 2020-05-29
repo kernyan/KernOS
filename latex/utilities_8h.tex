@@ -1,0 +1,78 @@
+\hypertarget{utilities_8h}{}\section{O\+S/include/utilities.h File Reference}
+\label{utilities_8h}\index{O\+S/include/utilities.\+h@{O\+S/include/utilities.\+h}}
+{\ttfamily \#include $<$common.\+h$>$}\newline
+{\ttfamily \#include $<$kprintf.\+h$>$}\newline
+Include dependency graph for utilities.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{utilities_8h_ac59ef5882196a6293008a4fc4f97e96c}{G\+H\+E\+T\+T\+O\+\_\+\+G\+E\+T\+\_\+\+CR}(x)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \hyperlink{utilities_8h_a05b27f5e571488d0a74e4bd70b612874}{Strlen} (const char $\ast$Str)
+\begin{DoxyCompactList}\small\item\em Count number of characters in string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{utilities_8h_ac59ef5882196a6293008a4fc4f97e96c}\label{utilities_8h_ac59ef5882196a6293008a4fc4f97e96c}} 
+\index{utilities.\+h@{utilities.\+h}!G\+H\+E\+T\+T\+O\+\_\+\+G\+E\+T\+\_\+\+CR@{G\+H\+E\+T\+T\+O\+\_\+\+G\+E\+T\+\_\+\+CR}}
+\index{G\+H\+E\+T\+T\+O\+\_\+\+G\+E\+T\+\_\+\+CR@{G\+H\+E\+T\+T\+O\+\_\+\+G\+E\+T\+\_\+\+CR}!utilities.\+h@{utilities.\+h}}
+\subsubsection{\texorpdfstring{G\+H\+E\+T\+T\+O\+\_\+\+G\+E\+T\+\_\+\+CR}{GHETTO\_GET\_CR}}
+{\footnotesize\ttfamily \#define G\+H\+E\+T\+T\+O\+\_\+\+G\+E\+T\+\_\+\+CR(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+uint32\_t Local\_##x;     \(\backslash\)
+                              asm \textcolor{keyword}{volatile}            \(\backslash\)
+                              (                       \(\backslash\)
+                              \textcolor{stringliteral}{"mov %%"}#x\textcolor{stringliteral}{", %%eax\(\backslash\)n"}   \(\backslash\)
+                              \textcolor{stringliteral}{"mov %%eax, %0\(\backslash\)n"}       \(\backslash\)
+                              : \textcolor{stringliteral}{"=m"}(Local\_##x)       \(\backslash\)
+                              :                       \(\backslash\)
+                              : \textcolor{stringliteral}{"%eax"}                \(\backslash\)
+                              );
+\end{DoxyCode}
+
+
+Definition at line 72 of file utilities.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{utilities_8h_a05b27f5e571488d0a74e4bd70b612874}\label{utilities_8h_a05b27f5e571488d0a74e4bd70b612874}} 
+\index{utilities.\+h@{utilities.\+h}!Strlen@{Strlen}}
+\index{Strlen@{Strlen}!utilities.\+h@{utilities.\+h}}
+\subsubsection{\texorpdfstring{Strlen()}{Strlen()}}
+{\footnotesize\ttfamily size\+\_\+t Strlen (\begin{DoxyParamCaption}\item[{const char $\ast$}]{Str }\end{DoxyParamCaption})}
+
+
+
+Count number of characters in string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Str} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string length 
+\end{DoxyReturn}
+
+
+Definition at line 7 of file utilities.\+cpp.
+

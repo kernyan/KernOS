@@ -1,0 +1,9 @@
+<map id="OS/kernel/arch/x86/gdt.cpp" name="OS/kernel/arch/x86/gdt.cpp">
+<area shape="rect" id="node2" href="$common_8h.html" title="common.h" alt="" coords="189,169,272,196"/>
+<area shape="rect" id="node7" href="$gdt_8h.html" title="gdt.h" alt="" coords="243,95,293,121"/>
+<area shape="rect" id="node8" href="$utilities_8h.html" title="utilities.h" alt="" coords="317,95,392,121"/>
+<area shape="rect" id="node10" href="$registers_8h.html" title="registers.h" alt="" coords="416,95,499,121"/>
+<area shape="rect" id="node11" href="$accessright_8h.html" title="accessright.h" alt="" coords="523,95,623,121"/>
+<area shape="rect" id="node6" href="$ktypes_8h.html" title="ktypes.h" alt="" coords="288,244,360,271"/>
+<area shape="rect" id="node9" href="$kprintf_8h.html" title="kprintf.h" alt="" coords="320,169,389,196"/>
+</map>

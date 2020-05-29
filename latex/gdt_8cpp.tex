@@ -1,0 +1,72 @@
+\hypertarget{gdt_8cpp}{}\section{O\+S/kernel/arch/x86/gdt.cpp File Reference}
+\label{gdt_8cpp}\index{O\+S/kernel/arch/x86/gdt.\+cpp@{O\+S/kernel/arch/x86/gdt.\+cpp}}
+{\ttfamily \#include $<$common.\+h$>$}\newline
+{\ttfamily \#include $<$gdt.\+h$>$}\newline
+{\ttfamily \#include $<$utilities.\+h$>$}\newline
+{\ttfamily \#include $<$registers.\+h$>$}\newline
+{\ttfamily \#include $<$accessright.\+h$>$}\newline
+Include dependency graph for gdt.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gdt_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{union_g_d_t_1_1_gdt_entry}{G\+D\+T\+::\+Gdt\+Entry}
+\begin{DoxyCompactList}\small\item\em Global descriptor table entry. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_g_d_t_1_1_selector}{G\+D\+T\+::\+Selector}
+\begin{DoxyCompactList}\small\item\em convenience structure used to set bits of \hyperlink{union_g_d_t_1_1_gdt_entry}{Gdt\+Entry} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace_g_d_t}{G\+DT}
+\begin{DoxyCompactList}\small\item\em global descriptor table \end{DoxyCompactList}\item 
+ \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
+\begin{DoxyCompactList}\small\item\em contains all kernel initialization routines \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespace_g_d_t_a5d0041eb890e6c1f40d8a919494c2354}{G\+D\+T\+::\+Set\+Global\+Descriptor\+Entry} (Gdt\+Entry Gdt\+Table\mbox{[}$\,$\mbox{]}, const Selector Selector\+Table\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Set entries in Gdt\+Table from array of \hyperlink{struct_g_d_t_1_1_selector}{Selector}. \end{DoxyCompactList}\item 
+void \hyperlink{namespace_g_d_t_a3660563d28e3bab08ddac58ca6844b58}{G\+D\+T\+::\+Load\+\_\+gdt} (void $\ast$gdt\+Address, uint16\+\_\+t Limit\+Use)
+\begin{DoxyCompactList}\small\item\em assembly instruction to load gdt table to C\+PU \end{DoxyCompactList}\item 
+void \hyperlink{namespace_g_d_t_a174feb7c5a037cc991bf4eb27c256366}{G\+D\+T\+::\+Install\+\_\+gdt} ()
+\begin{DoxyCompactList}\small\item\em Creates global descriptor entries in gdt\+\_\+table, and loads into C\+PU. \end{DoxyCompactList}\item 
+void \hyperlink{namespace_i_n_i_t_a3462d7bc51bce77cc240d05b62b1b777}{I\+N\+I\+T\+::gdt} ()
+\begin{DoxyCompactList}\small\item\em creates global descriptor table and loads it into C\+PU \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \hyperlink{namespace_g_d_t_aa1bc8e5b9e4868b6006698829d396724}{G\+D\+T\+::\+N\+U\+L\+L\+\_\+\+L\+I\+M\+IT} = 0x00000000
+\item 
+const uint32\+\_\+t \hyperlink{namespace_g_d_t_ab6d06fd71d054410909a4aacafca32b7}{G\+D\+T\+::\+K\+E\+R\+N\+\_\+\+C\+S\+\_\+\+L\+I\+M\+IT} = 0x000\+F\+F\+F\+FF
+\item 
+const uint32\+\_\+t \hyperlink{namespace_g_d_t_a0b19f62da26fef63c425face3191a75b}{G\+D\+T\+::\+K\+E\+R\+N\+\_\+\+D\+S\+\_\+\+L\+I\+M\+IT} = 0x000\+F\+F\+F\+FF
+\item 
+const uint32\+\_\+t \hyperlink{namespace_g_d_t_af9547432d12ed931a8aafe2f078bfdb9}{G\+D\+T\+::\+U\+S\+E\+R\+\_\+\+C\+S\+\_\+\+L\+I\+M\+IT} = 0x000\+F\+F\+F\+FF
+\item 
+const uint32\+\_\+t \hyperlink{namespace_g_d_t_a65f624eed850cd303b27f014e43576e4}{G\+D\+T\+::\+U\+S\+E\+R\+\_\+\+D\+S\+\_\+\+L\+I\+M\+IT} = 0x000\+F\+F\+F\+FF
+\item 
+const uint32\+\_\+t \hyperlink{namespace_g_d_t_a99c336ac1e41e7292c0da263389748d7}{G\+D\+T\+::\+N\+U\+L\+L\+\_\+\+B\+A\+SE} = 0x00000000
+\item 
+const uint32\+\_\+t \hyperlink{namespace_g_d_t_aa468dabc4b15ceac65292f59b3d98e76}{G\+D\+T\+::\+K\+E\+R\+N\+\_\+\+C\+S\+\_\+\+B\+A\+SE} = 0x00000000
+\item 
+const uint32\+\_\+t \hyperlink{namespace_g_d_t_a2a50b369a9ea36da4724c269a2c005a2}{G\+D\+T\+::\+K\+E\+R\+N\+\_\+\+D\+S\+\_\+\+B\+A\+SE} = 0x00000000
+\item 
+const uint32\+\_\+t \hyperlink{namespace_g_d_t_a17592b6bcda3da0b4162793c5ab25d34}{G\+D\+T\+::\+U\+S\+E\+R\+\_\+\+C\+S\+\_\+\+B\+A\+SE} = 0x00000000
+\item 
+const uint32\+\_\+t \hyperlink{namespace_g_d_t_af3b358f3263317a93fb70214db0fe9df}{G\+D\+T\+::\+U\+S\+E\+R\+\_\+\+D\+S\+\_\+\+B\+A\+SE} = 0x00000000
+\item 
+const uint8\+\_\+t \hyperlink{namespace_g_d_t_ac7317e2289378a4e654f8137e837e954}{G\+D\+T\+::\+N\+U\+L\+L\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY} = 0x00
+\item 
+const uint8\+\_\+t \hyperlink{namespace_g_d_t_a1ff5f5e1d41e01c0c4c32711264a5e23}{G\+D\+T\+::\+K\+E\+R\+N\+\_\+\+C\+S\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY} = 0x\+C0
+\item 
+const uint8\+\_\+t \hyperlink{namespace_g_d_t_a93b62ba7a382d7801e63bd32655a87c3}{G\+D\+T\+::\+K\+E\+R\+N\+\_\+\+D\+S\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY} = 0x\+C0
+\item 
+const uint8\+\_\+t \hyperlink{namespace_g_d_t_abca29cbf8c95b79a247c1b7af347deba}{G\+D\+T\+::\+U\+S\+E\+R\+\_\+\+C\+S\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY} = 0x\+C0
+\item 
+const uint8\+\_\+t \hyperlink{namespace_g_d_t_a1d41acb5aa3d1b3690fb1fa6e843f110}{G\+D\+T\+::\+U\+S\+E\+R\+\_\+\+D\+S\+\_\+\+G\+R\+A\+N\+U\+L\+A\+R\+I\+TY} = 0x\+C0
+\end{DoxyCompactItemize}

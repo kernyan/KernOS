@@ -5,17 +5,29 @@
 #include <global.h>
 #include <ktypes.h>
 
-// symbols defined in linker.ld
+/*! @brief starting address of pointers to global constructors
+ *  @details symbol defined in linker.ld.
+ */
 extern func_ptr start_ctors;
+
+/*! @brief ending address of pointers to global constructors
+ *  @details symbol defined in linker.ld.
+ */
 extern func_ptr end_ctors;
 
 namespace INIT
 {
+    /*! @brief calls constructors on all global objects
+     *
+     * @details
+     * as kernel is linked with -nostdlib,
+     * __do_global_ctors_aux are not called
+     * thus we have to call global constructors ourselves
+     *
+     * @see <a href="https://github.com/gcc-mirror/gcc/blob/master/libgcc/crtstuff.c">crtstuff.c</a>
+     */
     void ctors()
     {
-        // as kernel is linked with -nostdlib,
-        // __do_global_ctors_aux are not called (see https://github.com/gcc-mirror/gcc/blob/master/libgcc/crtstuff.c)
-        // thus we manually call global constructors
 
         for (func_ptr *ctor = &start_ctors; ctor < &end_ctors; ++ctor) {
             (*ctor)();

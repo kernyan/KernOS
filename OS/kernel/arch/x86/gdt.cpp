@@ -10,20 +10,22 @@
 
 namespace GDT
 {
-    // See AMD64 Architecture Programmer's Manual Volume 2: System Programming (PDF) (Technical report). 2013. p. 80.
-    /*   Code segment descriptor entry
-     *   |31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|12|11|10|09|08|07|06|05|04|03|02|01|00|
-     *   | Base address (24-31)  |G |D |  |A |Limit 16-19|P | DPL |1 |1 |C |R |A | Base address (16-23)  |
-     *   | Base address ( 0-15)                          |                         Segment limit (0-15)  |
-     */
+    /*! @brief Global descriptor table entry
+     *  @details
+     *  @verbatim
+        Code segment descriptor entry
+        |31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|12|11|10|09|08|07|06|05|04|03|02|01|00|
+        | Base address (24-31)  |G |D |  |A |Limit 16-19|P | DPL |1 |1 |C |R |A | Base address (16-23)  |
+        | Base address ( 0-15)                          |                         Segment limit (0-15)  |
 
-    /*   Data segment descriptor entry
-     *   |31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|12|11|10|09|08|07|06|05|04|03|02|01|00|
-     *   | Base address (24-31)  |G |DB|  |A |Limit 16-19|P | DPL |1 |0 |E |W |A | Base address (16-23)  |
-     *   | Base address ( 0-15)                          |                         Segment limit (0-15)  |
+        Data segment descriptor entry
+        |31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16|15|14|13|12|11|10|09|08|07|06|05|04|03|02|01|00|
+        | Base address (24-31)  |G |DB|  |A |Limit 16-19|P | DPL |1 |0 |E |W |A | Base address (16-23)  |
+        | Base address ( 0-15)                          |                         Segment limit (0-15)  |
+        @endverbatim
+     *  @see AMD64 Architecture Programmer's Manual Volume 2: System Programming (PDF) (Technical report). 2013. p. 80.
      */
-
-    union __attribute__((packed)) GdtEntry
+    union [[gnu::packed]] GdtEntry
     {
         struct
         {
@@ -41,14 +43,16 @@ namespace GDT
         };
     };
 
+    /*! @brief convenience structure used to set bits of GdtEntry
+     */
     struct Selector
     {
-        Segment m_Seg;
-        uint8_t m_Offset;
-        uint32_t m_Base;
-        uint32_t m_Limit;
-        uint8_t m_Access;
-        uint8_t m_Granularity;
+        Segment m_Seg;         ///< Segment enum
+        uint8_t m_Offset;      ///< Segment byte position in gdt_table
+        uint32_t m_Base;       ///< Base address of segment
+        uint32_t m_Limit;      ///< Limit address of segment
+        uint8_t m_Access;      ///< Access right bytes @see AR
+        uint8_t m_Granularity; ///< Granularity setting @see <a href="https://en.wikipedia.org/wiki/Global_Descriptor_Table">bit 16-23</a>
     };
 
     const uint32_t NULL_LIMIT    = 0x00000000;
@@ -71,6 +75,10 @@ namespace GDT
 
     static GdtEntry gdt_table[GDT_ENTRIES];
 
+    /*! @brief Set entries in GdtTable from array of Selector
+     * @param[out] GdtTable to be loaded into CPU later
+     * @param[in] SelectorTable used to specify entries to GdtTable
+     */
     void SetGlobalDescriptorEntry(GdtEntry GdtTable[], const Selector SelectorTable[])
     {
         for (size_t Idx = 0; Idx < GDT_ENTRIES; ++Idx) {
@@ -89,9 +97,13 @@ namespace GDT
         }
     }
 
+    /*! @brief assembly instruction to load gdt table to CPU
+     * @param gdtAddress
+     * @param LimitUse
+     */
     inline void Load_gdt(void *gdtAddress, uint16_t LimitUse)
     {
-        struct __attribute__((packed))
+        struct [[gnu::packed]]
         {
             uint16_t Limit;
             void *Base;
@@ -104,6 +116,12 @@ namespace GDT
         );
     }
 
+    /*! @brief Creates global descriptor entries in gdt_table, and loads into CPU
+     *  @details
+     *  We are going to use x86 protected mode, thus the segment selectors won't be used for either virtual memory, or memory protection.
+     *  However since segmentation cannot be turned off on an x86, we simply set the kernel/user space segments to 0 base to simulate flat memory model
+     *  @see <a href="https://en.wikipedia.org/wiki/X86_memory_segmentation#Practices">Segmentation in x86 in practice</a>
+     */
     void Install_gdt()
     {
         constexpr struct Selector SelTable[GDT_ENTRIES] =
@@ -148,6 +166,9 @@ namespace GDT
 
 namespace INIT
 {
+    /*! @brief creates global descriptor table and loads it into CPU
+     *  @see GDT::Install_gdt
+     */
     void gdt()
     {
         GDT::Install_gdt();

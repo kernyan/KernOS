@@ -1,0 +1,40 @@
+\hypertarget{gdt_8h}{}\section{O\+S/include/gdt.h File Reference}
+\label{gdt_8h}\index{O\+S/include/gdt.\+h@{O\+S/include/gdt.\+h}}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gdt_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace_g_d_t}{G\+DT}
+\begin{DoxyCompactList}\small\item\em global descriptor table \end{DoxyCompactList}\item 
+ \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
+\begin{DoxyCompactList}\small\item\em contains all kernel initialization routines \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154}{G\+D\+T\+::\+Segment} \+: uint16\+\_\+t \{ \newline
+\hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a86e32c8df1a16bdd2971d97063048cff}{G\+D\+T\+::\+Null} = 0, 
+\hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a9ec147ba7f4244a0e047c92f24a920b9}{G\+D\+T\+::\+K\+\_\+\+CS}, 
+\hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a71647052ea8761e0f719dfb481a72f0b}{G\+D\+T\+::\+K\+\_\+\+DS}, 
+\hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a1d5e8e72d040439207b2341afb78e530}{G\+D\+T\+::\+U\+\_\+\+CS}, 
+\newline
+\hyperlink{namespace_g_d_t_af2b09941ee46a489ebaccfed5c839154a62f547535bd854846bc3d457a3f37eeb}{G\+D\+T\+::\+U\+\_\+\+DS}
+ \}\begin{DoxyCompactList}\small\item\em Code segments. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint8\+\_\+t \hyperlink{namespace_g_d_t_a3f6672477fedb061897f9c710f539ccb}{G\+D\+T\+::\+S\+E\+G\+\_\+\+O\+F\+F\+S\+ET} (const Segment Seg)
+\begin{DoxyCompactList}\small\item\em Translates code segment enum to code segment selector. \end{DoxyCompactList}\item 
+void \hyperlink{namespace_i_n_i_t_a3462d7bc51bce77cc240d05b62b1b777}{I\+N\+I\+T\+::gdt} ()
+\begin{DoxyCompactList}\small\item\em creates global descriptor table and loads it into C\+PU \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \hyperlink{namespace_g_d_t_aab056cef2c3ca53ed66a58f7ae7edfce}{G\+D\+T\+::\+G\+D\+T\+\_\+\+E\+N\+T\+R\+I\+ES} = 5
+\end{DoxyCompactItemize}

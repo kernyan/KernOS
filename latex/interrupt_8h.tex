@@ -1,0 +1,71 @@
+\hypertarget{interrupt_8h}{}\section{O\+S/include/interrupt.h File Reference}
+\label{interrupt_8h}\index{O\+S/include/interrupt.\+h@{O\+S/include/interrupt.\+h}}
+{\ttfamily \#include $<$common.\+h$>$}\newline
+{\ttfamily \#include $<$utilities.\+h$>$}\newline
+{\ttfamily \#include $<$registers.\+h$>$}\newline
+Include dependency graph for interrupt.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interrupt_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interrupt_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_i_n_t_r_p_1_1_mask}{I\+N\+T\+R\+P\+::\+Mask}
+\begin{DoxyCompactList}\small\item\em Disables interrupt on construction, restores previous interrupt mask on scope exit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace_i_n_t_r_p}{I\+N\+T\+RP}
+\begin{DoxyCompactList}\small\item\em interrupt namespace \end{DoxyCompactList}\item 
+ \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
+\begin{DoxyCompactList}\small\item\em contains all kernel initialization routines \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94}{I\+N\+T\+R\+P\+::\+I\+VT} \+: uint8\+\_\+t \{ \newline
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a58f4b58ae6281e7599c8cf5eecb34aac}{I\+N\+T\+R\+P\+::\+R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+S\+T\+A\+RT} = 0x0, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94aa4812872ae63e8dd2531baae7ae7af8c}{I\+N\+T\+R\+P\+::\+D\+I\+V\+\_\+0\+\_\+\+F\+A\+U\+LT} = R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+S\+T\+A\+RT, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a3e90a0065c250e74b2e79839e6dd9531}{I\+N\+T\+R\+P\+::\+D\+E\+B\+U\+G\+\_\+\+T\+R\+AP} = 0x1, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a60c43a2567dc9655eac98fe90703e4e4}{I\+N\+T\+R\+P\+::\+N\+M\+I\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT} = 0x2, 
+\newline
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94ac40b8e367b8789ee9a9138c7e5c5e7b9}{I\+N\+T\+R\+P\+::\+B\+R\+E\+A\+K\+P\+O\+I\+N\+T\+\_\+\+T\+R\+AP} = 0x3, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a6bf9679b51b0ae4fc7d0b89b62ae19c2}{I\+N\+T\+R\+P\+::\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+T\+R\+AP} = 0x4, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94aecc41fcce90166e7c060af4df3eb85e9}{I\+N\+T\+R\+P\+::\+O\+U\+T\+\_\+\+O\+F\+\_\+\+B\+O\+U\+N\+D\+S\+\_\+\+F\+A\+U\+LT} = 0x5, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94af5e5df39002d4114a23ea47772b24993}{I\+N\+T\+R\+P\+::\+I\+N\+V\+A\+L\+I\+D\+\_\+\+O\+P\+C\+O\+D\+E\+\_\+\+F\+A\+U\+LT} = 0x6, 
+\newline
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a917bad20e5e7152140c3bc4a32f0c946}{I\+N\+T\+R\+P\+::\+N\+O\+\_\+\+M\+A\+T\+H\+\_\+\+C\+O\+P\+\_\+\+F\+A\+U\+LT} = 0x7, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a4dc8cc2535405b9892ebb823cc708724}{I\+N\+T\+R\+P\+::\+D\+O\+U\+B\+L\+E\+\_\+\+F\+A\+U\+LT} = 0x8, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a777235d584c5919bd2b1ce4f436515bd}{I\+N\+T\+R\+P\+::\+C\+O\+P\+\_\+\+S\+E\+G\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+F\+A\+U\+LT} = 0x9, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a5b1eba48c3b793f1335078cd5231f50d}{I\+N\+T\+R\+P\+::\+I\+N\+V\+A\+L\+I\+D\+\_\+\+T\+S\+S\+\_\+\+F\+A\+U\+LT} = 0x0A, 
+\newline
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a654096aa14bd7f00822273e7fe86525f}{I\+N\+T\+R\+P\+::\+S\+E\+G\+\_\+\+N\+O\+T\+\_\+\+P\+R\+E\+S\+E\+N\+T\+\_\+\+F\+A\+U\+LT} = 0x0B, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94aa151e7e1c98c688471f4e9b60fd11de9}{I\+N\+T\+R\+P\+::\+S\+T\+A\+C\+K\+\_\+\+S\+E\+G\+\_\+\+F\+A\+U\+LT} = 0x0C, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a2494cab6d93c57a9adcb3d7309192b79}{I\+N\+T\+R\+P\+::\+G\+E\+N\+\_\+\+P\+R\+O\+T\+E\+C\+T\+I\+O\+N\+\_\+\+F\+A\+U\+LT} = 0x0D, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a72999410be9f8206ea01268b6306f59a}{I\+N\+T\+R\+P\+::\+P\+A\+G\+E\+\_\+\+F\+A\+U\+LT} = 0x0E, 
+\newline
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a24b3949bacfadc75ecddaf0a638b1c49}{I\+N\+T\+R\+P\+::\+R\+E\+S\+E\+R\+V\+ED} = 0x0F, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a44642a04b137a14fd789a6936b7762dd}{I\+N\+T\+R\+P\+::\+M\+A\+T\+H\+\_\+\+F\+A\+U\+LT} = 0x10, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a4ae4571bf9290f732b429dd0b30002c3}{I\+N\+T\+R\+P\+::\+A\+L\+I\+G\+N\+M\+E\+N\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+\+F\+A\+U\+LT} = 0x11, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a67d00b54b2bade5a703dbbbc2ea93711}{I\+N\+T\+R\+P\+::\+M\+A\+C\+H\+I\+N\+E\+\_\+\+C\+H\+E\+C\+K\+\_\+\+A\+B\+O\+RT} = 0x12, 
+\newline
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a7f928e26348ad94a198cdb0b8758068b}{I\+N\+T\+R\+P\+::\+S\+I\+M\+D\+\_\+\+F\+P\+\_\+\+X\+F\+\_\+\+F\+A\+U\+LT} = 0x13, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94ad3c957dd69dc16828a748d3e07499633}{I\+N\+T\+R\+P\+::\+R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+E\+ND} = 0x1F, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a6896b72dca7a4ffbd39151b6fb9be9b1}{I\+N\+T\+R\+P\+::\+U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+S\+T\+A\+RT} = R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+E\+ND + 1, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94ae081b819aecf9800dc041fec2b47286c}{I\+N\+T\+R\+P\+::\+U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+E\+ND} = 0x\+FF
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespace_i_n_i_t_aec8e9f01cb09653075b6e610096b3ca9}{I\+N\+I\+T\+::idt} ()
+\begin{DoxyCompactList}\small\item\em Creates interrupt descriptor table and loads to C\+PU. \end{DoxyCompactList}\end{DoxyCompactItemize}
