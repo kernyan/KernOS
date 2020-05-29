@@ -10,7 +10,7 @@ TEST(kmalloc, AllocateFree)
     uint8_t Array[4096*3];
 
     const uint32_t StartAdd = (uint32_t)  Array;
-    const uint32_t EndAdd   = (uint32_t) (Array + 4096*3);
+    const uint32_t EndAdd   = (uint32_t) (Array + 4096*256);
 
     KM::mem_alloc.Initialize (StartAdd, EndAdd);
     EXPECT_EQ(KM::mem_alloc.m_Base.m_Next->m_Size, EndAdd - StartAdd);

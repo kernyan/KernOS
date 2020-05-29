@@ -1,5 +1,9 @@
 #include <vga.h>
 
+#ifdef TEST_BUILD
+#include <iostream>
+#endif
+
 namespace VGA
 {
     Vga Display;
@@ -49,8 +53,12 @@ namespace VGA
 
     void Vga::Puts(const char *Str)
     {
+#ifdef TEST_BUILD
+        std::cout << Str;
+#else
         for (size_t i = 0; i < Strlen(Str); ++i)
             PutChar(Str[i]);
+#endif
     }
 } // namespace VGA
 

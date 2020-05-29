@@ -3,8 +3,10 @@
 .set MULTIBOOT_MEM_INFO, 0x2     #/* pass memory info to OS */
 .set MULTIBOOT_FLAGS, MULTIBOOT_PAGE_ALIGN #| MULTIBOOT_MEM_INFO
 .set CHECKSUM, -(MULTIBOOT_MAGIC + MULTIBOOT_FLAGS) #/* to prove is multiboot */
-.set KHEAP_SIZE, 4096*3
-.set KPAGETABLE_SIZE, 4096*3
+
+.set KSTACK_SIZE, 4096*256     // 1 MB
+.set KHEAP_SIZE, 4096*256      // 1 MB
+.set KPAGETABLE_SIZE, 4096*3   // 12 KiB
 
 /* header for kernel */
 .section .multiboot
@@ -16,18 +18,18 @@
 
 .section .stack, "aw", @nobits /* aw: allocatable/writable, nobits: space only exist on runtime */
 stack_bottom:
-.skip 32768 # 32 KiB
+.skip KSTACK_SIZE
 stack_top:
-
-.section .page_tables
-.align 4096
-page_tables_start:
-.skip KPAGETABLE_SIZE
 
 .section .kheap_mem, "aw", @nobits /* aw: allocatable/writable, nobits: space only exist on runtime*/
 .align 4096
 kheap_start:
 .skip KHEAP_SIZE
+
+.section .page_tables
+.align 4096
+page_tables_start:
+.skip KPAGETABLE_SIZE
 
 .section .data
 .extern kheap
