@@ -7,6 +7,11 @@
 
 #include <common.h>
 
+namespace INIT
+{
+    void pagetables();
+}
+
 /*! @brief Kernel memory namespace
  */
 namespace KM // kernel memory

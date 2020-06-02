@@ -7,7 +7,6 @@
 #include <ktypes.h>
 
 void *kheap;      // populated in boot.S
-void *kpagetable; // populated in boot.S
 
 namespace KM // kernel memory
 {

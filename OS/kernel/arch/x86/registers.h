@@ -45,6 +45,9 @@ namespace CR4
     };
 }
 
+/*! @brief CPU Flags register
+ *  @see <a href="https://en.wikipedia.org/wiki/FLAGS_register">FLAGS register in x86 microprocessor</a>
+ */
 namespace FLAGS
 {
    enum : uint32_t

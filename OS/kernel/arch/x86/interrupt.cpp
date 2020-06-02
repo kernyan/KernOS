@@ -163,6 +163,14 @@ namespace INTRP // interrupt
         Hang();
     }
 
+    /*! @brief Page fault handler
+     */
+    void PageFaultHandler()
+    {
+        kprintf("Page fault handler is not yet set up\n");
+        Hang();
+    }
+
     /*! @brief default unhandled interrupt handler
      */
     void UnhandledInterrupt()
@@ -178,6 +186,8 @@ namespace INTRP // interrupt
     {
         for (size_t Idx = IVT::RESERVED_START; Idx <= IVT::RESERVED_END; ++Idx)
             RegisterHandler(IdtTable, Idx, UnhandledException);
+
+        RegisterHandler(IdtTable, IVT::PAGE_FAULT, PageFaultHandler);
     }
 
     /*! @brief Installs default interrupt handler to all interrupts
