@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['g',['G',['../namespace_v_m_1_1_p_t_a.html#a89a9cf444829a1e2681beab7a219fea5a07e37da4a960b9f69565a92c812da75c',1,'VM::PTA']]],
   ['gdt',['GDT',['../namespace_g_d_t.html',1,'GDT'],['../namespace_i_n_i_t.html#a3462d7bc51bce77cc240d05b62b1b777',1,'INIT::gdt()']]],
   ['gdt_2ecpp',['gdt.cpp',['../gdt_8cpp.html',1,'']]],
   ['gdt_2eh',['gdt.h',['../gdt_8h.html',1,'']]],

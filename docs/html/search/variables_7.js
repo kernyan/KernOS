@@ -9,5 +9,5 @@ var searchData=
   ['kern_5fds_5fgranularity',['KERN_DS_GRANULARITY',['../namespace_g_d_t.html#a93b62ba7a382d7801e63bd32655a87c3',1,'GDT']]],
   ['kern_5fds_5flimit',['KERN_DS_LIMIT',['../namespace_g_d_t.html#a0b19f62da26fef63c425face3191a75b',1,'GDT']]],
   ['kheap',['kheap',['../memoryallocator_8cpp.html#ace9c1b0c23dfc96b6f7432bdde6b1370',1,'memoryallocator.cpp']]],
-  ['kpagetable',['kpagetable',['../memoryallocator_8cpp.html#a6f6f3cc49b2c83f2fc2944156cdca42f',1,'memoryallocator.cpp']]]
+  ['kpagetable',['kpagetable',['../virtualmemory_8cpp.html#a6f6f3cc49b2c83f2fc2944156cdca42f',1,'virtualmemory.cpp']]]
 ];

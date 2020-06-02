@@ -103,12 +103,17 @@ Functions</h2></td></tr>
 <tr class="memitem:aec8e9f01cb09653075b6e610096b3ca9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_i_t.html#aec8e9f01cb09653075b6e610096b3ca9">idt</a> ()</td></tr>
 <tr class="memdesc:aec8e9f01cb09653075b6e610096b3ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates interrupt descriptor table and loads to CPU.  <a href="#aec8e9f01cb09653075b6e610096b3ca9">More...</a><br /></td></tr>
 <tr class="separator:aec8e9f01cb09653075b6e610096b3ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e427aa89bec95f574ad21b5e7d9ee8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_i_t.html#a9e427aa89bec95f574ad21b5e7d9ee8c">pagetables</a> ()</td></tr>
+<tr class="separator:a9e427aa89bec95f574ad21b5e7d9ee8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac811302ce0948a6a097b445b811f9c14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_i_t.html#ac811302ce0948a6a097b445b811f9c14">KMALLOC</a> ()</td></tr>
 <tr class="memdesc:ac811302ce0948a6a097b445b811f9c14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides memory allocator with range of reserved memory address to manage.  <a href="#ac811302ce0948a6a097b445b811f9c14">More...</a><br /></td></tr>
 <tr class="separator:ac811302ce0948a6a097b445b811f9c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abae5789d80f8edd37455f3b167779654"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_i_t.html#abae5789d80f8edd37455f3b167779654">VGA</a> ()</td></tr>
 <tr class="memdesc:abae5789d80f8edd37455f3b167779654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear <a class="el" href="namespace_v_g_a.html" title="Video Graphics Array namespace. ">VGA</a> display, and print kernel banner.  <a href="#abae5789d80f8edd37455f3b167779654">More...</a><br /></td></tr>
 <tr class="separator:abae5789d80f8edd37455f3b167779654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea383d3de30095cf9d176fa60b66d01d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_i_t.html#aea383d3de30095cf9d176fa60b66d01d">PAGE</a> ()</td></tr>
+<tr class="memdesc:aea383d3de30095cf9d176fa60b66d01d"><td class="mdescLeft">&#160;</td><td class="mdescRight">set up page directory, page table, and turn on paging  <a href="#aea383d3de30095cf9d176fa60b66d01d">More...</a><br /></td></tr>
+<tr class="separator:aea383d3de30095cf9d176fa60b66d01d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>contains all kernel initialization routines </p>
@@ -179,7 +184,7 @@ Functions</h2></td></tr>
 <dd>
 <a class="el" href="namespace_i_n_t_r_p.html#a139b273cc1e45d3c2fdfe0d387a98518" title="Assigns exception and interrupt handler to idt_table, and load to CPU. ">INTRP::Install_idt</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00224">224</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00234">234</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -201,7 +206,46 @@ Functions</h2></td></tr>
 <p>Provides memory allocator with range of reserved memory address to manage. </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>don't hardcode heap size </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="memoryallocator_8cpp_source.html#l00115">115</a> of file <a class="el" href="memoryallocator_8cpp_source.html">memoryallocator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memoryallocator_8cpp_source.html#l00114">114</a> of file <a class="el" href="memoryallocator_8cpp_source.html">memoryallocator.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aea383d3de30095cf9d176fa60b66d01d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea383d3de30095cf9d176fa60b66d01d">&#9670;&nbsp;</a></span>PAGE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void INIT::PAGE </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set up page directory, page table, and turn on paging </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>only setting up page table 0 for now, i.e. 0 - 4 MiB </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="virtualmemory_8cpp_source.html#l00076">76</a> of file <a class="el" href="virtualmemory_8cpp_source.html">virtualmemory.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9e427aa89bec95f574ad21b5e7d9ee8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e427aa89bec95f574ad21b5e7d9ee8c">&#9670;&nbsp;</a></span>pagetables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void INIT::pagetables </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

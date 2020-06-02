@@ -54,6 +54,8 @@ void \hyperlink{namespace_i_n_t_r_p_a91a6a2668bfa9961a9ed265f6ceac47d}{Register\
 \begin{DoxyCompactList}\small\item\em Creates interrupt descriptor entries in idt\+\_\+table, and loads into C\+PU. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_a7732859732913734b09dd07030c41991}{Unhandled\+Exception} ()
 \begin{DoxyCompactList}\small\item\em default unhandled exception handler \end{DoxyCompactList}\item 
+void \hyperlink{namespace_i_n_t_r_p_aff35666b88439353d86e253d3051f27f}{Page\+Fault\+Handler} ()
+\begin{DoxyCompactList}\small\item\em Page fault handler. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_a13c03019c9d7b305743516310096a82a}{Unhandled\+Interrupt} ()
 \begin{DoxyCompactList}\small\item\em default unhandled interrupt handler \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_a4a1a1ff73a4e9bb1c17daf205170daa9}{Set\+Exception\+Handler} (\hyperlink{union_i_n_t_r_p_1_1_descriptor_entry}{Descriptor\+Entry} Idt\+Table\mbox{[}$\,$\mbox{]})
@@ -198,7 +200,7 @@ Assigns exception and interrupt handler to idt\+\_\+table, and load to C\+PU.
 
 
 
-Definition at line 214 of file interrupt.\+cpp.
+Definition at line 224 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_t_r_p_a194f85d6c873615e9125466e3b23c30f}\label{namespace_i_n_t_r_p_a194f85d6c873615e9125466e3b23c30f}} 
 \index{I\+N\+T\+RP@{I\+N\+T\+RP}!Load\+\_\+lidt@{Load\+\_\+lidt}}
@@ -219,7 +221,21 @@ assembly instruction to load idt table to C\+PU
 \end{DoxyParams}
 
 
-Definition at line 196 of file interrupt.\+cpp.
+Definition at line 206 of file interrupt.\+cpp.
+
+\mbox{\Hypertarget{namespace_i_n_t_r_p_aff35666b88439353d86e253d3051f27f}\label{namespace_i_n_t_r_p_aff35666b88439353d86e253d3051f27f}} 
+\index{I\+N\+T\+RP@{I\+N\+T\+RP}!Page\+Fault\+Handler@{Page\+Fault\+Handler}}
+\index{Page\+Fault\+Handler@{Page\+Fault\+Handler}!I\+N\+T\+RP@{I\+N\+T\+RP}}
+\subsubsection{\texorpdfstring{Page\+Fault\+Handler()}{PageFaultHandler()}}
+{\footnotesize\ttfamily void I\+N\+T\+R\+P\+::\+Page\+Fault\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Page fault handler. 
+
+
+
+Definition at line 168 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_t_r_p_a91a6a2668bfa9961a9ed265f6ceac47d}\label{namespace_i_n_t_r_p_a91a6a2668bfa9961a9ed265f6ceac47d}} 
 \index{I\+N\+T\+RP@{I\+N\+T\+RP}!Register\+Handler@{Register\+Handler}}
@@ -261,7 +277,7 @@ Installs default exception handler to all exceptions.
 \end{DoxyParams}
 
 
-Definition at line 177 of file interrupt.\+cpp.
+Definition at line 185 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_t_r_p_abf09ee877603981fe255cd050cbbb110}\label{namespace_i_n_t_r_p_abf09ee877603981fe255cd050cbbb110}} 
 \index{I\+N\+T\+RP@{I\+N\+T\+RP}!Set\+Interrupt\+Handler@{Set\+Interrupt\+Handler}}
@@ -280,7 +296,7 @@ Installs default interrupt handler to all interrupts.
 \end{DoxyParams}
 
 
-Definition at line 186 of file interrupt.\+cpp.
+Definition at line 196 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_t_r_p_a7732859732913734b09dd07030c41991}\label{namespace_i_n_t_r_p_a7732859732913734b09dd07030c41991}} 
 \index{I\+N\+T\+RP@{I\+N\+T\+RP}!Unhandled\+Exception@{Unhandled\+Exception}}
@@ -308,7 +324,7 @@ default unhandled interrupt handler
 
 
 
-Definition at line 168 of file interrupt.\+cpp.
+Definition at line 176 of file interrupt.\+cpp.
 
 
 

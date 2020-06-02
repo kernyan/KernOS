@@ -94,6 +94,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <area shape="rect" id="node2" href="interrupt_8h.html" title="OS/include/interrupt.h" alt="" coords="157,102,305,129"/>
 <area shape="rect" id="node6" href="cpu_8cpp.html" title="OS/kernel/arch/x86\l/cpu.cpp" alt="" coords="329,95,464,136"/>
 <area shape="rect" id="node7" href="gdt_8cpp.html" title="OS/kernel/arch/x86\l/gdt.cpp" alt="" coords="488,95,623,136"/>
+<area shape="rect" id="node8" href="virtualmemory_8cpp.html" title="OS/kernel/arch/x86\l/virtualmemory.cpp" alt="" coords="647,95,781,136"/>
 <area shape="rect" id="node3" href="interrupt_8cpp.html" title="OS/kernel/arch/x86\l/interrupt.cpp" alt="" coords="5,184,140,225"/>
 <area shape="rect" id="node4" href="kernel_8cpp.html" title="OS/kernel/arch/x86\l/kernel.cpp" alt="" coords="164,184,299,225"/>
 <area shape="rect" id="node5" href="memoryallocator_8cpp.html" title="OS/kernel/arch/x86\l/memoryallocator.cpp" alt="" coords="323,184,470,225"/>
@@ -111,66 +112,67 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespace_c_r4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control register 4. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespace_f_l_a_g_s"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_f_l_a_g_s.html">FLAGS</a></td></tr>
+<tr class="memdesc:namespace_f_l_a_g_s"><td class="mdescLeft">&#160;</td><td class="mdescRight">CPU Flags register. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a9b4684de9b26ecfcede75561aae698c6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">: uint8_t { <br />
-&#160;&#160;<a class="el" href="namespace_c_r0.html#a9b4684de9b26ecfcede75561aae698c6a7f3a9f7cae8ff9783116b3807a9e7f63">CR0::PE</a> = 0, 
-<a class="el" href="namespace_c_r0.html#a9b4684de9b26ecfcede75561aae698c6a5d476977d06d7c0b03c9c15c07a79a67">CR0::MP</a> = 1, 
-<a class="el" href="namespace_c_r0.html#a9b4684de9b26ecfcede75561aae698c6a7b84c2b5b161093766d5ce338ae954fd">CR0::EM</a> = 2, 
-<a class="el" href="namespace_c_r0.html#a9b4684de9b26ecfcede75561aae698c6a11d3ddf6dc3d1d972c1df841c8612a98">CR0::TS</a> = 3, 
+<tr class="memitem:aca53d8161d60c86788386fa6db06e7aa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">: uint8_t { <br />
+&#160;&#160;<a class="el" href="namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaa7f3a9f7cae8ff9783116b3807a9e7f63">CR0::PE</a> = 0, 
+<a class="el" href="namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaa5d476977d06d7c0b03c9c15c07a79a67">CR0::MP</a> = 1, 
+<a class="el" href="namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaa7b84c2b5b161093766d5ce338ae954fd">CR0::EM</a> = 2, 
+<a class="el" href="namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaa11d3ddf6dc3d1d972c1df841c8612a98">CR0::TS</a> = 3, 
 <br />
-&#160;&#160;<a class="el" href="namespace_c_r0.html#a9b4684de9b26ecfcede75561aae698c6aea1442f406aa6dac094cac2466be6da7">CR0::ET</a> = 4, 
-<a class="el" href="namespace_c_r0.html#a9b4684de9b26ecfcede75561aae698c6aec96b199175e3576b8864dc1ac07ac4e">CR0::NE</a> = 5, 
-<a class="el" href="namespace_c_r0.html#a9b4684de9b26ecfcede75561aae698c6a26b870d7f1a47ad83f6c2ce739189171">CR0::WP</a> = 16, 
-<a class="el" href="namespace_c_r0.html#a9b4684de9b26ecfcede75561aae698c6a2325d7d071248d4efffdf7bd809decb7">CR0::AM</a> = 18, 
+&#160;&#160;<a class="el" href="namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaaea1442f406aa6dac094cac2466be6da7">CR0::ET</a> = 4, 
+<a class="el" href="namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaaec96b199175e3576b8864dc1ac07ac4e">CR0::NE</a> = 5, 
+<a class="el" href="namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaa26b870d7f1a47ad83f6c2ce739189171">CR0::WP</a> = 16, 
+<a class="el" href="namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaa2325d7d071248d4efffdf7bd809decb7">CR0::AM</a> = 18, 
 <br />
-&#160;&#160;<a class="el" href="namespace_c_r0.html#a9b4684de9b26ecfcede75561aae698c6a09776e60fc989f19ae0f04a402d2d1bb">CR0::NW</a> = 29, 
-<a class="el" href="namespace_c_r0.html#a9b4684de9b26ecfcede75561aae698c6a4154f3b5cb906ec0bfab20c87e8a7d84">CR0::CD</a> = 30, 
-<a class="el" href="namespace_c_r0.html#a9b4684de9b26ecfcede75561aae698c6a674029f08e40b913896b27f5cb5e1ec8">CR0::PG</a> = 31
-<br />
- }</td></tr>
-<tr class="separator:a9b4684de9b26ecfcede75561aae698c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafe95739cfe1ff98b6250e2af6613758"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">: uint8_t { <br />
-&#160;&#160;<a class="el" href="namespace_c_r4.html#aafe95739cfe1ff98b6250e2af6613758aa569bc9b3252f731550182a03c650797">CR4::VME</a> = 0, 
-<a class="el" href="namespace_c_r4.html#aafe95739cfe1ff98b6250e2af6613758a6b65c8f982880d05c6a32200c60242db">CR4::PVI</a> = 1, 
-<a class="el" href="namespace_c_r4.html#aafe95739cfe1ff98b6250e2af6613758ace0ed188ba0369731b44b7df079a518b">CR4::TSD</a> = 2, 
-<a class="el" href="namespace_c_r4.html#aafe95739cfe1ff98b6250e2af6613758a6ba0a01eeee81d3b2b4165a5084b507a">CR4::DE</a> = 3, 
-<br />
-&#160;&#160;<a class="el" href="namespace_c_r4.html#aafe95739cfe1ff98b6250e2af6613758af62a80eb9fee090b45e3962ca9adb6cd">CR4::PSE</a> = 4, 
-<a class="el" href="namespace_c_r4.html#aafe95739cfe1ff98b6250e2af6613758a3a3afec51c05f51090a3d704d31ff310">CR4::PAE</a> = 5, 
-<a class="el" href="namespace_c_r4.html#aafe95739cfe1ff98b6250e2af6613758ab6bdf44cebbecb78a845af15d91a1d0a">CR4::MCE</a> = 6, 
-<a class="el" href="namespace_c_r4.html#aafe95739cfe1ff98b6250e2af6613758adef854f9df515146e4f5c5b7c46206ee">CR4::PGE</a> = 7, 
-<br />
-&#160;&#160;<a class="el" href="namespace_c_r4.html#aafe95739cfe1ff98b6250e2af6613758afd06ff4443c1659425fefcc65fc76419">CR4::PCE</a> = 8, 
-<a class="el" href="namespace_c_r4.html#aafe95739cfe1ff98b6250e2af6613758ab0cf978bb5b8c32070363ab81d327c53">CR4::OSFXSR</a> = 9, 
-<a class="el" href="namespace_c_r4.html#aafe95739cfe1ff98b6250e2af6613758abb68ec0930317011b84484346947f472">CR4::OSXMMEXCPT</a> = 10
+&#160;&#160;<a class="el" href="namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaa09776e60fc989f19ae0f04a402d2d1bb">CR0::NW</a> = 29, 
+<a class="el" href="namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaa4154f3b5cb906ec0bfab20c87e8a7d84">CR0::CD</a> = 30, 
+<a class="el" href="namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaa674029f08e40b913896b27f5cb5e1ec8">CR0::PG</a> = 31
 <br />
  }</td></tr>
-<tr class="separator:aafe95739cfe1ff98b6250e2af6613758"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e8c1de25986c4a7ecca3f86a2a7ed95"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">: uint32_t { <br />
-&#160;&#160;<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95a1e61b18dede7337e99c57059e099a7d0">FLAGS::CF</a> = 0x0001, 
-<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95ac2a64b20f171c4a80430f79a148d31d8">FLAGS::PF</a> = 0x0004, 
-<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95abc6c39c7676dd1893ab8cac782962a46">FLAGS::AF</a> = 0x0010, 
-<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95a4ffaf63b236176ba89f7c46efb976922">FLAGS::ZF</a> = 0x0040, 
+<tr class="separator:aca53d8161d60c86788386fa6db06e7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2928f19d113bac6aaeab713b170185ce"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">: uint8_t { <br />
+&#160;&#160;<a class="el" href="namespace_c_r4.html#a2928f19d113bac6aaeab713b170185ceaa569bc9b3252f731550182a03c650797">CR4::VME</a> = 0, 
+<a class="el" href="namespace_c_r4.html#a2928f19d113bac6aaeab713b170185cea6b65c8f982880d05c6a32200c60242db">CR4::PVI</a> = 1, 
+<a class="el" href="namespace_c_r4.html#a2928f19d113bac6aaeab713b170185ceace0ed188ba0369731b44b7df079a518b">CR4::TSD</a> = 2, 
+<a class="el" href="namespace_c_r4.html#a2928f19d113bac6aaeab713b170185cea6ba0a01eeee81d3b2b4165a5084b507a">CR4::DE</a> = 3, 
 <br />
-&#160;&#160;<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95aa824ab195ddb83a9e5a8894457e1e6de">FLAGS::SF</a> = 0x0080, 
-<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95a4fd0673010631e5f1c7597b5157461bc">FLAGS::TF</a> = 0x0100, 
-<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95aec02296c8246d8621db2de2314b6728d">FLAGS::IF</a> = 0x0200, 
-<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95a6d0f5b6510bc2a40631627ef5330fbef">FLAGS::DF</a> = 0x0400, 
+&#160;&#160;<a class="el" href="namespace_c_r4.html#a2928f19d113bac6aaeab713b170185ceaf62a80eb9fee090b45e3962ca9adb6cd">CR4::PSE</a> = 4, 
+<a class="el" href="namespace_c_r4.html#a2928f19d113bac6aaeab713b170185cea3a3afec51c05f51090a3d704d31ff310">CR4::PAE</a> = 5, 
+<a class="el" href="namespace_c_r4.html#a2928f19d113bac6aaeab713b170185ceab6bdf44cebbecb78a845af15d91a1d0a">CR4::MCE</a> = 6, 
+<a class="el" href="namespace_c_r4.html#a2928f19d113bac6aaeab713b170185ceadef854f9df515146e4f5c5b7c46206ee">CR4::PGE</a> = 7, 
 <br />
-&#160;&#160;<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95a10b6a3ccfa73250d20d1b2d5e6f2424f">FLAGS::OF</a> = 0x0800, 
-<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95ab410a125534d3cf535d3be32c134abff">FLAGS::RF</a> = 0x0001'0000, 
-<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95a549f5d5262483d77729683894e6d1be0">FLAGS::VM</a> = 0x0002'0000, 
-<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95af66a43e8dab676f5753b7abe62a53f62">FLAGS::AC</a> = 0x0004'0000, 
-<br />
-&#160;&#160;<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95a60d8e57e033e6621fbda4b775e27ac6a">FLAGS::VIF</a> = 0x0008'0000, 
-<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95aea811f58ffff15c14f1a3bdb9ec09727">FLAGS::VIP</a> = 0x0010'0000, 
-<a class="el" href="namespace_f_l_a_g_s.html#a2e8c1de25986c4a7ecca3f86a2a7ed95a057e038e9149d8fe2ad23df50ef42151">FLAGS::ID</a> = 0x0020'0000
+&#160;&#160;<a class="el" href="namespace_c_r4.html#a2928f19d113bac6aaeab713b170185ceafd06ff4443c1659425fefcc65fc76419">CR4::PCE</a> = 8, 
+<a class="el" href="namespace_c_r4.html#a2928f19d113bac6aaeab713b170185ceab0cf978bb5b8c32070363ab81d327c53">CR4::OSFXSR</a> = 9, 
+<a class="el" href="namespace_c_r4.html#a2928f19d113bac6aaeab713b170185ceabb68ec0930317011b84484346947f472">CR4::OSXMMEXCPT</a> = 10
 <br />
  }</td></tr>
-<tr class="separator:a2e8c1de25986c4a7ecca3f86a2a7ed95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a2928f19d113bac6aaeab713b170185ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d5f9747a4879f4d57418def02a8fb51"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">: uint32_t { <br />
+&#160;&#160;<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51a1e61b18dede7337e99c57059e099a7d0">FLAGS::CF</a> = 0x0001, 
+<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51ac2a64b20f171c4a80430f79a148d31d8">FLAGS::PF</a> = 0x0004, 
+<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51abc6c39c7676dd1893ab8cac782962a46">FLAGS::AF</a> = 0x0010, 
+<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51a4ffaf63b236176ba89f7c46efb976922">FLAGS::ZF</a> = 0x0040, 
+<br />
+&#160;&#160;<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51aa824ab195ddb83a9e5a8894457e1e6de">FLAGS::SF</a> = 0x0080, 
+<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51a4fd0673010631e5f1c7597b5157461bc">FLAGS::TF</a> = 0x0100, 
+<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51aec02296c8246d8621db2de2314b6728d">FLAGS::IF</a> = 0x0200, 
+<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51a6d0f5b6510bc2a40631627ef5330fbef">FLAGS::DF</a> = 0x0400, 
+<br />
+&#160;&#160;<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51a10b6a3ccfa73250d20d1b2d5e6f2424f">FLAGS::OF</a> = 0x0800, 
+<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51ab410a125534d3cf535d3be32c134abff">FLAGS::RF</a> = 0x0001'0000, 
+<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51a549f5d5262483d77729683894e6d1be0">FLAGS::VM</a> = 0x0002'0000, 
+<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51af66a43e8dab676f5753b7abe62a53f62">FLAGS::AC</a> = 0x0004'0000, 
+<br />
+&#160;&#160;<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51a60d8e57e033e6621fbda4b775e27ac6a">FLAGS::VIF</a> = 0x0008'0000, 
+<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51aea811f58ffff15c14f1a3bdb9ec09727">FLAGS::VIP</a> = 0x0010'0000, 
+<a class="el" href="namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51a057e038e9149d8fe2ad23df50ef42151">FLAGS::ID</a> = 0x0020'0000
+<br />
+ }</td></tr>
+<tr class="separator:a9d5f9747a4879f4d57418def02a8fb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

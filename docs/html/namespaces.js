@@ -9,5 +9,6 @@ var namespaces =
     [ "INTRP", "namespace_i_n_t_r_p.html", null ],
     [ "KM", "namespace_k_m.html", null ],
     [ "PIC", "namespace_p_i_c.html", null ],
-    [ "VGA", "namespace_v_g_a.html", null ]
+    [ "VGA", "namespace_v_g_a.html", null ],
+    [ "VM", "namespace_v_m.html", "namespace_v_m" ]
 ];

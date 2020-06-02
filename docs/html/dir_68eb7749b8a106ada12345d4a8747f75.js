@@ -9,5 +9,6 @@ var dir_68eb7749b8a106ada12345d4a8747f75 =
     [ "memoryallocator.cpp", "memoryallocator_8cpp.html", "memoryallocator_8cpp" ],
     [ "registers.h", "registers_8h.html", "registers_8h" ],
     [ "utilities.cpp", "utilities_8cpp.html", "utilities_8cpp" ],
-    [ "vga.cpp", "vga_8cpp.html", "vga_8cpp" ]
+    [ "vga.cpp", "vga_8cpp.html", "vga_8cpp" ],
+    [ "virtualmemory.cpp", "virtualmemory_8cpp.html", "virtualmemory_8cpp" ]
 ];

@@ -1,7 +1,7 @@
 <map id="OS/kernel/arch" name="OS/kernel/arch">
 <area shape="rect" id="node2" href="dir_68eb7749b8a106ada12345d4a8747f75.html" title="x86" alt="" coords="37,111,109,159"/>
 <area shape="rect" id="node3" href="dir_4eaf6c2d46b3bcf4b12354cf6c54e5c1.html" title="include" alt="" coords="85,5,157,53"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000005_000002.html" title="28" alt="" coords="79,59,94,73"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000005_000002.html" title="30" alt="" coords="79,59,94,73"/>
 <area shape="rect" id="edge1-headlabel" href="dir_000002_000004.html" title="1" alt="" coords="154,83,162,98"/>
 <area shape="rect" id="edge2-headlabel" href="dir_000002_000005.html" title="1" alt="" coords="104,91,112,106"/>
 <area shape="rect" id="clust2" href="dir_86897eedf28b32bac15badcb64f226dc.html" alt="" coords="27,100,216,169"/>

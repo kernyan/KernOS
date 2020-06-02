@@ -1,0 +1,159 @@
+\hypertarget{namespace_v_m}{}\section{VM Namespace Reference}
+\label{namespace_v_m}\index{VM@{VM}}
+
+
+Virtual memory namespace.  
+
+
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace_v_m_1_1_p_d_a}{P\+DA}
+\begin{DoxyCompactList}\small\item\em Page directory access (lower 12 bits of page directory entry) \end{DoxyCompactList}\item 
+ \hyperlink{namespace_v_m_1_1_p_t_a}{P\+TA}
+\begin{DoxyCompactList}\small\item\em Page table access (lower 12 bits of page table entry) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespace_v_m_a722753d2c3fafcd36dad99fb1fa1eaf3}{Initialize\+Page\+Directory} (uint32\+\_\+t Page\+Directory\mbox{[}\hyperlink{namespace_v_m_a9a281e32930026b0c172914c1991ee6c}{P\+D\+\_\+\+S\+I\+ZE}\mbox{]})
+\item 
+void \hyperlink{namespace_v_m_a23f571f0afcc986879a5d489ca0a2d4a}{Map\+Page\+Table} (const size\+\_\+t Idx, uint32\+\_\+t Page\+Directory\mbox{[}\hyperlink{namespace_v_m_a9a281e32930026b0c172914c1991ee6c}{P\+D\+\_\+\+S\+I\+ZE}\mbox{]}, uint32\+\_\+t Page\+Table\mbox{[}\hyperlink{namespace_v_m_a64558f9565f1bb4a12eb2ddd7b7c1106}{P\+T\+\_\+\+S\+I\+ZE}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Map page table. \end{DoxyCompactList}\item 
+void \hyperlink{namespace_v_m_a9c0e1f32f8ec14ae7f246197e5b46498}{Install\+Paging} (const uint32\+\_\+t Page\+Directory\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Set cr3 to page directory, and turn on paging. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const size\+\_\+t \hyperlink{namespace_v_m_a9a281e32930026b0c172914c1991ee6c}{P\+D\+\_\+\+S\+I\+ZE} = 1024
+\begin{DoxyCompactList}\small\item\em page directory size \end{DoxyCompactList}\item 
+const size\+\_\+t \hyperlink{namespace_v_m_a64558f9565f1bb4a12eb2ddd7b7c1106}{P\+T\+\_\+\+S\+I\+ZE} = 1024
+\begin{DoxyCompactList}\small\item\em page table size \end{DoxyCompactList}\item 
+const size\+\_\+t \hyperlink{namespace_v_m_a3afc454e973b965743e84ed10d74161c}{P\+G\+\_\+\+S\+I\+ZE} = 4096
+\begin{DoxyCompactList}\small\item\em page size \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{namespace_v_m_a3580800d6decdb1a45fe063c10288201}{page\+\_\+directory} \mbox{[}\hyperlink{namespace_v_m_a9a281e32930026b0c172914c1991ee6c}{P\+D\+\_\+\+S\+I\+ZE}\mbox{]}\mbox{[}\mbox{[}gnu\+::aligned(\hyperlink{namespace_v_m_a3afc454e973b965743e84ed10d74161c}{P\+G\+\_\+\+S\+I\+ZE})\mbox{]}\mbox{]}
+\item 
+uint32\+\_\+t \hyperlink{namespace_v_m_a4b6dc3e8c1df1e3ff30e6585b9da9937}{pagetable0} \mbox{[}\hyperlink{namespace_v_m_a64558f9565f1bb4a12eb2ddd7b7c1106}{P\+T\+\_\+\+S\+I\+ZE}\mbox{]}\mbox{[}\mbox{[}gnu\+::aligned(\hyperlink{namespace_v_m_a3afc454e973b965743e84ed10d74161c}{P\+G\+\_\+\+S\+I\+ZE})\mbox{]}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Virtual memory namespace. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespace_v_m_a722753d2c3fafcd36dad99fb1fa1eaf3}\label{namespace_v_m_a722753d2c3fafcd36dad99fb1fa1eaf3}} 
+\index{VM@{VM}!Initialize\+Page\+Directory@{Initialize\+Page\+Directory}}
+\index{Initialize\+Page\+Directory@{Initialize\+Page\+Directory}!VM@{VM}}
+\subsubsection{\texorpdfstring{Initialize\+Page\+Directory()}{InitializePageDirectory()}}
+{\footnotesize\ttfamily void V\+M\+::\+Initialize\+Page\+Directory (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Page\+Directory\mbox{[}\+P\+D\+\_\+\+S\+I\+Z\+E\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 21 of file virtualmemory.\+cpp.
+
+\mbox{\Hypertarget{namespace_v_m_a9c0e1f32f8ec14ae7f246197e5b46498}\label{namespace_v_m_a9c0e1f32f8ec14ae7f246197e5b46498}} 
+\index{VM@{VM}!Install\+Paging@{Install\+Paging}}
+\index{Install\+Paging@{Install\+Paging}!VM@{VM}}
+\subsubsection{\texorpdfstring{Install\+Paging()}{InstallPaging()}}
+{\footnotesize\ttfamily void V\+M\+::\+Install\+Paging (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{Page\+Directory\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Set cr3 to page directory, and turn on paging. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Page\+Directory} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file virtualmemory.\+cpp.
+
+\mbox{\Hypertarget{namespace_v_m_a23f571f0afcc986879a5d489ca0a2d4a}\label{namespace_v_m_a23f571f0afcc986879a5d489ca0a2d4a}} 
+\index{VM@{VM}!Map\+Page\+Table@{Map\+Page\+Table}}
+\index{Map\+Page\+Table@{Map\+Page\+Table}!VM@{VM}}
+\subsubsection{\texorpdfstring{Map\+Page\+Table()}{MapPageTable()}}
+{\footnotesize\ttfamily void V\+M\+::\+Map\+Page\+Table (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{Idx,  }\item[{uint32\+\_\+t}]{Page\+Directory\mbox{[}\+P\+D\+\_\+\+S\+I\+Z\+E\mbox{]},  }\item[{uint32\+\_\+t}]{Page\+Table\mbox{[}\+P\+T\+\_\+\+S\+I\+Z\+E\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Map page table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Idx} & \\
+\hline
+{\em Page\+Directory} & \\
+\hline
+{\em Page\+Table} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 34 of file virtualmemory.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespace_v_m_a3580800d6decdb1a45fe063c10288201}\label{namespace_v_m_a3580800d6decdb1a45fe063c10288201}} 
+\index{VM@{VM}!page\+\_\+directory@{page\+\_\+directory}}
+\index{page\+\_\+directory@{page\+\_\+directory}!VM@{VM}}
+\subsubsection{\texorpdfstring{page\+\_\+directory}{page\_directory}}
+{\footnotesize\ttfamily uint32\+\_\+t V\+M\+::page\+\_\+directory\mbox{[}\hyperlink{namespace_v_m_a9a281e32930026b0c172914c1991ee6c}{P\+D\+\_\+\+S\+I\+ZE}\mbox{]}\mbox{[}\mbox{[}gnu\+::aligned(\hyperlink{namespace_v_m_a3afc454e973b965743e84ed10d74161c}{P\+G\+\_\+\+S\+I\+ZE})\mbox{]}\mbox{]}}
+
+
+
+Definition at line 18 of file virtualmemory.\+cpp.
+
+\mbox{\Hypertarget{namespace_v_m_a4b6dc3e8c1df1e3ff30e6585b9da9937}\label{namespace_v_m_a4b6dc3e8c1df1e3ff30e6585b9da9937}} 
+\index{VM@{VM}!pagetable0@{pagetable0}}
+\index{pagetable0@{pagetable0}!VM@{VM}}
+\subsubsection{\texorpdfstring{pagetable0}{pagetable0}}
+{\footnotesize\ttfamily uint32\+\_\+t V\+M\+::pagetable0\mbox{[}\hyperlink{namespace_v_m_a64558f9565f1bb4a12eb2ddd7b7c1106}{P\+T\+\_\+\+S\+I\+ZE}\mbox{]}\mbox{[}\mbox{[}gnu\+::aligned(\hyperlink{namespace_v_m_a3afc454e973b965743e84ed10d74161c}{P\+G\+\_\+\+S\+I\+ZE})\mbox{]}\mbox{]}}
+
+
+
+Definition at line 19 of file virtualmemory.\+cpp.
+
+\mbox{\Hypertarget{namespace_v_m_a9a281e32930026b0c172914c1991ee6c}\label{namespace_v_m_a9a281e32930026b0c172914c1991ee6c}} 
+\index{VM@{VM}!P\+D\+\_\+\+S\+I\+ZE@{P\+D\+\_\+\+S\+I\+ZE}}
+\index{P\+D\+\_\+\+S\+I\+ZE@{P\+D\+\_\+\+S\+I\+ZE}!VM@{VM}}
+\subsubsection{\texorpdfstring{P\+D\+\_\+\+S\+I\+ZE}{PD\_SIZE}}
+{\footnotesize\ttfamily const size\+\_\+t V\+M\+::\+P\+D\+\_\+\+S\+I\+ZE = 1024}
+
+
+
+page directory size 
+
+
+
+Definition at line 14 of file virtualmemory.\+cpp.
+
+\mbox{\Hypertarget{namespace_v_m_a3afc454e973b965743e84ed10d74161c}\label{namespace_v_m_a3afc454e973b965743e84ed10d74161c}} 
+\index{VM@{VM}!P\+G\+\_\+\+S\+I\+ZE@{P\+G\+\_\+\+S\+I\+ZE}}
+\index{P\+G\+\_\+\+S\+I\+ZE@{P\+G\+\_\+\+S\+I\+ZE}!VM@{VM}}
+\subsubsection{\texorpdfstring{P\+G\+\_\+\+S\+I\+ZE}{PG\_SIZE}}
+{\footnotesize\ttfamily const size\+\_\+t V\+M\+::\+P\+G\+\_\+\+S\+I\+ZE = 4096}
+
+
+
+page size 
+
+
+
+Definition at line 16 of file virtualmemory.\+cpp.
+
+\mbox{\Hypertarget{namespace_v_m_a64558f9565f1bb4a12eb2ddd7b7c1106}\label{namespace_v_m_a64558f9565f1bb4a12eb2ddd7b7c1106}} 
+\index{VM@{VM}!P\+T\+\_\+\+S\+I\+ZE@{P\+T\+\_\+\+S\+I\+ZE}}
+\index{P\+T\+\_\+\+S\+I\+ZE@{P\+T\+\_\+\+S\+I\+ZE}!VM@{VM}}
+\subsubsection{\texorpdfstring{P\+T\+\_\+\+S\+I\+ZE}{PT\_SIZE}}
+{\footnotesize\ttfamily const size\+\_\+t V\+M\+::\+P\+T\+\_\+\+S\+I\+ZE = 1024}
+
+
+
+page table size 
+
+
+
+Definition at line 15 of file virtualmemory.\+cpp.
+

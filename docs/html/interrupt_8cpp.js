@@ -4,6 +4,7 @@ var interrupt_8cpp =
     [ "idt", "interrupt_8cpp.html#aec8e9f01cb09653075b6e610096b3ca9", null ],
     [ "Install_idt", "interrupt_8cpp.html#a139b273cc1e45d3c2fdfe0d387a98518", null ],
     [ "Load_lidt", "interrupt_8cpp.html#a194f85d6c873615e9125466e3b23c30f", null ],
+    [ "PageFaultHandler", "interrupt_8cpp.html#aff35666b88439353d86e253d3051f27f", null ],
     [ "RegisterHandler", "interrupt_8cpp.html#a91a6a2668bfa9961a9ed265f6ceac47d", null ],
     [ "Remap", "interrupt_8cpp.html#a2a04fe95329faacc43f00ad30fe554b9", null ],
     [ "SetExceptionHandler", "interrupt_8cpp.html#a4a1a1ff73a4e9bb1c17daf205170daa9", null ],

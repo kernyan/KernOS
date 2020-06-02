@@ -12,6 +12,8 @@
   - kernel malloc [implementation](OS/kernel/arch/x86/memoryallocator.cpp)
   - kernel malloc [test](Test/Tests/kmalloc_test.cpp)
   - doxygen [documentation](https://kernyan.github.io/KernOS/html/index.html)
+5/ 01/06/2020
+  - activate [paging](OS/kernel/arch/x86/virtualmemory.cpp)
 
 # Miscellaneous
 1. 05/03/2020

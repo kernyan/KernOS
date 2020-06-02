@@ -16,10 +16,14 @@ void \hyperlink{namespace_i_n_i_t_a6608557e41ad37cdb4a408e2f05c9783}{ctors} ()
 \begin{DoxyCompactList}\small\item\em calls constructors on all global objects \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_i_t_aec8e9f01cb09653075b6e610096b3ca9}{idt} ()
 \begin{DoxyCompactList}\small\item\em Creates interrupt descriptor table and loads to C\+PU. \end{DoxyCompactList}\item 
+void \hyperlink{namespace_i_n_i_t_a9e427aa89bec95f574ad21b5e7d9ee8c}{pagetables} ()
+\item 
 void \hyperlink{namespace_i_n_i_t_ac811302ce0948a6a097b445b811f9c14}{K\+M\+A\+L\+L\+OC} ()
 \begin{DoxyCompactList}\small\item\em Provides memory allocator with range of reserved memory address to manage. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_i_t_abae5789d80f8edd37455f3b167779654}{V\+GA} ()
-\begin{DoxyCompactList}\small\item\em Clear \hyperlink{namespace_v_g_a}{V\+GA} display, and print kernel banner. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Clear \hyperlink{namespace_v_g_a}{V\+GA} display, and print kernel banner. \end{DoxyCompactList}\item 
+void \hyperlink{namespace_i_n_i_t_aea383d3de30095cf9d176fa60b66d01d}{P\+A\+GE} ()
+\begin{DoxyCompactList}\small\item\em set up page directory, page table, and turn on paging \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -80,7 +84,7 @@ Creates interrupt descriptor table and loads to C\+PU.
 \end{DoxySeeAlso}
 
 
-Definition at line 224 of file interrupt.\+cpp.
+Definition at line 234 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_i_t_ac811302ce0948a6a097b445b811f9c14}\label{namespace_i_n_i_t_ac811302ce0948a6a097b445b811f9c14}} 
 \index{I\+N\+IT@{I\+N\+IT}!K\+M\+A\+L\+L\+OC@{K\+M\+A\+L\+L\+OC}}
@@ -96,7 +100,29 @@ Provides memory allocator with range of reserved memory address to manage.
 \item[\hyperlink{todo__todo000002}{Todo}]don\textquotesingle{}t hardcode heap size \end{DoxyRefDesc}
 
 
-Definition at line 115 of file memoryallocator.\+cpp.
+Definition at line 114 of file memoryallocator.\+cpp.
+
+\mbox{\Hypertarget{namespace_i_n_i_t_aea383d3de30095cf9d176fa60b66d01d}\label{namespace_i_n_i_t_aea383d3de30095cf9d176fa60b66d01d}} 
+\index{I\+N\+IT@{I\+N\+IT}!P\+A\+GE@{P\+A\+GE}}
+\index{P\+A\+GE@{P\+A\+GE}!I\+N\+IT@{I\+N\+IT}}
+\subsubsection{\texorpdfstring{P\+A\+G\+E()}{PAGE()}}
+{\footnotesize\ttfamily void I\+N\+I\+T\+::\+P\+A\+GE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+set up page directory, page table, and turn on paging 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]only setting up page table 0 for now, i.\+e. 0 -\/ 4 MiB \end{DoxyRefDesc}
+
+
+Definition at line 76 of file virtualmemory.\+cpp.
+
+\mbox{\Hypertarget{namespace_i_n_i_t_a9e427aa89bec95f574ad21b5e7d9ee8c}\label{namespace_i_n_i_t_a9e427aa89bec95f574ad21b5e7d9ee8c}} 
+\index{I\+N\+IT@{I\+N\+IT}!pagetables@{pagetables}}
+\index{pagetables@{pagetables}!I\+N\+IT@{I\+N\+IT}}
+\subsubsection{\texorpdfstring{pagetables()}{pagetables()}}
+{\footnotesize\ttfamily void I\+N\+I\+T\+::pagetables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{namespace_i_n_i_t_a8928ddbb4ca671dfe1c740da380fa0c4}\label{namespace_i_n_i_t_a8928ddbb4ca671dfe1c740da380fa0c4}} 
 \index{I\+N\+IT@{I\+N\+IT}!S\+SE@{S\+SE}}

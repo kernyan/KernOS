@@ -1,0 +1,60 @@
+\hypertarget{virtualmemory_8h}{}\section{O\+S/include/virtualmemory.h File Reference}
+\label{virtualmemory_8h}\index{O\+S/include/virtualmemory.\+h@{O\+S/include/virtualmemory.\+h}}
+{\ttfamily \#include $<$common.\+h$>$}\newline
+{\ttfamily \#include $<$utilities.\+h$>$}\newline
+Include dependency graph for virtualmemory.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{virtualmemory_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{virtualmemory_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
+\begin{DoxyCompactList}\small\item\em contains all kernel initialization routines \end{DoxyCompactList}\item 
+ \hyperlink{namespace_v_m}{VM}
+\begin{DoxyCompactList}\small\item\em Virtual memory namespace. \end{DoxyCompactList}\item 
+ \hyperlink{namespace_v_m_1_1_p_d_a}{V\+M\+::\+P\+DA}
+\begin{DoxyCompactList}\small\item\em Page directory access (lower 12 bits of page directory entry) \end{DoxyCompactList}\item 
+ \hyperlink{namespace_v_m_1_1_p_t_a}{V\+M\+::\+P\+TA}
+\begin{DoxyCompactList}\small\item\em Page table access (lower 12 bits of page table entry) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \+: uint16\+\_\+t \{ \newline
+\hyperlink{namespace_v_m_1_1_p_d_a_a7a5d6d32b47f20a14422314b14fdc591a2f8ff50210f87689944543ed655971cb}{V\+M\+::\+P\+D\+A\+::P} = 0, 
+\hyperlink{namespace_v_m_1_1_p_d_a_a7a5d6d32b47f20a14422314b14fdc591a80249bc62c8a67e157d2b13cdf4325f7}{V\+M\+::\+P\+D\+A\+::R} = 1, 
+\hyperlink{namespace_v_m_1_1_p_d_a_a7a5d6d32b47f20a14422314b14fdc591ad295b7d3bddcf79dc55d6e5c90423c2b}{V\+M\+::\+P\+D\+A\+::U} = 2, 
+\hyperlink{namespace_v_m_1_1_p_d_a_a7a5d6d32b47f20a14422314b14fdc591a8a740302ea12c8d4c4d5a47ac1af683f}{V\+M\+::\+P\+D\+A\+::W} = 3, 
+\newline
+\hyperlink{namespace_v_m_1_1_p_d_a_a7a5d6d32b47f20a14422314b14fdc591a6243d3f10651bfe05301f7cdfafaa6aa}{V\+M\+::\+P\+D\+A\+::D} = 4, 
+\hyperlink{namespace_v_m_1_1_p_d_a_a7a5d6d32b47f20a14422314b14fdc591a55148405937cb89c60ff92caaadf8dfa}{V\+M\+::\+P\+D\+A\+::A} = 5, 
+\hyperlink{namespace_v_m_1_1_p_d_a_a7a5d6d32b47f20a14422314b14fdc591a46023444e176bb33206552f231471c37}{V\+M\+::\+P\+D\+A\+::S} = 7
+ \}
+\item 
+enum \+: uint16\+\_\+t \{ \newline
+\hyperlink{namespace_v_m_1_1_p_t_a_a89a9cf444829a1e2681beab7a219fea5a807772f9595a363566fba6fdf733e8f9}{V\+M\+::\+P\+T\+A\+::P} = 0, 
+\hyperlink{namespace_v_m_1_1_p_t_a_a89a9cf444829a1e2681beab7a219fea5a8845432dbb156062ae5103d618c41d75}{V\+M\+::\+P\+T\+A\+::R} = 1, 
+\hyperlink{namespace_v_m_1_1_p_t_a_a89a9cf444829a1e2681beab7a219fea5a1328ecb0d0d696708fff0e2492b864be}{V\+M\+::\+P\+T\+A\+::U} = 2, 
+\hyperlink{namespace_v_m_1_1_p_t_a_a89a9cf444829a1e2681beab7a219fea5a09b0f0ebacacbb343e02d17dedc2ed4e}{V\+M\+::\+P\+T\+A\+::W} = 3, 
+\newline
+\hyperlink{namespace_v_m_1_1_p_t_a_a89a9cf444829a1e2681beab7a219fea5a789da119278c61f741fe1ed3efc8e0d3}{V\+M\+::\+P\+T\+A\+::C} = 4, 
+\hyperlink{namespace_v_m_1_1_p_t_a_a89a9cf444829a1e2681beab7a219fea5a0bffb3e999362e382526209e130dec62}{V\+M\+::\+P\+T\+A\+::A} = 5, 
+\hyperlink{namespace_v_m_1_1_p_t_a_a89a9cf444829a1e2681beab7a219fea5ac77057cf7fa6ca270c2b31f0c24125df}{V\+M\+::\+P\+T\+A\+::D} = 6, 
+\hyperlink{namespace_v_m_1_1_p_t_a_a89a9cf444829a1e2681beab7a219fea5a07e37da4a960b9f69565a92c812da75c}{V\+M\+::\+P\+T\+A\+::G} = 8
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespace_i_n_i_t_aea383d3de30095cf9d176fa60b66d01d}{I\+N\+I\+T\+::\+P\+A\+GE} ()
+\begin{DoxyCompactList}\small\item\em set up page directory, page table, and turn on paging \end{DoxyCompactList}\end{DoxyCompactItemize}

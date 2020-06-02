@@ -28,6 +28,7 @@ For specific topics, use links below,
 - [Streaming SIMD extension initialization](OS/kernel/arch/x86/cpu.cpp)
 - [Global descriptor table](OS/kernel/arch/x86/gdt.cpp)
 - [Exception and interrupt handler](OS/kernel/arch/x86/interrupt.cpp)
+- [Paging](OS/kernel/arch/x86/virtualmemory.cpp)
 - [Unit testing](Test/Tests)
 
 ## Status
