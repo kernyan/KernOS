@@ -52,6 +52,19 @@ namespace
         );
     }
 
+    inline uint8_t in8(uint16_t Port)
+    {
+        uint8_t Value;
+
+        asm volatile (
+        "inb %1, %0"
+        : "=a"(Value)  // Output 0: write byte to Value
+        : "Nd"(Port)   // Input  1: "Nd" constraint is to place Port as one byte literal (without using register)
+        );
+
+        return Value;
+    }
+
     [[noreturn]] inline void Hang()
     {
         asm volatile (

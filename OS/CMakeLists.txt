@@ -62,6 +62,7 @@ set(KernelFiles
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/kprintf.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/memoryallocator.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/virtualmemory.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/pit.cpp
   )
 add_library(MOD_kernel STATIC ${KernelFiles})
 target_compile_options(MOD_kernel PRIVATE ${COMPILE_FLAGS})
