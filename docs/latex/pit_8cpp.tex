@@ -1,0 +1,74 @@
+\hypertarget{pit_8cpp}{}\section{O\+S/kernel/arch/x86/pit.cpp File Reference}
+\label{pit_8cpp}\index{O\+S/kernel/arch/x86/pit.\+cpp@{O\+S/kernel/arch/x86/pit.\+cpp}}
+{\ttfamily \#include $<$pit.\+h$>$}\newline
+{\ttfamily \#include $<$common.\+h$>$}\newline
+{\ttfamily \#include $<$utilities.\+h$>$}\newline
+{\ttfamily \#include $<$interrupt.\+h$>$}\newline
+Include dependency graph for pit.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pit_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace_i_n_t_r_p}{I\+N\+T\+RP}
+\begin{DoxyCompactList}\small\item\em interrupt namespace \end{DoxyCompactList}\item 
+ \hyperlink{namespace_t_i_m_e_r}{T\+I\+M\+ER}
+\begin{DoxyCompactList}\small\item\em Timer namespace. \end{DoxyCompactList}\item 
+ \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
+\begin{DoxyCompactList}\small\item\em contains all kernel initialization routines \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespace_t_i_m_e_r_a5043f8b0fa08d522d4f832be598a3fdf}{T\+I\+M\+E\+R\+::\+P\+O\+RT} \+: uint8\+\_\+t \{ \hyperlink{namespace_t_i_m_e_r_a5043f8b0fa08d522d4f832be598a3fdfab7ce47e0ce8d46296ecd6b41bf251491}{T\+I\+M\+E\+R\+::\+C\+H\+A\+N\+N\+E\+L\+\_\+O} = 0x40, 
+\hyperlink{namespace_t_i_m_e_r_a5043f8b0fa08d522d4f832be598a3fdfadb3a5668285fe889fe0ee3a218363062}{T\+I\+M\+E\+R\+::\+C\+H\+A\+N\+N\+E\+L\+\_\+1} = 0x41, 
+\hyperlink{namespace_t_i_m_e_r_a5043f8b0fa08d522d4f832be598a3fdfaf0105f11af5f1315ae04c465d6494ace}{T\+I\+M\+E\+R\+::\+C\+H\+A\+N\+N\+E\+L\+\_\+2} = 0x42, 
+\hyperlink{namespace_t_i_m_e_r_a5043f8b0fa08d522d4f832be598a3fdfa6f37465e170733ddbd788045f37c7c0e}{T\+I\+M\+E\+R\+::\+C\+O\+M\+M\+A\+ND} = 0x43
+ \}
+\item 
+enum \hyperlink{namespace_t_i_m_e_r_aa8e1446270d3ec25bd994c07619b8f37}{T\+I\+M\+E\+R\+::\+C\+H\+A\+N\+N\+EL} \+: uint8\+\_\+t \{ \hyperlink{namespace_t_i_m_e_r_aa8e1446270d3ec25bd994c07619b8f37ac083cdc3929c64cf4cdce930854093ac}{T\+I\+M\+E\+R\+::\+T\+I\+M\+E\+R0} = 0x00, 
+\hyperlink{namespace_t_i_m_e_r_aa8e1446270d3ec25bd994c07619b8f37adf6d731a40369a9f5fc1277f082eb967}{T\+I\+M\+E\+R\+::\+T\+I\+M\+E\+R1} = 0x40, 
+\hyperlink{namespace_t_i_m_e_r_aa8e1446270d3ec25bd994c07619b8f37a9abd15e0c5e5c738cccdf17132a28bdc}{T\+I\+M\+E\+R\+::\+T\+I\+M\+E\+R2} = 0x80
+ \}
+\item 
+enum \hyperlink{namespace_t_i_m_e_r_af9ea977bf574cbb806bde5e36476f5d0}{T\+I\+M\+E\+R\+::\+A\+C\+C\+E\+S\+S\+M\+O\+DE} \+: uint8\+\_\+t \{ \hyperlink{namespace_t_i_m_e_r_af9ea977bf574cbb806bde5e36476f5d0acc5e7218f9e4ebeb4de9c08b2464df5f}{T\+I\+M\+E\+R\+::\+L\+A\+T\+CH} = 0x00, 
+\hyperlink{namespace_t_i_m_e_r_af9ea977bf574cbb806bde5e36476f5d0a6e277afa7b41a9bc968bc51cbecce7f2}{T\+I\+M\+E\+R\+::\+L\+O\+\_\+\+O\+N\+LY} = 0x10, 
+\hyperlink{namespace_t_i_m_e_r_af9ea977bf574cbb806bde5e36476f5d0af22178da96e1972db792132dc192d7df}{T\+I\+M\+E\+R\+::\+H\+I\+\_\+\+O\+N\+LY} = 0x20, 
+\hyperlink{namespace_t_i_m_e_r_af9ea977bf574cbb806bde5e36476f5d0ac43a6e8b2707c4ff404d01b72f0affb7}{T\+I\+M\+E\+R\+::\+H\+I\+\_\+\+LO} = 0x30
+ \}
+\item 
+enum \hyperlink{namespace_t_i_m_e_r_a3231391ecc5f5895452fcc54c5fabe26}{T\+I\+M\+E\+R\+::\+O\+P\+M\+O\+DE} \+: uint8\+\_\+t \{ \newline
+\hyperlink{namespace_t_i_m_e_r_a3231391ecc5f5895452fcc54c5fabe26a06efb23533d3d7e51cd3326db82146e1}{T\+I\+M\+E\+R\+::\+C\+O\+U\+N\+T\+D\+O\+WN} = 0x0, 
+\hyperlink{namespace_t_i_m_e_r_a3231391ecc5f5895452fcc54c5fabe26a5402554577b28ae2338dd6c9c0df375f}{T\+I\+M\+E\+R\+::\+O\+N\+E\+S\+H\+OT} = 0x2, 
+\hyperlink{namespace_t_i_m_e_r_a3231391ecc5f5895452fcc54c5fabe26a97f3074fdfb64cf0447db4462d1ffb3d}{T\+I\+M\+E\+R\+::\+R\+A\+T\+E\+\_\+\+G\+E\+N\+E\+R\+A\+T\+OR} = 0x4, 
+\hyperlink{namespace_t_i_m_e_r_a3231391ecc5f5895452fcc54c5fabe26a0ba7addb1833eb3dca07bab98dbe39b4}{T\+I\+M\+E\+R\+::\+S\+Q\+U\+A\+R\+E\+W\+A\+V\+E\+\_\+\+G\+E\+N\+E\+R\+A\+T\+OR} = 0x6, 
+\newline
+\hyperlink{namespace_t_i_m_e_r_a3231391ecc5f5895452fcc54c5fabe26a2c24c25d57016104dab42aa010f31ef8}{T\+I\+M\+E\+R\+::\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+S\+T\+R\+O\+BE} = 0x8, 
+\hyperlink{namespace_t_i_m_e_r_a3231391ecc5f5895452fcc54c5fabe26a38141ffb893bfea01739585eb563945c}{T\+I\+M\+E\+R\+::\+H\+A\+R\+D\+W\+A\+R\+E\+\_\+\+S\+T\+R\+O\+BE} = 0xA, 
+\hyperlink{namespace_t_i_m_e_r_a3231391ecc5f5895452fcc54c5fabe26a223f042f6282d268b1e7e6edc8533597}{T\+I\+M\+E\+R\+::\+R\+A\+T\+E\+\_\+\+G\+E\+N\+E\+R\+A\+T\+O\+R2} = 0xC, 
+\hyperlink{namespace_t_i_m_e_r_a3231391ecc5f5895452fcc54c5fabe26aecafb2f20488e9be37636c247f073181}{T\+I\+M\+E\+R\+::\+S\+Q\+U\+A\+R\+E\+W\+A\+V\+E\+\_\+\+G\+E\+N\+E\+R\+A\+T\+O\+R2} = 0xE
+ \}
+\item 
+enum \hyperlink{namespace_t_i_m_e_r_aa762d05daed3ea97420e855a5d03253d}{T\+I\+M\+E\+R\+::\+D\+E\+C\+I\+M\+A\+L\+M\+O\+DE} \+: uint8\+\_\+t \{ \hyperlink{namespace_t_i_m_e_r_aa762d05daed3ea97420e855a5d03253da99f5fa2a10e384e9980cc7b9d2053094}{T\+I\+M\+E\+R\+::\+B\+I\+N\+A\+RY} = 0x0, 
+\hyperlink{namespace_t_i_m_e_r_aa762d05daed3ea97420e855a5d03253dac8b1953c3a3129fb92120b332014a43a}{T\+I\+M\+E\+R\+::\+B\+CD} = 0x1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespace_i_n_t_r_p_a0232249076503af19eee46e59a4e5bb8}{I\+N\+T\+R\+P\+::\+Timer\+Interrupt\+Handler} ()
+\begin{DoxyCompactList}\small\item\em Timer interrupt handler. \end{DoxyCompactList}\item 
+void \hyperlink{namespace_t_i_m_e_r_a9914c0026a4661367482a01e7834500e}{T\+I\+M\+E\+R\+::\+P\+I\+T\+\_\+825x} ()
+\item 
+void \hyperlink{namespace_i_n_i_t_a6fa46ed9b50062458ede3692a4865c51}{I\+N\+I\+T\+::\+P\+IT} ()
+\begin{DoxyCompactList}\small\item\em Initializes programmable interval timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \hyperlink{namespace_t_i_m_e_r_a5e00501463f93ce13bbbc8b9798cdc2c}{T\+I\+M\+E\+R\+::\+B\+A\+S\+E\+\_\+\+F\+R\+EQ} = 1\textquotesingle{}193\textquotesingle{}182
+\begin{DoxyCompactList}\small\item\em 14.\+31818 M\+Hz / 12 (due to hardware historical reason) \end{DoxyCompactList}\item 
+const uint16\+\_\+t \hyperlink{namespace_t_i_m_e_r_aae36b4824645d9f2f506cd1199817117}{T\+I\+M\+E\+R\+::\+T\+I\+C\+K\+S\+\_\+\+P\+E\+R\+\_\+\+S\+E\+C\+O\+ND} = 1\textquotesingle{}000
+\end{DoxyCompactItemize}

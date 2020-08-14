@@ -1,0 +1,9 @@
+<map id="OS/kernel/arch/x86/pit.cpp" name="OS/kernel/arch/x86/pit.cpp">
+<area shape="rect" id="node2" href="$pit_8h.html" title="pit.h" alt="" coords="95,95,142,121"/>
+<area shape="rect" id="node3" href="$common_8h.html" title="common.h" alt="" coords="189,244,272,271"/>
+<area shape="rect" id="node8" href="$utilities_8h.html" title="utilities.h" alt="" coords="375,169,449,196"/>
+<area shape="rect" id="node10" href="$interrupt_8h.html" title="interrupt.h" alt="" coords="243,95,323,121"/>
+<area shape="rect" id="node7" href="$ktypes_8h.html" title="ktypes.h" alt="" coords="288,319,360,345"/>
+<area shape="rect" id="node9" href="$kprintf_8h.html" title="kprintf.h" alt="" coords="377,244,447,271"/>
+<area shape="rect" id="node11" href="$registers_8h.html" title="registers.h" alt="" coords="268,169,351,196"/>
+</map>
