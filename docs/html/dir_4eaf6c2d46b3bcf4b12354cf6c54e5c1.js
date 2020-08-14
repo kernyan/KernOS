@@ -9,6 +9,7 @@ var dir_4eaf6c2d46b3bcf4b12354cf6c54e5c1 =
     [ "kprintf.h", "kprintf_8h.html", "kprintf_8h" ],
     [ "ktypes.h", "ktypes_8h.html", "ktypes_8h" ],
     [ "memoryallocator.h", "memoryallocator_8h.html", "memoryallocator_8h" ],
+    [ "pit.h", "pit_8h.html", "pit_8h" ],
     [ "utilities.h", "utilities_8h.html", "utilities_8h" ],
     [ "vga.h", "vga_8h.html", "vga_8h" ],
     [ "virtualmemory.h", "virtualmemory_8h.html", "virtualmemory_8h" ]

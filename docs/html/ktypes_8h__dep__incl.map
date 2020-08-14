@@ -1,18 +1,19 @@
 <map id="OS/include/ktypes.h" name="OS/include/ktypes.h">
-<area shape="rect" id="node2" href="$common_8h.html" title="OS/include/common.h" alt="" coords="485,87,636,114"/>
+<area shape="rect" id="node2" href="$common_8h.html" title="OS/include/common.h" alt="" coords="587,87,737,114"/>
 <area shape="rect" id="node6" href="$memoryallocator_8cpp.html" title="OS/kernel/arch/x86\l/memoryallocator.cpp" alt="" coords="50,333,197,375"/>
-<area shape="rect" id="node17" href="$global_8cpp.html" title="OS/kernel/arch/x86\l/global.cpp" alt="" coords="660,80,795,121"/>
-<area shape="rect" id="node3" href="$interrupt_8h.html" title="OS/include/interrupt.h" alt="" coords="297,251,445,278"/>
-<area shape="rect" id="node4" href="$interrupt_8cpp.html" title="OS/kernel/arch/x86\l/interrupt.cpp" alt="" coords="953,333,1088,375"/>
-<area shape="rect" id="node5" href="$kernel_8cpp.html" title="OS/kernel/arch/x86\l/kernel.cpp" alt="" coords="304,333,439,375"/>
-<area shape="rect" id="node7" href="$memoryallocator_8h.html" title="OS/include/memoryallocator.h" alt="" coords="25,251,222,278"/>
-<area shape="rect" id="node8" href="$utilities_8h.html" title="OS/include/utilities.h" alt="" coords="731,169,873,196"/>
-<area shape="rect" id="node12" href="$virtualmemory_8h.html" title="OS/include/virtualmemory.h" alt="" coords="469,251,652,278"/>
-<area shape="rect" id="node14" href="$cpu_8cpp.html" title="OS/kernel/arch/x86\l/cpu.cpp" alt="" coords="1035,244,1169,285"/>
-<area shape="rect" id="node15" href="$gdt_8cpp.html" title="OS/kernel/arch/x86\l/gdt.cpp" alt="" coords="1193,244,1328,285"/>
-<area shape="rect" id="node9" href="$vga_8h.html" title="OS/include/vga.h" alt="" coords="677,251,799,278"/>
-<area shape="rect" id="node16" href="$utilities_8cpp.html" title="OS/kernel/arch/x86\l/utilities.cpp" alt="" coords="824,244,959,285"/>
-<area shape="rect" id="node10" href="$kprintf_8cpp.html" title="OS/kernel/arch/x86\l/kprintf.cpp" alt="" coords="795,333,929,375"/>
-<area shape="rect" id="node11" href="$vga_8cpp.html" title="OS/kernel/arch/x86\l/vga.cpp" alt="" coords="636,333,771,375"/>
-<area shape="rect" id="node13" href="$virtualmemory_8cpp.html" title="OS/kernel/arch/x86\l/virtualmemory.cpp" alt="" coords="477,333,612,375"/>
+<area shape="rect" id="node18" href="$global_8cpp.html" title="OS/kernel/arch/x86\l/global.cpp" alt="" coords="761,80,896,121"/>
+<area shape="rect" id="node3" href="$interrupt_8h.html" title="OS/include/interrupt.h" alt="" coords="504,251,652,278"/>
+<area shape="rect" id="node4" href="$interrupt_8cpp.html" title="OS/kernel/arch/x86\l/interrupt.cpp" alt="" coords="1095,333,1229,375"/>
+<area shape="rect" id="node5" href="$kernel_8cpp.html" title="OS/kernel/arch/x86\l/kernel.cpp" alt="" coords="423,333,557,375"/>
+<area shape="rect" id="node7" href="$pit_8cpp.html" title="OS/kernel/arch/x86\l/pit.cpp" alt="" coords="619,333,753,375"/>
+<area shape="rect" id="node8" href="$memoryallocator_8h.html" title="OS/include/memoryallocator.h" alt="" coords="25,251,222,278"/>
+<area shape="rect" id="node9" href="$utilities_8h.html" title="OS/include/utilities.h" alt="" coords="829,169,972,196"/>
+<area shape="rect" id="node13" href="$virtualmemory_8h.html" title="OS/include/virtualmemory.h" alt="" coords="297,251,480,278"/>
+<area shape="rect" id="node15" href="$cpu_8cpp.html" title="OS/kernel/arch/x86\l/cpu.cpp" alt="" coords="1136,244,1271,285"/>
+<area shape="rect" id="node16" href="$gdt_8cpp.html" title="OS/kernel/arch/x86\l/gdt.cpp" alt="" coords="1295,244,1429,285"/>
+<area shape="rect" id="node10" href="$vga_8h.html" title="OS/include/vga.h" alt="" coords="938,251,1061,278"/>
+<area shape="rect" id="node17" href="$utilities_8cpp.html" title="OS/kernel/arch/x86\l/utilities.cpp" alt="" coords="728,244,863,285"/>
+<area shape="rect" id="node11" href="$kprintf_8cpp.html" title="OS/kernel/arch/x86\l/kprintf.cpp" alt="" coords="936,333,1071,375"/>
+<area shape="rect" id="node12" href="$vga_8cpp.html" title="OS/kernel/arch/x86\l/vga.cpp" alt="" coords="777,333,912,375"/>
+<area shape="rect" id="node14" href="$virtualmemory_8cpp.html" title="OS/kernel/arch/x86\l/virtualmemory.cpp" alt="" coords="264,333,399,375"/>
 </map>

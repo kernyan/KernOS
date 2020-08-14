@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['vga',['Vga',['../class_v_g_a_1_1_vga.html#a40f0b5de5a1687eca3c47738d8232bc7',1,'VGA::Vga::Vga()'],['../namespace_i_n_i_t.html#abae5789d80f8edd37455f3b167779654',1,'INIT::VGA()']]]
+  ['unhandledexception',['UnhandledException',['../namespace_i_n_t_r_p.html#a7732859732913734b09dd07030c41991',1,'INTRP']]],
+  ['unhandledinterrupt',['UnhandledInterrupt',['../namespace_i_n_t_r_p.html#a13c03019c9d7b305743516310096a82a',1,'INTRP']]],
+  ['unmaskinterrupt',['UnmaskInterrupt',['../namespace_p_i_c.html#ad6f2cca6611cd7992992ab7705d6c25f',1,'PIC']]]
 ];

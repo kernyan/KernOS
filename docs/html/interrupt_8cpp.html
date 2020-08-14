@@ -80,7 +80,6 @@ $(document).ready(function(){initNavTree('interrupt_8cpp.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -111,12 +110,6 @@ Include dependency graph for interrupt.cpp:</div>
 </div>
 <p><a href="interrupt_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_i_n_t_r_p_1_1_descriptor_entry.html">INTRP::DescriptorEntry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception and interrupt gate descriptor entry.  <a href="union_i_n_t_r_p_1_1_descriptor_entry.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespace_p_i_c"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html">PIC</a></td></tr>
@@ -134,12 +127,17 @@ Functions</h2></td></tr>
 <tr class="memitem:a2a04fe95329faacc43f00ad30fe554b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#a2a04fe95329faacc43f00ad30fe554b9">PIC::Remap</a> ()</td></tr>
 <tr class="memdesc:a2a04fe95329faacc43f00ad30fe554b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remap default 8259 <a class="el" href="namespace_p_i_c.html" title="8259 Progammable interrupt controller ">PIC</a> interrupt number to new range.  <a href="namespace_p_i_c.html#a2a04fe95329faacc43f00ad30fe554b9">More...</a><br /></td></tr>
 <tr class="separator:a2a04fe95329faacc43f00ad30fe554b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6f2cca6611cd7992992ab7705d6c25f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#ad6f2cca6611cd7992992ab7705d6c25f">PIC::UnmaskInterrupt</a> (uint16_t Port, uint8_t Irq)</td></tr>
+<tr class="separator:ad6f2cca6611cd7992992ab7705d6c25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91a6a2668bfa9961a9ed265f6ceac47d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a91a6a2668bfa9961a9ed265f6ceac47d">INTRP::RegisterHandler</a> (DescriptorEntry IdtTable[], size_t Idx, <a class="el" href="ktypes_8h.html#a46bbb9e776183ed6a8eca9d919756434">func_ptr</a> Handler)</td></tr>
 <tr class="memdesc:a91a6a2668bfa9961a9ed265f6ceac47d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates interrupt descriptor entries in idt_table, and loads into CPU.  <a href="namespace_i_n_t_r_p.html#a91a6a2668bfa9961a9ed265f6ceac47d">More...</a><br /></td></tr>
 <tr class="separator:a91a6a2668bfa9961a9ed265f6ceac47d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7732859732913734b09dd07030c41991"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a7732859732913734b09dd07030c41991">INTRP::UnhandledException</a> ()</td></tr>
 <tr class="memdesc:a7732859732913734b09dd07030c41991"><td class="mdescLeft">&#160;</td><td class="mdescRight">default unhandled exception handler  <a href="namespace_i_n_t_r_p.html#a7732859732913734b09dd07030c41991">More...</a><br /></td></tr>
 <tr class="separator:a7732859732913734b09dd07030c41991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0232249076503af19eee46e59a4e5bb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a0232249076503af19eee46e59a4e5bb8">INTRP::TimerInterruptHandler</a> ()</td></tr>
+<tr class="memdesc:a0232249076503af19eee46e59a4e5bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer interrupt handler.  <a href="namespace_i_n_t_r_p.html#a0232249076503af19eee46e59a4e5bb8">More...</a><br /></td></tr>
+<tr class="separator:a0232249076503af19eee46e59a4e5bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff35666b88439353d86e253d3051f27f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#aff35666b88439353d86e253d3051f27f">INTRP::PageFaultHandler</a> ()</td></tr>
 <tr class="memdesc:aff35666b88439353d86e253d3051f27f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Page fault handler.  <a href="namespace_i_n_t_r_p.html#aff35666b88439353d86e253d3051f27f">More...</a><br /></td></tr>
 <tr class="separator:aff35666b88439353d86e253d3051f27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,43 +162,8 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aae56765eb24eb75e1498e22c05ac29ee"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#aae56765eb24eb75e1498e22c05ac29ee">PIC::MASTER_COMMAND_PORT</a> = 0x20</td></tr>
-<tr class="memdesc:aae56765eb24eb75e1498e22c05ac29ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">PIC1 command port.  <a href="namespace_p_i_c.html#aae56765eb24eb75e1498e22c05ac29ee">More...</a><br /></td></tr>
-<tr class="separator:aae56765eb24eb75e1498e22c05ac29ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b19e701740b8b1b19db1f1a14af63a6"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#a7b19e701740b8b1b19db1f1a14af63a6">PIC::MASTER_DATA_PORT</a> = 0x21</td></tr>
-<tr class="memdesc:a7b19e701740b8b1b19db1f1a14af63a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">PIC1 data port.  <a href="namespace_p_i_c.html#a7b19e701740b8b1b19db1f1a14af63a6">More...</a><br /></td></tr>
-<tr class="separator:a7b19e701740b8b1b19db1f1a14af63a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cdc374612119bd13b1a28e4cc82864f"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#a4cdc374612119bd13b1a28e4cc82864f">PIC::SLAVE_COMMAND_PORT</a> = 0xA0</td></tr>
-<tr class="memdesc:a4cdc374612119bd13b1a28e4cc82864f"><td class="mdescLeft">&#160;</td><td class="mdescRight">PIC2 command port.  <a href="namespace_p_i_c.html#a4cdc374612119bd13b1a28e4cc82864f">More...</a><br /></td></tr>
-<tr class="separator:a4cdc374612119bd13b1a28e4cc82864f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e06fae4a0139a207173ff2b94be3283"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#a6e06fae4a0139a207173ff2b94be3283">PIC::SLAVE_DATA_PORT</a> = 0xA1</td></tr>
-<tr class="memdesc:a6e06fae4a0139a207173ff2b94be3283"><td class="mdescLeft">&#160;</td><td class="mdescRight">PIC2 data port.  <a href="namespace_p_i_c.html#a6e06fae4a0139a207173ff2b94be3283">More...</a><br /></td></tr>
-<tr class="separator:a6e06fae4a0139a207173ff2b94be3283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63beb0c60fdab8c997f42291a7c2baf5"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#a63beb0c60fdab8c997f42291a7c2baf5">PIC::ICW1_ICW4NEEDED</a> = 0x1</td></tr>
-<tr class="memdesc:a63beb0c60fdab8c997f42291a7c2baf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">expect ICW 4  <a href="namespace_p_i_c.html#a63beb0c60fdab8c997f42291a7c2baf5">More...</a><br /></td></tr>
-<tr class="separator:a63beb0c60fdab8c997f42291a7c2baf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bb2fc0a772eabbbf6adb002f578290e"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#a8bb2fc0a772eabbbf6adb002f578290e">PIC::ICW1_INIT</a> = 0x10</td></tr>
-<tr class="memdesc:a8bb2fc0a772eabbbf6adb002f578290e"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize <a class="el" href="namespace_p_i_c.html" title="8259 Progammable interrupt controller ">PIC</a>  <a href="namespace_p_i_c.html#a8bb2fc0a772eabbbf6adb002f578290e">More...</a><br /></td></tr>
-<tr class="separator:a8bb2fc0a772eabbbf6adb002f578290e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3b99beaed95a8a51f1e855723e05d48"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#aa3b99beaed95a8a51f1e855723e05d48">PIC::ICW1_CONFIG</a> = ICW1_ICW4NEEDED | ICW1_INIT</td></tr>
-<tr class="separator:aa3b99beaed95a8a51f1e855723e05d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4eada3349fe4b6740074b1adecdb080b"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#a4eada3349fe4b6740074b1adecdb080b">PIC::ICW2_MASTER_OFFSET</a> = 0x20</td></tr>
-<tr class="memdesc:a4eada3349fe4b6740074b1adecdb080b"><td class="mdescLeft">&#160;</td><td class="mdescRight">IVT 0-31 are reserved for intel exception.  <a href="namespace_p_i_c.html#a4eada3349fe4b6740074b1adecdb080b">More...</a><br /></td></tr>
-<tr class="separator:a4eada3349fe4b6740074b1adecdb080b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33b48f750baf61bf1820e5b36ce44a48"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#a33b48f750baf61bf1820e5b36ce44a48">PIC::ICW2_SLAVE_OFFSET</a> = 0x28</td></tr>
-<tr class="memdesc:a33b48f750baf61bf1820e5b36ce44a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">master handles IRQ0-7 (IVT 0x20), slave handles IRQ8-15 (IVT 0x28)  <a href="namespace_p_i_c.html#a33b48f750baf61bf1820e5b36ce44a48">More...</a><br /></td></tr>
-<tr class="separator:a33b48f750baf61bf1820e5b36ce44a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade78b65e9f0859d0d5ca14df7148b305"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#ade78b65e9f0859d0d5ca14df7148b305">PIC::ICW3_MASTER_SLAVE_POS</a> = 0x4</td></tr>
-<tr class="memdesc:ade78b65e9f0859d0d5ca14df7148b305"><td class="mdescLeft">&#160;</td><td class="mdescRight">tells master that slave is in 3rd position (IRQ2)  <a href="namespace_p_i_c.html#ade78b65e9f0859d0d5ca14df7148b305">More...</a><br /></td></tr>
-<tr class="separator:ade78b65e9f0859d0d5ca14df7148b305"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe9c403a4caa1dd885595bd27c803122"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#abe9c403a4caa1dd885595bd27c803122">PIC::ICW3_SLAVE_ID</a> = 0x2</td></tr>
-<tr class="memdesc:abe9c403a4caa1dd885595bd27c803122"><td class="mdescLeft">&#160;</td><td class="mdescRight">tells slave that it is assigned as IRQ2 on master  <a href="namespace_p_i_c.html#abe9c403a4caa1dd885595bd27c803122">More...</a><br /></td></tr>
-<tr class="separator:abe9c403a4caa1dd885595bd27c803122"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d092deea6581b86dddc5fb5c7fde403"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_p_i_c.html#a3d092deea6581b86dddc5fb5c7fde403">PIC::ICW4_CPU</a> = 0x1</td></tr>
-<tr class="memdesc:a3d092deea6581b86dddc5fb5c7fde403"><td class="mdescLeft">&#160;</td><td class="mdescRight">8086/8088 mode  <a href="namespace_p_i_c.html#a3d092deea6581b86dddc5fb5c7fde403">More...</a><br /></td></tr>
-<tr class="separator:a3d092deea6581b86dddc5fb5c7fde403"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1022b4dc1d9af1ea393f7f038ff421ce"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a1022b4dc1d9af1ea393f7f038ff421ce">INTRP::IDT_ENTRIES</a> = 256</td></tr>
-<tr class="separator:a1022b4dc1d9af1ea393f7f038ff421ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e4e29dae90a4087ed1ac8cf845218c4"><td class="memItemLeft" align="right" valign="top">DescriptorEntry&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a8e4e29dae90a4087ed1ac8cf845218c4">INTRP::idt_table</a> [IDT_ENTRIES]</td></tr>
+<tr class="separator:a8e4e29dae90a4087ed1ac8cf845218c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

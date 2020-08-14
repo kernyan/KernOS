@@ -1,6 +1,21 @@
 \hypertarget{index_intro_sec}{}\section{How to use}\label{index_intro_sec}
 The source code is written with the aim that it can be read like a book. Start from kernel\+\_\+main 
 \begin{DoxyCodeInclude}
+
+\textcolor{keywordtype}{int} \hyperlink{kernel_8cpp_a29eea8749aebd3fede1d73352de7a739}{fib}(\textcolor{keywordtype}{int} N)
+\{
+    \textcolor{keywordflow}{if} (N == 0)
+    \{
+        \textcolor{keywordflow}{return} 0;
+    \}
+    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (N == 1)
+    \{
+        \textcolor{keywordflow}{return} 1;
+    \}
+
+    \textcolor{keywordflow}{return} \hyperlink{kernel_8cpp_a29eea8749aebd3fede1d73352de7a739}{fib}(N - 1) + \hyperlink{kernel_8cpp_a29eea8749aebd3fede1d73352de7a739}{fib} (N - 2);
+\}
+
 \textcolor{keyword}{extern} \textcolor{stringliteral}{"C"} \textcolor{keywordtype}{void} \hyperlink{kernel_8cpp_ada8402e0c504af8cafef5cc76c076003}{kernel\_main}()
 \{
     \hyperlink{namespace_i_n_i_t_a6608557e41ad37cdb4a408e2f05c9783}{INIT::ctors}();   \textcolor{comment}{// initialize global constructors}
@@ -11,6 +26,14 @@ The source code is written with the aim that it can be read like a book. Start f
     \hyperlink{namespace_i_n_i_t_aec8e9f01cb09653075b6e610096b3ca9}{INIT::idt}();     \textcolor{comment}{// install exceptions, interrupts, e.g. page fault handler for paging use
        later}
     \hyperlink{namespace_i_n_i_t_aea383d3de30095cf9d176fa60b66d01d}{INIT::PAGE}();    \textcolor{comment}{// initialize page directory, page table}
+    \hyperlink{namespace_i_n_i_t_a6fa46ed9b50062458ede3692a4865c51}{INIT::PIT}();     \textcolor{comment}{// initialize timer}
+
+    \textcolor{comment}{//asm volatile("sti" ::: "memory"); // test to trigger timer interrupt}
+    \textcolor{comment}{//int* a = (int*) 0xffffffff;}
+    \textcolor{comment}{//int b = (int) (*a); // test to trigger page fault handler}
+    \textcolor{comment}{//fib(150); // test to keep OS running long enough to trigger timer interrupt}
+
+    \hyperlink{kprintf_8h_ae610f6b2bc90ea3eed7852d591c48116}{kprintf}(\textcolor{stringliteral}{"reach"});
 \}
 \end{DoxyCodeInclude}
 and follow function call links 

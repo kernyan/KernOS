@@ -43,7 +43,9 @@ enum \hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94}{I\+VT} \+
 \newline
 \hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a7f928e26348ad94a198cdb0b8758068b}{S\+I\+M\+D\+\_\+\+F\+P\+\_\+\+X\+F\+\_\+\+F\+A\+U\+LT} = 0x13, 
 \hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94ad3c957dd69dc16828a748d3e07499633}{R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+E\+ND} = 0x1F, 
-\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a6896b72dca7a4ffbd39151b6fb9be9b1}{U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+S\+T\+A\+RT} = R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+E\+ND + 1, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a6896b72dca7a4ffbd39151b6fb9be9b1}{U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+S\+T\+A\+RT} = P\+IC\+:\+:I\+C\+W2\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+O\+F\+F\+S\+ET, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a1e649ad4d60db04ecb492433675e0577}{T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT} = U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+S\+T\+A\+RT, 
+\newline
 \hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94ae081b819aecf9800dc041fec2b47286c}{U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+E\+ND} = 0x\+FF
  \}
 \end{DoxyCompactItemize}
@@ -54,6 +56,8 @@ void \hyperlink{namespace_i_n_t_r_p_a91a6a2668bfa9961a9ed265f6ceac47d}{Register\
 \begin{DoxyCompactList}\small\item\em Creates interrupt descriptor entries in idt\+\_\+table, and loads into C\+PU. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_a7732859732913734b09dd07030c41991}{Unhandled\+Exception} ()
 \begin{DoxyCompactList}\small\item\em default unhandled exception handler \end{DoxyCompactList}\item 
+void \hyperlink{namespace_i_n_t_r_p_a0232249076503af19eee46e59a4e5bb8}{Timer\+Interrupt\+Handler} ()
+\begin{DoxyCompactList}\small\item\em Timer interrupt handler. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_aff35666b88439353d86e253d3051f27f}{Page\+Fault\+Handler} ()
 \begin{DoxyCompactList}\small\item\em Page fault handler. \end{DoxyCompactList}\item 
 void \hyperlink{namespace_i_n_t_r_p_a13c03019c9d7b305743516310096a82a}{Unhandled\+Interrupt} ()
@@ -70,6 +74,8 @@ void \hyperlink{namespace_i_n_t_r_p_a139b273cc1e45d3c2fdfe0d387a98518}{Install\+
 \begin{DoxyCompactItemize}
 \item 
 const uint16\+\_\+t \hyperlink{namespace_i_n_t_r_p_a1022b4dc1d9af1ea393f7f038ff421ce}{I\+D\+T\+\_\+\+E\+N\+T\+R\+I\+ES} = 256
+\item 
+\hyperlink{union_i_n_t_r_p_1_1_descriptor_entry}{Descriptor\+Entry} \hyperlink{namespace_i_n_t_r_p_a8e4e29dae90a4087ed1ac8cf845218c4}{idt\+\_\+table} \mbox{[}\hyperlink{namespace_i_n_t_r_p_a1022b4dc1d9af1ea393f7f038ff421ce}{I\+D\+T\+\_\+\+E\+N\+T\+R\+I\+ES}\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -176,6 +182,10 @@ R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+E\+ND&0x1F \\
 U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+S\+T\+A\+RT&0x20 \\
 \hline
 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT@{T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}!I\+N\+T\+RP@{I\+N\+T\+RP}}\index{I\+N\+T\+RP@{I\+N\+T\+RP}!T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT@{T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}}\mbox{\Hypertarget{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a1e649ad4d60db04ecb492433675e0577}\label{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a1e649ad4d60db04ecb492433675e0577}} 
+T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT&\\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+E\+ND@{U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+E\+ND}!I\+N\+T\+RP@{I\+N\+T\+RP}}\index{I\+N\+T\+RP@{I\+N\+T\+RP}!U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+E\+ND@{U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+E\+ND}}}\mbox{\Hypertarget{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94ae081b819aecf9800dc041fec2b47286c}\label{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94ae081b819aecf9800dc041fec2b47286c}} 
 U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+E\+ND&0x\+FF \\
 \hline
@@ -183,7 +193,7 @@ U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+E\+ND&0x\+FF \\
 \end{DoxyEnumFields}
 
 
-Definition at line 16 of file interrupt.\+h.
+Definition at line 47 of file interrupt.\+h.
 
 
 
@@ -200,7 +210,7 @@ Assigns exception and interrupt handler to idt\+\_\+table, and load to C\+PU.
 
 
 
-Definition at line 224 of file interrupt.\+cpp.
+Definition at line 203 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_t_r_p_a194f85d6c873615e9125466e3b23c30f}\label{namespace_i_n_t_r_p_a194f85d6c873615e9125466e3b23c30f}} 
 \index{I\+N\+T\+RP@{I\+N\+T\+RP}!Load\+\_\+lidt@{Load\+\_\+lidt}}
@@ -221,7 +231,7 @@ assembly instruction to load idt table to C\+PU
 \end{DoxyParams}
 
 
-Definition at line 206 of file interrupt.\+cpp.
+Definition at line 185 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_t_r_p_aff35666b88439353d86e253d3051f27f}\label{namespace_i_n_t_r_p_aff35666b88439353d86e253d3051f27f}} 
 \index{I\+N\+T\+RP@{I\+N\+T\+RP}!Page\+Fault\+Handler@{Page\+Fault\+Handler}}
@@ -235,7 +245,7 @@ Page fault handler.
 
 
 
-Definition at line 168 of file interrupt.\+cpp.
+Definition at line 145 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_t_r_p_a91a6a2668bfa9961a9ed265f6ceac47d}\label{namespace_i_n_t_r_p_a91a6a2668bfa9961a9ed265f6ceac47d}} 
 \index{I\+N\+T\+RP@{I\+N\+T\+RP}!Register\+Handler@{Register\+Handler}}
@@ -258,7 +268,7 @@ Installing exception or interrupt handler by mapping handler address to idt\+\_\
 \end{DoxyParams}
 
 
-Definition at line 149 of file interrupt.\+cpp.
+Definition at line 118 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_t_r_p_a4a1a1ff73a4e9bb1c17daf205170daa9}\label{namespace_i_n_t_r_p_a4a1a1ff73a4e9bb1c17daf205170daa9}} 
 \index{I\+N\+T\+RP@{I\+N\+T\+RP}!Set\+Exception\+Handler@{Set\+Exception\+Handler}}
@@ -277,7 +287,7 @@ Installs default exception handler to all exceptions.
 \end{DoxyParams}
 
 
-Definition at line 185 of file interrupt.\+cpp.
+Definition at line 162 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_t_r_p_abf09ee877603981fe255cd050cbbb110}\label{namespace_i_n_t_r_p_abf09ee877603981fe255cd050cbbb110}} 
 \index{I\+N\+T\+RP@{I\+N\+T\+RP}!Set\+Interrupt\+Handler@{Set\+Interrupt\+Handler}}
@@ -296,7 +306,21 @@ Installs default interrupt handler to all interrupts.
 \end{DoxyParams}
 
 
-Definition at line 196 of file interrupt.\+cpp.
+Definition at line 173 of file interrupt.\+cpp.
+
+\mbox{\Hypertarget{namespace_i_n_t_r_p_a0232249076503af19eee46e59a4e5bb8}\label{namespace_i_n_t_r_p_a0232249076503af19eee46e59a4e5bb8}} 
+\index{I\+N\+T\+RP@{I\+N\+T\+RP}!Timer\+Interrupt\+Handler@{Timer\+Interrupt\+Handler}}
+\index{Timer\+Interrupt\+Handler@{Timer\+Interrupt\+Handler}!I\+N\+T\+RP@{I\+N\+T\+RP}}
+\subsubsection{\texorpdfstring{Timer\+Interrupt\+Handler()}{TimerInterruptHandler()}}
+{\footnotesize\ttfamily void I\+N\+T\+R\+P\+::\+Timer\+Interrupt\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Timer interrupt handler. 
+
+
+
+Definition at line 137 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_t_r_p_a7732859732913734b09dd07030c41991}\label{namespace_i_n_t_r_p_a7732859732913734b09dd07030c41991}} 
 \index{I\+N\+T\+RP@{I\+N\+T\+RP}!Unhandled\+Exception@{Unhandled\+Exception}}
@@ -310,7 +334,7 @@ default unhandled exception handler
 
 
 
-Definition at line 160 of file interrupt.\+cpp.
+Definition at line 129 of file interrupt.\+cpp.
 
 \mbox{\Hypertarget{namespace_i_n_t_r_p_a13c03019c9d7b305743516310096a82a}\label{namespace_i_n_t_r_p_a13c03019c9d7b305743516310096a82a}} 
 \index{I\+N\+T\+RP@{I\+N\+T\+RP}!Unhandled\+Interrupt@{Unhandled\+Interrupt}}
@@ -324,7 +348,7 @@ default unhandled interrupt handler
 
 
 
-Definition at line 176 of file interrupt.\+cpp.
+Definition at line 153 of file interrupt.\+cpp.
 
 
 
@@ -337,5 +361,15 @@ Definition at line 176 of file interrupt.\+cpp.
 
 
 
-Definition at line 111 of file interrupt.\+cpp.
+Definition at line 81 of file interrupt.\+h.
+
+\mbox{\Hypertarget{namespace_i_n_t_r_p_a8e4e29dae90a4087ed1ac8cf845218c4}\label{namespace_i_n_t_r_p_a8e4e29dae90a4087ed1ac8cf845218c4}} 
+\index{I\+N\+T\+RP@{I\+N\+T\+RP}!idt\+\_\+table@{idt\+\_\+table}}
+\index{idt\+\_\+table@{idt\+\_\+table}!I\+N\+T\+RP@{I\+N\+T\+RP}}
+\subsubsection{\texorpdfstring{idt\+\_\+table}{idt\_table}}
+{\footnotesize\ttfamily \hyperlink{union_i_n_t_r_p_1_1_descriptor_entry}{Descriptor\+Entry} I\+N\+T\+R\+P\+::idt\+\_\+table}
+
+
+
+Definition at line 109 of file interrupt.\+cpp.
 

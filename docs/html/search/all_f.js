@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['r',['R',['../namespace_v_m_1_1_p_d_a.html#a7a5d6d32b47f20a14422314b14fdc591a80249bc62c8a67e157d2b13cdf4325f7',1,'VM::PDA::R()'],['../namespace_v_m_1_1_p_t_a.html#a89a9cf444829a1e2681beab7a219fea5a8845432dbb156062ae5103d618c41d75',1,'VM::PTA::R()']]],
+  ['r',['R',['../namespace_v_m_1_1_p_d_a.html#aef2fe9b88f7669a048ee22c1e6e2311ba80249bc62c8a67e157d2b13cdf4325f7',1,'VM::PDA::R()'],['../namespace_v_m_1_1_p_t_a.html#af6c6ca8f4c319eea5695da938dfdd4c4a8845432dbb156062ae5103d618c41d75',1,'VM::PTA::R()']]],
+  ['rate_5fgenerator',['RATE_GENERATOR',['../namespace_t_i_m_e_r.html#a3231391ecc5f5895452fcc54c5fabe26a97f3074fdfb64cf0447db4462d1ffb3d',1,'TIMER']]],
+  ['rate_5fgenerator2',['RATE_GENERATOR2',['../namespace_t_i_m_e_r.html#a3231391ecc5f5895452fcc54c5fabe26a223f042f6282d268b1e7e6edc8533597',1,'TIMER']]],
   ['red',['RED',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71aa2d9547b5d3dd9f05984475f7c926da0',1,'VGA']]],
   ['registerhandler',['RegisterHandler',['../namespace_i_n_t_r_p.html#a91a6a2668bfa9961a9ed265f6ceac47d',1,'INTRP']]],
   ['registers_2eh',['registers.h',['../registers_8h.html',1,'']]],

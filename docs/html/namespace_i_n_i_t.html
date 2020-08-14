@@ -108,6 +108,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac811302ce0948a6a097b445b811f9c14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_i_t.html#ac811302ce0948a6a097b445b811f9c14">KMALLOC</a> ()</td></tr>
 <tr class="memdesc:ac811302ce0948a6a097b445b811f9c14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides memory allocator with range of reserved memory address to manage.  <a href="#ac811302ce0948a6a097b445b811f9c14">More...</a><br /></td></tr>
 <tr class="separator:ac811302ce0948a6a097b445b811f9c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fa46ed9b50062458ede3692a4865c51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_i_t.html#a6fa46ed9b50062458ede3692a4865c51">PIT</a> ()</td></tr>
+<tr class="memdesc:a6fa46ed9b50062458ede3692a4865c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes programmable interval timer.  <a href="#a6fa46ed9b50062458ede3692a4865c51">More...</a><br /></td></tr>
+<tr class="separator:a6fa46ed9b50062458ede3692a4865c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abae5789d80f8edd37455f3b167779654"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_i_t.html#abae5789d80f8edd37455f3b167779654">VGA</a> ()</td></tr>
 <tr class="memdesc:abae5789d80f8edd37455f3b167779654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear <a class="el" href="namespace_v_g_a.html" title="Video Graphics Array namespace. ">VGA</a> display, and print kernel banner.  <a href="#abae5789d80f8edd37455f3b167779654">More...</a><br /></td></tr>
 <tr class="separator:abae5789d80f8edd37455f3b167779654"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,7 +187,7 @@ Functions</h2></td></tr>
 <dd>
 <a class="el" href="namespace_i_n_t_r_p.html#a139b273cc1e45d3c2fdfe0d387a98518" title="Assigns exception and interrupt handler to idt_table, and load to CPU. ">INTRP::Install_idt</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00234">234</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00213">213</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -246,6 +249,29 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fa46ed9b50062458ede3692a4865c51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fa46ed9b50062458ede3692a4865c51">&#9670;&nbsp;</a></span>PIT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void INIT::PIT </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes programmable interval timer. </p>
+<p>1) Initializes 8254 Programmable Interrupt Timer<br />
+2) Installs timer interrupt handler </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespace_t_i_m_e_r.html#a9914c0026a4661367482a01e7834500e">TIMER::PIT_825x</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="pit_8cpp_source.html#l00087">87</a> of file <a class="el" href="pit_8cpp_source.html">pit.cpp</a>.</p>
 
 </div>
 </div>

@@ -15,10 +15,9 @@ namespace INIT
 {
     /*! @brief Initializes programmable interval timer
      *  @details
-     *  1) Remaps Programmable interrupt controller's interrupt number\n
-     *  2) Assigns exceptions and interrupt handlers
-     *  @see PIC::Remap
-     *  @see INTRP::Install_idt
+     *  1) Initializes 8254 Programmable Interrupt Timer\n
+     *  2) Installs timer interrupt handler
+     *  @see TIMER::PIT_825x
      */
     void PIT();
 }

@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['machine_5fcheck_5fabort',['MACHINE_CHECK_ABORT',['../namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a67d00b54b2bade5a703dbbbc2ea93711',1,'INTRP']]],
-  ['magenta',['MAGENTA',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71ac634ffea7195608364671ac52ee59a61',1,'VGA']]],
-  ['math_5ffault',['MATH_FAULT',['../namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a44642a04b137a14fd789a6936b7762dd',1,'INTRP']]],
-  ['mce',['MCE',['../namespace_c_r4.html#a2928f19d113bac6aaeab713b170185ceab6bdf44cebbecb78a845af15d91a1d0a',1,'CR4']]],
-  ['mp',['MP',['../namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaa5d476977d06d7c0b03c9c15c07a79a67',1,'CR0']]]
+  ['latch',['LATCH',['../namespace_t_i_m_e_r.html#af9ea977bf574cbb806bde5e36476f5d0acc5e7218f9e4ebeb4de9c08b2464df5f',1,'TIMER']]],
+  ['light_5fblue',['LIGHT_BLUE',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71a75841220482e3739a9158033b7508cf0',1,'VGA']]],
+  ['light_5fbrown',['LIGHT_BROWN',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71a91787c73bd6b00fe2723ed0194921dc4',1,'VGA']]],
+  ['light_5fcyan',['LIGHT_CYAN',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71af3d26561b2c9540ce0714321012a959e',1,'VGA']]],
+  ['light_5fgreen',['LIGHT_GREEN',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71a555a47662547aa7870851b2ef9ade925',1,'VGA']]],
+  ['light_5fgrey',['LIGHT_GREY',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71a0e9d5dda7abbbd2114b24cacd5a6b7af',1,'VGA']]],
+  ['light_5fmagenta',['LIGHT_MAGENTA',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71a0bdcb18cd1ed53fe818fb73e9e9589ef',1,'VGA']]],
+  ['light_5fred',['LIGHT_RED',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71a72722ff9e2a9326d5813c4045d3b4a23',1,'VGA']]],
+  ['lo_5fonly',['LO_ONLY',['../namespace_t_i_m_e_r.html#af9ea977bf574cbb806bde5e36476f5d0a6e277afa7b41a9bc968bc51cbecce7f2',1,'TIMER']]]
 ];

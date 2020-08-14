@@ -131,8 +131,10 @@ Enumerations</h2></td></tr>
 <br />
 &#160;&#160;<a class="el" href="namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a7f928e26348ad94a198cdb0b8758068b">SIMD_FP_XF_FAULT</a> = 0x13, 
 <a class="el" href="namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94ad3c957dd69dc16828a748d3e07499633">RESERVED_END</a> = 0x1F, 
-<a class="el" href="namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a6896b72dca7a4ffbd39151b6fb9be9b1">USER_DEFINED_START</a> = RESERVED_END + 1, 
-<a class="el" href="namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94ae081b819aecf9800dc041fec2b47286c">USER_DEFINED_END</a> = 0xFF
+<a class="el" href="namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a6896b72dca7a4ffbd39151b6fb9be9b1">USER_DEFINED_START</a> = PIC::ICW2_MASTER_OFFSET, 
+<a class="el" href="namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a1e649ad4d60db04ecb492433675e0577">TIMER_INTERRUPT</a> = USER_DEFINED_START, 
+<br />
+&#160;&#160;<a class="el" href="namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94ae081b819aecf9800dc041fec2b47286c">USER_DEFINED_END</a> = 0xFF
 <br />
  }</td></tr>
 <tr class="separator:a790699fb2953ef4ab70c7dc7148a1c94"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,6 +147,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a7732859732913734b09dd07030c41991"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a7732859732913734b09dd07030c41991">UnhandledException</a> ()</td></tr>
 <tr class="memdesc:a7732859732913734b09dd07030c41991"><td class="mdescLeft">&#160;</td><td class="mdescRight">default unhandled exception handler  <a href="#a7732859732913734b09dd07030c41991">More...</a><br /></td></tr>
 <tr class="separator:a7732859732913734b09dd07030c41991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0232249076503af19eee46e59a4e5bb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a0232249076503af19eee46e59a4e5bb8">TimerInterruptHandler</a> ()</td></tr>
+<tr class="memdesc:a0232249076503af19eee46e59a4e5bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer interrupt handler.  <a href="#a0232249076503af19eee46e59a4e5bb8">More...</a><br /></td></tr>
+<tr class="separator:a0232249076503af19eee46e59a4e5bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff35666b88439353d86e253d3051f27f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#aff35666b88439353d86e253d3051f27f">PageFaultHandler</a> ()</td></tr>
 <tr class="memdesc:aff35666b88439353d86e253d3051f27f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Page fault handler.  <a href="#aff35666b88439353d86e253d3051f27f">More...</a><br /></td></tr>
 <tr class="separator:aff35666b88439353d86e253d3051f27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,6 +173,8 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a1022b4dc1d9af1ea393f7f038ff421ce"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a1022b4dc1d9af1ea393f7f038ff421ce">IDT_ENTRIES</a> = 256</td></tr>
 <tr class="separator:a1022b4dc1d9af1ea393f7f038ff421ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e4e29dae90a4087ed1ac8cf845218c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="union_i_n_t_r_p_1_1_descriptor_entry.html">DescriptorEntry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_n_t_r_p.html#a8e4e29dae90a4087ed1ac8cf845218c4">idt_table</a> [<a class="el" href="namespace_i_n_t_r_p.html#a1022b4dc1d9af1ea393f7f038ff421ce">IDT_ENTRIES</a>]</td></tr>
+<tr class="separator:a8e4e29dae90a4087ed1ac8cf845218c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>interrupt namespace </p>
@@ -230,11 +237,12 @@ Variables</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a6896b72dca7a4ffbd39151b6fb9be9b1"></a>USER_DEFINED_START&#160;</td><td class="fielddoc"><p>0x20 </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94a1e649ad4d60db04ecb492433675e0577"></a>TIMER_INTERRUPT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a790699fb2953ef4ab70c7dc7148a1c94ae081b819aecf9800dc041fec2b47286c"></a>USER_DEFINED_END&#160;</td><td class="fielddoc"><p>0xFF </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8h_source.html#l00016">16</a> of file <a class="el" href="interrupt_8h_source.html">interrupt.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8h_source.html#l00047">47</a> of file <a class="el" href="interrupt_8h_source.html">interrupt.h</a>.</p>
 
 </div>
 </div>
@@ -256,7 +264,7 @@ Variables</h2></td></tr>
 
 <p>Assigns exception and interrupt handler to idt_table, and load to CPU. </p>
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00224">224</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00203">203</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -303,7 +311,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00206">206</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00185">185</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -324,7 +332,7 @@ Variables</h2></td></tr>
 
 <p>Page fault handler. </p>
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00168">168</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00145">145</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -370,7 +378,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00149">149</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00118">118</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -398,7 +406,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00185">185</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00162">162</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -426,7 +434,28 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00196">196</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00173">173</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0232249076503af19eee46e59a4e5bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0232249076503af19eee46e59a4e5bb8">&#9670;&nbsp;</a></span>TimerInterruptHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void INTRP::TimerInterruptHandler </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Timer interrupt handler. </p>
+
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00137">137</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -447,7 +476,7 @@ Variables</h2></td></tr>
 
 <p>default unhandled exception handler </p>
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00160">160</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00129">129</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -468,7 +497,7 @@ Variables</h2></td></tr>
 
 <p>default unhandled interrupt handler </p>
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00176">176</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00153">153</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>
@@ -485,7 +514,23 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00111">111</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interrupt_8h_source.html#l00081">81</a> of file <a class="el" href="interrupt_8h_source.html">interrupt.h</a>.</p>
+
+</div>
+</div>
+<a id="a8e4e29dae90a4087ed1ac8cf845218c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e4e29dae90a4087ed1ac8cf845218c4">&#9670;&nbsp;</a></span>idt_table</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="union_i_n_t_r_p_1_1_descriptor_entry.html">DescriptorEntry</a> INTRP::idt_table</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interrupt_8cpp_source.html#l00109">109</a> of file <a class="el" href="interrupt_8cpp_source.html">interrupt.cpp</a>.</p>
 
 </div>
 </div>

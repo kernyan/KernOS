@@ -15,7 +15,7 @@ var searchData=
   ['kernel_5fmain',['kernel_main',['../kernel_8cpp.html#ada8402e0c504af8cafef5cc76c076003',1,'kernel.cpp']]],
   ['kheap',['kheap',['../memoryallocator_8cpp.html#ace9c1b0c23dfc96b6f7432bdde6b1370',1,'memoryallocator.cpp']]],
   ['km',['KM',['../namespace_k_m.html',1,'']]],
-  ['kmalloc',['KMALLOC',['../namespace_i_n_i_t.html#ac811302ce0948a6a097b445b811f9c14',1,'INIT::KMALLOC()'],['../namespace_k_m.html#aaeb8403b430af6311bb3c1df6ae520b6',1,'KM::kmalloc()']]],
+  ['kmalloc',['kmalloc',['../namespace_k_m.html#aaeb8403b430af6311bb3c1df6ae520b6',1,'KM::kmalloc()'],['../namespace_i_n_i_t.html#ac811302ce0948a6a097b445b811f9c14',1,'INIT::KMALLOC()']]],
   ['kpagetable',['kpagetable',['../virtualmemory_8cpp.html#a6f6f3cc49b2c83f2fc2944156cdca42f',1,'virtualmemory.cpp']]],
   ['kprintf',['kprintf',['../kprintf_8h.html#ae610f6b2bc90ea3eed7852d591c48116',1,'kprintf(const char *Str):&#160;kprintf.cpp'],['../kprintf_8cpp.html#ae610f6b2bc90ea3eed7852d591c48116',1,'kprintf(const char *Str):&#160;kprintf.cpp']]],
   ['kprintf_2ecpp',['kprintf.cpp',['../kprintf_8cpp.html',1,'']]],
