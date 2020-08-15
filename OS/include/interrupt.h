@@ -8,37 +8,7 @@
 #include <common.h>
 #include <utilities.h>
 #include <registers.h>
-
-
-namespace PIC
-{
-
-    /*! @brief PIC1 command port */
-    const uint8_t MASTER_COMMAND_PORT = 0x20;
-
-    /*! @brief PIC1 data port */
-    const uint8_t MASTER_DATA_PORT    = 0x21;
-
-    /*! @brief PIC2 command port */
-    const uint8_t SLAVE_COMMAND_PORT  = 0xA0;
-
-    /*! @brief PIC2 data port */
-    const uint8_t SLAVE_DATA_PORT     = 0xA1;
-
-    const uint8_t ICW1_ICW4NEEDED = 0x1;  ///< expect ICW 4
-    const uint8_t ICW1_INIT       = 0x10; ///< initialize PIC
-    const uint8_t ICW1_CONFIG     = ICW1_ICW4NEEDED | ICW1_INIT;
-
-    const uint8_t ICW2_MASTER_OFFSET = 0x20; ///< IVT 0-31 are reserved for intel exception
-    const uint8_t ICW2_SLAVE_OFFSET  = 0x28; ///< master handles IRQ0-7 (IVT 0x20), slave handles IRQ8-15 (IVT 0x28)
-
-    const uint8_t ICW3_MASTER_SLAVE_POS = 0x4; ///< tells master that slave is in 3rd position (IRQ2)
-    const uint8_t ICW3_SLAVE_ID         = 0x2; ///< tells slave that it is assigned as IRQ2 on master
-
-    const uint8_t ICW4_CPU = 0x1; ///< 8086/8088 mode
-
-    void UnmaskInterrupt (uint16_t Port, uint8_t Irq);
-}
+#include <ports.h>
 
 /*! @brief interrupt namespace
  */
@@ -46,6 +16,7 @@ namespace INTRP // interrupt
 {
     enum IVT : uint8_t
     {
+        // reserve exceptions
         RESERVED_START        = 0x0,                 ///< 0x0
         DIV_0_FAULT           = RESERVED_START,      ///< 0x0
         DEBUG_TRAP            = 0x1,                 ///< 0x1
@@ -69,9 +40,27 @@ namespace INTRP // interrupt
         SIMD_FP_XF_FAULT      = 0x13,                ///< 0x13
         RESERVED_END          = 0x1F,                ///< 0x1F
 
-        USER_DEFINED_START    = PIC::ICW2_MASTER_OFFSET, ///< 0x20
+        // user-defined interrupts
+        PIC1_OFFSET           = 0x20,                ///< 0x20
+        USER_DEFINED_START    = PIC1_OFFSET,
+        TIMER                 = 0x20,
+        KEYBOARD              = 0x21,
+        PIC2_CASCADE          = 0x22,
+        SERIAL2               = 0x23,
+        SERIAL1               = 0x24,
+        PARALLEL2             = 0x25,
+        DISKETTE              = 0x26,
+        PARALLEL1             = 0x27,
 
-        TIMER_INTERRUPT       = USER_DEFINED_START,
+        PIC2_OFFSET           = 0x28,               ///< 0x28
+        CMOS                  = 0x28,
+        CGA                   = 0x29,
+        RESERVED1             = 0x2A,
+        RESERVED2             = 0x2B,
+        PS2                   = 0x2C,
+        FPU                   = 0x2D,
+        HARDDISK              = 0x2E,
+        RESERVED3             = 0x2F,
 
         USER_DEFINED_END      = 0xFF                 ///< 0xFF
     };
@@ -135,7 +124,64 @@ namespace INTRP // interrupt
 
     void RegisterHandler(DescriptorEntry IdtTable[], size_t Idx, func_ptr Handler);
 
+    class IRQScope
+    {
+    private:
+        INTRP::IVT m_IRQNumber;
+
+    public:
+        explicit IRQScope (INTRP::IVT IRQNumber) :
+            m_IRQNumber (IRQNumber)
+        {
+        }
+
+        ~IRQScope()
+        {
+            //out8();
+        }
+    };
+
 } // namespace INTRP
+
+struct IrqPort
+{
+    uint16_t m_Port {0};
+    uint8_t m_IrqNumber {0};
+
+    constexpr IrqPort (const INTRP::IVT Irq)
+    {
+        if (Irq < INTRP::IVT::PIC1_OFFSET)
+        {
+        }
+        else if (Irq < INTRP::IVT::PIC2_OFFSET)
+        {
+            m_Port      = PORTS::PIC1_DATA;
+            m_IrqNumber = Irq - INTRP::IVT::PIC1_OFFSET;
+        }
+        else if (Irq <= INTRP::IVT::USER_DEFINED_END)
+        {
+            m_Port      = PORTS::PIC2_DATA;
+            m_IrqNumber = Irq - INTRP::IVT::PIC2_OFFSET;
+        }
+    }
+};
+
+namespace PIC
+{
+    const uint8_t ICW1_ICW4NEEDED = 0x1;  ///< expect ICW 4
+    const uint8_t ICW1_INIT       = 0x10; ///< initialize PIC
+    const uint8_t ICW1_CONFIG     = ICW1_ICW4NEEDED | ICW1_INIT;
+
+    const uint8_t ICW2_MASTER_OFFSET = INTRP::IVT::PIC1_OFFSET; ///< IVT 0-31 are reserved for intel exception
+    const uint8_t ICW2_SLAVE_OFFSET  = INTRP::IVT::PIC2_OFFSET; ///< master handles IRQ0-7 (IVT 0x20), slave handles IRQ8-15 (IVT 0x28)
+
+    const uint8_t ICW3_MASTER_SLAVE_POS = 0x4; ///< tells master that slave is in 3rd position (IRQ2)
+    const uint8_t ICW3_SLAVE_ID         = 0x2; ///< tells slave that it is assigned as IRQ2 on master
+
+    const uint8_t ICW4_CPU = 0x1; ///< 8086/8088 mode
+
+    void UnmaskInterrupt (const IrqPort Irq);
+}
 
 namespace INIT
 {

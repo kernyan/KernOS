@@ -2,8 +2,8 @@
 // Created on 5/19/20.
 //
 
-#include <common.h>
 #include <interrupt.h>
+#include <common.h>
 #include <utilities.h>
 #include <gdt.h>
 #include <accessright.h>
@@ -59,50 +59,45 @@ namespace PIC
     void Remap()
     {
         // ICW1 - initialize PIC1, PIC2, and tell them to receive ICW 2,3,4 next
-        out8(MASTER_COMMAND_PORT, ICW1_CONFIG); // init flag asks PIC1 to read ICW2,3,4
-        out8(SLAVE_COMMAND_PORT,  ICW1_CONFIG); // init flag asks PIC2 to read ICW2,3,4
+        out8(PORTS::PIC1_COMMAND, ICW1_CONFIG); // init flag asks PIC1 to read ICW2,3,4
+        out8(PORTS::PIC2_COMMAND, ICW1_CONFIG); // init flag asks PIC2 to read ICW2,3,4
 
         // ICW2 - remap IRQ
-        out8(MASTER_DATA_PORT, ICW2_MASTER_OFFSET); // specify new interrupt number for master
-        out8(SLAVE_DATA_PORT,  ICW2_SLAVE_OFFSET);  // specify new interrupt number for slave
+        out8(PORTS::PIC1_DATA, ICW2_MASTER_OFFSET); // specify new interrupt number for master
+        out8(PORTS::PIC2_DATA, ICW2_SLAVE_OFFSET);  // specify new interrupt number for slave
 
         // ICW3 - inform master/slave about each other
-        out8(MASTER_DATA_PORT, ICW3_MASTER_SLAVE_POS); // tells master position of slave in cascade (use IRQ2)
-        out8(SLAVE_DATA_PORT,  ICW3_SLAVE_ID);         // tells slave its IRQ number assigned on master
+        out8(PORTS::PIC1_DATA, ICW3_MASTER_SLAVE_POS); // tells master position of slave in cascade (use IRQ2)
+        out8(PORTS::PIC2_DATA, ICW3_SLAVE_ID);         // tells slave its IRQ number assigned on master
 
         // ICW4 - set PIC operation
-        out8(MASTER_DATA_PORT, ICW4_CPU); // set master PIC to x86 mode
-        out8(SLAVE_DATA_PORT,  ICW4_CPU); // set slave PIC to x86 mode
+        out8(PORTS::PIC1_DATA, ICW4_CPU); // set master PIC to x86 mode
+        out8(PORTS::PIC2_DATA, ICW4_CPU); // set slave PIC to x86 mode
 
         // disable interrupts (bit set indicates masking of interrupt)
-        out8(MASTER_DATA_PORT, 0xff);
-        out8(SLAVE_DATA_PORT,  0xff);
+        out8(PORTS::PIC1_DATA, 0xff);
+        out8(PORTS::PIC2_DATA, 0xff);
 
-        UnmaskInterrupt(MASTER_DATA_PORT, ICW3_SLAVE_ID); // enable IRQ2 as cascade on IRQ1
-        UnmaskInterrupt(MASTER_DATA_PORT, INTRP::IVT::TIMER_INTERRUPT - ICW2_MASTER_OFFSET); // enable IRQ2 as cascade on IRQ1
+        constexpr IrqPort Irq (INTRP::IVT::PIC2_CASCADE);
+
+        UnmaskInterrupt(Irq); // enable IRQ2 as cascade on IRQ1
     }
 
-    void UnmaskInterrupt (uint16_t Port, uint8_t Irq)
+    void UnmaskInterrupt (const IrqPort Irq)
     {
-        uint8_t Imr = in8(Port);
+        uint8_t Imr = in8(Irq.m_Port);
 
-        if (Port == MASTER_DATA_PORT)
-        {
-            Imr &= ~(1 << Irq);
-        }
-        else if (Port == SLAVE_DATA_PORT)
-        {
-            Imr &= ~(1 << (Irq - 8));
-        }
-        else
-        {
-            kassert(false, "Only PIC data port should be used for interrupt");
-        }
+        Imr &= ~(1 << Irq.m_IrqNumber);
 
-        out8(Port, Imr);
+        out8(Irq.m_Port, Imr);
     }
 
 } // namespace PIC
+
+namespace TIMER
+{
+    extern uint64_t timer_ticks;
+}
 
 namespace INTRP // interrupt
 {
@@ -136,6 +131,8 @@ namespace INTRP // interrupt
      */
     void TimerInterruptHandler()
     {
+        TIMER::timer_ticks++;
+
         kprintf("Timer interrupt occurred\n");
         Hang();
     }
@@ -175,7 +172,7 @@ namespace INTRP // interrupt
         for (size_t Idx = IVT::USER_DEFINED_START; Idx <= IVT::USER_DEFINED_END; ++Idx)
             RegisterHandler(IdtTable, Idx, UnhandledInterrupt);
 
-        RegisterHandler(IdtTable, IVT::TIMER_INTERRUPT, TimerInterruptHandler);
+        RegisterHandler(IdtTable, IVT::TIMER, TimerInterruptHandler);
     }
 
     /*! @brief assembly instruction to load idt table to CPU

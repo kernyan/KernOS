@@ -20,20 +20,6 @@
  */
 //![Kernel entry function]
 
-int fib(int N)
-{
-    if (N == 0)
-    {
-        return 0;
-    }
-    else if (N == 1)
-    {
-        return 1;
-    }
-
-    return fib(N - 1) + fib (N - 2);
-}
-
 extern "C" void kernel_main()
 {
     INIT::ctors();   // initialize global constructors
@@ -45,10 +31,7 @@ extern "C" void kernel_main()
     INIT::PAGE();    // initialize page directory, page table
     INIT::PIT();     // initialize timer
 
-    //asm volatile("sti" ::: "memory"); // test to trigger timer interrupt
-    //int* a = (int*) 0xffffffff;
-    //int b = (int) (*a); // test to trigger page fault handler
-    //fib(150); // test to keep OS running long enough to trigger timer interrupt
+    sti();           // enable interrupt
 
     kprintf("reach");
 }

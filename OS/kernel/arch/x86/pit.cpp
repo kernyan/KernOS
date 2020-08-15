@@ -6,6 +6,7 @@
 #include <common.h>
 #include <utilities.h>
 #include <interrupt.h>
+#include <ports.h>
 
 namespace INTRP
 {
@@ -25,6 +26,8 @@ namespace INTRP
  */
 namespace TIMER
 {
+    uint64_t timer_ticks;
+
     enum PORT : uint8_t
     {
         CHANNEL_O = 0x40, ///< I/O port for channel 0 data port
@@ -80,14 +83,15 @@ namespace TIMER
         out8(PORT::CHANNEL_O, timer_reload & 0xFF);
         out8(PORT::CHANNEL_O, (timer_reload >> 8) & 0xFF);
     }
-}
+} // namespace TIMER
 
 namespace INIT
 {
     void PIT()
     {
         TIMER::PIT_825x();
-        // TODO: install interrupt handler, unmask IRQ, and enable interrupt here instead of in INIT::idt and kernel_main
+
+        PIC::UnmaskInterrupt(INTRP::IVT::TIMER);
     }
 }
 
