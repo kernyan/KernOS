@@ -5,47 +5,66 @@
 8259 Progammable interrupt controller  
 
 
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespace_p_i_c_ad77e5a651b62733bf36c78c7d9f97ab8}{I\+C\+W1\+\_\+0} \+: uint8\+\_\+t \{ \hyperlink{namespace_p_i_c_ad77e5a651b62733bf36c78c7d9f97ab8a7be367dd0bbb526a427aa0acd3b93c36}{N\+O\+\_\+\+I\+C\+W4} = 0b0, 
+\hyperlink{namespace_p_i_c_ad77e5a651b62733bf36c78c7d9f97ab8a010def85bd8ce09fdbb9240d7a892279}{U\+S\+E\+\_\+\+I\+C\+W4} = 0b1
+ \}
+\item 
+enum \hyperlink{namespace_p_i_c_ac4d1fffbe7319dc6a5143adbdfe13652}{I\+C\+W1\+\_\+1} \+: uint8\+\_\+t \{ \hyperlink{namespace_p_i_c_ac4d1fffbe7319dc6a5143adbdfe13652a2e57be26f8e434f012153663faa5deff}{C\+A\+S\+C\+A\+DE} = 0b00, 
+\hyperlink{namespace_p_i_c_ac4d1fffbe7319dc6a5143adbdfe13652a2d23da318af8d6feac77e5a6ce06ac48}{S\+I\+N\+G\+LE} = 0b10
+ \}
+\item 
+enum \hyperlink{namespace_p_i_c_a70511ba78097aa4bf39435ae9eda4033}{I\+C\+W1\+\_\+2} \+: uint8\+\_\+t \{ \hyperlink{namespace_p_i_c_a70511ba78097aa4bf39435ae9eda4033a241b3b87fa30c6a81bc169b8f03da9c9}{I\+N\+T\+R\+P\+\_\+8B} = 0b000, 
+\hyperlink{namespace_p_i_c_a70511ba78097aa4bf39435ae9eda4033a7ee3995b2488d2942cea68b9dced4442}{I\+N\+T\+R\+P\+\_\+4B} = 0b100
+ \}
+\item 
+enum \hyperlink{namespace_p_i_c_a6c8d5577b7e939d025ef7b9d1ada39e6}{I\+C\+W1\+\_\+3} \+: uint8\+\_\+t \{ \hyperlink{namespace_p_i_c_a6c8d5577b7e939d025ef7b9d1ada39e6a15ef41d5ed02434814d1bfd5595f6163}{E\+D\+G\+E\+\_\+\+T\+R\+I\+G\+G\+E\+R\+ED} = 0b0000, 
+\hyperlink{namespace_p_i_c_a6c8d5577b7e939d025ef7b9d1ada39e6aff60e2f0839923e87eea5d6b79741823}{L\+E\+V\+E\+L\+\_\+\+T\+R\+I\+G\+G\+E\+R\+ED} = 0b1000
+ \}
+\item 
+enum \hyperlink{namespace_p_i_c_ae14d96313460425ec0afd69c1170cb2f}{I\+C\+W1\+\_\+4} \+: uint8\+\_\+t \{ \hyperlink{namespace_p_i_c_ae14d96313460425ec0afd69c1170cb2fa35d3de94a12ead580e4edcf7a6f63e6e}{I\+N\+V\+A\+L\+ID} = 0b00000, 
+\hyperlink{namespace_p_i_c_ae14d96313460425ec0afd69c1170cb2fab62a61042a91e8a797cf0d9c2a9e330e}{U\+S\+E\+\_\+\+I\+C\+W1} = 0b10000
+ \}
+\item 
+enum \hyperlink{namespace_p_i_c_a6b216cc06a3adf25c99212fa562bbe9c}{I\+C\+W4\+\_\+0} \+: uint8\+\_\+t \{ \hyperlink{namespace_p_i_c_a6b216cc06a3adf25c99212fa562bbe9caa18f6e8c8ab324ce2cff2dc1b397cfd1}{M\+O\+D\+E\+\_\+8085} = 0b0, 
+\hyperlink{namespace_p_i_c_a6b216cc06a3adf25c99212fa562bbe9ca7cd427b65a73fae3b803330d825c244b}{M\+O\+D\+E\+\_\+8086} = 0b1
+ \}
+\item 
+enum \hyperlink{namespace_p_i_c_a12c72f546ed4a793a092429bdc8184cd}{I\+C\+W4\+\_\+1} \+: uint8\+\_\+t \{ \hyperlink{namespace_p_i_c_a12c72f546ed4a793a092429bdc8184cdac0fb6df51e8b63a62ad5c62229c3bf5b}{E\+OI} = 0b00, 
+\hyperlink{namespace_p_i_c_a12c72f546ed4a793a092429bdc8184cda11719eb2bc43288eaffe011c20ee0e9e}{A\+U\+T\+O\+\_\+\+E\+OI} = 0b10
+ \}
+\item 
+enum \hyperlink{namespace_p_i_c_a51bbd923ec439fbd7940f0e3929b5b2a}{I\+C\+W4\+\_\+4} \+: uint8\+\_\+t \{ \hyperlink{namespace_p_i_c_a51bbd923ec439fbd7940f0e3929b5b2aa53708ed245ad9048478fb6a8b53c8153}{S\+E\+Q\+U\+E\+N\+T\+I\+AL} = 0b00000, 
+\hyperlink{namespace_p_i_c_a51bbd923ec439fbd7940f0e3929b5b2aab473c18c14b07143836296745ba580c7}{S\+P\+E\+C\+I\+A\+L\+\_\+\+F\+U\+L\+L\+Y\+\_\+\+N\+E\+S\+T\+ED} = 0b10000
+ \}
+\item 
+enum \hyperlink{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59da}{O\+C\+W2} \+: uint8\+\_\+t \{ \newline
+\hyperlink{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa9a4ac16beafec6571fc6b13c51831de9}{N\+O\+N\+\_\+\+S\+P\+E\+C\+I\+F\+I\+C\+\_\+\+E\+OI} = 0b0010\textquotesingle{}0000, 
+\hyperlink{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa108708a1aa698dbd0744d812934faab8}{N\+OP} = 0b0100\textquotesingle{}0000, 
+\hyperlink{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa6929bd780c61bf6c4acebf216888614a}{S\+P\+E\+C\+I\+F\+I\+C\+\_\+\+E\+OI} = 0b0110\textquotesingle{}0000, 
+\hyperlink{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daaf7ff06dc609177a3611bad46e1a1f2ed}{R\+O\+T\+A\+T\+E\+\_\+\+A\+E\+OI} = 0b1000\textquotesingle{}0000, 
+\newline
+\hyperlink{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daab031f49e9cf429d7f9090071c48ef4aa}{R\+O\+T\+A\+T\+E\+\_\+\+N\+O\+N\+\_\+\+S\+P\+E\+C\+\_\+\+E\+OI} = 0b1010\textquotesingle{}0000, 
+\hyperlink{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa4023af316eb2706b538d34e942d69cfd}{S\+E\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+MD} = 0b1100\textquotesingle{}0000, 
+\hyperlink{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa4a27e2f956f2aa46344b63bd54c6a10a}{R\+O\+T\+A\+T\+E\+\_\+\+S\+P\+E\+C\+\_\+\+E\+OI} = 0b1110\textquotesingle{}0000
+ \}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{namespace_p_i_c_ad6f2cca6611cd7992992ab7705d6c25f}{Unmask\+Interrupt} (uint16\+\_\+t Port, uint8\+\_\+t Irq)
-\item 
 void \hyperlink{namespace_p_i_c_a2a04fe95329faacc43f00ad30fe554b9}{Remap} ()
 \begin{DoxyCompactList}\small\item\em Remap default 8259 \hyperlink{namespace_p_i_c}{P\+IC} interrupt number to new range. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_aae56765eb24eb75e1498e22c05ac29ee}{M\+A\+S\+T\+E\+R\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT} = 0x20
-\begin{DoxyCompactList}\small\item\em P\+I\+C1 command port. \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a7b19e701740b8b1b19db1f1a14af63a6}{M\+A\+S\+T\+E\+R\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT} = 0x21
-\begin{DoxyCompactList}\small\item\em P\+I\+C1 data port. \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a4cdc374612119bd13b1a28e4cc82864f}{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT} = 0x\+A0
-\begin{DoxyCompactList}\small\item\em P\+I\+C2 command port. \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a6e06fae4a0139a207173ff2b94be3283}{S\+L\+A\+V\+E\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT} = 0x\+A1
-\begin{DoxyCompactList}\small\item\em P\+I\+C2 data port. \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a63beb0c60fdab8c997f42291a7c2baf5}{I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED} = 0x1
-\begin{DoxyCompactList}\small\item\em expect I\+CW 4 \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a8bb2fc0a772eabbbf6adb002f578290e}{I\+C\+W1\+\_\+\+I\+N\+IT} = 0x10
-\begin{DoxyCompactList}\small\item\em initialize \hyperlink{namespace_p_i_c}{P\+IC} \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_aa3b99beaed95a8a51f1e855723e05d48}{I\+C\+W1\+\_\+\+C\+O\+N\+F\+IG} = \hyperlink{namespace_p_i_c_a63beb0c60fdab8c997f42291a7c2baf5}{I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED} $\vert$ \hyperlink{namespace_p_i_c_a8bb2fc0a772eabbbf6adb002f578290e}{I\+C\+W1\+\_\+\+I\+N\+IT}
-\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a4eada3349fe4b6740074b1adecdb080b}{I\+C\+W2\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+O\+F\+F\+S\+ET} = 0x20
-\begin{DoxyCompactList}\small\item\em I\+VT 0-\/31 are reserved for intel exception. \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a33b48f750baf61bf1820e5b36ce44a48}{I\+C\+W2\+\_\+\+S\+L\+A\+V\+E\+\_\+\+O\+F\+F\+S\+ET} = 0x28
-\begin{DoxyCompactList}\small\item\em master handles I\+R\+Q0-\/7 (I\+VT 0x20), slave handles I\+R\+Q8-\/15 (I\+VT 0x28) \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_ade78b65e9f0859d0d5ca14df7148b305}{I\+C\+W3\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+P\+OS} = 0x4
-\begin{DoxyCompactList}\small\item\em tells master that slave is in 3rd position (I\+R\+Q2) \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_abe9c403a4caa1dd885595bd27c803122}{I\+C\+W3\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID} = 0x2
-\begin{DoxyCompactList}\small\item\em tells slave that it is assigned as I\+R\+Q2 on master \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a3d092deea6581b86dddc5fb5c7fde403}{I\+C\+W4\+\_\+\+C\+PU} = 0x1
-\begin{DoxyCompactList}\small\item\em 8086/8088 mode \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 8259 Progammable interrupt controller 
 
 \begin{DoxySeeAlso}{See also}
-\href{http://www.brokenthorn.com/Resources/OSDevPic.html}{\tt Broken Thorn\textquotesingle{}s remapping P\+IC}
+\href{http://www.brokenthorn.com/Resources/OSDevPic.html}{\tt Broken Thorn\textquotesingle{}s remapping P\+IC} 
+
+\href{https://stanislavs.org/helppc/8259.html}{\tt 8259 Programmable Interrupt Controller (P\+IC)}
 \end{DoxySeeAlso}
 \begin{DoxyVerb}ICW1 to configure PIC
 | bit | on (off)                        |
@@ -79,6 +98,209 @@ ICW4 to specify PIC operation
 \end{DoxyVerb}
  
 
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespace_p_i_c_ad77e5a651b62733bf36c78c7d9f97ab8}\label{namespace_p_i_c_ad77e5a651b62733bf36c78c7d9f97ab8}} 
+\index{P\+IC@{P\+IC}!I\+C\+W1\+\_\+0@{I\+C\+W1\+\_\+0}}
+\index{I\+C\+W1\+\_\+0@{I\+C\+W1\+\_\+0}!P\+IC@{P\+IC}}
+\subsubsection{\texorpdfstring{I\+C\+W1\+\_\+0}{ICW1\_0}}
+{\footnotesize\ttfamily enum \hyperlink{namespace_p_i_c_ad77e5a651b62733bf36c78c7d9f97ab8}{P\+I\+C\+::\+I\+C\+W1\+\_\+0} \+: uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+O\+\_\+\+I\+C\+W4@{N\+O\+\_\+\+I\+C\+W4}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!N\+O\+\_\+\+I\+C\+W4@{N\+O\+\_\+\+I\+C\+W4}}}\mbox{\Hypertarget{namespace_p_i_c_ad77e5a651b62733bf36c78c7d9f97ab8a7be367dd0bbb526a427aa0acd3b93c36}\label{namespace_p_i_c_ad77e5a651b62733bf36c78c7d9f97ab8a7be367dd0bbb526a427aa0acd3b93c36}} 
+N\+O\+\_\+\+I\+C\+W4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+E\+\_\+\+I\+C\+W4@{U\+S\+E\+\_\+\+I\+C\+W4}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!U\+S\+E\+\_\+\+I\+C\+W4@{U\+S\+E\+\_\+\+I\+C\+W4}}}\mbox{\Hypertarget{namespace_p_i_c_ad77e5a651b62733bf36c78c7d9f97ab8a010def85bd8ce09fdbb9240d7a892279}\label{namespace_p_i_c_ad77e5a651b62733bf36c78c7d9f97ab8a010def85bd8ce09fdbb9240d7a892279}} 
+U\+S\+E\+\_\+\+I\+C\+W4&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 48 of file pic.\+h.
+
+\mbox{\Hypertarget{namespace_p_i_c_ac4d1fffbe7319dc6a5143adbdfe13652}\label{namespace_p_i_c_ac4d1fffbe7319dc6a5143adbdfe13652}} 
+\index{P\+IC@{P\+IC}!I\+C\+W1\+\_\+1@{I\+C\+W1\+\_\+1}}
+\index{I\+C\+W1\+\_\+1@{I\+C\+W1\+\_\+1}!P\+IC@{P\+IC}}
+\subsubsection{\texorpdfstring{I\+C\+W1\+\_\+1}{ICW1\_1}}
+{\footnotesize\ttfamily enum \hyperlink{namespace_p_i_c_ac4d1fffbe7319dc6a5143adbdfe13652}{P\+I\+C\+::\+I\+C\+W1\+\_\+1} \+: uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+A\+S\+C\+A\+DE@{C\+A\+S\+C\+A\+DE}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!C\+A\+S\+C\+A\+DE@{C\+A\+S\+C\+A\+DE}}}\mbox{\Hypertarget{namespace_p_i_c_ac4d1fffbe7319dc6a5143adbdfe13652a2e57be26f8e434f012153663faa5deff}\label{namespace_p_i_c_ac4d1fffbe7319dc6a5143adbdfe13652a2e57be26f8e434f012153663faa5deff}} 
+C\+A\+S\+C\+A\+DE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+I\+N\+G\+LE@{S\+I\+N\+G\+LE}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!S\+I\+N\+G\+LE@{S\+I\+N\+G\+LE}}}\mbox{\Hypertarget{namespace_p_i_c_ac4d1fffbe7319dc6a5143adbdfe13652a2d23da318af8d6feac77e5a6ce06ac48}\label{namespace_p_i_c_ac4d1fffbe7319dc6a5143adbdfe13652a2d23da318af8d6feac77e5a6ce06ac48}} 
+S\+I\+N\+G\+LE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 54 of file pic.\+h.
+
+\mbox{\Hypertarget{namespace_p_i_c_a70511ba78097aa4bf39435ae9eda4033}\label{namespace_p_i_c_a70511ba78097aa4bf39435ae9eda4033}} 
+\index{P\+IC@{P\+IC}!I\+C\+W1\+\_\+2@{I\+C\+W1\+\_\+2}}
+\index{I\+C\+W1\+\_\+2@{I\+C\+W1\+\_\+2}!P\+IC@{P\+IC}}
+\subsubsection{\texorpdfstring{I\+C\+W1\+\_\+2}{ICW1\_2}}
+{\footnotesize\ttfamily enum \hyperlink{namespace_p_i_c_a70511ba78097aa4bf39435ae9eda4033}{P\+I\+C\+::\+I\+C\+W1\+\_\+2} \+: uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I\+N\+T\+R\+P\+\_\+8B@{I\+N\+T\+R\+P\+\_\+8B}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!I\+N\+T\+R\+P\+\_\+8B@{I\+N\+T\+R\+P\+\_\+8B}}}\mbox{\Hypertarget{namespace_p_i_c_a70511ba78097aa4bf39435ae9eda4033a241b3b87fa30c6a81bc169b8f03da9c9}\label{namespace_p_i_c_a70511ba78097aa4bf39435ae9eda4033a241b3b87fa30c6a81bc169b8f03da9c9}} 
+I\+N\+T\+R\+P\+\_\+8B&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I\+N\+T\+R\+P\+\_\+4B@{I\+N\+T\+R\+P\+\_\+4B}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!I\+N\+T\+R\+P\+\_\+4B@{I\+N\+T\+R\+P\+\_\+4B}}}\mbox{\Hypertarget{namespace_p_i_c_a70511ba78097aa4bf39435ae9eda4033a7ee3995b2488d2942cea68b9dced4442}\label{namespace_p_i_c_a70511ba78097aa4bf39435ae9eda4033a7ee3995b2488d2942cea68b9dced4442}} 
+I\+N\+T\+R\+P\+\_\+4B&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 60 of file pic.\+h.
+
+\mbox{\Hypertarget{namespace_p_i_c_a6c8d5577b7e939d025ef7b9d1ada39e6}\label{namespace_p_i_c_a6c8d5577b7e939d025ef7b9d1ada39e6}} 
+\index{P\+IC@{P\+IC}!I\+C\+W1\+\_\+3@{I\+C\+W1\+\_\+3}}
+\index{I\+C\+W1\+\_\+3@{I\+C\+W1\+\_\+3}!P\+IC@{P\+IC}}
+\subsubsection{\texorpdfstring{I\+C\+W1\+\_\+3}{ICW1\_3}}
+{\footnotesize\ttfamily enum \hyperlink{namespace_p_i_c_a6c8d5577b7e939d025ef7b9d1ada39e6}{P\+I\+C\+::\+I\+C\+W1\+\_\+3} \+: uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\+D\+G\+E\+\_\+\+T\+R\+I\+G\+G\+E\+R\+ED@{E\+D\+G\+E\+\_\+\+T\+R\+I\+G\+G\+E\+R\+ED}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!E\+D\+G\+E\+\_\+\+T\+R\+I\+G\+G\+E\+R\+ED@{E\+D\+G\+E\+\_\+\+T\+R\+I\+G\+G\+E\+R\+ED}}}\mbox{\Hypertarget{namespace_p_i_c_a6c8d5577b7e939d025ef7b9d1ada39e6a15ef41d5ed02434814d1bfd5595f6163}\label{namespace_p_i_c_a6c8d5577b7e939d025ef7b9d1ada39e6a15ef41d5ed02434814d1bfd5595f6163}} 
+E\+D\+G\+E\+\_\+\+T\+R\+I\+G\+G\+E\+R\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+E\+V\+E\+L\+\_\+\+T\+R\+I\+G\+G\+E\+R\+ED@{L\+E\+V\+E\+L\+\_\+\+T\+R\+I\+G\+G\+E\+R\+ED}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!L\+E\+V\+E\+L\+\_\+\+T\+R\+I\+G\+G\+E\+R\+ED@{L\+E\+V\+E\+L\+\_\+\+T\+R\+I\+G\+G\+E\+R\+ED}}}\mbox{\Hypertarget{namespace_p_i_c_a6c8d5577b7e939d025ef7b9d1ada39e6aff60e2f0839923e87eea5d6b79741823}\label{namespace_p_i_c_a6c8d5577b7e939d025ef7b9d1ada39e6aff60e2f0839923e87eea5d6b79741823}} 
+L\+E\+V\+E\+L\+\_\+\+T\+R\+I\+G\+G\+E\+R\+ED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 66 of file pic.\+h.
+
+\mbox{\Hypertarget{namespace_p_i_c_ae14d96313460425ec0afd69c1170cb2f}\label{namespace_p_i_c_ae14d96313460425ec0afd69c1170cb2f}} 
+\index{P\+IC@{P\+IC}!I\+C\+W1\+\_\+4@{I\+C\+W1\+\_\+4}}
+\index{I\+C\+W1\+\_\+4@{I\+C\+W1\+\_\+4}!P\+IC@{P\+IC}}
+\subsubsection{\texorpdfstring{I\+C\+W1\+\_\+4}{ICW1\_4}}
+{\footnotesize\ttfamily enum \hyperlink{namespace_p_i_c_ae14d96313460425ec0afd69c1170cb2f}{P\+I\+C\+::\+I\+C\+W1\+\_\+4} \+: uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I\+N\+V\+A\+L\+ID@{I\+N\+V\+A\+L\+ID}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!I\+N\+V\+A\+L\+ID@{I\+N\+V\+A\+L\+ID}}}\mbox{\Hypertarget{namespace_p_i_c_ae14d96313460425ec0afd69c1170cb2fa35d3de94a12ead580e4edcf7a6f63e6e}\label{namespace_p_i_c_ae14d96313460425ec0afd69c1170cb2fa35d3de94a12ead580e4edcf7a6f63e6e}} 
+I\+N\+V\+A\+L\+ID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+E\+\_\+\+I\+C\+W1@{U\+S\+E\+\_\+\+I\+C\+W1}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!U\+S\+E\+\_\+\+I\+C\+W1@{U\+S\+E\+\_\+\+I\+C\+W1}}}\mbox{\Hypertarget{namespace_p_i_c_ae14d96313460425ec0afd69c1170cb2fab62a61042a91e8a797cf0d9c2a9e330e}\label{namespace_p_i_c_ae14d96313460425ec0afd69c1170cb2fab62a61042a91e8a797cf0d9c2a9e330e}} 
+U\+S\+E\+\_\+\+I\+C\+W1&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 72 of file pic.\+h.
+
+\mbox{\Hypertarget{namespace_p_i_c_a6b216cc06a3adf25c99212fa562bbe9c}\label{namespace_p_i_c_a6b216cc06a3adf25c99212fa562bbe9c}} 
+\index{P\+IC@{P\+IC}!I\+C\+W4\+\_\+0@{I\+C\+W4\+\_\+0}}
+\index{I\+C\+W4\+\_\+0@{I\+C\+W4\+\_\+0}!P\+IC@{P\+IC}}
+\subsubsection{\texorpdfstring{I\+C\+W4\+\_\+0}{ICW4\_0}}
+{\footnotesize\ttfamily enum \hyperlink{namespace_p_i_c_a6b216cc06a3adf25c99212fa562bbe9c}{P\+I\+C\+::\+I\+C\+W4\+\_\+0} \+: uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+O\+D\+E\+\_\+8085@{M\+O\+D\+E\+\_\+8085}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!M\+O\+D\+E\+\_\+8085@{M\+O\+D\+E\+\_\+8085}}}\mbox{\Hypertarget{namespace_p_i_c_a6b216cc06a3adf25c99212fa562bbe9caa18f6e8c8ab324ce2cff2dc1b397cfd1}\label{namespace_p_i_c_a6b216cc06a3adf25c99212fa562bbe9caa18f6e8c8ab324ce2cff2dc1b397cfd1}} 
+M\+O\+D\+E\+\_\+8085&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+O\+D\+E\+\_\+8086@{M\+O\+D\+E\+\_\+8086}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!M\+O\+D\+E\+\_\+8086@{M\+O\+D\+E\+\_\+8086}}}\mbox{\Hypertarget{namespace_p_i_c_a6b216cc06a3adf25c99212fa562bbe9ca7cd427b65a73fae3b803330d825c244b}\label{namespace_p_i_c_a6b216cc06a3adf25c99212fa562bbe9ca7cd427b65a73fae3b803330d825c244b}} 
+M\+O\+D\+E\+\_\+8086&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 78 of file pic.\+h.
+
+\mbox{\Hypertarget{namespace_p_i_c_a12c72f546ed4a793a092429bdc8184cd}\label{namespace_p_i_c_a12c72f546ed4a793a092429bdc8184cd}} 
+\index{P\+IC@{P\+IC}!I\+C\+W4\+\_\+1@{I\+C\+W4\+\_\+1}}
+\index{I\+C\+W4\+\_\+1@{I\+C\+W4\+\_\+1}!P\+IC@{P\+IC}}
+\subsubsection{\texorpdfstring{I\+C\+W4\+\_\+1}{ICW4\_1}}
+{\footnotesize\ttfamily enum \hyperlink{namespace_p_i_c_a12c72f546ed4a793a092429bdc8184cd}{P\+I\+C\+::\+I\+C\+W4\+\_\+1} \+: uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\+OI@{E\+OI}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!E\+OI@{E\+OI}}}\mbox{\Hypertarget{namespace_p_i_c_a12c72f546ed4a793a092429bdc8184cdac0fb6df51e8b63a62ad5c62229c3bf5b}\label{namespace_p_i_c_a12c72f546ed4a793a092429bdc8184cdac0fb6df51e8b63a62ad5c62229c3bf5b}} 
+E\+OI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\+U\+T\+O\+\_\+\+E\+OI@{A\+U\+T\+O\+\_\+\+E\+OI}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!A\+U\+T\+O\+\_\+\+E\+OI@{A\+U\+T\+O\+\_\+\+E\+OI}}}\mbox{\Hypertarget{namespace_p_i_c_a12c72f546ed4a793a092429bdc8184cda11719eb2bc43288eaffe011c20ee0e9e}\label{namespace_p_i_c_a12c72f546ed4a793a092429bdc8184cda11719eb2bc43288eaffe011c20ee0e9e}} 
+A\+U\+T\+O\+\_\+\+E\+OI&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 84 of file pic.\+h.
+
+\mbox{\Hypertarget{namespace_p_i_c_a51bbd923ec439fbd7940f0e3929b5b2a}\label{namespace_p_i_c_a51bbd923ec439fbd7940f0e3929b5b2a}} 
+\index{P\+IC@{P\+IC}!I\+C\+W4\+\_\+4@{I\+C\+W4\+\_\+4}}
+\index{I\+C\+W4\+\_\+4@{I\+C\+W4\+\_\+4}!P\+IC@{P\+IC}}
+\subsubsection{\texorpdfstring{I\+C\+W4\+\_\+4}{ICW4\_4}}
+{\footnotesize\ttfamily enum \hyperlink{namespace_p_i_c_a51bbd923ec439fbd7940f0e3929b5b2a}{P\+I\+C\+::\+I\+C\+W4\+\_\+4} \+: uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+E\+Q\+U\+E\+N\+T\+I\+AL@{S\+E\+Q\+U\+E\+N\+T\+I\+AL}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!S\+E\+Q\+U\+E\+N\+T\+I\+AL@{S\+E\+Q\+U\+E\+N\+T\+I\+AL}}}\mbox{\Hypertarget{namespace_p_i_c_a51bbd923ec439fbd7940f0e3929b5b2aa53708ed245ad9048478fb6a8b53c8153}\label{namespace_p_i_c_a51bbd923ec439fbd7940f0e3929b5b2aa53708ed245ad9048478fb6a8b53c8153}} 
+S\+E\+Q\+U\+E\+N\+T\+I\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+P\+E\+C\+I\+A\+L\+\_\+\+F\+U\+L\+L\+Y\+\_\+\+N\+E\+S\+T\+ED@{S\+P\+E\+C\+I\+A\+L\+\_\+\+F\+U\+L\+L\+Y\+\_\+\+N\+E\+S\+T\+ED}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!S\+P\+E\+C\+I\+A\+L\+\_\+\+F\+U\+L\+L\+Y\+\_\+\+N\+E\+S\+T\+ED@{S\+P\+E\+C\+I\+A\+L\+\_\+\+F\+U\+L\+L\+Y\+\_\+\+N\+E\+S\+T\+ED}}}\mbox{\Hypertarget{namespace_p_i_c_a51bbd923ec439fbd7940f0e3929b5b2aab473c18c14b07143836296745ba580c7}\label{namespace_p_i_c_a51bbd923ec439fbd7940f0e3929b5b2aab473c18c14b07143836296745ba580c7}} 
+S\+P\+E\+C\+I\+A\+L\+\_\+\+F\+U\+L\+L\+Y\+\_\+\+N\+E\+S\+T\+ED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 90 of file pic.\+h.
+
+\mbox{\Hypertarget{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59da}\label{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59da}} 
+\index{P\+IC@{P\+IC}!O\+C\+W2@{O\+C\+W2}}
+\index{O\+C\+W2@{O\+C\+W2}!P\+IC@{P\+IC}}
+\subsubsection{\texorpdfstring{O\+C\+W2}{OCW2}}
+{\footnotesize\ttfamily enum \hyperlink{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59da}{P\+I\+C\+::\+O\+C\+W2} \+: uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+O\+N\+\_\+\+S\+P\+E\+C\+I\+F\+I\+C\+\_\+\+E\+OI@{N\+O\+N\+\_\+\+S\+P\+E\+C\+I\+F\+I\+C\+\_\+\+E\+OI}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!N\+O\+N\+\_\+\+S\+P\+E\+C\+I\+F\+I\+C\+\_\+\+E\+OI@{N\+O\+N\+\_\+\+S\+P\+E\+C\+I\+F\+I\+C\+\_\+\+E\+OI}}}\mbox{\Hypertarget{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa9a4ac16beafec6571fc6b13c51831de9}\label{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa9a4ac16beafec6571fc6b13c51831de9}} 
+N\+O\+N\+\_\+\+S\+P\+E\+C\+I\+F\+I\+C\+\_\+\+E\+OI&0x20 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+OP@{N\+OP}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!N\+OP@{N\+OP}}}\mbox{\Hypertarget{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa108708a1aa698dbd0744d812934faab8}\label{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa108708a1aa698dbd0744d812934faab8}} 
+N\+OP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+P\+E\+C\+I\+F\+I\+C\+\_\+\+E\+OI@{S\+P\+E\+C\+I\+F\+I\+C\+\_\+\+E\+OI}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!S\+P\+E\+C\+I\+F\+I\+C\+\_\+\+E\+OI@{S\+P\+E\+C\+I\+F\+I\+C\+\_\+\+E\+OI}}}\mbox{\Hypertarget{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa6929bd780c61bf6c4acebf216888614a}\label{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa6929bd780c61bf6c4acebf216888614a}} 
+S\+P\+E\+C\+I\+F\+I\+C\+\_\+\+E\+OI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+O\+T\+A\+T\+E\+\_\+\+A\+E\+OI@{R\+O\+T\+A\+T\+E\+\_\+\+A\+E\+OI}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!R\+O\+T\+A\+T\+E\+\_\+\+A\+E\+OI@{R\+O\+T\+A\+T\+E\+\_\+\+A\+E\+OI}}}\mbox{\Hypertarget{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daaf7ff06dc609177a3611bad46e1a1f2ed}\label{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daaf7ff06dc609177a3611bad46e1a1f2ed}} 
+R\+O\+T\+A\+T\+E\+\_\+\+A\+E\+OI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+O\+T\+A\+T\+E\+\_\+\+N\+O\+N\+\_\+\+S\+P\+E\+C\+\_\+\+E\+OI@{R\+O\+T\+A\+T\+E\+\_\+\+N\+O\+N\+\_\+\+S\+P\+E\+C\+\_\+\+E\+OI}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!R\+O\+T\+A\+T\+E\+\_\+\+N\+O\+N\+\_\+\+S\+P\+E\+C\+\_\+\+E\+OI@{R\+O\+T\+A\+T\+E\+\_\+\+N\+O\+N\+\_\+\+S\+P\+E\+C\+\_\+\+E\+OI}}}\mbox{\Hypertarget{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daab031f49e9cf429d7f9090071c48ef4aa}\label{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daab031f49e9cf429d7f9090071c48ef4aa}} 
+R\+O\+T\+A\+T\+E\+\_\+\+N\+O\+N\+\_\+\+S\+P\+E\+C\+\_\+\+E\+OI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+E\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+MD@{S\+E\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+MD}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!S\+E\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+MD@{S\+E\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+MD}}}\mbox{\Hypertarget{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa4023af316eb2706b538d34e942d69cfd}\label{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa4023af316eb2706b538d34e942d69cfd}} 
+S\+E\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+MD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+O\+T\+A\+T\+E\+\_\+\+S\+P\+E\+C\+\_\+\+E\+OI@{R\+O\+T\+A\+T\+E\+\_\+\+S\+P\+E\+C\+\_\+\+E\+OI}!P\+IC@{P\+IC}}\index{P\+IC@{P\+IC}!R\+O\+T\+A\+T\+E\+\_\+\+S\+P\+E\+C\+\_\+\+E\+OI@{R\+O\+T\+A\+T\+E\+\_\+\+S\+P\+E\+C\+\_\+\+E\+OI}}}\mbox{\Hypertarget{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa4a27e2f956f2aa46344b63bd54c6a10a}\label{namespace_p_i_c_a9ba7cfb8776c23fb8fa5bc42ed1d59daa4a27e2f956f2aa46344b63bd54c6a10a}} 
+R\+O\+T\+A\+T\+E\+\_\+\+S\+P\+E\+C\+\_\+\+E\+OI&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 96 of file pic.\+h.
+
+
+
 \subsection{Function Documentation}
 \mbox{\Hypertarget{namespace_p_i_c_a2a04fe95329faacc43f00ad30fe554b9}\label{namespace_p_i_c_a2a04fe95329faacc43f00ad30fe554b9}} 
 \index{P\+IC@{P\+IC}!Remap@{Remap}}
@@ -98,182 +320,5 @@ However master\textquotesingle{}s 0x8\+:0xF clashes with Intel reserved exceptio
 \end{DoxySeeAlso}
 
 
-Definition at line 59 of file interrupt.\+cpp.
-
-\mbox{\Hypertarget{namespace_p_i_c_ad6f2cca6611cd7992992ab7705d6c25f}\label{namespace_p_i_c_ad6f2cca6611cd7992992ab7705d6c25f}} 
-\index{P\+IC@{P\+IC}!Unmask\+Interrupt@{Unmask\+Interrupt}}
-\index{Unmask\+Interrupt@{Unmask\+Interrupt}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{Unmask\+Interrupt()}{UnmaskInterrupt()}}
-{\footnotesize\ttfamily void P\+I\+C\+::\+Unmask\+Interrupt (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Port,  }\item[{uint8\+\_\+t}]{Irq }\end{DoxyParamCaption})}
-
-
-
-Definition at line 85 of file interrupt.\+cpp.
-
-
-
-\subsection{Variable Documentation}
-\mbox{\Hypertarget{namespace_p_i_c_aa3b99beaed95a8a51f1e855723e05d48}\label{namespace_p_i_c_aa3b99beaed95a8a51f1e855723e05d48}} 
-\index{P\+IC@{P\+IC}!I\+C\+W1\+\_\+\+C\+O\+N\+F\+IG@{I\+C\+W1\+\_\+\+C\+O\+N\+F\+IG}}
-\index{I\+C\+W1\+\_\+\+C\+O\+N\+F\+IG@{I\+C\+W1\+\_\+\+C\+O\+N\+F\+IG}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{I\+C\+W1\+\_\+\+C\+O\+N\+F\+IG}{ICW1\_CONFIG}}
-{\footnotesize\ttfamily const uint8\+\_\+t P\+I\+C\+::\+I\+C\+W1\+\_\+\+C\+O\+N\+F\+IG = \hyperlink{namespace_p_i_c_a63beb0c60fdab8c997f42291a7c2baf5}{I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED} $\vert$ \hyperlink{namespace_p_i_c_a8bb2fc0a772eabbbf6adb002f578290e}{I\+C\+W1\+\_\+\+I\+N\+IT}}
-
-
-
-Definition at line 30 of file interrupt.\+h.
-
-\mbox{\Hypertarget{namespace_p_i_c_a63beb0c60fdab8c997f42291a7c2baf5}\label{namespace_p_i_c_a63beb0c60fdab8c997f42291a7c2baf5}} 
-\index{P\+IC@{P\+IC}!I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED@{I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED}}
-\index{I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED@{I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED}{ICW1\_ICW4NEEDED}}
-{\footnotesize\ttfamily const uint8\+\_\+t P\+I\+C\+::\+I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED = 0x1}
-
-
-
-expect I\+CW 4 
-
-
-
-Definition at line 28 of file interrupt.\+h.
-
-\mbox{\Hypertarget{namespace_p_i_c_a8bb2fc0a772eabbbf6adb002f578290e}\label{namespace_p_i_c_a8bb2fc0a772eabbbf6adb002f578290e}} 
-\index{P\+IC@{P\+IC}!I\+C\+W1\+\_\+\+I\+N\+IT@{I\+C\+W1\+\_\+\+I\+N\+IT}}
-\index{I\+C\+W1\+\_\+\+I\+N\+IT@{I\+C\+W1\+\_\+\+I\+N\+IT}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{I\+C\+W1\+\_\+\+I\+N\+IT}{ICW1\_INIT}}
-{\footnotesize\ttfamily const uint8\+\_\+t P\+I\+C\+::\+I\+C\+W1\+\_\+\+I\+N\+IT = 0x10}
-
-
-
-initialize \hyperlink{namespace_p_i_c}{P\+IC} 
-
-
-
-Definition at line 29 of file interrupt.\+h.
-
-\mbox{\Hypertarget{namespace_p_i_c_a4eada3349fe4b6740074b1adecdb080b}\label{namespace_p_i_c_a4eada3349fe4b6740074b1adecdb080b}} 
-\index{P\+IC@{P\+IC}!I\+C\+W2\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+O\+F\+F\+S\+ET@{I\+C\+W2\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+O\+F\+F\+S\+ET}}
-\index{I\+C\+W2\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+O\+F\+F\+S\+ET@{I\+C\+W2\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+O\+F\+F\+S\+ET}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{I\+C\+W2\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+O\+F\+F\+S\+ET}{ICW2\_MASTER\_OFFSET}}
-{\footnotesize\ttfamily const uint8\+\_\+t P\+I\+C\+::\+I\+C\+W2\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+O\+F\+F\+S\+ET = 0x20}
-
-
-
-I\+VT 0-\/31 are reserved for intel exception. 
-
-
-
-Definition at line 32 of file interrupt.\+h.
-
-\mbox{\Hypertarget{namespace_p_i_c_a33b48f750baf61bf1820e5b36ce44a48}\label{namespace_p_i_c_a33b48f750baf61bf1820e5b36ce44a48}} 
-\index{P\+IC@{P\+IC}!I\+C\+W2\+\_\+\+S\+L\+A\+V\+E\+\_\+\+O\+F\+F\+S\+ET@{I\+C\+W2\+\_\+\+S\+L\+A\+V\+E\+\_\+\+O\+F\+F\+S\+ET}}
-\index{I\+C\+W2\+\_\+\+S\+L\+A\+V\+E\+\_\+\+O\+F\+F\+S\+ET@{I\+C\+W2\+\_\+\+S\+L\+A\+V\+E\+\_\+\+O\+F\+F\+S\+ET}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{I\+C\+W2\+\_\+\+S\+L\+A\+V\+E\+\_\+\+O\+F\+F\+S\+ET}{ICW2\_SLAVE\_OFFSET}}
-{\footnotesize\ttfamily const uint8\+\_\+t P\+I\+C\+::\+I\+C\+W2\+\_\+\+S\+L\+A\+V\+E\+\_\+\+O\+F\+F\+S\+ET = 0x28}
-
-
-
-master handles I\+R\+Q0-\/7 (I\+VT 0x20), slave handles I\+R\+Q8-\/15 (I\+VT 0x28) 
-
-
-
-Definition at line 33 of file interrupt.\+h.
-
-\mbox{\Hypertarget{namespace_p_i_c_ade78b65e9f0859d0d5ca14df7148b305}\label{namespace_p_i_c_ade78b65e9f0859d0d5ca14df7148b305}} 
-\index{P\+IC@{P\+IC}!I\+C\+W3\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+P\+OS@{I\+C\+W3\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+P\+OS}}
-\index{I\+C\+W3\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+P\+OS@{I\+C\+W3\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+P\+OS}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{I\+C\+W3\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+P\+OS}{ICW3\_MASTER\_SLAVE\_POS}}
-{\footnotesize\ttfamily const uint8\+\_\+t P\+I\+C\+::\+I\+C\+W3\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+P\+OS = 0x4}
-
-
-
-tells master that slave is in 3rd position (I\+R\+Q2) 
-
-
-
-Definition at line 35 of file interrupt.\+h.
-
-\mbox{\Hypertarget{namespace_p_i_c_abe9c403a4caa1dd885595bd27c803122}\label{namespace_p_i_c_abe9c403a4caa1dd885595bd27c803122}} 
-\index{P\+IC@{P\+IC}!I\+C\+W3\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID@{I\+C\+W3\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID}}
-\index{I\+C\+W3\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID@{I\+C\+W3\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{I\+C\+W3\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID}{ICW3\_SLAVE\_ID}}
-{\footnotesize\ttfamily const uint8\+\_\+t P\+I\+C\+::\+I\+C\+W3\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID = 0x2}
-
-
-
-tells slave that it is assigned as I\+R\+Q2 on master 
-
-
-
-Definition at line 36 of file interrupt.\+h.
-
-\mbox{\Hypertarget{namespace_p_i_c_a3d092deea6581b86dddc5fb5c7fde403}\label{namespace_p_i_c_a3d092deea6581b86dddc5fb5c7fde403}} 
-\index{P\+IC@{P\+IC}!I\+C\+W4\+\_\+\+C\+PU@{I\+C\+W4\+\_\+\+C\+PU}}
-\index{I\+C\+W4\+\_\+\+C\+PU@{I\+C\+W4\+\_\+\+C\+PU}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{I\+C\+W4\+\_\+\+C\+PU}{ICW4\_CPU}}
-{\footnotesize\ttfamily const uint8\+\_\+t P\+I\+C\+::\+I\+C\+W4\+\_\+\+C\+PU = 0x1}
-
-
-
-8086/8088 mode 
-
-
-
-Definition at line 38 of file interrupt.\+h.
-
-\mbox{\Hypertarget{namespace_p_i_c_aae56765eb24eb75e1498e22c05ac29ee}\label{namespace_p_i_c_aae56765eb24eb75e1498e22c05ac29ee}} 
-\index{P\+IC@{P\+IC}!M\+A\+S\+T\+E\+R\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT@{M\+A\+S\+T\+E\+R\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT}}
-\index{M\+A\+S\+T\+E\+R\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT@{M\+A\+S\+T\+E\+R\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{M\+A\+S\+T\+E\+R\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT}{MASTER\_COMMAND\_PORT}}
-{\footnotesize\ttfamily const uint8\+\_\+t P\+I\+C\+::\+M\+A\+S\+T\+E\+R\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT = 0x20}
-
-
-
-P\+I\+C1 command port. 
-
-
-
-Definition at line 17 of file interrupt.\+h.
-
-\mbox{\Hypertarget{namespace_p_i_c_a7b19e701740b8b1b19db1f1a14af63a6}\label{namespace_p_i_c_a7b19e701740b8b1b19db1f1a14af63a6}} 
-\index{P\+IC@{P\+IC}!M\+A\+S\+T\+E\+R\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT@{M\+A\+S\+T\+E\+R\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT}}
-\index{M\+A\+S\+T\+E\+R\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT@{M\+A\+S\+T\+E\+R\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{M\+A\+S\+T\+E\+R\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT}{MASTER\_DATA\_PORT}}
-{\footnotesize\ttfamily const uint8\+\_\+t P\+I\+C\+::\+M\+A\+S\+T\+E\+R\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT = 0x21}
-
-
-
-P\+I\+C1 data port. 
-
-
-
-Definition at line 20 of file interrupt.\+h.
-
-\mbox{\Hypertarget{namespace_p_i_c_a4cdc374612119bd13b1a28e4cc82864f}\label{namespace_p_i_c_a4cdc374612119bd13b1a28e4cc82864f}} 
-\index{P\+IC@{P\+IC}!S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT@{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT}}
-\index{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT@{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT}{SLAVE\_COMMAND\_PORT}}
-{\footnotesize\ttfamily const uint8\+\_\+t P\+I\+C\+::\+S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT = 0x\+A0}
-
-
-
-P\+I\+C2 command port. 
-
-
-
-Definition at line 23 of file interrupt.\+h.
-
-\mbox{\Hypertarget{namespace_p_i_c_a6e06fae4a0139a207173ff2b94be3283}\label{namespace_p_i_c_a6e06fae4a0139a207173ff2b94be3283}} 
-\index{P\+IC@{P\+IC}!S\+L\+A\+V\+E\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT@{S\+L\+A\+V\+E\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT}}
-\index{S\+L\+A\+V\+E\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT@{S\+L\+A\+V\+E\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT}!P\+IC@{P\+IC}}
-\subsubsection{\texorpdfstring{S\+L\+A\+V\+E\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT}{SLAVE\_DATA\_PORT}}
-{\footnotesize\ttfamily const uint8\+\_\+t P\+I\+C\+::\+S\+L\+A\+V\+E\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT = 0x\+A1}
-
-
-
-P\+I\+C2 data port. 
-
-
-
-Definition at line 26 of file interrupt.\+h.
+Definition at line 20 of file pic.\+cpp.
 

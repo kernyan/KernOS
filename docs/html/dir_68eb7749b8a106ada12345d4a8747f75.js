@@ -7,6 +7,7 @@ var dir_68eb7749b8a106ada12345d4a8747f75 =
     [ "kernel.cpp", "kernel_8cpp.html", "kernel_8cpp" ],
     [ "kprintf.cpp", "kprintf_8cpp.html", "kprintf_8cpp" ],
     [ "memoryallocator.cpp", "memoryallocator_8cpp.html", "memoryallocator_8cpp" ],
+    [ "pic.cpp", "pic_8cpp.html", "pic_8cpp" ],
     [ "pit.cpp", "pit_8cpp.html", "pit_8cpp" ],
     [ "registers.h", "registers_8h.html", "registers_8h" ],
     [ "utilities.cpp", "utilities_8cpp.html", "utilities_8cpp" ],

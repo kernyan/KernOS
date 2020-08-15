@@ -3,14 +3,18 @@
 {\ttfamily \#include $<$common.\+h$>$}\newline
 {\ttfamily \#include $<$utilities.\+h$>$}\newline
 {\ttfamily \#include $<$registers.\+h$>$}\newline
-Include dependency graph for interrupt.\+h\+:\nopagebreak
+{\ttfamily \#include $<$ports.\+h$>$}\newline
+{\ttfamily \#include $<$pic.\+h$>$}\newline
+Include dependency graph for interrupt.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{interrupt_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,12 +27,14 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 union \hyperlink{union_i_n_t_r_p_1_1_descriptor_entry}{I\+N\+T\+R\+P\+::\+Descriptor\+Entry}
 \begin{DoxyCompactList}\small\item\em Exception and interrupt gate descriptor entry. \end{DoxyCompactList}\item 
 class \hyperlink{class_i_n_t_r_p_1_1_mask}{I\+N\+T\+R\+P\+::\+Mask}
-\begin{DoxyCompactList}\small\item\em Disables interrupt on construction, restores previous interrupt mask on scope exit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Disables interrupt on construction, restores previous interrupt mask on scope exit. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_irq_port}{Irq\+Port}
+\item 
+class \hyperlink{class_i_r_q_scope}{I\+R\+Q\+Scope}
+\end{DoxyCompactItemize}
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
- \hyperlink{namespace_p_i_c}{P\+IC}
-\begin{DoxyCompactList}\small\item\em 8259 Progammable interrupt controller \end{DoxyCompactList}\item 
  \hyperlink{namespace_i_n_t_r_p}{I\+N\+T\+RP}
 \begin{DoxyCompactList}\small\item\em interrupt namespace \end{DoxyCompactList}\item 
  \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
@@ -64,47 +70,57 @@ enum \hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94}{I\+N\+T\+
 \newline
 \hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a7f928e26348ad94a198cdb0b8758068b}{I\+N\+T\+R\+P\+::\+S\+I\+M\+D\+\_\+\+F\+P\+\_\+\+X\+F\+\_\+\+F\+A\+U\+LT} = 0x13, 
 \hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94ad3c957dd69dc16828a748d3e07499633}{I\+N\+T\+R\+P\+::\+R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+E\+ND} = 0x1F, 
-\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a6896b72dca7a4ffbd39151b6fb9be9b1}{I\+N\+T\+R\+P\+::\+U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+S\+T\+A\+RT} = P\+IC\+:\+:I\+C\+W2\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+O\+F\+F\+S\+ET, 
-\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a1e649ad4d60db04ecb492433675e0577}{I\+N\+T\+R\+P\+::\+T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT} = U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+S\+T\+A\+RT, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94aeab865c11d738ea404326f4999d931a4}{I\+N\+T\+R\+P\+::\+P\+I\+C1\+\_\+\+O\+F\+F\+S\+ET} = 0x20, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a6896b72dca7a4ffbd39151b6fb9be9b1}{I\+N\+T\+R\+P\+::\+U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+S\+T\+A\+RT} = P\+I\+C1\+\_\+\+O\+F\+F\+S\+ET, 
 \newline
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94af70d004a23c393fec49b90824737a388}{I\+N\+T\+R\+P\+::\+T\+I\+M\+ER} = 0x20, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a26c910d31696aaa9f143858c1ca8f88a}{I\+N\+T\+R\+P\+::\+K\+E\+Y\+B\+O\+A\+RD} = 0x21, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a8ff3a4bd7727d04134803c16480a7fad}{I\+N\+T\+R\+P\+::\+P\+I\+C2\+\_\+\+C\+A\+S\+C\+A\+DE} = 0x22, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a5a3d86f12fc0a66f036a81b07dec9de8}{I\+N\+T\+R\+P\+::\+S\+E\+R\+I\+A\+L2} = 0x23, 
+\newline
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94abd2a8df6358eec4253d4a0007be75f13}{I\+N\+T\+R\+P\+::\+S\+E\+R\+I\+A\+L1} = 0x24, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a78ae5cd5022a6b6c1aea66d4b9925b81}{I\+N\+T\+R\+P\+::\+P\+A\+R\+A\+L\+L\+E\+L2} = 0x25, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a1518e23a795c53f82e8256929c0ad5af}{I\+N\+T\+R\+P\+::\+D\+I\+S\+K\+E\+T\+TE} = 0x26, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94ab2cb88c7d3a471aceb60e48b46c6280e}{I\+N\+T\+R\+P\+::\+P\+A\+R\+A\+L\+L\+E\+L1} = 0x27, 
+\newline
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a7bf9df9e133a0dc85c31c1e83b0e4583}{I\+N\+T\+R\+P\+::\+P\+I\+C2\+\_\+\+O\+F\+F\+S\+ET} = 0x28, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a7845705230fa4742fe60b758a7348bf5}{I\+N\+T\+R\+P\+::\+C\+M\+OS} = 0x28, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94ab587d9eed26df4e7f9055743d23725a0}{I\+N\+T\+R\+P\+::\+C\+GA} = 0x29, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a5bb3ea184473d7cfe02ba66cd25b7e2e}{I\+N\+T\+R\+P\+::\+R\+E\+S\+E\+R\+V\+E\+D1} = 0x2A, 
+\newline
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a502440134aaf6ca0554d46c5afefdbd5}{I\+N\+T\+R\+P\+::\+R\+E\+S\+E\+R\+V\+E\+D2} = 0x2B, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a69b1631499d394b6dcc6835f0f992a71}{I\+N\+T\+R\+P\+::\+P\+S2} = 0x2C, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a126c5a0df859ba26819002a933954668}{I\+N\+T\+R\+P\+::\+F\+PU} = 0x2D, 
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a5f2afad82b6da16473d3954a3448f0f0}{I\+N\+T\+R\+P\+::\+H\+A\+R\+D\+D\+I\+SK} = 0x2E, 
+\newline
+\hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94a0fe0125f905bc4888ffddb4b791fd30e}{I\+N\+T\+R\+P\+::\+R\+E\+S\+E\+R\+V\+E\+D3} = 0x2F, 
 \hyperlink{namespace_i_n_t_r_p_a790699fb2953ef4ab70c7dc7148a1c94ae081b819aecf9800dc041fec2b47286c}{I\+N\+T\+R\+P\+::\+U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+E\+D\+\_\+\+E\+ND} = 0x\+FF
  \}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{namespace_p_i_c_ad6f2cca6611cd7992992ab7705d6c25f}{P\+I\+C\+::\+Unmask\+Interrupt} (uint16\+\_\+t Port, uint8\+\_\+t Irq)
-\item 
 void \hyperlink{namespace_i_n_t_r_p_a91a6a2668bfa9961a9ed265f6ceac47d}{I\+N\+T\+R\+P\+::\+Register\+Handler} (Descriptor\+Entry Idt\+Table\mbox{[}$\,$\mbox{]}, size\+\_\+t Idx, \hyperlink{ktypes_8h_a46bbb9e776183ed6a8eca9d919756434}{func\+\_\+ptr} Handler)
 \begin{DoxyCompactList}\small\item\em Creates interrupt descriptor entries in idt\+\_\+table, and loads into C\+PU. \end{DoxyCompactList}\item 
+void \hyperlink{interrupt_8h_adf606426a25a7b6b549ad9a97c2e04b8}{Unmask\+Interrupt} (const \hyperlink{struct_irq_port}{Irq\+Port} Irq)
+\item 
 void \hyperlink{namespace_i_n_i_t_aec8e9f01cb09653075b6e610096b3ca9}{I\+N\+I\+T\+::idt} ()
 \begin{DoxyCompactList}\small\item\em Creates interrupt descriptor table and loads to C\+PU. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_aae56765eb24eb75e1498e22c05ac29ee}{P\+I\+C\+::\+M\+A\+S\+T\+E\+R\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT} = 0x20
-\begin{DoxyCompactList}\small\item\em P\+I\+C1 command port. \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a7b19e701740b8b1b19db1f1a14af63a6}{P\+I\+C\+::\+M\+A\+S\+T\+E\+R\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT} = 0x21
-\begin{DoxyCompactList}\small\item\em P\+I\+C1 data port. \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a4cdc374612119bd13b1a28e4cc82864f}{P\+I\+C\+::\+S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+P\+O\+RT} = 0x\+A0
-\begin{DoxyCompactList}\small\item\em P\+I\+C2 command port. \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a6e06fae4a0139a207173ff2b94be3283}{P\+I\+C\+::\+S\+L\+A\+V\+E\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT} = 0x\+A1
-\begin{DoxyCompactList}\small\item\em P\+I\+C2 data port. \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a63beb0c60fdab8c997f42291a7c2baf5}{P\+I\+C\+::\+I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED} = 0x1
-\begin{DoxyCompactList}\small\item\em expect I\+CW 4 \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a8bb2fc0a772eabbbf6adb002f578290e}{P\+I\+C\+::\+I\+C\+W1\+\_\+\+I\+N\+IT} = 0x10
-\begin{DoxyCompactList}\small\item\em initialize \hyperlink{namespace_p_i_c}{P\+IC} \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_aa3b99beaed95a8a51f1e855723e05d48}{P\+I\+C\+::\+I\+C\+W1\+\_\+\+C\+O\+N\+F\+IG} = I\+C\+W1\+\_\+\+I\+C\+W4\+N\+E\+E\+D\+ED $\vert$ I\+C\+W1\+\_\+\+I\+N\+IT
-\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a4eada3349fe4b6740074b1adecdb080b}{P\+I\+C\+::\+I\+C\+W2\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+O\+F\+F\+S\+ET} = 0x20
-\begin{DoxyCompactList}\small\item\em I\+VT 0-\/31 are reserved for intel exception. \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a33b48f750baf61bf1820e5b36ce44a48}{P\+I\+C\+::\+I\+C\+W2\+\_\+\+S\+L\+A\+V\+E\+\_\+\+O\+F\+F\+S\+ET} = 0x28
-\begin{DoxyCompactList}\small\item\em master handles I\+R\+Q0-\/7 (I\+VT 0x20), slave handles I\+R\+Q8-\/15 (I\+VT 0x28) \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_ade78b65e9f0859d0d5ca14df7148b305}{P\+I\+C\+::\+I\+C\+W3\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+P\+OS} = 0x4
-\begin{DoxyCompactList}\small\item\em tells master that slave is in 3rd position (I\+R\+Q2) \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_abe9c403a4caa1dd885595bd27c803122}{P\+I\+C\+::\+I\+C\+W3\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID} = 0x2
-\begin{DoxyCompactList}\small\item\em tells slave that it is assigned as I\+R\+Q2 on master \end{DoxyCompactList}\item 
-const uint8\+\_\+t \hyperlink{namespace_p_i_c_a3d092deea6581b86dddc5fb5c7fde403}{P\+I\+C\+::\+I\+C\+W4\+\_\+\+C\+PU} = 0x1
-\begin{DoxyCompactList}\small\item\em 8086/8088 mode \end{DoxyCompactList}\item 
 const uint16\+\_\+t \hyperlink{namespace_i_n_t_r_p_a1022b4dc1d9af1ea393f7f038ff421ce}{I\+N\+T\+R\+P\+::\+I\+D\+T\+\_\+\+E\+N\+T\+R\+I\+ES} = 256
 \end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{interrupt_8h_adf606426a25a7b6b549ad9a97c2e04b8}\label{interrupt_8h_adf606426a25a7b6b549ad9a97c2e04b8}} 
+\index{interrupt.\+h@{interrupt.\+h}!Unmask\+Interrupt@{Unmask\+Interrupt}}
+\index{Unmask\+Interrupt@{Unmask\+Interrupt}!interrupt.\+h@{interrupt.\+h}}
+\subsubsection{\texorpdfstring{Unmask\+Interrupt()}{UnmaskInterrupt()}}
+{\footnotesize\ttfamily void Unmask\+Interrupt (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_irq_port}{Irq\+Port}}]{Irq }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 156 of file interrupt.\+h.
+

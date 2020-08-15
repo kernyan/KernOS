@@ -13,6 +13,7 @@ var searchData=
   ['kern_5fds_5flimit',['KERN_DS_LIMIT',['../namespace_g_d_t.html#a0b19f62da26fef63c425face3191a75b',1,'GDT']]],
   ['kernel_2ecpp',['kernel.cpp',['../kernel_8cpp.html',1,'']]],
   ['kernel_5fmain',['kernel_main',['../kernel_8cpp.html#ada8402e0c504af8cafef5cc76c076003',1,'kernel.cpp']]],
+  ['keyboard',['KEYBOARD',['../namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a26c910d31696aaa9f143858c1ca8f88a',1,'INTRP']]],
   ['kheap',['kheap',['../memoryallocator_8cpp.html#ace9c1b0c23dfc96b6f7432bdde6b1370',1,'memoryallocator.cpp']]],
   ['km',['KM',['../namespace_k_m.html',1,'']]],
   ['kmalloc',['kmalloc',['../namespace_k_m.html#aaeb8403b430af6311bb3c1df6ae520b6',1,'KM::kmalloc()'],['../namespace_i_n_i_t.html#ac811302ce0948a6a097b445b811f9c14',1,'INIT::KMALLOC()']]],

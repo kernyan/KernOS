@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['hardware_5fstrobe',['HARDWARE_STROBE',['../namespace_t_i_m_e_r.html#a3231391ecc5f5895452fcc54c5fabe26a38141ffb893bfea01739585eb563945c',1,'TIMER']]],
-  ['hi_5flo',['HI_LO',['../namespace_t_i_m_e_r.html#af9ea977bf574cbb806bde5e36476f5d0ac43a6e8b2707c4ff404d01b72f0affb7',1,'TIMER']]],
-  ['hi_5fonly',['HI_ONLY',['../namespace_t_i_m_e_r.html#af9ea977bf574cbb806bde5e36476f5d0af22178da96e1972db792132dc192d7df',1,'TIMER']]]
+  ['g',['G',['../namespace_v_m_1_1_p_t_a.html#af6c6ca8f4c319eea5695da938dfdd4c4a07e37da4a960b9f69565a92c812da75c',1,'VM::PTA']]],
+  ['gen_5fprotection_5ffault',['GEN_PROTECTION_FAULT',['../namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a2494cab6d93c57a9adcb3d7309192b79',1,'INTRP']]],
+  ['green',['GREEN',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71a9de0e5dd94e861317e74964bed179fa0',1,'VGA']]]
 ];

@@ -2,5 +2,6 @@
 <area shape="rect" id="node2" href="$interrupt_8cpp.html" title="OS/kernel/arch/x86\l/interrupt.cpp" alt="" coords="5,80,140,121"/>
 <area shape="rect" id="node3" href="$kernel_8cpp.html" title="OS/kernel/arch/x86\l/kernel.cpp" alt="" coords="164,80,299,121"/>
 <area shape="rect" id="node4" href="$memoryallocator_8cpp.html" title="OS/kernel/arch/x86\l/memoryallocator.cpp" alt="" coords="323,80,470,121"/>
-<area shape="rect" id="node5" href="$pit_8cpp.html" title="OS/kernel/arch/x86\l/pit.cpp" alt="" coords="495,80,629,121"/>
+<area shape="rect" id="node5" href="$pic_8cpp.html" title="OS/kernel/arch/x86\l/pic.cpp" alt="" coords="495,80,629,121"/>
+<area shape="rect" id="node6" href="$pit_8cpp.html" title="OS/kernel/arch/x86\l/pit.cpp" alt="" coords="653,80,788,121"/>
 </map>

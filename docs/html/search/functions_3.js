@@ -5,5 +5,7 @@ var searchData=
   ['initializepagedirectory',['InitializePageDirectory',['../namespace_v_m.html#a722753d2c3fafcd36dad99fb1fa1eaf3',1,'VM']]],
   ['install_5fgdt',['Install_gdt',['../namespace_g_d_t.html#a174feb7c5a037cc991bf4eb27c256366',1,'GDT']]],
   ['install_5fidt',['Install_idt',['../namespace_i_n_t_r_p.html#a139b273cc1e45d3c2fdfe0d387a98518',1,'INTRP']]],
-  ['installpaging',['InstallPaging',['../namespace_v_m.html#a9c0e1f32f8ec14ae7f246197e5b46498',1,'VM']]]
+  ['installpaging',['InstallPaging',['../namespace_v_m.html#a9c0e1f32f8ec14ae7f246197e5b46498',1,'VM']]],
+  ['irqport',['IrqPort',['../struct_irq_port.html#a6b8ecf986a659ab7169cc4e7bf5fdde2',1,'IrqPort']]],
+  ['irqscope',['IRQScope',['../class_i_r_q_scope.html#a26171d82283561e9430bc54390879bfc',1,'IRQScope']]]
 ];

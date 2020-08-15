@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['w',['W',['../namespace_v_m_1_1_p_d_a.html#aef2fe9b88f7669a048ee22c1e6e2311ba8a740302ea12c8d4c4d5a47ac1af683f',1,'VM::PDA::W()'],['../namespace_v_m_1_1_p_t_a.html#af6c6ca8f4c319eea5695da938dfdd4c4a09b0f0ebacacbb343e02d17dedc2ed4e',1,'VM::PTA::W()']]],
-  ['white',['WHITE',['../namespace_v_g_a.html#ace1c3156a8d3975ff783ff7a1fa8eb71ab5bf627e448384cf3a4c35121ca6008d',1,'VGA']]],
-  ['wp',['WP',['../namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaa26b870d7f1a47ad83f6c2ce739189171',1,'CR0']]]
+  ['vif',['VIF',['../namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51a60d8e57e033e6621fbda4b775e27ac6a',1,'FLAGS']]],
+  ['vip',['VIP',['../namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51aea811f58ffff15c14f1a3bdb9ec09727',1,'FLAGS']]],
+  ['vm',['VM',['../namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51a549f5d5262483d77729683894e6d1be0',1,'FLAGS']]],
+  ['vme',['VME',['../namespace_c_r4.html#a2928f19d113bac6aaeab713b170185ceaa569bc9b3252f731550182a03c650797',1,'CR4']]]
 ];

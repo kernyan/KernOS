@@ -1,9 +1,11 @@
 <map id="OS/kernel/arch/x86/pit.cpp" name="OS/kernel/arch/x86/pit.cpp">
-<area shape="rect" id="node2" href="$pit_8h.html" title="pit.h" alt="" coords="95,95,142,121"/>
+<area shape="rect" id="node2" href="$pit_8h.html" title="pit.h" alt="" coords="58,95,105,121"/>
 <area shape="rect" id="node3" href="$common_8h.html" title="common.h" alt="" coords="189,244,272,271"/>
-<area shape="rect" id="node8" href="$utilities_8h.html" title="utilities.h" alt="" coords="375,169,449,196"/>
-<area shape="rect" id="node10" href="$interrupt_8h.html" title="interrupt.h" alt="" coords="243,95,323,121"/>
+<area shape="rect" id="node8" href="$utilities_8h.html" title="utilities.h" alt="" coords="81,169,156,196"/>
+<area shape="rect" id="node10" href="$interrupt_8h.html" title="interrupt.h" alt="" coords="257,95,337,121"/>
+<area shape="rect" id="node12" href="$ports_8h.html" title="ports.h" alt="" coords="463,169,526,196"/>
+<area shape="rect" id="node13" href="$pic_8h.html" title="pic.h" alt="" coords="388,169,439,196"/>
 <area shape="rect" id="node7" href="$ktypes_8h.html" title="ktypes.h" alt="" coords="288,319,360,345"/>
-<area shape="rect" id="node9" href="$kprintf_8h.html" title="kprintf.h" alt="" coords="377,244,447,271"/>
-<area shape="rect" id="node11" href="$registers_8h.html" title="registers.h" alt="" coords="268,169,351,196"/>
+<area shape="rect" id="node9" href="$kprintf_8h.html" title="kprintf.h" alt="" coords="84,244,153,271"/>
+<area shape="rect" id="node11" href="$registers_8h.html" title="registers.h" alt="" coords="281,169,364,196"/>
 </map>

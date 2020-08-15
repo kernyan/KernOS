@@ -8,5 +8,6 @@ var searchData=
   ['af',['AF',['../namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51abc6c39c7676dd1893ab8cac782962a46',1,'FLAGS']]],
   ['alignment_5fcheck_5ffault',['ALIGNMENT_CHECK_FAULT',['../namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a4ae4571bf9290f732b429dd0b30002c3',1,'INTRP']]],
   ['am',['AM',['../namespace_c_r0.html#aca53d8161d60c86788386fa6db06e7aaa2325d7d071248d4efffdf7bd809decb7',1,'CR0']]],
-  ['ar',['AR',['../namespace_a_r.html',1,'']]]
+  ['ar',['AR',['../namespace_a_r.html',1,'']]],
+  ['auto_5feoi',['AUTO_EOI',['../namespace_p_i_c.html#a12c72f546ed4a793a092429bdc8184cda11719eb2bc43288eaffe011c20ee0e9e',1,'PIC']]]
 ];

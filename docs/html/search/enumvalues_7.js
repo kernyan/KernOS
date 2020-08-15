@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['id',['ID',['../namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51a057e038e9149d8fe2ad23df50ef42151',1,'FLAGS']]],
-  ['if',['IF',['../namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51aec02296c8246d8621db2de2314b6728d',1,'FLAGS']]],
-  ['invalid_5fopcode_5ffault',['INVALID_OPCODE_FAULT',['../namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94af5e5df39002d4114a23ea47772b24993',1,'INTRP']]],
-  ['invalid_5ftss_5ffault',['INVALID_TSS_FAULT',['../namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a5b1eba48c3b793f1335078cd5231f50d',1,'INTRP']]]
+  ['harddisk',['HARDDISK',['../namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a5f2afad82b6da16473d3954a3448f0f0',1,'INTRP']]],
+  ['hardware_5fstrobe',['HARDWARE_STROBE',['../namespace_t_i_m_e_r.html#a3231391ecc5f5895452fcc54c5fabe26a38141ffb893bfea01739585eb563945c',1,'TIMER']]],
+  ['hi_5flo',['HI_LO',['../namespace_t_i_m_e_r.html#af9ea977bf574cbb806bde5e36476f5d0ac43a6e8b2707c4ff404d01b72f0affb7',1,'TIMER']]],
+  ['hi_5fonly',['HI_ONLY',['../namespace_t_i_m_e_r.html#af9ea977bf574cbb806bde5e36476f5d0af22178da96e1972db792132dc192d7df',1,'TIMER']]]
 ];

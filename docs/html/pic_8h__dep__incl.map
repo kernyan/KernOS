@@ -1,0 +1,8 @@
+<map id="OS/include/pic.h" name="OS/include/pic.h">
+<area shape="rect" id="node2" href="$interrupt_8h.html" title="OS/include/interrupt.h" alt="" coords="341,80,489,107"/>
+<area shape="rect" id="node3" href="$interrupt_8cpp.html" title="OS/kernel/arch/x86\l/interrupt.cpp" alt="" coords="5,155,140,196"/>
+<area shape="rect" id="node6" href="$pic_8cpp.html" title="OS/kernel/arch/x86\l/pic.cpp" alt="" coords="495,155,629,196"/>
+<area shape="rect" id="node7" href="$pit_8cpp.html" title="OS/kernel/arch/x86\l/pit.cpp" alt="" coords="653,155,788,196"/>
+<area shape="rect" id="node4" href="$kernel_8cpp.html" title="OS/kernel/arch/x86\l/kernel.cpp" alt="" coords="336,155,471,196"/>
+<area shape="rect" id="node5" href="$memoryallocator_8cpp.html" title="OS/kernel/arch/x86\l/memoryallocator.cpp" alt="" coords="165,155,311,196"/>
+</map>

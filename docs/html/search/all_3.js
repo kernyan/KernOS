@@ -7,6 +7,7 @@ var searchData=
   ['decimalmode',['DECIMALMODE',['../namespace_t_i_m_e_r.html#aa762d05daed3ea97420e855a5d03253d',1,'TIMER']]],
   ['descriptorentry',['DescriptorEntry',['../union_i_n_t_r_p_1_1_descriptor_entry.html',1,'INTRP']]],
   ['df',['DF',['../namespace_f_l_a_g_s.html#a9d5f9747a4879f4d57418def02a8fb51a6d0f5b6510bc2a40631627ef5330fbef',1,'FLAGS']]],
+  ['diskette',['DISKETTE',['../namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a1518e23a795c53f82e8256929c0ad5af',1,'INTRP']]],
   ['display',['Display',['../namespace_v_g_a.html#a97690b6d72f447f3e5e1b744af8f47fe',1,'VGA']]],
   ['div_5f0_5ffault',['DIV_0_FAULT',['../namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94aa4812872ae63e8dd2531baae7ae7af8c',1,'INTRP']]],
   ['double_5ffault',['DOUBLE_FAULT',['../namespace_i_n_t_r_p.html#a790699fb2953ef4ab70c7dc7148a1c94a4dc8cc2535405b9892ebb823cc708724',1,'INTRP']]]

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vga',['Vga',['../class_v_g_a_1_1_vga.html',1,'VGA']]]
+  ['selector',['Selector',['../struct_g_d_t_1_1_selector.html',1,'GDT']]]
 ];

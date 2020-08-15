@@ -1,11 +1,13 @@
 \hypertarget{interrupt_8cpp}{}\section{O\+S/kernel/arch/x86/interrupt.cpp File Reference}
 \label{interrupt_8cpp}\index{O\+S/kernel/arch/x86/interrupt.\+cpp@{O\+S/kernel/arch/x86/interrupt.\+cpp}}
-{\ttfamily \#include $<$common.\+h$>$}\newline
 {\ttfamily \#include $<$interrupt.\+h$>$}\newline
+{\ttfamily \#include $<$common.\+h$>$}\newline
 {\ttfamily \#include $<$utilities.\+h$>$}\newline
 {\ttfamily \#include $<$gdt.\+h$>$}\newline
 {\ttfamily \#include $<$accessright.\+h$>$}\newline
-Include dependency graph for interrupt.\+cpp\+:\nopagebreak
+{\ttfamily \#include $<$pic.\+h$>$}\newline
+Include dependency graph for interrupt.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,18 +17,14 @@ Include dependency graph for interrupt.\+cpp\+:\nopagebreak
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
- \hyperlink{namespace_p_i_c}{P\+IC}
-\begin{DoxyCompactList}\small\item\em 8259 Progammable interrupt controller \end{DoxyCompactList}\item 
+ \hyperlink{namespace_t_i_m_e_r}{T\+I\+M\+ER}
+\begin{DoxyCompactList}\small\item\em Timer namespace. \end{DoxyCompactList}\item 
  \hyperlink{namespace_i_n_t_r_p}{I\+N\+T\+RP}
 \begin{DoxyCompactList}\small\item\em interrupt namespace \end{DoxyCompactList}\item 
  \hyperlink{namespace_i_n_i_t}{I\+N\+IT}
 \begin{DoxyCompactList}\small\item\em contains all kernel initialization routines \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
-\item 
-void \hyperlink{namespace_p_i_c_a2a04fe95329faacc43f00ad30fe554b9}{P\+I\+C\+::\+Remap} ()
-\begin{DoxyCompactList}\small\item\em Remap default 8259 \hyperlink{namespace_p_i_c}{P\+IC} interrupt number to new range. \end{DoxyCompactList}\item 
-void \hyperlink{namespace_p_i_c_ad6f2cca6611cd7992992ab7705d6c25f}{P\+I\+C\+::\+Unmask\+Interrupt} (uint16\+\_\+t Port, uint8\+\_\+t Irq)
 \item 
 void \hyperlink{namespace_i_n_t_r_p_a91a6a2668bfa9961a9ed265f6ceac47d}{I\+N\+T\+R\+P\+::\+Register\+Handler} (Descriptor\+Entry Idt\+Table\mbox{[}$\,$\mbox{]}, size\+\_\+t Idx, \hyperlink{ktypes_8h_a46bbb9e776183ed6a8eca9d919756434}{func\+\_\+ptr} Handler)
 \begin{DoxyCompactList}\small\item\em Creates interrupt descriptor entries in idt\+\_\+table, and loads into C\+PU. \end{DoxyCompactList}\item 
@@ -50,6 +48,8 @@ void \hyperlink{namespace_i_n_i_t_aec8e9f01cb09653075b6e610096b3ca9}{I\+N\+I\+T\
 \begin{DoxyCompactList}\small\item\em Creates interrupt descriptor table and loads to C\+PU. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \hyperlink{namespace_t_i_m_e_r_a403ab666b1023ff9771d1b1c9fed0015}{T\+I\+M\+E\+R\+::timer\+\_\+ticks}
 \item 
 Descriptor\+Entry \hyperlink{namespace_i_n_t_r_p_a8e4e29dae90a4087ed1ac8cf845218c4}{I\+N\+T\+R\+P\+::idt\+\_\+table} \mbox{[}I\+D\+T\+\_\+\+E\+N\+T\+R\+I\+ES\mbox{]}
 \end{DoxyCompactItemize}
