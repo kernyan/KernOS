@@ -63,6 +63,7 @@ set(KernelFiles
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/memoryallocator.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/virtualmemory.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/pit.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/pic.cpp
   )
 add_library(MOD_kernel STATIC ${KernelFiles})
 target_compile_options(MOD_kernel PRIVATE ${COMPILE_FLAGS})

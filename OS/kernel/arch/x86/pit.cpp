@@ -7,6 +7,7 @@
 #include <utilities.h>
 #include <interrupt.h>
 #include <ports.h>
+#include <pic.h>
 
 namespace INTRP
 {
@@ -91,7 +92,7 @@ namespace INIT
     {
         TIMER::PIT_825x();
 
-        PIC::UnmaskInterrupt(INTRP::IVT::TIMER);
+        UnmaskInterrupt(INTRP::IVT::TIMER);
     }
 }
 

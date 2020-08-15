@@ -9,6 +9,7 @@
 #include <utilities.h>
 #include <registers.h>
 #include <ports.h>
+#include <pic.h>
 
 /*! @brief interrupt namespace
  */
@@ -124,64 +125,60 @@ namespace INTRP // interrupt
 
     void RegisterHandler(DescriptorEntry IdtTable[], size_t Idx, func_ptr Handler);
 
-    class IRQScope
-    {
-    private:
-        INTRP::IVT m_IRQNumber;
-
-    public:
-        explicit IRQScope (INTRP::IVT IRQNumber) :
-            m_IRQNumber (IRQNumber)
-        {
-        }
-
-        ~IRQScope()
-        {
-            //out8();
-        }
-    };
-
 } // namespace INTRP
 
 struct IrqPort
 {
-    uint16_t m_Port {0};
+    uint16_t m_CsrPort  {0};
+    uint16_t m_DataPort {0};
     uint8_t m_IrqNumber {0};
 
-    constexpr IrqPort (const INTRP::IVT Irq)
+    consteval IrqPort (const INTRP::IVT Irq)
     {
         if (Irq < INTRP::IVT::PIC1_OFFSET)
         {
         }
         else if (Irq < INTRP::IVT::PIC2_OFFSET)
         {
-            m_Port      = PORTS::PIC1_DATA;
+            m_CsrPort   = PORTS::PIC1_COMMAND;
+            m_DataPort  = PORTS::PIC1_DATA;
             m_IrqNumber = Irq - INTRP::IVT::PIC1_OFFSET;
         }
-        else if (Irq <= INTRP::IVT::USER_DEFINED_END)
+        else
         {
-            m_Port      = PORTS::PIC2_DATA;
+            m_CsrPort   = PORTS::PIC2_COMMAND;
+            m_DataPort  = PORTS::PIC2_DATA;
             m_IrqNumber = Irq - INTRP::IVT::PIC2_OFFSET;
         }
     }
 };
 
-namespace PIC
+inline void UnmaskInterrupt (const IrqPort Irq)
 {
-    const uint8_t ICW1_ICW4NEEDED = 0x1;  ///< expect ICW 4
-    const uint8_t ICW1_INIT       = 0x10; ///< initialize PIC
-    const uint8_t ICW1_CONFIG     = ICW1_ICW4NEEDED | ICW1_INIT;
+    uint8_t Imr = in8(Irq.m_DataPort);
 
-    const uint8_t ICW2_MASTER_OFFSET = INTRP::IVT::PIC1_OFFSET; ///< IVT 0-31 are reserved for intel exception
-    const uint8_t ICW2_SLAVE_OFFSET  = INTRP::IVT::PIC2_OFFSET; ///< master handles IRQ0-7 (IVT 0x20), slave handles IRQ8-15 (IVT 0x28)
+    Imr &= ~(1 << Irq.m_IrqNumber);
 
-    const uint8_t ICW3_MASTER_SLAVE_POS = 0x4; ///< tells master that slave is in 3rd position (IRQ2)
-    const uint8_t ICW3_SLAVE_ID         = 0x2; ///< tells slave that it is assigned as IRQ2 on master
-
-    const uint8_t ICW4_CPU = 0x1; ///< 8086/8088 mode
-
-    void UnmaskInterrupt (const IrqPort Irq);
+    out8(Irq.m_DataPort, Imr);
 }
+
+class IRQScope
+{
+private:
+    const IrqPort m_Irq;
+
+public:
+    explicit IRQScope (const IrqPort IRQNumber) :
+        m_Irq (IRQNumber)
+    {
+    }
+
+    ~IRQScope()
+    {
+        out8(m_Irq.m_CsrPort, PIC::OCW2::NON_SPECIFIC_EOI);
+    }
+};
+
 
 namespace INIT
 {
