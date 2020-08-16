@@ -162,18 +162,20 @@ inline void UnmaskInterrupt (const IrqPort Irq)
     out8(Irq.m_DataPort, Imr);
 }
 
-class IRQScope
+/*! @brief Sends End-of-Interrupt to port corresponding to IRQNumber on scope exit
+ */
+class IRQAcknowledge
 {
 private:
     const IrqPort m_Irq;
 
 public:
-    explicit IRQScope (const IrqPort IRQNumber) :
+    explicit IRQAcknowledge (const IrqPort IRQNumber) :
         m_Irq (IRQNumber)
     {
     }
 
-    ~IRQScope()
+    ~IRQAcknowledge()
     {
         out8(m_Irq.m_CsrPort, PIC::OCW2::NON_SPECIFIC_EOI);
     }

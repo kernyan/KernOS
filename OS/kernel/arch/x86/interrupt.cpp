@@ -9,11 +9,16 @@
 #include <accessright.h>
 #include <pic.h>
 
+#define INTRP_ENTRY(Type)                       \
+    extern "C" void Interrupt##Type##Entry();   \
+    extern "C" void Interrupt##Type##Handler(); \
+    asm(                                        \
+    ".globl Interrupt" #Type "Entry \n"         \
+    "Interrupt" #Type "Entry:       \n"         \
+    "call Interrupt" #Type "Handler \n"         \
+    "    iret\n");
 
-namespace TIMER
-{
-    extern uint64_t timer_ticks;
-}
+INTRP_ENTRY(Timer)
 
 namespace INTRP // interrupt
 {
@@ -40,16 +45,6 @@ namespace INTRP // interrupt
     void UnhandledException()
     {
         kprintf("Unhandled exception encountered\n");
-        Hang();
-    }
-
-    /*! @brief Timer interrupt handler
-     */
-    void TimerInterruptHandler()
-    {
-        TIMER::timer_ticks++;
-
-        kprintf("Timer interrupt occurred\n");
         Hang();
     }
 
@@ -88,7 +83,7 @@ namespace INTRP // interrupt
         for (size_t Idx = IVT::USER_DEFINED_START; Idx <= IVT::USER_DEFINED_END; ++Idx)
             RegisterHandler(IdtTable, Idx, UnhandledInterrupt);
 
-        RegisterHandler(IdtTable, IVT::TIMER, TimerInterruptHandler);
+        RegisterHandler(IdtTable, IVT::TIMER, InterruptTimerEntry);
     }
 
     /*! @brief assembly instruction to load idt table to CPU

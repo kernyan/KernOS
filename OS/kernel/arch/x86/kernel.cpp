@@ -19,7 +19,6 @@
 /*! @brief Kernel entry function
  */
 //![Kernel entry function]
-
 extern "C" void kernel_main()
 {
     INIT::ctors();   // initialize global constructors
@@ -32,6 +31,8 @@ extern "C" void kernel_main()
     INIT::PIT();     // initialize timer
 
     sti();           // enable interrupt
+
+    fib(150);
 
     kprintf("reach");
 }
