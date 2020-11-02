@@ -40,7 +40,9 @@ Currently only supports
 ## Milestones
 2020 11 01 - Task switching
 
-<img align="left" src="./images/TaskSwitching.png"><br/>
+<p>
+  <img align="left" src="./images/TaskSwitching.png">
+<p>
 
 
 Next is to set TLB working, and ultimately to a GUI desktop!
