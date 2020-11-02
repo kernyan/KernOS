@@ -5,8 +5,7 @@
 #include <pit.h>
 #include <utilities.h>
 #include <interrupt.h>
-#include <ports.h>
-#include <pic.h>
+#include <process.h>
 
 namespace INTRP
 {
@@ -41,7 +40,9 @@ namespace TIMER
 
     extern "C" void InterruptTimerHandler()
     {
-        IRQAcknowledge AckEOI(INTRP::IVT::TIMER);
+        {
+            IRQAcknowledge AckEOI(INTRP::IVT::TIMER);
+        }
 
         if (++timer_ticks >= TICKS_PER_SECOND)
         {
@@ -49,10 +50,11 @@ namespace TIMER
             timer_ticks = 0;
         }
 
-        if (seconds_since_boot == 10)
+        if (seconds_since_boot == 3)
         {
             seconds_since_boot = 0;
-            kprintf("10 seconds passed\n");
+            kprintf("3 seconds passed\n");
+            PROCESS::Reschedule();
         }
     }
 } // namespace TIMER

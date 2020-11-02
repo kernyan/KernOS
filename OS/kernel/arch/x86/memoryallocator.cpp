@@ -113,6 +113,6 @@ namespace INIT
      */
     void KMALLOC()
     {
-        KM::mem_alloc.Initialize((uint32_t) kheap, (uint32_t)(kheap) + 4096*3);
+        KM::mem_alloc.Initialize((uint32_t) kheap, (uint32_t)(kheap) + 2 * MB);
     }
 }

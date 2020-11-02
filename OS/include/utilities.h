@@ -130,24 +130,6 @@ namespace
        kprintf(Str);
        Hang();
     }
-
-
-    /*! @brief Fibonacci calculation
-     *  @details Cause busy loop so scheduler can run on next timing interval
-     */
-    int fib(int N)
-    {
-        if (N == 0)
-        {
-            return 0;
-        }
-        else if (N == 1)
-        {
-            return 1;
-        }
-
-        return fib(N - 1) + fib (N - 2);
-    }
 } // unnamed namespace
 
 #endif //KERNOS_UTILITIES_H

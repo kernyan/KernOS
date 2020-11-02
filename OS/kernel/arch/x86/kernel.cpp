@@ -7,6 +7,7 @@
 #include <memoryallocator.h>
 #include <virtualmemory.h>
 #include <pit.h>
+#include <process.h>
 
 #ifndef __i686__
 #error "Failed - use i686 compiler instead"
@@ -19,6 +20,17 @@
 /*! @brief Kernel entry function
  */
 //![Kernel entry function]
+
+void BusyThread1()
+{
+    kprintf("First process started\n");
+
+    for (;;)
+    {
+        // busy loop
+    }
+}
+
 extern "C" void kernel_main()
 {
     INIT::ctors();   // initialize global constructors
@@ -29,11 +41,14 @@ extern "C" void kernel_main()
     INIT::idt();     // install exceptions, interrupts, e.g. page fault handler for paging use later
     INIT::PAGE();    // initialize page directory, page table
     INIT::PIT();     // initialize timer
+    INIT::NULLPROCESS();
+    PROCESS::CreateProcess (BusyThread1);
 
     sti();           // enable interrupt
 
-    fib(150);
-
-    kprintf("reach");
+    for(;;)
+    {
+       // busy loop
+    }
 }
 //![Kernel entry function]

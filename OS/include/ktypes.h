@@ -17,4 +17,6 @@ using func_ptr = void(*)();
 
 const uint32_t SYSERR = -1;
 
+const uint32_t MB = 4096 * 256;
+
 #endif //KERNOS_TYPES_H
