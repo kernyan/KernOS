@@ -45,7 +45,7 @@ Currently only supports
 
 ![alt text][image1]
 
-Next is to set TLB working, and ultimately to a GUI desktop!
+Next is to get TLB working, and ultimately to a GUI desktop!
 
 ## Build and run
 Requires gcc cross-compiler for i686-elf toolchain. Refer [Osdev](https://wiki.osdev.org/GCC_Cross-Compiler) 
