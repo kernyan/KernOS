@@ -44,8 +44,9 @@ Currently only supports
   <img align="left" src="./images/TaskSwitching.png">
 <p>
 
-
+<p>
 Next is to set TLB working, and ultimately to a GUI desktop!
+</p>
 
 ## Build and run
 Requires gcc cross-compiler for i686-elf toolchain. Refer [Osdev](https://wiki.osdev.org/GCC_Cross-Compiler) 
