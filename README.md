@@ -29,6 +29,7 @@ For specific topics, use links below,
 - [Global descriptor table](OS/kernel/arch/x86/gdt.cpp)
 - [Exception and interrupt handler](OS/kernel/arch/x86/interrupt.cpp)
 - [Paging](OS/kernel/arch/x86/virtualmemory.cpp)
+- [Task switching](OS/kernel/arch/x86/process.cpp)
 - [Unit testing](Test/Tests)
 
 ## Status
@@ -36,7 +37,10 @@ Currently only supports
 - C++
 - x86 architecture
 
-Next is to extend OS to task switching, and GUI desktop
+## Milestones
+[2020 11 01 - Task switching](images/TaskSwitching.png)
+
+Next is to set TLB working, and ultimately to a GUI desktop!
 
 ## Build and run
 Requires gcc cross-compiler for i686-elf toolchain. Refer [Osdev](https://wiki.osdev.org/GCC_Cross-Compiler) 
