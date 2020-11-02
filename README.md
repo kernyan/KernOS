@@ -3,9 +3,6 @@
 </p>
 <h3 align="center">KernOS</h3>
 
-[//]: # (Image References)
-[image1]: ./images/TaskSwitching.png "Task_Switching"
-
 ## Table of contents
 - [Project goal](#project-goal)
 - [Documented topics](#documented-topics)
@@ -42,7 +39,8 @@ Currently only supports
 
 ## Milestones
 2020 11 01 - Task switching
-![alt text][image1]
+
+<img align="left" src="./images/TaskSwitching.png">
 
 Next is to set TLB working, and ultimately to a GUI desktop!
 
