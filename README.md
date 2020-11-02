@@ -3,6 +3,9 @@
 </p>
 <h3 align="center">KernOS</h3>
 
+[//]: # (Image References)
+[image1]: ./images/TaskSwitching.png "Task_Switching"
+
 ## Table of contents
 - [Project goal](#project-goal)
 - [Documented topics](#documented-topics)
@@ -40,13 +43,9 @@ Currently only supports
 ## Milestones
 2020 11 01 - Task switching
 
-<p>
-  <img align="left" src="./images/TaskSwitching.png">
-<p>
+![alt text][image1]
 
-<p>
 Next is to set TLB working, and ultimately to a GUI desktop!
-</p>
 
 ## Build and run
 Requires gcc cross-compiler for i686-elf toolchain. Refer [Osdev](https://wiki.osdev.org/GCC_Cross-Compiler) 
