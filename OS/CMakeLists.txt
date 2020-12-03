@@ -43,6 +43,7 @@ endif()
 # include all src and header directories in include search path
 include_directories(${CMAKE_CURRENT_LIST_DIR}/..)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/KLib/include)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM})
 
 # collect source files by modules
