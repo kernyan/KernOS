@@ -10,9 +10,13 @@ ENTRY(_start)
    kernel image. */
 SECTIONS
 {
-	/* Begin putting sections at 1 MiB, a conventional place for kernels to be
-	   loaded at by the bootloader. */
-	. = 1M;
+	/* Convention of kernel by the bootloader is 1MB, 
+   * while high virtual memory convention for Linux i386 is 3GB, i.e. 0xC000'0000 
+   * thus we want to load our section starting at 1MB + 3GB  
+   * however we need to enable paging (virtual memory) before jumping to _start
+   * for now, we have to be content with loading at 1MB
+   */
+	. = 0x00100000;
  
 	/* First put the multiboot header, as it is required to be put very early
 	   early in the image or the bootloader won't recognize the file format.

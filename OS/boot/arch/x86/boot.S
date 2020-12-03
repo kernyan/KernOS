@@ -6,7 +6,7 @@
 
 .set KSTACK_SIZE, 4096*256     // 1 MB
 .set KHEAP_SIZE, 4096*256      // 1 MB
-.set KPAGETABLE_SIZE, 4096*3   // 12 KiB
+.set KPAGETABLE_SIZE, 4096*3   // 12 KiB (1 Kernel Page Directory, and Kernel Page Frame 0, 1)
 
 /* header for kernel */
 .section .multiboot
