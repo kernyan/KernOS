@@ -15,14 +15,15 @@ namespace VM // virtual memory
     const size_t PT_SIZE = 1024; ///< page table size
     const size_t PG_SIZE = 4096; ///< page size
 
-    uint32_t page_directory[PD_SIZE][[gnu::aligned(PG_SIZE)]];
-    uint32_t pagetable0    [PT_SIZE][[gnu::aligned(PG_SIZE)]];
+    uint32_t kernel_page_directory[PD_SIZE][[gnu::aligned(PG_SIZE)]];
+    uint32_t pagetable0           [PT_SIZE][[gnu::aligned(PG_SIZE)]];
+    uint32_t pagetable1           [PT_SIZE][[gnu::aligned(PG_SIZE)]];
 
     void InitializePageDirectory(uint32_t PageDirectory[PD_SIZE])
     {
         for (size_t i = 0; i < PD_SIZE; ++i)
         {
-            PageDirectory[i] = DWord<PDA::R>();
+            PageDirectory[i] = DWord<PDA::R>(); // set read bit
         }
     }
 
@@ -35,17 +36,17 @@ namespace VM // virtual memory
     {
         for (size_t i = 0; i < PT_SIZE; ++i)
         {
-            PageTable[i] = (i * PG_SIZE)
-                         | (DWord<PTA::R>() | DWord<PTA::P>());
+            PageTable[i] = (i * PG_SIZE)                        // top 20 bits is page offset
+                         | (DWord<PTA::R>() | DWord<PTA::P>()); // bottom 12 bits are access rights
         }
 
-        PageDirectory[Idx] = ( (uint32_t) PageTable
+        PageDirectory[Idx] = ( (uint32_t) PageTable // top 20 bits is addr of page frame
                              | (DWord<PDA::R>() | DWord<PDA::P>())
                              );
     }
 
     /*! @brief Set cr3 to page directory, and turn on paging
-     * @param PageDirectory
+     *  @param PageDirectory
      */
     void InstallPaging(const uint32_t PageDirectory[])
     {
@@ -71,12 +72,13 @@ namespace VM // virtual memory
 namespace INIT
 {
     /*! @brief set up page directory, page table, and turn on paging
-     *  @todo only setting up page table 0 for now, i.e. 0 - 4 MiB
+     *  @detail identity map first 8MB of virtual address to physical address
      */
     void PAGE()
     {
-        VM::InitializePageDirectory(VM::page_directory);
-        VM::MapPageTable(0, VM::page_directory, VM::pagetable0);
-        VM::InstallPaging(VM::page_directory);
+        VM::InitializePageDirectory(VM::kernel_page_directory);
+        VM::MapPageTable(0, VM::kernel_page_directory, VM::pagetable0);
+        //VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
+        VM::InstallPaging(VM::kernel_page_directory);
     }
 } // namespace INIT
