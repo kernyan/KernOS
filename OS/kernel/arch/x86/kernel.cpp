@@ -31,21 +31,6 @@ void BusyThread1()
     }
 }
 
-namespace VM
-{
-  extern uint32_t pagetable0;
-  extern uint32_t pagetable1;
-}
-
-void AccessMemory()
-{
-  volatile uint32_t* FourBytes_Below4MB  = (uint32_t *) 0x3ffffc;
-  *FourBytes_Below4MB = 10;
-
-  volatile uint32_t* ThreeBytes_Below4MB  = (uint32_t *) 0x3ffffd;
-  *ThreeBytes_Below4MB = 10;
-}
-
 extern "C" void kernel_main()
 {
     INIT::ctors();   // initialize global constructors
@@ -55,8 +40,6 @@ extern "C" void kernel_main()
     INIT::gdt();     // prepare global descriptor table for x86 protected mode
     INIT::idt();     // install exceptions, interrupts, e.g. page fault handler for paging use later
     INIT::PAGE();    // initialize page directory, page table
-
-    AccessMemory();
     INIT::PIT();     // initialize timer
     INIT::NULLPROCESS();
     PROCESS::CreateProcess (BusyThread1);

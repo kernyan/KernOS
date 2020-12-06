@@ -11,10 +11,6 @@ void *kpagetable; // populated in boot.S
  */
 namespace VM // virtual memory
 {
-    const size_t PD_SIZE = 1024; ///< page directory size
-    const size_t PT_SIZE = 1024; ///< page table size
-    const size_t PG_SIZE = 4096; ///< page size
-
     uint32_t kernel_page_directory[PD_SIZE][[gnu::aligned(PG_SIZE)]];
     uint32_t pagetable0           [PT_SIZE][[gnu::aligned(PG_SIZE)]];
     uint32_t pagetable1           [PT_SIZE][[gnu::aligned(PG_SIZE)]];
@@ -36,12 +32,16 @@ namespace VM // virtual memory
     {
         for (size_t i = 0; i < PT_SIZE; ++i)
         {
-            PageTable[i] = (i * PG_SIZE)                        // top 20 bits is page offset
-                         | (DWord<PTA::R>() | DWord<PTA::P>()); // bottom 12 bits are access rights
+            PageTable[i] = (i * PG_SIZE)     // top 20 bits is page offset
+                         | ( DWord<PTA::R>() // bottom 12 bits are access rights
+                           | DWord<PTA::P>()
+                           );
         }
 
         PageDirectory[Idx] = ( (uint32_t) PageTable // top 20 bits is addr of page frame
-                             | (DWord<PDA::R>() | DWord<PDA::P>())
+                             | ( DWord<PDA::R>()    // bottom 12 bits are access rights
+                               | DWord<PDA::P>()
+                               )
                              );
     }
 
@@ -78,7 +78,7 @@ namespace INIT
     {
         VM::InitializePageDirectory(VM::kernel_page_directory);
         VM::MapPageTable(0, VM::kernel_page_directory, VM::pagetable0);
-        //VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
+        VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
         VM::InstallPaging(VM::kernel_page_directory);
     }
 } // namespace INIT

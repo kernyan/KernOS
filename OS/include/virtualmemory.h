@@ -48,6 +48,17 @@ namespace VM
             G = 8  ///< Page size (0 for 4KiB page)
         };
     }
+
+    const size_t PD_SIZE = 1024; ///< page directory size
+    const size_t PT_SIZE = 1024; ///< page table size
+    const size_t PG_SIZE = 4096; ///< page size
+
+    extern uint32_t kernel_page_directory[PD_SIZE];
+    extern uint32_t pagetable0           [PT_SIZE];
+    extern uint32_t pagetable1           [PT_SIZE];
+
+    void MapPageTable(const size_t Idx, uint32_t PageDirectory[PD_SIZE], uint32_t PageTable[PT_SIZE]);
+    void InstallPaging(const uint32_t PageDirectory[]);
 }
 
 #endif //KERNOS_VIRTUALMEMORY_H

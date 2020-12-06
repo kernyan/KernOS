@@ -8,6 +8,7 @@
 #include <gdt.h>
 #include <accessright.h>
 #include <pic.h>
+#include <virtualmemory.h>
 
 #define INTRP_ENTRY(Type)                       \
     extern "C" void Interrupt##Type##Entry();   \
@@ -52,8 +53,36 @@ namespace INTRP // interrupt
      */
     void PageFaultHandler()
     {
-        kprintf("Page fault handler is not yet set up\n");
-        Hang();
+        // todo: faulty handler, unsure why
+        //asm (
+        //"add $4, %esp"
+        //);
+
+        //uint32_t Fault_Address;
+        //asm(
+        //  "movl %%cr2, %%eax"
+        //  : "=a"(Fault_Address)
+        //);
+
+        //kprintf("Handling page fault\n");
+
+        //if (  Fault_Address >= 4 * MB
+        //   && Fault_Address  < 8 * MB
+        //   )
+        //{
+        //  VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
+
+        //  asm volatile(
+        //  "invlpg %0"
+        //  :
+        //  : "m"(*(char*) Fault_Address)
+        //  : "memory"
+        //  );
+        //}
+
+        //asm (
+        //"iret\n"
+        //);
     }
 
     /*! @brief default unhandled interrupt handler
