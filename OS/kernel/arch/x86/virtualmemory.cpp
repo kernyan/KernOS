@@ -4,6 +4,7 @@
 
 #include <virtualmemory.h>
 #include <registers.h>
+#include <interrupt.h>
 
 void *kpagetable; // populated in boot.S
 
@@ -67,7 +68,34 @@ namespace VM // virtual memory
         : "eax"
         );
     }
-}
+
+    extern "C" void FaultPageHandler()
+    {
+        uint32_t Fault_Address;
+        asm volatile("mov %%cr2, %0" : "=r" (Fault_Address));
+
+        if (  Fault_Address >= 4 * MB
+           && Fault_Address  < 8 * MB
+           )
+        {
+          VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
+
+          asm volatile( // flush tlb
+          "invlpg %0"
+          :
+          : "m"(*(char*) Fault_Address)
+          : "memory"
+          );
+        }
+        else
+        {
+            kprintf("Page fault handler only works for 4MB - 8MB range for now\n");
+            Hang();
+        }
+
+        kprintf("Page fault handler called\n");
+    }
+} // namespace VM
 
 namespace INIT
 {
@@ -78,7 +106,7 @@ namespace INIT
     {
         VM::InitializePageDirectory(VM::kernel_page_directory);
         VM::MapPageTable(0, VM::kernel_page_directory, VM::pagetable0);
-        VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
+        //VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
         VM::InstallPaging(VM::kernel_page_directory);
     }
 } // namespace INIT

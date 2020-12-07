@@ -21,6 +21,18 @@
 
 INTRP_ENTRY(Timer)
 
+#define FAULT_ENTRY(Type)                   \
+    extern "C" void Fault##Type##Entry();   \
+    extern "C" void Fault##Type##Handler(); \
+    asm(                                    \
+    ".globl Fault" #Type "Entry \n"         \
+    "Fault" #Type "Entry:       \n"         \
+    "    call Fault" #Type "Handler \n"     \
+    "    add $0x4, %esp\n"                  \
+    "    iret\n");
+
+FAULT_ENTRY(Page)
+
 namespace INTRP // interrupt
 {
     DescriptorEntry idt_table[IDT_ENTRIES];
@@ -49,42 +61,6 @@ namespace INTRP // interrupt
         Hang();
     }
 
-    /*! @brief Page fault handler
-     */
-    void PageFaultHandler()
-    {
-        // todo: faulty handler, unsure why
-        //asm (
-        //"add $4, %esp"
-        //);
-
-        //uint32_t Fault_Address;
-        //asm(
-        //  "movl %%cr2, %%eax"
-        //  : "=a"(Fault_Address)
-        //);
-
-        //kprintf("Handling page fault\n");
-
-        //if (  Fault_Address >= 4 * MB
-        //   && Fault_Address  < 8 * MB
-        //   )
-        //{
-        //  VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
-
-        //  asm volatile(
-        //  "invlpg %0"
-        //  :
-        //  : "m"(*(char*) Fault_Address)
-        //  : "memory"
-        //  );
-        //}
-
-        //asm (
-        //"iret\n"
-        //);
-    }
-
     /*! @brief default unhandled interrupt handler
      */
     void UnhandledInterrupt()
@@ -101,7 +77,7 @@ namespace INTRP // interrupt
         for (size_t Idx = IVT::RESERVED_START; Idx <= IVT::RESERVED_END; ++Idx)
             RegisterHandler(IdtTable, Idx, UnhandledException);
 
-        RegisterHandler(IdtTable, IVT::PAGE_FAULT, PageFaultHandler);
+        RegisterHandler(IdtTable, IVT::PAGE_FAULT, FaultPageEntry);
     }
 
     /*! @brief Installs default interrupt handler to all interrupts

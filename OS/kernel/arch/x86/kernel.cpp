@@ -31,6 +31,15 @@ void BusyThread1()
     }
 }
 
+void AccessMemory()
+{
+    volatile uint32_t *Mem = (uint32_t*) 0x400000;
+    *Mem = 10;
+
+    volatile uint32_t *Mem2 = (uint32_t*) 0x500000;
+    *Mem2 = 20;
+}
+
 extern "C" void kernel_main()
 {
     INIT::ctors();   // initialize global constructors
@@ -40,7 +49,11 @@ extern "C" void kernel_main()
     INIT::gdt();     // prepare global descriptor table for x86 protected mode
     INIT::idt();     // install exceptions, interrupts, e.g. page fault handler for paging use later
     INIT::PAGE();    // initialize page directory, page table
+
+    AccessMemory();
+
     INIT::PIT();     // initialize timer
+
     INIT::NULLPROCESS();
     PROCESS::CreateProcess (BusyThread1);
 
