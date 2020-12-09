@@ -43,12 +43,17 @@ page_tables_start:
 .extern kernel_main
 .type kernel_main, @function
 
+.extern multiboot_info_ptr
+.type multiboot_info_ptr, @object
+
 _start:
   cli /* clear interrupt flag */
   cld /* clear direction flag, for deciding convention in copying bits*/
 
   mov $stack_top, %esp /* set up stack pointer */
   and $-16, %esp       /* align stack pointer to 16 bits (%esp AND FFFFFFF0) */
+
+  mov %ebx, multiboot_info_ptr
 
   movl $page_tables_start, kpagetable
   movl $kheap_start, kheap

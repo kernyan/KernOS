@@ -6,7 +6,8 @@
 #include <registers.h>
 #include <interrupt.h>
 
-void *kpagetable; // populated in boot.S
+void *kpagetable;                     // populated in boot.S
+multiboot_info_t *multiboot_info_ptr; // populated in boot.S
 
 /*! @brief Virtual memory namespace
  */
@@ -95,6 +96,18 @@ namespace VM // virtual memory
 
         kprintf("Page fault handler called\n");
     }
+
+    void ParseMultibootMemoryMap(const multiboot_info_t& MultibootInfo)
+    {
+      for (auto* MMap = (multiboot_memory_map_t*) MultibootInfo.mmap_addr;
+          (unsigned long) MMap < MultibootInfo.mmap_addr + MultibootInfo.mmap_length;
+          MMap = (multiboot_memory_map_t*) ((unsigned long) MMap + MMap->size + sizeof(MMap->size))
+          )
+      {
+        auto BaseAddr = (uint32_t) (MMap->addr);
+        auto Length   = (uint32_t) (MMap->len);
+      }
+    }
 } // namespace VM
 
 namespace INIT
@@ -108,5 +121,6 @@ namespace INIT
         VM::MapPageTable(0, VM::kernel_page_directory, VM::pagetable0);
         //VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
         VM::InstallPaging(VM::kernel_page_directory);
+        VM::ParseMultibootMemoryMap(*multiboot_info_ptr);
     }
 } // namespace INIT

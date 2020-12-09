@@ -7,6 +7,7 @@
 
 #include <common.h>
 #include <utilities.h>
+#include <multiboot.h>
 
 namespace INIT
 {
@@ -59,6 +60,7 @@ namespace VM
 
     void MapPageTable(const size_t Idx, uint32_t PageDirectory[PD_SIZE], uint32_t PageTable[PT_SIZE]);
     void InstallPaging(const uint32_t PageDirectory[]);
+    void ParseMultibootMemoryMap(const multiboot_info_t &MultibootInfoPtr);
 }
 
 #endif //KERNOS_VIRTUALMEMORY_H
