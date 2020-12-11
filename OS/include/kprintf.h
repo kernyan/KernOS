@@ -14,6 +14,9 @@ void kprintf(const char* Str);
 void kputchar(const char c);
 
 template<typename T>
+void PrintHex(T);
+
+template<typename T>
 void PrintIntImpl(T);
 
 template<typename T>
@@ -30,9 +33,6 @@ void PrintHexInt(T t)
 }
 
 template<typename T>
-void PrintHex(T);
-
-template<typename T>
 void PrintInt(T t)
 {
   if (t)
@@ -44,6 +44,7 @@ void PrintInt(T t)
     kputchar('0');
   }
 }
+
 
 template<typename T, typename... Args>
 void kprintf(const char *Str, T t, Args... args)
