@@ -67,6 +67,6 @@ namespace INIT
     void VGA()
     {
         VGA::Display.Puts("KernOS - v0.1\n");
-        VGA::Display.Puts("Hello World!\n");
+        VGA::Display.Puts("Initializing splines!\n");
     }
 }

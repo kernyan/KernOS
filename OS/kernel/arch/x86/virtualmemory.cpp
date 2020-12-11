@@ -5,6 +5,7 @@
 #include <virtualmemory.h>
 #include <registers.h>
 #include <interrupt.h>
+#include <kprintf.h>
 
 void *kpagetable;                     // populated in boot.S
 multiboot_info_t *multiboot_info_ptr; // populated in boot.S
@@ -99,6 +100,8 @@ namespace VM // virtual memory
 
     void ParseMultibootMemoryMap(const multiboot_info_t& MultibootInfo)
     {
+      kprintf("\nMemory map from bootloader\n");
+
       for (auto* MMap = (multiboot_memory_map_t*) MultibootInfo.mmap_addr;
           (unsigned long) MMap < MultibootInfo.mmap_addr + MultibootInfo.mmap_length;
           MMap = (multiboot_memory_map_t*) ((unsigned long) MMap + MMap->size + sizeof(MMap->size))
@@ -106,6 +109,8 @@ namespace VM // virtual memory
       {
         auto BaseAddr = (uint32_t) (MMap->addr);
         auto Length   = (uint32_t) (MMap->len);
+
+        kprintf("BaseAddr: %h Length: %h\n", BaseAddr, Length);
       }
     }
 } // namespace VM

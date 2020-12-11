@@ -73,7 +73,7 @@ set_target_properties(MOD_kernel PROPERTIES COMPILE_DEFINITIONS "${BUILD_DEF}")
 
 # main executable
 add_executable(kern.bin ${BootFile})
-target_link_libraries(kern.bin MOD_kernel)
+target_link_libraries(kern.bin MOD_kernel gcc)
 
 # copy compiler flags for ycm-completer
 if (CMAKE_EXPORT_COMPILE_COMMANDS)

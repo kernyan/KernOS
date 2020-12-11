@@ -60,8 +60,6 @@ namespace VGA
 
         void Fill(const VgaChar Char);
 
-        void PutChar(unsigned char Char);
-
         void Initialize();
 
     public:
@@ -72,6 +70,8 @@ namespace VGA
             Initialize();
 #endif
         }
+
+        void PutChar(unsigned char Char);
 
         /*! @brief Print string to display
          * @param Str
