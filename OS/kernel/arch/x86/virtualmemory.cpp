@@ -18,6 +18,8 @@ namespace VM // virtual memory
     uint32_t pagetable0           [PT_SIZE][[gnu::aligned(PG_SIZE)]];
     uint32_t pagetable1           [PT_SIZE][[gnu::aligned(PG_SIZE)]];
 
+    VMManager S;
+
     void InitializePageDirectory(uint32_t PageDirectory[PD_SIZE])
     {
         for (size_t i = 0; i < PD_SIZE; ++i)
@@ -80,6 +82,7 @@ namespace VM // virtual memory
            && Fault_Address  < 8 * MB
            )
         {
+          VM::S.MapPageTable(Fault_Address);
           VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
 
           asm volatile( // flush tlb
@@ -113,6 +116,21 @@ namespace VM // virtual memory
         kprintf("BaseAddr: %h Length: %h\n", BaseAddr, Length);
       }
     }
+
+    void VMManager::Initialize(multiboot_info_t &BootMemoryMap)
+    {
+      ParseMultibootMemoryMap(BootMemoryMap);
+      VM::InitializePageDirectory(VM::kernel_page_directory);
+      VM::MapPageTable(0, VM::kernel_page_directory, VM::pagetable0);
+      //VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
+      VM::InstallPaging(VM::kernel_page_directory);
+    }
+
+    void VMManager::MapPageTable(uint32_t VAddr)
+    {
+      kprintf("VMManger mapping virtual address %h\n", VAddr);
+    }
+
 } // namespace VM
 
 namespace INIT
@@ -122,10 +140,6 @@ namespace INIT
      */
     void PAGE()
     {
-        VM::InitializePageDirectory(VM::kernel_page_directory);
-        VM::MapPageTable(0, VM::kernel_page_directory, VM::pagetable0);
-        //VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
-        VM::InstallPaging(VM::kernel_page_directory);
-        VM::ParseMultibootMemoryMap(*multiboot_info_ptr);
+      VM::S.Initialize(*multiboot_info_ptr);
     }
 } // namespace INIT
