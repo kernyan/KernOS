@@ -61,6 +61,7 @@ namespace VM
 
   void InstallPaging(const uint32_t PageDirectory[]);
   void ParseMultibootMemoryMap(const multiboot_info_t &MultibootInfoPtr);
+  void FlushTLB(const uint32_t Fault_Address);
 
   class VMManager
   {

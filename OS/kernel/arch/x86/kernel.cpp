@@ -38,6 +38,9 @@ void AccessMemory()
 
     volatile uint32_t *Mem2 = (uint32_t*) 0x500000;
     *Mem2 = 20;
+
+    volatile uint32_t *Mem3 = (uint32_t*) 0x900000;
+    *Mem3 = 30;
 }
 
 extern "C" void kernel_main()
