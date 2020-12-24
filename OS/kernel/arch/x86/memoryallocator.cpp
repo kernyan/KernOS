@@ -67,7 +67,7 @@ namespace KM // kernel memory
         kpanic("Failed to allocate memory");
     }
 
-    void free(void* Ptr)
+    void kfree(void* Ptr)
     {
         Header* Prev  = &mem_alloc.m_Base;
         Header* Next  = mem_alloc.m_Base.m_Next;

@@ -62,6 +62,9 @@ namespace VGA
 
         void Initialize();
 
+        size_t NextRow();
+        size_t NextCol();
+
     public:
 
         Vga()

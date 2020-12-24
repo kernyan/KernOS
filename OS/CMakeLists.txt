@@ -44,6 +44,7 @@ endif()
 include_directories(${CMAKE_CURRENT_LIST_DIR}/..)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/KLib/include)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/test)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM})
 
 # collect source files by modules
@@ -71,9 +72,15 @@ add_library(MOD_kernel STATIC ${KernelFiles})
 target_compile_options(MOD_kernel PRIVATE ${COMPILE_FLAGS})
 set_target_properties(MOD_kernel PROPERTIES COMPILE_DEFINITIONS "${BUILD_DEF}")
 
+## Module: test
+set(TestFiles ${CMAKE_CURRENT_LIST_DIR}/test/test.cpp)
+add_library(MOD_test STATIC ${TestFiles})
+target_compile_options(MOD_test PRIVATE ${COMPILE_FLAGS})
+set_target_properties(MOD_test PROPERTIES COMPILE_DEFINITIONS "${BUILD_DEF}")
+
 # main executable
 add_executable(kern.bin ${BootFile})
-target_link_libraries(kern.bin MOD_kernel gcc)
+target_link_libraries(kern.bin MOD_kernel MOD_test gcc)
 
 # copy compiler flags for ycm-completer
 if (CMAKE_EXPORT_COMPILE_COMMANDS)

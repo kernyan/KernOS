@@ -40,6 +40,16 @@ void PrintIntImpl(uint64_t t)
   }
 }
 
+template<>
+void PrintIntImpl(int t)
+{
+  if (t)
+  {
+    PrintIntImpl(t / 10);
+    kputchar    (t % 10 + 0x30);
+  }
+}
+
 template<typename T>
 void PrintHex(T t)
 {
@@ -63,3 +73,6 @@ void PrintHex(uint32_t t);
 
 template
 void PrintHex(uint64_t t);
+
+template
+void PrintHex(int t);

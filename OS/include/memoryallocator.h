@@ -29,7 +29,7 @@ namespace KM // kernel memory
     /*! @brief kernel free
      * @param Ptr to memory to be returned
      */
-    void free(void* Ptr);
+    void kfree(void* Ptr);
 
     /*!
      * @brief Header is hidden information that is embedded before memory block

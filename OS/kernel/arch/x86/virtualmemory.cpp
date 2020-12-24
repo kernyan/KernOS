@@ -105,7 +105,9 @@ namespace VM // virtual memory
       uint32_t Fault_Address;
       asm volatile("mov %%cr2, %0" : "=r" (Fault_Address));
 
-      kprintf("Page fault handler called\n");
+#ifdef DEBUG
+      kprintf("\tPage fault handler called\n");
+#endif
       VM::S.MapPageTable(Fault_Address);
    }
 
@@ -166,7 +168,9 @@ namespace VM // virtual memory
         Hang();
       }
 
-      kprintf("VMManger mapping virtual address %h\n", VAddr);
+#ifdef DEBUG
+      kprintf("\tVMManger mapping virtual address %h\n", VAddr);
+#endif
 
       PageAttributes PageAttr {VAddr};
 
@@ -177,7 +181,9 @@ namespace VM // virtual memory
 
       case PAGE_ATTR::UNMAPPED:
          auto FreePhyPageAddr = m_PhyPageAllocator.GetFreePage();
-         kprintf("FreePhyPageAddr: %h\n", FreePhyPageAddr);
+#ifdef DEBUG
+         kprintf("\tFreePhyPageAddr: %h\n", FreePhyPageAddr);
+#endif
          SetPage(PageAttr, kernel_page_directory, (uint32_t*) FreePhyPageAddr);
          FlushTLB(VAddr);
          break;
