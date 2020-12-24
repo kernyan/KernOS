@@ -8,6 +8,7 @@
 #include <common.h>
 #include <utilities.h>
 #include <multiboot.h>
+#include <Bitset.h>
 
 namespace INIT
 {
@@ -85,11 +86,16 @@ namespace VM
      UNMAPPED
   };
 
+  inline size_t AddrToIndex(const uint32_t Addr)
+  {
+     return (Addr >> 12) & 0xFFFFF;
+  }
+
   struct PhysicalPageAllocator
   {
-     uint32_t m_BaseAddr; // start of memory region
-     size_t   m_Size;     // size of free memory region
-     size_t   m_Offset;   // allocated memory
+     uint32_t m_BaseAddr;   // start of memory region
+     size_t   m_Size;       // size of free memory region
+     size_t   m_Offset;     // allocated memory
 
      uint32_t GetFreePage()
      {
@@ -121,29 +127,24 @@ namespace VM
         m_Size     = Size;
         m_Offset   = 0;
      }
-
-     PAGE_ATTR GetAttr(const uint32_t VAddr)
-     {
-        //if (m_Bitmap.test(VAddr >> 12 & 0xFFFFF))
-        //{
-        //   return PAGE_ATTR::MAPPED; // TODO implement later
-        //}
-        //else
-        {
-           return PAGE_ATTR::UNMAPPED;
-        }
-     }
   };
 
   struct PageAttributes
   {
-     PhysPage m_PhysPage;
+     PhysPage  m_PhysPage;
+     PAGE_ATTR m_PgAttr;   // placeholder for access rights, TODO implement later
 
      PageAttributes(const uint32_t PhysAddr) :
-        m_PhysPage (PhysAddr)
+        m_PhysPage (PhysAddr),
+        m_PgAttr   (PAGE_ATTR::UNMAPPED)
      {
      }
   };
+
+  inline PAGE_ATTR GetAttr(const PageAttributes PageAttr)
+  {
+     return PageAttr.m_PgAttr;
+  }
 
   class VMManager
   {

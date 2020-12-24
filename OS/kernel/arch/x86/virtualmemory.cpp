@@ -168,15 +168,17 @@ namespace VM // virtual memory
 
       kprintf("VMManger mapping virtual address %h\n", VAddr);
 
-      switch (m_PhyPageAllocator.GetAttr(VAddr))
+      PageAttributes PageAttr {VAddr};
+
+      switch (GetAttr(PageAttr))
       {
       case PAGE_ATTR::MAPPED:
-         return;
+         break;
+
       case PAGE_ATTR::UNMAPPED:
          auto FreePhyPageAddr = m_PhyPageAllocator.GetFreePage();
          kprintf("FreePhyPageAddr: %h\n", FreePhyPageAddr);
-         PageAttributes PageAttr {VAddr};
-         SetPage(PageAttr,  kernel_page_directory, (uint32_t*) FreePhyPageAddr);
+         SetPage(PageAttr, kernel_page_directory, (uint32_t*) FreePhyPageAddr);
          FlushTLB(VAddr);
          break;
       }
