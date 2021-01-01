@@ -64,18 +64,20 @@ namespace VM
   void ParseMultibootMemoryMap(const multiboot_info_t &MultibootInfoPtr);
   void FlushTLB(const uint32_t Fault_Address);
 
-  struct PhysPage
+  struct AddressInfo
   {
-     uint32_t m_PhysicalAddress;
+     uint32_t m_Raw;
+     uint32_t m_Top20;
      size_t   m_PDE;
      size_t   m_PTE;
      size_t   m_Offset;
 
-     PhysPage(const uint32_t PhysAddr) :
-        m_PhysicalAddress (PhysAddr),
-        m_PDE             (PhysAddr >> 22 & 0x3FF),
-        m_PTE             (PhysAddr >> 12 & 0x3FF),
-        m_Offset          (PhysAddr       & 0xFFF)
+     constexpr AddressInfo(const uint32_t Addr) :
+        m_Raw    (Addr),
+        m_Top20  (Addr & 0xFFFFF000),
+        m_PDE    (Addr >> 22 & 0x3FF),
+        m_PTE    (Addr >> 12 & 0x3FF),
+        m_Offset (Addr       & 0xFFF)
      {
      }
   };
@@ -97,7 +99,7 @@ namespace VM
      size_t   m_Size;       // size of free memory region
      size_t   m_Offset;     // allocated memory
 
-     uint32_t GetFreePage()
+     uint32_t* GetFreePage()
      {
         if (m_Offset + PG_SIZE <= m_Size)
         {
@@ -105,7 +107,9 @@ namespace VM
 
            m_Offset += PG_SIZE;
 
-           return FreePage;
+           kassert(!(FreePage & 0xFFF), "Allocated page frame is not 4K aligned\n");
+
+           return (uint32_t*) FreePage;
         }
 
         kprintf("Failed to get free page\n");
@@ -131,12 +135,12 @@ namespace VM
 
   struct PageAttributes
   {
-     PhysPage  m_PhysPage;
-     PAGE_ATTR m_PgAttr;   // placeholder for access rights, TODO implement later
+     AddressInfo m_Addr;
+     PAGE_ATTR   m_PgAttr;   // placeholder for access rights, TODO implement later
 
-     PageAttributes(const uint32_t PhysAddr) :
-        m_PhysPage (PhysAddr),
-        m_PgAttr   (PAGE_ATTR::UNMAPPED)
+     PageAttributes(const uint32_t Addr) :
+        m_Addr   (Addr),
+        m_PgAttr (PAGE_ATTR::UNMAPPED)
      {
      }
   };
@@ -148,6 +152,12 @@ namespace VM
 
   class VMManager
   {
+     private:
+        void SetPage(const PageAttributes VirAttr, 
+                     uint32_t PageDirectory[PD_SIZE], 
+                     uint32_t PageTable[PT_SIZE]);
+        void ProtectPage(uint32_t PageTable[PT_SIZE], const size_t PgCount);
+
      public:
         void MapPageTable(uint32_t VAddr);
         void Initialize(multiboot_info_t &BootMemoryMap);

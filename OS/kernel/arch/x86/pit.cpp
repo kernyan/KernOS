@@ -53,9 +53,6 @@ namespace TIMER
         if (seconds_since_boot == 3)
         {
             seconds_since_boot = 0;
-#ifdef DEBUG
-            kprintf("\t3 seconds passed\n");
-#endif
             PROCESS::Reschedule();
         }
     }

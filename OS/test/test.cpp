@@ -3,6 +3,7 @@
 #include <Vector.h>
 #include <kprintf.h>
 #include <process.h>
+#include <virtualmemory.h>
 
 size_t TestCount = 0;
 
@@ -22,10 +23,10 @@ void MemoryTest()
    volatile uint32_t *Mem4 = (uint32_t*) 0x9010FF; // will cause Page Fault as > 4KB of Mem2
    *Mem4;                                          // reading memory will cause Page Fault if hasn't been mapped
 
-   volatile uint32_t *Mem5 = nullptr;              // will cause segfault
-   *Mem5;                                          // reading protected memory
+   //volatile uint32_t *Mem5 = nullptr;              // will cause segfault
+   //*Mem5;                                          // reading protected memory
 
-   kprintf("WARNING: Nullptr dereferencing not causing exception\n");
+   //kprintf("WARNING: Nullptr dereferencing not causing exception\n");
 }
 
 void VectorTest()

@@ -5,22 +5,31 @@
 #include <memoryallocator.h>
 #include <interrupt.h>
 #include <ktypes.h>
+#include <virtualmemory.h>
 
-void *kheap;      // populated in boot.S
+void *kheap;             // populated in boot.S
+extern void *kpagetable; // populated in boot.S
 
 namespace KM // kernel memory
 {
     MemoryAllocator mem_alloc;
+    Allocator4K     mem_alloc_4k;
 
-    void MemoryAllocator::Initialize (const uint32_t StartAdd, const uint32_t EndAdd)
+    void MemoryAllocator::Initialize (const uint32_t StartAdd, 
+                                      const uint32_t EndAdd)
     {
-        m_StartAdd = StartAdd;
-        m_EndAdd   = EndAdd;
+       m_StartAdd = StartAdd;
+       m_EndAdd   = EndAdd;
 
-        m_Base.m_Next         = (Header*) m_StartAdd;
-        m_Base.m_Size         = 0;
-        m_Base.m_Next->m_Next = (Header*) m_EndAdd;
-        m_Base.m_Next->m_Size = m_EndAdd - m_StartAdd;
+       if (m_EndAdd < m_StartAdd)
+       {
+          kpanic("Invalid range for memory allocator\n");
+       }
+
+       m_Base.m_Next         = (Header*) m_StartAdd;
+       m_Base.m_Size         = 0;
+       m_Base.m_Next->m_Next = (Header*) m_EndAdd;
+       m_Base.m_Next->m_Size = m_EndAdd - m_StartAdd;
     }
 
     void* kmalloc(size_t Size)
@@ -48,8 +57,8 @@ namespace KM // kernel memory
                 return (void*) (Next + 1);
             }
             else if (Next->m_Size > Size)
-            {
-                Header* Leftover = (Header*) ((uint32_t) Next + Size);
+            { 
+                Header* Leftover = (Header*) ((uint32_t) Next + Size); 
                 Leftover->m_Next = Next->m_Next;
                 Leftover->m_Size = Next->m_Size - Size;
                 Prev->m_Next     = Leftover;
@@ -104,6 +113,56 @@ namespace KM // kernel memory
             }
         }
     }
+
+    void Allocator4K::Initialize(const uint32_t StartAdd, const uint32_t EndAdd)
+    {
+       m_StartAdd = (StartAdd % VM::PG_SIZE)
+                  ? (StartAdd / VM::PG_SIZE + 1) * VM::PG_SIZE
+                  : StartAdd;
+       m_EndAdd   = EndAdd;
+       m_Offset = 0; 
+
+       if (m_EndAdd < m_StartAdd)
+       {
+          kpanic("Invalid range for Allocator4K\n");
+       }
+    }
+
+    void* Allocator4K::kmalloc_4k()
+    {
+       const uint32_t NextMem = m_StartAdd + m_Offset;
+
+       if (NextMem <= m_EndAdd)
+       {
+          m_Offset += VM::PG_SIZE;
+
+          kassert(!(NextMem & 0xFFF), "Allocated memory is not 4K aligned\n");
+
+          uint32_t* ClearMem = (uint32_t*) NextMem;
+
+          for (size_t i = 0; i < VM::PG_SIZE / sizeof(uint32_t); ++i) // TODO: replace with memset once implemented
+          {
+             *(ClearMem + i) = 0;
+          }
+
+          return (void*) NextMem;
+       }
+
+       kpanic("Memory allocator ran out of space\n");
+    }
+
+    void PrintMemoryLayout()
+    {
+       const uint32_t Text_Start = 0x00100000;
+       const uint32_t PTbl_Start = (uint32_t) kpagetable;
+       const uint32_t Heap_Start = (uint32_t) kheap;
+
+       kprintf("Kernel text loaded at: %h\n", Text_Start);
+       kprintf("Multi boot  loaded at: %h - %h\n", Text_Start, Text_Start + VM::PG_SIZE);
+       kprintf("Page tables loaded at: %h - %h\n", PTbl_Start, PTbl_Start + VM::PG_SIZE * 3);
+       kprintf("Kernel inst loaded at: %h - %h\n", PTbl_Start + VM::PG_SIZE * 3 , Heap_Start);
+       kprintf("Kernel heap loaded at: %h - %h\n", Heap_Start, Heap_Start + MB);
+    }
 } // namespace kernel memory
 
 namespace INIT
@@ -113,6 +172,9 @@ namespace INIT
      */
     void KMALLOC()
     {
-        KM::mem_alloc.Initialize((uint32_t) kheap, (uint32_t)(kheap) + 2 * MB);
+       const uint32_t Heap_Start = (uint32_t) kheap;
+       KM::PrintMemoryLayout();
+       KM::mem_alloc   .Initialize(Heap_Start,            Heap_Start + (MB / 2));
+       KM::mem_alloc_4k.Initialize(Heap_Start + (MB / 2), Heap_Start + MB);
     }
 }

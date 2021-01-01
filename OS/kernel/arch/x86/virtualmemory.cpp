@@ -6,6 +6,7 @@
 #include <registers.h>
 #include <interrupt.h>
 #include <kprintf.h>
+#include <memoryallocator.h>
 
 void *kpagetable;                     // populated in boot.S
 multiboot_info_t *multiboot_info_ptr; // populated in boot.S
@@ -52,31 +53,6 @@ namespace VM // virtual memory
                             );
    }
 
-   void SetPage(const PageAttributes PageAttr, 
-                uint32_t PageDirectory[PD_SIZE], 
-                uint32_t PageTable[PT_SIZE])
-   {
-      size_t PDE     = PageAttr.m_PhysPage.m_PDE;
-      size_t PTE     = PageAttr.m_PhysPage.m_PTE;
-      PageTable[PTE] = (PTE * PG_SIZE)
-                       | ( DWord<PTA::R>()
-                         | DWord<PTA::P>()
-                         );
-
-      if (PageDirectory[PDE] == (uint32_t) PageTable)
-      {
-         kprintf("PageDirectoryEntry already exists. Access rights not updated\n");
-      }
-      else
-      {
-         PageDirectory[PDE] = ( (uint32_t) PageTable // top 20 bits is addr of page frame
-                              | ( DWord<PDA::R>()    // bottom 12 bits are access rights
-                                | DWord<PDA::P>()
-                                )
-                              );
-      }
-   };
-
    /*! @brief Set cr3 to page directory, and turn on paging
     *  @param PageDirectory
     */
@@ -104,10 +80,6 @@ namespace VM // virtual memory
    {
       uint32_t Fault_Address;
       asm volatile("mov %%cr2, %0" : "=r" (Fault_Address));
-
-#ifdef DEBUG
-      kprintf("\tPage fault handler called\n");
-#endif
       VM::S.MapPageTable(Fault_Address);
    }
 
@@ -117,6 +89,7 @@ namespace VM // virtual memory
 
       uint32_t BaseAddrMax = 0;
       size_t   SizeMax     = 0;
+      size_t   ChunkNumber = 0;
 
       for (auto* MMap = (multiboot_memory_map_t*) MultibootInfo.mmap_addr;
           (unsigned long) MMap < MultibootInfo.mmap_addr + MultibootInfo.mmap_length;
@@ -132,12 +105,14 @@ namespace VM // virtual memory
            SizeMax     = Length;
         }
 
-        kprintf("BaseAddr: %h Length: %h\n", BaseAddr, Length);
+        kprintf("Memory chunk %i: %h - %h\n", ChunkNumber++, BaseAddr, BaseAddr + Length);
       }
 
       if (SizeMax > PG_SIZE)
       {
-        S.m_PhyPageAllocator.Initialize(BaseAddrMax, SizeMax);
+         uint32_t KernelReservedEnd = 0x800000;
+         S.m_PhyPageAllocator.Initialize(KernelReservedEnd, 
+                                         SizeMax - (KernelReservedEnd - BaseAddrMax));
       }
    }
 
@@ -151,44 +126,87 @@ namespace VM // virtual memory
       );
    }
 
+   void VMManager::ProtectPage(uint32_t PageTable[PT_SIZE], const size_t PgCount)
+   {
+      for (uint32_t i = 0; i < PgCount; ++i)
+      {
+         PageTable[i] = PageTable[i] 
+                      & !( DWord<PTA::P>()
+                         | DWord<PTA::R>()
+                         | DWord<PTA::U>()
+                         );
+      }
+   }
+
    void VMManager::Initialize(multiboot_info_t &BootMemoryMap)
    {
       ParseMultibootMemoryMap(BootMemoryMap);
       VM::InitializePageDirectory(VM::kernel_page_directory);
       VM::MapPageTable(0, VM::kernel_page_directory, VM::pagetable0);
       VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
+      ProtectPage(VM::pagetable0, 1 /*Number of pages to protect*/);
       VM::InstallPaging(VM::kernel_page_directory);
    }
 
    void VMManager::MapPageTable(uint32_t VAddr)
    {
-      if (VAddr < 8 * MB)
-      {
-        kprintf("Lower 8MB is always mapped. Page fault here is logical fault\n");
-        Hang();
-      }
-
 #ifdef DEBUG
-      kprintf("\tVMManger mapping virtual address %h\n", VAddr);
+      kprintf("\tVMManager mapping virtual address %h\n", VAddr);
 #endif
 
-      PageAttributes PageAttr {VAddr};
+      if (VAddr == 0)
+      {
+        kpanic("Null pointer dereferenced\n");
+      }
+      else if (VAddr < 8 * MB)
+      {
+        kpanic("Lower 8MB is always mapped. Page fault here is logical fault\n");
+      }
 
-      switch (GetAttr(PageAttr))
+      PageAttributes VirAttr {VAddr};
+
+      switch (GetAttr(VirAttr))
       {
       case PAGE_ATTR::MAPPED:
          break;
 
       case PAGE_ATTR::UNMAPPED:
-         auto FreePhyPageAddr = m_PhyPageAllocator.GetFreePage();
-#ifdef DEBUG
-         kprintf("\tFreePhyPageAddr: %h\n", FreePhyPageAddr);
-#endif
-         SetPage(PageAttr, kernel_page_directory, (uint32_t*) FreePhyPageAddr);
-         FlushTLB(VAddr);
-         break;
+         {
+            void* FreePage = KM::mem_alloc_4k.kmalloc_4k(); // TODO track and manage memory
+            SetPage(VirAttr, kernel_page_directory, (uint32_t*) FreePage);
+            FlushTLB(VAddr);
+            break;
+         }
       }
    }
+
+   void VMManager::SetPage(const PageAttributes VirAttr, 
+                           uint32_t PageDirectory[PD_SIZE], 
+                           uint32_t PageTable[PT_SIZE])
+   {
+      AddressInfo PhyAddr {(uint32_t) m_PhyPageAllocator.GetFreePage()};
+      uint32_t PhyTop20 = PhyAddr.m_Top20;
+
+      size_t PDE     = VirAttr.m_Addr.m_PDE;
+      size_t PTE     = VirAttr.m_Addr.m_PTE;
+      PageTable[PTE] = PhyTop20
+                     | ( DWord<PTA::R>()
+                       | DWord<PTA::P>()
+                       );
+
+      if (PageDirectory[PDE] == (uint32_t) PageTable)
+      {
+         kprintf("PageDirectoryEntry already exists. Access rights not updated\n");
+      }
+      else
+      {
+         PageDirectory[PDE] = ( (uint32_t) PageTable // top 20 bits is addr of page frame
+                              | ( DWord<PDA::R>()    // bottom 12 bits are access rights
+                                | DWord<PDA::P>()
+                                )
+                              );
+      }
+   };
 
 } // namespace VM
 

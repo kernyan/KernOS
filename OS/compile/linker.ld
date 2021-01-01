@@ -25,8 +25,8 @@ SECTIONS
 	{
 		*(.multiboot)
 		*(.page_tables)
-		*(.kheap_mem)
 		*(.text)
+		*(.kheap_mem)
 	}
  
 	/* Read-only data. */

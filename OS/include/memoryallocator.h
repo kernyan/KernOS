@@ -17,8 +17,10 @@ namespace INIT
 namespace KM // kernel memory
 {
     class MemoryAllocator; // forward declare
+    class Allocator4K;     // forward declare
 
-    extern MemoryAllocator mem_alloc; // singleton
+    extern MemoryAllocator mem_alloc;    // unaligned memory
+    extern Allocator4K     mem_alloc_4k; // for 4KB aligned memory
 
     /*! @brief kernel malloc
      * @param Size
@@ -72,6 +74,16 @@ namespace KM // kernel memory
         void Initialize(const uint32_t StartAdd, const uint32_t EndAdd);
     };
 
+    class Allocator4K
+    {
+        uint32_t m_StartAdd = 0; ///< range of reserved address for kernel heap memory
+        uint32_t m_EndAdd   = 0; ///< range of reserved address for kernel heap memory
+        size_t   m_Offset   = 0;
+
+    public:
+        void Initialize(const uint32_t StartAdd, const uint32_t EndAdd);
+        void* kmalloc_4k();
+    };
 
 } // namespace KM, kernel memory
 

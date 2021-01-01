@@ -94,14 +94,7 @@ namespace PROCESS
       ContextSwitch(&Old->m_StackPtr, &New->m_StackPtr);
 
 #ifdef DEBUG
-      if (currpid)
-      {
-         kprintf("\tProcess 0 executing\n");
-      }
-      else
-      {
-         kprintf("\tProcess 1 executing\n");
-      }
+      kprintf("\tSwitched to process %i\n", currpid);
 #endif
       return;
    }
