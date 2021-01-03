@@ -10,6 +10,7 @@
 - [Project goal](#project-goal)
 - [Documented topics](#documented-topics)
 - [Status](#status)
+- [Toolchain](#toolchain-and-qemu)
 - [Build and run](#build-and-run)
 - [Test](#test)
 - [Debugging](#debugging)
@@ -46,9 +47,20 @@ Currently only supports
 
 Next is to get TLB working, and ultimately to a GUI desktop!
 
+## Toolchain and qemu
+Build i686-elf toolchain as below
+```bash
+cd Toolchain
+./BuildToolchain.sh
+```
+Get qemu from package manager. Or build from below if need to debug qemu, e.g. using rr
+```bash
+cd Qemu
+./BuildQemu.sh
+```
+
 ## Build and run
-Requires gcc cross-compiler for i686-elf toolchain. Refer [Osdev](https://wiki.osdev.org/GCC_Cross-Compiler) 
-on guide to setup. CMakeLists.txt assumes toolchain installed to opt/cross/bin
+Build kern.bin
 ```bash
 cd KernOS
 mkdir build && cd build
