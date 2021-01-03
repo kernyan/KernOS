@@ -1,0 +1,5 @@
+OS/tags
+OS/compile_commands.json
+build/
+Qemu/.gitignore
+Toolchain/.gitignore
