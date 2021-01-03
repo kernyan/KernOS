@@ -13,7 +13,6 @@
 - [Build and run](#build-and-run)
 - [Test](#test)
 - [Debugging](#debugging)
-- [Background](#background)
 
 ## Project goal
 To have a working well-documented Operating System code that lets the reader quickly
@@ -108,20 +107,3 @@ target remote localhost:1234
 break kernel_main
 continue
 ```
-
-## Background
-While writing a hobby OS, I constantly needed to find information on very 
-particular aspect of theory, hardware specifications, or implementation.
-However, reading the Linux kernel [source](https://github.com/torvalds/linux) 
-to reference a particular design aspect is akin to finding a chameleon 
-in a rainforest - you know it's there, but you just don't see it.
-
-Alternative projects such as the [SerenityOS](https://github.com/SerenityOS/serenity) 
-and [xinu-os](https://github.com/xinu-os/xinu) are both operating systems which 
-are much smaller in size. They are better references. Nonetheless, as documentation 
-weren't those projects' primary goal, the source code themselves aren't sufficient 
-to understand OS design.
-
-Having already spent the time down the rabbit hole, I thought it would be a waste to 
-not document them. Thus my hobby OS project came to become a project to document in detail Operating 
-System development.
