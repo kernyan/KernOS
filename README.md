@@ -19,7 +19,7 @@ To have a working well-documented Operating System code that lets the reader qui
 find code implementation of a specific topic.
 
 ## Documented topics 
-The doxygen documentation below is a good place to start exploring
+The doxygen documentation below is a good place to start exploring 
 - [Doxygen documentation](https://kernyan.github.io/KernOS/html/index.html)
 
 For specific topics, use links below,
