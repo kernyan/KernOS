@@ -6,7 +6,7 @@
 [//]: # (Image References)
 [image1]: ./images/TaskSwitching.png "Task_Switching"
 
-## Table of contents
+## Table of contents 
 - [Project goal](#project-goal)
 - [Documented topics](#documented-topics)
 - [Status](#status)
