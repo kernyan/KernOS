@@ -53,6 +53,11 @@ Build i686-elf toolchain as below
 cd Toolchain
 ./BuildToolchain.sh
 ```
+Add path to ~/.profile or ~/.bashrc by 
+```
+PATH="$HOME/opt/cross/bin:$PATH"
+``` 
+
 Get qemu from package manager. Or build from below if need to debug qemu, e.g. using rr
 ```bash
 cd Qemu

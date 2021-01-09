@@ -3,3 +3,4 @@ OS/compile_commands.json
 build/
 Qemu/.gitignore
 Toolchain/.gitignore
+OS/CMakeLists.txt.user

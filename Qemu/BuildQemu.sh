@@ -12,6 +12,6 @@ cd Build
 ../qemu/configure
 make -j$(nproc)
 
-sudo apt install virt-viewer virt-manager
+#sudo apt install virt-viewer virt-manager
 
-echo "Please reboot"
+#echo "Please reboot"
