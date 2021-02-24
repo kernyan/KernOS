@@ -14,8 +14,11 @@ void MemoryTest()
    volatile uint32_t *Mem = (uint32_t*) 0x500000;  // virtual memory below 8MB is already mapped at initialization
    *Mem;                                           // reading memory will cause Page Fault if hasn't been mapped
 
+   //volatile uint32_t *Mem5 = nullptr;              // will cause segfault
+   //*Mem5;                                          // reading protected memory
+
    volatile uint32_t *Mem2 = (uint32_t*) 0x900000; // will cause Page Fault
-   *Mem2;                                          // reading memory will cause Page Fault if hasn't been mapped
+   *Mem2 = 1;                                          // reading memory will cause Page Fault if hasn't been mapped
 
    volatile uint32_t *Mem3 = (uint32_t*) 0x900F00; // will not cause Page Fault as within 4KB of Mem2
    *Mem3;                                          // reading memory will cause Page Fault if hasn't been mapped

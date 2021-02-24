@@ -11,6 +11,18 @@
 #include <ports.h>
 #include <pic.h>
 
+struct [[gnu::packed]] RegState
+{
+   uint16_t m_exception_code;
+   uint16_t m_isr_number;
+   uint32_t m_eip;
+   uint32_t m_cs;
+   uint32_t m_eflags;
+   uint32_t m_userspace_esp;
+   uint32_t m_userspace_ss;
+};
+
+
 /*! @brief interrupt namespace
  */
 namespace INTRP // interrupt

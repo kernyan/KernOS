@@ -7,6 +7,7 @@
 #include <interrupt.h>
 #include <kprintf.h>
 #include <memoryallocator.h>
+#include <vga.h>
 
 void *kpagetable;                     // populated in boot.S
 multiboot_info_t *multiboot_info_ptr; // populated in boot.S
@@ -76,8 +77,13 @@ namespace VM // virtual memory
        );
    }
 
-   extern "C" void FaultPageHandler()
+   extern "C" void FaultPageHandler(RegState Reg)
    {
+      kprintf("Exp code %h\n", (uint32_t) Reg.m_exception_code);
+      kprintf("Isr code %h\n", (uint32_t) Reg.m_isr_number);
+      kprintf("Eip code %h\n", Reg.m_eip);
+      kprintf("CSf code %h\n", Reg.m_cs);
+      kprintf("Efg code %h\n", Reg.m_eflags);
       uint32_t Fault_Address;
       asm volatile("mov %%cr2, %0" : "=r" (Fault_Address));
       VM::S.MapPageTable(Fault_Address);

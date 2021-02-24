@@ -4,3 +4,9 @@ build/
 Qemu/.gitignore
 Toolchain/.gitignore
 OS/CMakeLists.txt.user
+Temp/
+Local.MD
+Notes/
+references/
+rr_5.4/
+scripts/

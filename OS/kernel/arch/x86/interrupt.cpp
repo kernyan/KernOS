@@ -21,14 +21,15 @@
 
 INTRP_ENTRY(Timer)
 
-#define FAULT_ENTRY(Type)                   \
-    extern "C" void Fault##Type##Entry();   \
-    extern "C" void Fault##Type##Handler(); \
-    asm(                                    \
-    ".globl Fault" #Type "Entry \n"         \
-    "Fault" #Type "Entry:       \n"         \
-    "    call Fault" #Type "Handler \n"     \
-    "    add $0x4, %esp\n"                  \
+#define FAULT_ENTRY(Type)                           \
+    extern "C" void Fault##Type##Entry();           \
+    extern "C" void Fault##Type##Handler(RegState); \
+    asm(                                            \
+    ".globl Fault" #Type "Entry \n"                 \
+    "Fault" #Type "Entry:       \n"                 \
+    "    cld\n"                                     \
+    "    call Fault" #Type "Handler \n"             \
+    "    add $0x4, %esp\n"                          \
     "    iret\n");
 
 FAULT_ENTRY(Page)

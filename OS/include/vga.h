@@ -117,6 +117,7 @@ namespace VGA
         m_Color = Color;
     }
 
+    extern Vga Display;
 
 } // namespace VGA
 
