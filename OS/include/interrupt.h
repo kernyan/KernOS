@@ -13,13 +13,19 @@
 
 struct [[gnu::packed]] RegState
 {
+   uint32_t m_edi;
+   uint32_t m_esi;
+   uint32_t m_ebp;
+   uint32_t m_esp;
+   uint32_t m_ebx;
+   uint32_t m_edx;
+   uint32_t m_ecx;
+   uint32_t m_eax;
    uint16_t m_exception_code;
    uint16_t m_isr_number;
    uint32_t m_eip;
    uint32_t m_cs;
    uint32_t m_eflags;
-   uint32_t m_userspace_esp;
-   uint32_t m_userspace_ss;
 };
 
 

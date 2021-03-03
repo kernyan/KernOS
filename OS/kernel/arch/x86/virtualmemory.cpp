@@ -77,13 +77,12 @@ namespace VM // virtual memory
        );
    }
 
-   extern "C" void FaultPageHandler(RegState Reg)
+   extern "C" void FaultPageHandler(RegState &Reg)
    {
-      kprintf("Exp code %h\n", (uint32_t) Reg.m_exception_code);
-      kprintf("Isr code %h\n", (uint32_t) Reg.m_isr_number);
-      kprintf("Eip code %h\n", Reg.m_eip);
-      kprintf("CSf code %h\n", Reg.m_cs);
-      kprintf("Efg code %h\n", Reg.m_eflags);
+#ifdef DEBUG
+      kprintf("\tException code %h\n", (uint32_t) Reg.m_exception_code);
+      kprintf("\tEip code %h\n", Reg.m_eip);
+#endif
       uint32_t Fault_Address;
       asm volatile("mov %%cr2, %0" : "=r" (Fault_Address));
       VM::S.MapPageTable(Fault_Address);
@@ -199,7 +198,6 @@ namespace VM // virtual memory
                      | ( DWord<PTA::R>()
                        | DWord<PTA::P>()
                        );
-
       if (PageDirectory[PDE] == (uint32_t) PageTable)
       {
          kprintf("PageDirectoryEntry already exists. Access rights not updated\n");

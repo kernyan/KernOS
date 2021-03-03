@@ -33,10 +33,10 @@ extern "C" void kernel_main()
     INIT::PAGE();    // initialize page directory, page table
     INIT::PIT();     // initialize timer
     INIT::NULLPROCESS();
+
     sti();           // enable interrupt
 
     RunTests();
-
 
     for(;;)
     {

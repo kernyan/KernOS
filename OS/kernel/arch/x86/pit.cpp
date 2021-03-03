@@ -21,6 +21,7 @@ namespace INTRP
     | Channel |  Access |   Operating  | BCD/Binary |
     @endverbatim
  */
+
 namespace TIMER
 {
     uint64_t timer_ticks;

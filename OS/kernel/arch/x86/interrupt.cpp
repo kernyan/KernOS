@@ -16,20 +16,25 @@
     asm(                                        \
     ".globl Interrupt" #Type "Entry \n"         \
     "Interrupt" #Type "Entry:       \n"         \
-    "call Interrupt" #Type "Handler \n"         \
+    "    pusha\n"                               \
+    "    call Interrupt" #Type "Handler \n"     \
+    "    popa\n"                                \
     "    iret\n");
 
 INTRP_ENTRY(Timer)
 
-#define FAULT_ENTRY(Type)                           \
-    extern "C" void Fault##Type##Entry();           \
-    extern "C" void Fault##Type##Handler(RegState); \
-    asm(                                            \
-    ".globl Fault" #Type "Entry \n"                 \
-    "Fault" #Type "Entry:       \n"                 \
-    "    cld\n"                                     \
-    "    call Fault" #Type "Handler \n"             \
-    "    add $0x4, %esp\n"                          \
+#define FAULT_ENTRY(Type)                            \
+    extern "C" void Fault##Type##Handler(RegState&); \
+    extern "C" void Fault##Type##Entry();            \
+    asm(                                             \
+    ".globl Fault" #Type "Entry \n"                  \
+    "Fault" #Type "Entry:       \n"                  \
+    "    pusha\n"                                    \
+    "    push  %esp\n"                               \
+    "    call Fault" #Type "Handler \n"              \
+    "    add $0x4, %esp\n"                           \
+    "    popa\n"                                     \
+    "    add $0x4, %esp\n"                           \
     "    iret\n");
 
 FAULT_ENTRY(Page)

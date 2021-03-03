@@ -6,6 +6,7 @@
 /*! @brief Video Graphics Array namespace
  *  @details
  */
+
 namespace VGA
 {
 
