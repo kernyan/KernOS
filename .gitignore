@@ -3,6 +3,10 @@ OS/compile_commands.json
 build/
 Qemu/.gitignore
 Toolchain/.gitignore
+Toolchain/binutils-2.35/
+Toolchain/build-binutils/
+Toolchain/build-gcc/
+Toolchain/gcc-10.2.0/
 OS/CMakeLists.txt.user
 Temp/
 Local.MD
@@ -10,3 +14,6 @@ Notes/
 references/
 rr_5.4/
 scripts/
+TODO/
+.gitignore
+Scripts/_disk_image
