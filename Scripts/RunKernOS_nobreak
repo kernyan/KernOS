@@ -6,3 +6,9 @@ qemu-system-i386 \
   -drive file=../Scripts/_disk_image,format=raw,index=0,media=disk \
   -device VGA,vgamem_mb=64 \
   -kernel kern.bin
+
+#qemu-system-i386 \
+#  -m 128M \
+#  -d cpu_reset,guest_errors \
+#  -device VGA,vgamem_mb=64 \
+#  -kernel kern.bin
