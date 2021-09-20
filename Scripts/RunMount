@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+qemu-system-i386 \
+  -gdb tcp::1235 -S \
+  -m 128M \
+  -d cpu_reset,guest_errors \
+  -device VGA,vgamem_mb=64 \
+  -drive id=disk,file=../disk/disk32.img,if=none \
+  -device ahci,id=ahci\
+  -device ide-hd,drive=disk,bus=ahci.0 \
+  -kernel kern.bin
