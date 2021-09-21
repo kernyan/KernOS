@@ -52,6 +52,16 @@ namespace
         );
     }
 
+    inline void out32(uint16_t Port, uint32_t Value)
+    {
+        asm volatile (
+        "outl %0, %1"
+        :              // No output
+        : "a"(Value),  // Input 0: "a" constraint is to place Value in eax before asm command
+          "Nd"(Port)   //       1: "Nd" constraint is to place Port as 4 byte literal (without using register)
+        );
+    }
+
     inline uint8_t in8(uint16_t Port)
     {
         uint8_t Value;
@@ -60,6 +70,19 @@ namespace
         "inb %1, %0"
         : "=a"(Value)  // Output 0: write byte to Value
         : "Nd"(Port)   // Input  1: "Nd" constraint is to place Port as one byte literal (without using register)
+        );
+
+        return Value;
+    }
+
+    inline uint32_t in32(uint16_t Port)
+    {
+        uint32_t Value;
+
+        asm volatile (
+        "inl %1, %0"
+        : "=a"(Value)  // Output 0: write byte to Value
+        : "Nd"(Port)   // Input  1: "Nd" constraint is to place Port as 4 byte literal (without using register)
         );
 
         return Value;

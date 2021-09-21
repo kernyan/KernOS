@@ -9,6 +9,7 @@
 #include <pit.h>
 #include <process.h>
 #include <test.h>
+#include <pci.h>
 
 #ifndef __i686__
 #error "Failed - use i686 compiler instead"
@@ -37,6 +38,8 @@ extern "C" void kernel_main()
     sti();           // enable interrupt
 
     RunTests();
+
+    PCI::test_pci_io();
 
     for(;;)
     {
