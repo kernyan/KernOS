@@ -39,7 +39,8 @@ extern "C" void kernel_main()
 
     RunTests();
 
-    PCI::test_pci_io();
+
+    INIT::PCI();
 
     for(;;)
     {
