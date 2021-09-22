@@ -1,5 +1,4 @@
 #include <kprintf.h>
-#include <kprintf2.h>
 #include <utilities.h>
 
 #define PCI_ADDRESS_PORT 0xCF8
@@ -7,7 +6,7 @@
 
 namespace PCI
 {
-bool test_pci_io()
+bool Test_pci_io()
 {
     kprintf("Test PCI IO\n");
     uint32_t tmp = 0x80000000;
@@ -36,44 +35,43 @@ uint32_t Read(uint8_t bus, uint8_t slot, uint8_t offset)
 
 void Dump(uint8_t bus, uint8_t slot, uint32_t buf[2])
 {
-    uint32_t out;
+  uint32_t out;
 
-    for (size_t i = 0; i < 2; ++i)  // actual length depends on headertype
-    {
-        out = Read(bus, slot, i);
+  for (size_t i = 0; i < 2; ++i)  // actual length depends on headertype
+  {
+      out = Read(bus, slot, i);
 
-        buf[i*4] = out;
-    }
+      buf[i*4] = out;
+  }
 }
 
 } // namespace PCI
 
 namespace INIT
 {
-    void PCI()
+  void PCI()
+  {
+    if (PCI::Test_pci_io())
     {
-        if (PCI::test_pci_io())
+      uint32_t buf[2];
+
+      for (size_t i = 0; i < 2; ++i)
+          buf[i] = 0;
+
+      for (uint16_t bus = 0; bus < 256; ++bus)
+      {
+        for (uint16_t slot = 0; slot < 32; ++slot)
         {
-            uint32_t buf[2];
+          PCI::Dump(bus, slot, buf);
 
-            for (size_t i = 0; i < 2; ++i)
-                buf[i] = 0;
+          if (buf[0] != 0xFFFFFFFF)
+          {
+            kprintf("bus %i slot %i\n", (uint32_t) bus, (uint32_t) slot);
 
-            for (uint16_t bus = 0; bus < 256; ++bus)
-            {
-                for (uint16_t slot = 0; slot < 32; ++slot)
-                {
-                    PCI::Dump(bus, slot, buf);
-
-                    if (buf[0] != 0xFFFFFFFF)
-                    {
-                      kprintf("bus %i slot %i\n", (uint32_t) bus, (uint32_t) slot);
-
-                      kprintf("Vendor: %h Device:%h\n", buf[0] & 0xFFFF, (buf[0] >> 16) & 0xFFFF );
-                      util::printf("Vendor: %04x Device:%04x\n", buf[0] & 0xFFFF, (buf[0] >> 16) & 0xFFFF );
-                    }
-                }
-            }
+            kprintf("Vendor: %04x Device:%04x\n", buf[0] & 0xFFFF, (buf[0] >> 16) & 0xFFFF );
+          }
         }
+      }
     }
+  }
 }
