@@ -1,4 +1,5 @@
 #include <kprintf.h>
+#include <kprintf2.h>
 #include <utilities.h>
 
 #define PCI_ADDRESS_PORT 0xCF8
@@ -69,6 +70,7 @@ namespace INIT
                       kprintf("bus %i slot %i\n", (uint32_t) bus, (uint32_t) slot);
 
                       kprintf("Vendor: %h Device:%h\n", buf[0] & 0xFFFF, (buf[0] >> 16) & 0xFFFF );
+                      util::printf("Vendor: %04x Device:%04x\n", buf[0] & 0xFFFF, (buf[0] >> 16) & 0xFFFF );
                     }
                 }
             }
