@@ -157,11 +157,11 @@ namespace KM // kernel memory
        const uint32_t PTbl_Start = (uint32_t) kpagetable;
        const uint32_t Heap_Start = (uint32_t) kheap;
 
-       kprintf("Kernel text loaded at: %h\n", Text_Start);
-       kprintf("Multi boot  loaded at: %h - %h\n", Text_Start, Text_Start + VM::PG_SIZE);
-       kprintf("Page tables loaded at: %h - %h\n", PTbl_Start, PTbl_Start + VM::PG_SIZE * 3);
-       kprintf("Kernel inst loaded at: %h - %h\n", PTbl_Start + VM::PG_SIZE * 3 , Heap_Start);
-       kprintf("Kernel heap loaded at: %h - %h\n", Heap_Start, Heap_Start + MB);
+       kprintf("Kernel text loaded at: %#010x\n", Text_Start);
+       kprintf("Multi boot  loaded at: %#010x - %#010x\n",Text_Start,Text_Start+VM::PG_SIZE);
+       kprintf("Page tables loaded at: %#010x - %#010x\n",PTbl_Start,PTbl_Start+VM::PG_SIZE * 3);
+       kprintf("Kernel inst loaded at: %#010x - %#010x\n",PTbl_Start+VM::PG_SIZE*3 , Heap_Start);
+       kprintf("Kernel heap loaded at: %#010x - %#010x\n",Heap_Start, Heap_Start + MB);
     }
 } // namespace kernel memory
 

@@ -124,7 +124,7 @@ namespace VM
 
         if (BaseAddr & 0xFFF)
         {
-           kprintf("Warning: Physical memory is not 4KB aligned at %h\n", BaseAddr);
+           kprintf("Warning: Physical memory is not 4KB aligned at %#010x\n", BaseAddr);
         }
 
         m_BaseAddr = BaseAddr;

@@ -80,8 +80,8 @@ namespace VM // virtual memory
    extern "C" void FaultPageHandler(RegState &Reg)
    {
 #ifdef DEBUG
-      kprintf("\tException code %h\n", (uint32_t) Reg.m_exception_code);
-      kprintf("\tEip code %h\n", Reg.m_eip);
+      kprintf("\tException code %#06x\n", Reg.m_exception_code);
+      kprintf("\tEip code %#010x\n", Reg.m_eip);
 #endif
       uint32_t Fault_Address;
       asm volatile("mov %%cr2, %0" : "=r" (Fault_Address));
@@ -110,7 +110,7 @@ namespace VM // virtual memory
            SizeMax     = Length;
         }
 
-        kprintf("Memory chunk %i: %h - %h\n", ChunkNumber++, BaseAddr, BaseAddr + Length);
+        kprintf("Memory chunk %i: %#010x - %#010x\n",ChunkNumber++, BaseAddr, BaseAddr + Length);
       }
 
       if (SizeMax > PG_SIZE)
@@ -156,7 +156,7 @@ namespace VM // virtual memory
    void VMManager::MapPageTable(uint32_t VAddr)
    {
 #ifdef DEBUG
-      kprintf("\tVMManager mapping virtual address %h\n", VAddr);
+      kprintf("\tVMManager mapping virtual address %#010x\n", VAddr);
 #endif
 
       if (VAddr == 0)
