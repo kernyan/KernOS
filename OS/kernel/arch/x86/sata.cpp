@@ -1,6 +1,7 @@
 #include <kprintf.h>
 #include <utilities.h>
 #include <sata.h>
+#include <ahci.h>
 
 namespace SATA
 {
@@ -15,10 +16,17 @@ namespace INIT
 		if ( pci_config.classcode == 0x1 
 			&& pci_config.subclass == 0x6)
 		{
-			(pci_config.pif) ? kprintf("SATA (AHCI 1.O) detected\n")
-                       : kprintf("SATA (Vendor Specific Interface) detected\n");
+			if (pci_config.pif)
+      {
+        kprintf("SATA (AHCI 1.O) detected\n");
+        kprintf("BAR4: %#06x BAR5: %#010x\n", pci_config.bar4, pci_config.bar5);
 
-			kprintf("BAR4: %#06x BAR5: %#010x\n", pci_config.bar4, pci_config.bar5);
+        AHCI::ReadHBA(pci_config.bar5);
+      }
+      else
+      {
+        kprintf("SATA (Vendor Specific Interface) detected, but not supported\n");
+      }
 		}
   }
 }

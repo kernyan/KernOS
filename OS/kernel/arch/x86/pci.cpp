@@ -79,16 +79,22 @@ namespace INIT
 
             uint16_t Vendor = Reg1 & 0xFFFF;
             uint16_t Device = (Reg1 >> 16) & 0xFFFF;
+            uint8_t  Header = PCI::Read(bus, slot, 0xC) & 0xFF;
 
-            kprintf("Vendor: %04x Device:%04x\n", Vendor, Device);
+            kprintf("Vendor: %04x Device:%04x Header:%02x\n", Vendor, Device, Header);
 
-            if (Vendor == 0x8086 && Device == 0x2922)
+            if (Header == PCI::HEADER::general)
             {
-              uint8_t Header = PCI::Read(bus, slot, 0xC) & 0xFF;
-              kassert(Header == PCI::HEADER::general, "Expected SATA PCI general header type");
               PCI::pci_dev pci_config;
               load_pci_dev(bus, slot, pci_config);
-              SATA(bus, slot, pci_config);
+
+              switch (pci_config.classcode)
+              {
+              case PCI::CLASSCODE::MASS_STORAGE:
+                SATA(bus, slot, pci_config); break;
+              default:
+                kprintf("PCI %02x unhandled\n", pci_config.classcode);
+              }
             }
           }
         }

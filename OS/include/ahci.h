@@ -119,7 +119,7 @@ namespace AHCI
     uint32_t resvd;
   };
   
-  volatile struct HBA_PORT
+  struct HBA_PORT // need to be volatile
   {
     uint32_t clb;
     uint32_t clbu;
@@ -142,7 +142,7 @@ namespace AHCI
     uint32_t vendor[4];
   };
 
-  volatile struct HBA_MEM
+  struct HBA_MEM // need to be volatile
   {
     uint32_t cap;
     uint32_t ghc;
@@ -160,7 +160,7 @@ namespace AHCI
     HBA_PORT ports[1];
   };
 
-  volatile struct HBA_FIS
+  struct HBA_FIS // need to be volatile
   {
     FIS_DMA_SETUP dsfis;
     uint8_t pad0[4];
@@ -171,7 +171,7 @@ namespace AHCI
     FIS_REG_D2H rfis;
     uint8_t pad2[4];
 
-    FIS_DEV_BITS sdbfis;
+    uint8_t sdbfis[8]; // not used?
 
     uint8_t ufis[64];
     uint8_t rsv[0x100-0xA0];
@@ -210,8 +210,10 @@ namespace AHCI
     uint8_t cfis[64];
     uint8_t acmd[16];
     uint8_t rsv[48];
-    HDA_PRDT_ENTRY prdt_entry[1];
+    HBA_PRDT_ENTRY prdt_entry[1];
   };
+
+  void ReadHBA(uint32_t Addr);
 } // namespace AHCI
 
 #endif //KERNOS_AHCI_H

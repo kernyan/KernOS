@@ -9,6 +9,24 @@
 
 namespace PCI
 {
+  enum CLASSCODE: uint8_t
+  {
+    LEGACY       = 0x00,
+    MASS_STORAGE = 0x01,
+    NETWORK_CONT = 0x02,
+    DISPLAY_CONT = 0x03,
+    MMEDIA_CONT  = 0x04,
+    MEMORY_CONT  = 0x05,
+    BRIDGE_DEV   = 0x06,
+    SIMPL_COM_D  = 0x07,
+    BASE_PERIPH  = 0x08,
+    INPUT_DEV    = 0x09,
+    DOCKING_STN  = 0x0a,
+    PROCESSORS   = 0x0b,
+    SERIAL_BUS   = 0x0c,
+    WIRELESS     = 0x0d
+  };
+
   struct pci_dev
   {
     uint16_t vendor;
