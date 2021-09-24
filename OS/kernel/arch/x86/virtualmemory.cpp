@@ -19,6 +19,7 @@ namespace VM // virtual memory
    uint32_t kernel_page_directory[PD_SIZE][[gnu::aligned(PG_SIZE)]];
    uint32_t pagetable0           [PT_SIZE][[gnu::aligned(PG_SIZE)]];
    uint32_t pagetable1           [PT_SIZE][[gnu::aligned(PG_SIZE)]];
+   uint32_t pagetable1018        [PT_SIZE][[gnu::aligned(PG_SIZE)]];
 
    VMManager S;
 
@@ -149,6 +150,7 @@ namespace VM // virtual memory
       VM::InitializePageDirectory(VM::kernel_page_directory);
       VM::MapPageTable(0, VM::kernel_page_directory, VM::pagetable0);
       VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
+      VM::MapPageTable(1018, VM::kernel_page_directory, VM::pagetable1018); // identity map for PCI SATA
       ProtectPage(VM::pagetable0, 1 /*Number of pages to protect*/);
       VM::InstallPaging(VM::kernel_page_directory);
    }
