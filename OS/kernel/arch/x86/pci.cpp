@@ -10,31 +10,29 @@ namespace PCI
 {
 bool Test_pci_io()
 {
-    kprintf("Test PCI IO\n");
-    uint32_t tmp = 0x80000000;
-    out32(PCI_ADDRESS_PORT, tmp);
-    tmp = in32(PCI_ADDRESS_PORT);
-    if (tmp == 0x80000000)
-    {
-        kprintf("PCI IO supported\n");
-        return true;
-    }
+  uint32_t tmp = 0x80000000;
+  out32(PCI_ADDRESS_PORT, tmp);
+  tmp = in32(PCI_ADDRESS_PORT);
+  if (tmp == 0x80000000)
+  {
+    return true;
+  }
 
-    kprintf("PCI IO not supported\n");
-    return false;
+  kprintf("PCI IO not supported\n");
+  return false;
 }
 
 uint32_t Read(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offset, uint32_t val)
 {
-    uint32_t out;
+  uint32_t out;
 
-    out = 0x80000000 | (bus << 16) | (slot << 11) | (function << 8) | offset;
-    out32(PCI_ADDRESS_PORT, out);
+  out = 0x80000000 | (bus << 16) | (slot << 11) | (function << 8) | offset;
+  out32(PCI_ADDRESS_PORT, out);
 
-    if (val)
-      out32(PCI_DATA_PORT, val);
+  if (val)
+    out32(PCI_DATA_PORT, val);
 
-    return in32(PCI_DATA_PORT);
+  return in32(PCI_DATA_PORT);
 }
 
 void load_pci_dev(uint8_t bus, uint8_t slot, uint8_t function, pci_dev& pci_config)
@@ -47,7 +45,7 @@ void load_pci_dev(uint8_t bus, uint8_t slot, uint8_t function, pci_dev& pci_conf
   }
 }
 
-void TempBridgeLog(uint8_t bus, uint8_t slot, uint8_t function, pci_dev& pci_config)
+void TempBridgeLog(uint8_t bus, uint8_t slot, pci_dev& pci_config)
 {
   switch (pci_config.subclass)
   {
@@ -72,6 +70,8 @@ namespace INIT
     {
       uint32_t Reg1 = 0;
 
+      kprintf("\nEnumerating PCI\n");
+
       for (uint16_t bus = 0; bus < 256; ++bus)
       {
         for (uint16_t slot = 0; slot < 32; ++slot)
@@ -80,7 +80,7 @@ namespace INIT
           {
             Reg1 = PCI::Read(bus, slot, f, 0);
 
-            if (Reg1 != -1)
+            if (Reg1 != (uint32_t) -1)
             {
               uint16_t Vendor = Reg1 & 0xFFFF;
               uint16_t Device = (Reg1 >> 16) & 0xFFFF;
@@ -100,7 +100,7 @@ namespace INIT
                   case PCI::CLASSCODE::MASS_STORAGE:
                     SATA(bus, slot, f, pci_config); break;
                   case PCI::CLASSCODE::BRIDGE_DEV:
-                    TempBridgeLog(bus, slot, f, pci_config); break;
+                    TempBridgeLog(bus, slot, pci_config); break;
                   case PCI::CLASSCODE::NETWORK_CONT:
                     kprintf("\tbus:%i slot:%i unimplemented - Network\n", bus, slot);
                     break;
