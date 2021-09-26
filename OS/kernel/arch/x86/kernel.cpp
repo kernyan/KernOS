@@ -34,13 +34,11 @@ extern "C" void kernel_main()
     INIT::PAGE();    // initialize page directory, page table
     INIT::PIT();     // initialize timer
     INIT::NULLPROCESS();
+    INIT::PCI();     // initialize PCI devices
 
     sti();           // enable interrupt
 
     RunTests();
-
-
-    INIT::PCI();
 
     for(;;)
     {

@@ -58,9 +58,9 @@ namespace PCI
 
   bool test_pci_io();
 
-  uint32_t Read(uint8_t bus, uint8_t slot, uint8_t offset);
+  uint32_t Read(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offset, uint32_t value = 0);
 
-  void load_pci_dev(uint8_t bus, uint8_t slot, pci_dev& pci_config);
+  void load_pci_dev(uint8_t bus, uint8_t slot, uint8_t function, pci_dev& pci_config);
 
 } // namespace PCI
 

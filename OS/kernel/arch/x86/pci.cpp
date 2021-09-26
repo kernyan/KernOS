@@ -24,36 +24,41 @@ bool Test_pci_io()
     return false;
 }
 
-
-uint32_t Read(uint8_t bus, uint8_t slot, uint8_t offset)
+uint32_t Read(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offset, uint32_t val)
 {
     uint32_t out;
 
-    out = 0x80000000 | (bus << 16) | (slot << 11) | offset;
+    out = 0x80000000 | (bus << 16) | (slot << 11) | (function << 8) | offset;
     out32(PCI_ADDRESS_PORT, out);
+
+    if (val)
+      out32(PCI_DATA_PORT, val);
 
     return in32(PCI_DATA_PORT);
 }
 
-void Dump(uint8_t bus, uint8_t slot, uint32_t buf[2])
-{
-  uint32_t out;
-
-  for (size_t i = 0; i < 2; ++i)  // actual length depends on headertype
-  {
-      out = Read(bus, slot, i);
-
-      buf[i] = out;
-  }
-}
-
-void load_pci_dev(uint8_t bus, uint8_t slot, pci_dev& pci_config)
+void load_pci_dev(uint8_t bus, uint8_t slot, uint8_t function, pci_dev& pci_config)
 {
   uint32_t *ptr = (uint32_t*) &pci_config;
 
-  for (size_t i = 0; i < 10; ++i)
+  for (size_t i = 0; i < sizeof(pci_dev); i+=4)
   {
-    *ptr++ = Read(bus, slot, i*4);
+    *ptr++ = Read(bus, slot, function, i);
+  }
+}
+
+void TempBridgeLog(uint8_t bus, uint8_t slot, uint8_t function, pci_dev& pci_config)
+{
+  switch (pci_config.subclass)
+  {
+  case 0x0:
+    kprintf("\tbus: %i slot: %i unimplemented - Host bridge\n", bus, slot);
+    break;
+  case 0x1:
+    kprintf("\tbus: %i slot: %i unimplemented - ISA bridge\n", bus, slot);
+    break;
+  default:
+    kpanic("\tUnhandled PCI bridge\n");
   }
 }
 
@@ -71,29 +76,45 @@ namespace INIT
       {
         for (uint16_t slot = 0; slot < 32; ++slot)
         {
-          Reg1 = PCI::Read(bus, slot, 0);
-
-          if (Reg1 != 0xFFFFFFFF)
+          for (uint16_t f = 0; f < 2; ++f)
           {
-            kprintf("bus %i slot %i\n", (uint32_t) bus, (uint32_t) slot);
+            Reg1 = PCI::Read(bus, slot, f, 0);
 
-            uint16_t Vendor = Reg1 & 0xFFFF;
-            uint16_t Device = (Reg1 >> 16) & 0xFFFF;
-            uint8_t  Header = PCI::Read(bus, slot, 0xC) & 0xFF;
-
-            kprintf("Vendor: %04x Device:%04x Header:%02x\n", Vendor, Device, Header);
-
-            if (Header == PCI::HEADER::general)
+            if (Reg1 != -1)
             {
-              PCI::pci_dev pci_config;
-              load_pci_dev(bus, slot, pci_config);
+              uint16_t Vendor = Reg1 & 0xFFFF;
+              uint16_t Device = (Reg1 >> 16) & 0xFFFF;
+              uint8_t  Header = PCI::Read(bus, slot, f, 0xC) & 0xFF;
 
-              switch (pci_config.classcode)
+              kprintf("Vendor: %04x Device:%04x\n", Vendor, Device);
+
+              PCI::pci_dev pci_config;
+              load_pci_dev(bus, slot, f, pci_config);
+
+              switch (Header)
               {
-              case PCI::CLASSCODE::MASS_STORAGE:
-                SATA(bus, slot, pci_config); break;
+              case PCI::HEADER::general:
+                {
+                  switch (pci_config.classcode)
+                  {
+                  case PCI::CLASSCODE::MASS_STORAGE:
+                    SATA(bus, slot, f, pci_config); break;
+                  case PCI::CLASSCODE::BRIDGE_DEV:
+                    TempBridgeLog(bus, slot, f, pci_config); break;
+                  case PCI::CLASSCODE::NETWORK_CONT:
+                    kprintf("\tbus:%i slot:%i unimplemented - Network\n", bus, slot);
+                    break;
+                  case PCI::CLASSCODE::DISPLAY_CONT:
+                    kprintf("\tbus:%i slot:%i unimplemented - Display\n", bus, slot);
+                    break;
+                  default:
+                    kprintf("\tgeneral classcode %i\n", pci_config.classcode);
+                    kpanic("\tUnhandled general PCI header");
+                  }
+                }
+                break;
               default:
-                kprintf("PCI %02x unhandled\n", pci_config.classcode);
+                kprintf("\tPCI %02x unhandled\n", pci_config.classcode);
               }
             }
           }

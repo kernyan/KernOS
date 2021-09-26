@@ -1,6 +1,7 @@
 #include <kprintf.h>
 #include <utilities.h>
 #include <ahci.h>
+#include <pci.h>
 
 namespace AHCI
 {
@@ -8,12 +9,11 @@ namespace AHCI
   {
     volatile HBA_MEM hba_mem;
     volatile char* hba_ptr = (char*) &hba_mem;
-
     volatile char* fis_s   = (char*) Addr;
 
     for (size_t i = 0; i < sizeof(HBA_MEM); ++i)
     {
-      if (*hba_ptr) kprintf("%i %#010x\n", i, *hba_ptr);
+      //if (*hba_ptr) kprintf("%i %#010x\n", i, *hba_ptr);
       *hba_ptr++ = *fis_s++;
     }
 
@@ -30,18 +30,18 @@ namespace AHCI
     //volatile uint32_t Content2 = *HBA;
     //kprintf("%#010x %#010x\n", Content1, Content2);
 
-    kprintf("cap  %#010x\n", hba_mem.cap);
-    kprintf("ghc  %#010x\n", hba_mem.ghc);
-    kprintf("is   %#010x\n", hba_mem.is);
-    kprintf("pi   %#010x\n", hba_mem.pi);
-    kprintf("vs   %#010x\n", hba_mem.vs);
-    kprintf("ctl  %#010x\n", hba_mem.ccc_ctl);
-    kprintf("pts  %#010x\n", hba_mem.ccc_pts);
-    kprintf("eloc %#010x\n", hba_mem.em_loc);
-    kprintf("ectl %#010x\n", hba_mem.em_ctl);
-    kprintf("cap2 %#010x\n", hba_mem.cap2);
-    kprintf("bohc %#010x\n", hba_mem.bohc);
-    kprintf("vend %#04x\n",  hba_mem.vendor[0]);
+    //kprintf("cap  %#010x\n", hba_mem.cap);
+    //kprintf("ghc  %#010x\n", hba_mem.ghc);
+    //kprintf("is   %#010x\n", hba_mem.is);
+    //kprintf("pi   %#010x\n", hba_mem.pi);
+    //kprintf("vs   %#010x\n", hba_mem.vs);
+    //kprintf("ctl  %#010x\n", hba_mem.ccc_ctl);
+    //kprintf("pts  %#010x\n", hba_mem.ccc_pts);
+    //kprintf("eloc %#010x\n", hba_mem.em_loc);
+    //kprintf("ectl %#010x\n", hba_mem.em_ctl);
+    //kprintf("cap2 %#010x\n", hba_mem.cap2);
+    //kprintf("bohc %#010x\n", hba_mem.bohc);
+    //kprintf("vend %#04x\n",  hba_mem.vendor[0]);
 
     //volatile HBA_PORT& hba_port = hba_mem.ports[0];
 

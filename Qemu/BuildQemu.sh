@@ -9,9 +9,6 @@ git checkout stable-5.0
 cd ..
 mkdir Build
 cd Build
-../qemu/configure
+../qemu/configure --target-list=i386-softmmu
 make -j$(nproc)
-
-#sudo apt install virt-viewer virt-manager
-
-#echo "Please reboot"
+make install
