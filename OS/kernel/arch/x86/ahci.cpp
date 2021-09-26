@@ -18,10 +18,10 @@ namespace AHCI
     }
 
     // checking IDE or AHCI status
-    //kprintf("reading hba %#010x\n", Addr);
-    //kprintf("cap %#010x\n", hba_mem.cap);
-    //kprintf("ghc %#010x\n", hba_mem.ghc);
-    //hba_mem.ghc = 1 << 31;
+    kprintf("reading hba %#010x\n", Addr);
+    kprintf("cap %#010x\n", hba_mem.cap);
+    kprintf("ghc %#010x\n", hba_mem.ghc);
+    hba_mem.ghc = 1 << 31;
 
     // probing size of memory region
     //volatile uint32_t *HBA = (uint32_t*) Addr;
@@ -30,18 +30,18 @@ namespace AHCI
     //volatile uint32_t Content2 = *HBA;
     //kprintf("%#010x %#010x\n", Content1, Content2);
 
-    //kprintf("cap  %#010x\n", hba_mem.cap);
-    //kprintf("ghc  %#010x\n", hba_mem.ghc);
-    //kprintf("is   %#010x\n", hba_mem.is);
-    //kprintf("pi   %#010x\n", hba_mem.pi);
-    //kprintf("vs   %#010x\n", hba_mem.vs);
-    //kprintf("ctl  %#010x\n", hba_mem.ccc_ctl);
-    //kprintf("pts  %#010x\n", hba_mem.ccc_pts);
-    //kprintf("eloc %#010x\n", hba_mem.em_loc);
-    //kprintf("ectl %#010x\n", hba_mem.em_ctl);
-    //kprintf("cap2 %#010x\n", hba_mem.cap2);
-    //kprintf("bohc %#010x\n", hba_mem.bohc);
-    //kprintf("vend %#04x\n",  hba_mem.vendor[0]);
+    kprintf("cap  %#010x\n", hba_mem.cap);
+    kprintf("ghc  %#010x\n", hba_mem.ghc);
+    kprintf("is   %#010x\n", hba_mem.is);
+    kprintf("pi   %#010x\n", hba_mem.pi);
+    kprintf("vs   %#010x\n", hba_mem.vs);
+    kprintf("ctl  %#010x\n", hba_mem.ccc_ctl);
+    kprintf("pts  %#010x\n", hba_mem.ccc_pts);
+    kprintf("eloc %#010x\n", hba_mem.em_loc);
+    kprintf("ectl %#010x\n", hba_mem.em_ctl);
+    kprintf("cap2 %#010x\n", hba_mem.cap2);
+    kprintf("bohc %#010x\n", hba_mem.bohc);
+    kprintf("vend %#04x\n",  hba_mem.vendor[0]);
 
     //volatile HBA_PORT& hba_port = hba_mem.ports[0];
 

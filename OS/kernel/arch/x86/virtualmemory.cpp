@@ -38,7 +38,8 @@ namespace VM // virtual memory
     */
    void MapPageTable(const size_t Idx, 
                      uint32_t PageDirectory[PD_SIZE], 
-                     uint32_t PageTable[PT_SIZE])
+                     uint32_t PageTable[PT_SIZE],
+                     bool IsDevice)
    {
        for (size_t i = 0; i < PT_SIZE; ++i)
        {
@@ -46,6 +47,9 @@ namespace VM // virtual memory
                         | ( DWord<PTA::R>() // bottom 12 bits are access rights
                           | DWord<PTA::P>()
                           );
+
+           if (IsDevice)
+               PageTable[i] |= (DWord<PTA::W>() | DWord<PTA::C>()); // writethrough, no cache
        }
 
        PageDirectory[Idx] = ( (uint32_t) PageTable // top 20 bits is addr of page frame
@@ -53,6 +57,9 @@ namespace VM // virtual memory
                               | DWord<PDA::P>()
                               )
                             );
+
+       if (IsDevice)
+           PageDirectory[Idx] |= (DWord<PDA::W>() | DWord<PDA::C>()); // writethrough, no cache
    }
 
    /*! @brief Set cr3 to page directory, and turn on paging
@@ -148,9 +155,9 @@ namespace VM // virtual memory
    {
       ParseMultibootMemoryMap(BootMemoryMap);
       VM::InitializePageDirectory(VM::kernel_page_directory);
-      VM::MapPageTable(0, VM::kernel_page_directory, VM::pagetable0);
-      VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
-      VM::MapPageTable(1018, VM::kernel_page_directory, VM::pagetable1018); // identity map for PCI SATA
+      VM::MapPageTable(0, VM::kernel_page_directory, VM::pagetable0, false);
+      VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1, false);
+      VM::MapPageTable(1018, VM::kernel_page_directory, VM::pagetable1018, true); // identity map for PCI SATA
       ProtectPage(VM::pagetable0, 1 /*Number of pages to protect*/);
       VM::InstallPaging(VM::kernel_page_directory);
    }
@@ -200,6 +207,7 @@ namespace VM // virtual memory
                      | ( DWord<PTA::R>()
                        | DWord<PTA::P>()
                        );
+
       if (PageDirectory[PDE] == (uint32_t) PageTable)
       {
          kprintf("PageDirectoryEntry already exists. Access rights not updated\n");
