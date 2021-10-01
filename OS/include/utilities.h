@@ -153,6 +153,18 @@ namespace
        kprintf(Str);
        Hang();
     }
+
+    inline void *kmemset(void* str, uint8_t c, size_t n)
+    {
+      asm volatile
+      (
+        "rep stosb\n"
+			  : "=D"(str), "=c"(n)
+			  : "0"(str), "1"(n), "a"(c)
+				: "memory"
+			);
+			return str;
+		}
 } // unnamed namespace
 
 #endif //KERNOS_UTILITIES_H
