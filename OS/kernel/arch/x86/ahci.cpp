@@ -61,6 +61,6 @@ namespace AHCI
     //kprintf("fbs  %#010x\n", hba_port.fbs);
     //kprintf("vend %#010x\n", hba_port.vendor[0]);
 
-    kpanic("stop");
+    //kpanic("stop");
   }
 } // namespace AHCI

@@ -2,6 +2,7 @@
 #include <utilities.h>
 #include <sata.h>
 #include <ahci.h>
+#include <ide.h>
 
 namespace SATA
 {
@@ -34,6 +35,7 @@ namespace INIT
       }
       break;
     case PCI_IDE:
+      IDE::Initialize(pci_config);
       kprintf("\tbus: %i slot: %i unimplemented - IDE\n", bus, slot);
       break;
     default:
