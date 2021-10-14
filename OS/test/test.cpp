@@ -64,9 +64,21 @@ void ContextSwitchTest()
    PROCESS::CreateProcess(BusyThread1);
 }
 
+void MemsetTest()
+{
+  kprintf("Test %i: Memset\n", ++TestCount);
+  char a[20] = "this is a dog";
+  kmemset(a, 'a', sizeof(a)-1);
+  for (size_t i = 0; i < sizeof(a) - 1; ++i)
+  {
+    kassert(a[i] == 'a', "memset test failed");
+  }
+}
+
 void RunTests()
 {
    MemoryTest();
    VectorTest();
    ContextSwitchTest();
+   MemsetTest();
 }

@@ -19,6 +19,7 @@ namespace VM // virtual memory
    uint32_t kernel_page_directory[PD_SIZE][[gnu::aligned(PG_SIZE)]];
    uint32_t pagetable0           [PT_SIZE][[gnu::aligned(PG_SIZE)]];
    uint32_t pagetable1           [PT_SIZE][[gnu::aligned(PG_SIZE)]];
+   uint32_t pagetable1018        [PT_SIZE][[gnu::aligned(PG_SIZE)]];
 
    VMManager S;
 
@@ -37,7 +38,8 @@ namespace VM // virtual memory
     */
    void MapPageTable(const size_t Idx, 
                      uint32_t PageDirectory[PD_SIZE], 
-                     uint32_t PageTable[PT_SIZE])
+                     uint32_t PageTable[PT_SIZE],
+                     bool IsDevice)
    {
        for (size_t i = 0; i < PT_SIZE; ++i)
        {
@@ -45,6 +47,9 @@ namespace VM // virtual memory
                         | ( DWord<PTA::R>() // bottom 12 bits are access rights
                           | DWord<PTA::P>()
                           );
+
+           if (IsDevice)
+               PageTable[i] |= (DWord<PTA::W>() | DWord<PTA::C>()); // writethrough, no cache
        }
 
        PageDirectory[Idx] = ( (uint32_t) PageTable // top 20 bits is addr of page frame
@@ -52,6 +57,9 @@ namespace VM // virtual memory
                               | DWord<PDA::P>()
                               )
                             );
+
+       if (IsDevice)
+           PageDirectory[Idx] |= (DWord<PDA::W>() | DWord<PDA::C>()); // writethrough, no cache
    }
 
    /*! @brief Set cr3 to page directory, and turn on paging
@@ -80,8 +88,8 @@ namespace VM // virtual memory
    extern "C" void FaultPageHandler(RegState &Reg)
    {
 #ifdef DEBUG
-      kprintf("\tException code %h\n", (uint32_t) Reg.m_exception_code);
-      kprintf("\tEip code %h\n", Reg.m_eip);
+      kprintf("\tException code %#06x\n", Reg.m_exception_code);
+      kprintf("\tEip code %#010x\n", Reg.m_eip);
 #endif
       uint32_t Fault_Address;
       asm volatile("mov %%cr2, %0" : "=r" (Fault_Address));
@@ -110,7 +118,7 @@ namespace VM // virtual memory
            SizeMax     = Length;
         }
 
-        kprintf("Memory chunk %i: %h - %h\n", ChunkNumber++, BaseAddr, BaseAddr + Length);
+        kprintf("Memory chunk %i: %#010x - %#010x\n",ChunkNumber++, BaseAddr, BaseAddr + Length);
       }
 
       if (SizeMax > PG_SIZE)
@@ -147,8 +155,9 @@ namespace VM // virtual memory
    {
       ParseMultibootMemoryMap(BootMemoryMap);
       VM::InitializePageDirectory(VM::kernel_page_directory);
-      VM::MapPageTable(0, VM::kernel_page_directory, VM::pagetable0);
-      VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1);
+      VM::MapPageTable(0, VM::kernel_page_directory, VM::pagetable0, false);
+      VM::MapPageTable(1, VM::kernel_page_directory, VM::pagetable1, false);
+      VM::MapPageTable(1018, VM::kernel_page_directory, VM::pagetable1018, true); // identity map for PCI SATA
       ProtectPage(VM::pagetable0, 1 /*Number of pages to protect*/);
       VM::InstallPaging(VM::kernel_page_directory);
    }
@@ -156,7 +165,7 @@ namespace VM // virtual memory
    void VMManager::MapPageTable(uint32_t VAddr)
    {
 #ifdef DEBUG
-      kprintf("\tVMManager mapping virtual address %h\n", VAddr);
+      kprintf("\tVMManager mapping virtual address %#010x\n", VAddr);
 #endif
 
       if (VAddr == 0)
@@ -198,6 +207,7 @@ namespace VM // virtual memory
                      | ( DWord<PTA::R>()
                        | DWord<PTA::P>()
                        );
+
       if (PageDirectory[PDE] == (uint32_t) PageTable)
       {
          kprintf("PageDirectoryEntry already exists. Access rights not updated\n");

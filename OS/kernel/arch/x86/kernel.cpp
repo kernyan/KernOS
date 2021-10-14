@@ -9,6 +9,7 @@
 #include <pit.h>
 #include <process.h>
 #include <test.h>
+#include <pci.h>
 
 #ifndef __i686__
 #error "Failed - use i686 compiler instead"
@@ -33,6 +34,7 @@ extern "C" void kernel_main()
     INIT::PAGE();    // initialize page directory, page table
     INIT::PIT();     // initialize timer
     INIT::NULLPROCESS();
+    INIT::PCI();     // initialize PCI devices
 
     sti();           // enable interrupt
 

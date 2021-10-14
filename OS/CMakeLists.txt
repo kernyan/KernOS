@@ -67,6 +67,10 @@ set(KernelFiles
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/pit.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/pic.cpp
   ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/process.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/pci.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/sata.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/ahci.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/kernel/${PLATFORM}/ide.cpp
   )
 add_library(MOD_kernel STATIC ${KernelFiles})
 target_compile_options(MOD_kernel PRIVATE ${COMPILE_FLAGS})

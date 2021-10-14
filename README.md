@@ -17,7 +17,7 @@
 
 ## Project goal
 To have a working well-documented Operating System code that lets the reader quickly
-find code implementation of a specific topic.
+find code implementation of a specific topic. Ultimately to have KernOS be programmable on self written [RISCV FPGA softcore](https::/github.com/kernyan/riscv-de10lite), and perform a [wget](https://github.com/kernyan/pywget).
 
 ## Documented topics 
 The doxygen documentation below is a good place to start exploring 
@@ -33,6 +33,7 @@ For specific topics, use links below,
 - [Exception and interrupt handler](OS/kernel/arch/x86/interrupt.cpp)
 - [Paging](OS/kernel/arch/x86/virtualmemory.cpp)
 - [Task switching](OS/kernel/arch/x86/process.cpp)
+- [PCI - SATA (in progress)](OS/kernel/arch/x86/sata.cpp)
 - [Unit testing](Test/Tests)
 
 ## Status
@@ -45,7 +46,7 @@ Currently only supports
 
 ![alt text][image1]
 
-Next is to get TLB working, and ultimately to a GUI desktop!
+Currently working on supporting DMA/PIO disk access on PCI SATA. Next to port [Fat32 filesystem prototyped in python](https://github.com/kernyan/pyfs) to the OS.
 
 ## Toolchain and qemu
 Build i686-elf toolchain as below

@@ -4,9 +4,11 @@ build/
 Qemu/.gitignore
 Toolchain/.gitignore
 Toolchain/binutils-2.35/
+Toolchain/binutils-2.37/
 Toolchain/build-binutils/
 Toolchain/build-gcc/
 Toolchain/gcc-10.2.0/
+Toolchain/gcc-11.2.0/
 OS/CMakeLists.txt.user
 Temp/
 Local.MD
@@ -17,3 +19,5 @@ scripts/
 TODO/
 .gitignore
 Scripts/_disk_image
+*.log
+notes/

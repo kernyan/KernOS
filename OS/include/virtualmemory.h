@@ -1,7 +1,5 @@
 //
 // Created on 6/1/20.
-//
-
 #ifndef KERNOS_VIRTUALMEMORY_H
 #define KERNOS_VIRTUALMEMORY_H
 
@@ -27,7 +25,7 @@ namespace VM
           R = 1, ///< Read/Write
           U = 2, ///< User/Supervisor
           W = 3, ///< Write through
-          D = 4, ///< Cache disabled
+          C = 4, ///< Cache disabled
           A = 5, ///< Accessed
           S = 7  ///< Page size (0 for 4KiB page)
       };
@@ -58,7 +56,10 @@ namespace VM
   extern uint32_t pagetable0           [PT_SIZE];
   extern uint32_t pagetable1           [PT_SIZE];
 
-  void MapPageTable(const size_t Idx,uint32_t PageDirectory[PD_SIZE], uint32_t PageTable[PT_SIZE]);
+  void MapPageTable(const size_t Idx,
+    uint32_t PageDirectory[PD_SIZE],
+    uint32_t PageTable[PT_SIZE],
+    bool IsDevice);
 
   void InstallPaging(const uint32_t PageDirectory[]);
   void ParseMultibootMemoryMap(const multiboot_info_t &MultibootInfoPtr);
@@ -124,7 +125,7 @@ namespace VM
 
         if (BaseAddr & 0xFFF)
         {
-           kprintf("Warning: Physical memory is not 4KB aligned at %h\n", BaseAddr);
+           kprintf("Warning: Physical memory is not 4KB aligned at %#010x\n", BaseAddr);
         }
 
         m_BaseAddr = BaseAddr;
