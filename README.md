@@ -17,7 +17,7 @@
 
 ## Project goal
 To have a working well-documented Operating System code that lets the reader quickly
-find code implementation of a specific topic. Ultimately to have KernOS be programmable on [RISCV FPGA softcore](https::/github.com/kernyan/riscv-de10lite), and perform a [wget](https://github.com/kernyan/pywget). Thereby completing [geohot's challenge](https://github.com/geohot/fromthetransistor)
+find code implementation of a specific topic. Ultimately to have KernOS be programmable on [RISCV FPGA softcore](https::/github.com/kernyan/riscv-de10lite), and perform a [wget](https://github.com/kernyan/pywget). Thereby completing geohot's [transistor to internet challenge](https://github.com/geohot/fromthetransistor)
 
 ## Documented topics 
 The doxygen documentation below is a good place to start exploring 
