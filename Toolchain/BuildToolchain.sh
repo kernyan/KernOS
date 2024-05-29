@@ -2,8 +2,19 @@
 
 set -e
 
-sudo apt install build-essential bison flex libgmp3-dev libmpc-dev \
-   libmpfr-dev texinfo
+if command -v pacman &> /dev/null
+then
+    echo "Detected Arch Linux"
+    sudo pacman -Syu --needed base-devel bison flex gmp mpc mpfr texinfo
+elif command -v apt &> /dev/null
+then
+    echo "Detected Ubuntu"
+    sudo apt update
+    sudo apt install build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo
+else
+    echo "Unsupported OS"
+    exit 1
+fi
 
 DIR="$PWD"
 echo "$DIR"

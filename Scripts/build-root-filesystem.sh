@@ -13,7 +13,7 @@ fi
 
 umask 0022
 
-printf "installing base system... "
+echo "installing base system... "
 if command -v rsync >/dev/null; then
     rsync -aH --inplace ../Disk/ mnt/
 else
