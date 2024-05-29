@@ -47,7 +47,18 @@ namespace PCI
     uint32_t bar3;
     uint32_t bar4;
     uint32_t bar5;
-  };
+    uint32_t cardbus_cis_pointer; // 0x28
+    uint16_t subsystem_vendor_id; // 0x2C
+    uint16_t subsystem_id;        // 0x2E
+    uint32_t expansion_rom_base_address; // 0x30
+    uint8_t  capabilities_pointer; // 0x34
+    uint8_t  reserved1[3];         // 0x35-0x37
+    uint32_t reserved2;            // 0x38
+    uint8_t  interrupt_line;       // 0x3C
+    uint8_t  interrupt_pin;        // 0x3D
+    uint8_t  min_grant;            // 0x3E
+    uint8_t  max_latency;          // 0x3F
+  } __attribute__((packed));
 
   enum HEADER: uint8_t
   {

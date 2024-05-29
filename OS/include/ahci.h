@@ -42,7 +42,7 @@ namespace AHCI
     uint8_t icc;
     uint8_t control;
     uint8_t rsv1[4];
-  };
+  } __attribute__((packed));
 
   struct FIS_REG_D2H
   {
@@ -65,7 +65,7 @@ namespace AHCI
     uint8_t counth;
     uint8_t rsv3[2];
     uint8_t rsv4[4];
-  };
+  } __attribute__((packed));
 
   struct FIS_DATA
   {
@@ -74,7 +74,7 @@ namespace AHCI
     uint8_t rsv0:4;
     uint8_t rsv1[2];
     uint32_t data[1];
-  };
+  } __attribute__((packed));
 
   struct FIS_PIO_SETUP
   {
@@ -100,7 +100,7 @@ namespace AHCI
     uint8_t e_status;
     uint16_t tc;
     uint8_t  rsv4[2];
-  };
+  } __attribute__((packed));
 
   struct FIS_DMA_SETUP
   {
@@ -117,7 +117,7 @@ namespace AHCI
     uint32_t DMAbufOffset;
     uint32_t TransferCount;
     uint32_t resvd;
-  };
+  } __attribute__((packed));
   
   struct HBA_PORT // need to be volatile
   {
@@ -140,7 +140,7 @@ namespace AHCI
     uint32_t fbs;
     uint32_t rsv1[11];
     uint32_t vendor[4];
-  };
+  } __attribute__((packed));
 
   struct HBA_MEM // need to be volatile
   {
@@ -158,7 +158,7 @@ namespace AHCI
     uint8_t  rsv[0xA0-0x2C];
     uint8_t  vendor[0x100-0xA0];
     HBA_PORT ports[1];
-  };
+  } __attribute__((packed));
 
   struct HBA_FIS // need to be volatile
   {
@@ -175,7 +175,7 @@ namespace AHCI
 
     uint8_t ufis[64];
     uint8_t rsv[0x100-0xA0];
-  };
+  } __attribute__((packed));
 
   struct HBA_CMD_HEADER
   {
@@ -193,7 +193,7 @@ namespace AHCI
     uint32_t ctba;
     uint32_t ctbau;
     uint32_t rsv1[4];
-  };
+  } __attribute__((packed));
 
   struct HBA_PRDT_ENTRY
   {
@@ -203,7 +203,7 @@ namespace AHCI
     uint32_t dbc:22;
     uint32_t rsv1:9;
     uint32_t i:1;
-  };
+  } __attribute__((packed));
 
   struct HBA_CMD_TBL
   {
@@ -211,7 +211,7 @@ namespace AHCI
     uint8_t acmd[16];
     uint8_t rsv[48];
     HBA_PRDT_ENTRY prdt_entry[1];
-  };
+  } __attribute__((packed));
 
   void ReadHBA(uint32_t Addr);
 } // namespace AHCI

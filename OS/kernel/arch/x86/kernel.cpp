@@ -31,10 +31,10 @@ extern "C" void kernel_main()
     INIT::SSE();     // enable SSE instruction set
     INIT::gdt();     // prepare global descriptor table for x86 protected mode
     INIT::idt();     // install exceptions, interrupts, e.g. page fault handler for paging use later
-    INIT::PAGE();    // initialize page directory, page table
-    INIT::PIT();     // initialize timer
-    INIT::NULLPROCESS();
     INIT::PCI();     // initialize PCI devices
+    INIT::PIT();     // initialize timer
+    INIT::PAGE();    // initialize page directory, page table (should be after PCI enumeration)
+    INIT::NULLPROCESS();
 
     sti();           // enable interrupt
 
