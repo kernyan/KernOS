@@ -22,12 +22,13 @@ namespace INIT
         const size_t bar5pos = offsetof(PCI::pci_dev, bar5);
         uint32_t Len = ~PCI::Read(bus, slot, function, bar5pos, -1) + 1;
         uint32_t Res = PCI::Read(bus, slot, function, bar5pos, pci_config.bar5);
-        kprintf("\tLen is %i, Res is %#010x\n", Len, Res);
 
+        kprintf("\tLen is %i, Res is %#010x\n", Len, Res);
         kprintf("\tSATA (AHCI 1.O) detected\n");
         kprintf("\tBAR4: %#06x BAR5: %#010x\n", pci_config.bar4, pci_config.bar5);
 
-        AHCI::ReadHBA(pci_config.bar5);
+        volatile AHCI::HBA_MEM& hba_mem = *AHCI::ReadHBA(pci_config.bar5);
+        kprintf("cap  %#010x\n", hba_mem.cap);
       }
       else
       {

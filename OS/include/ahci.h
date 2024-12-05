@@ -213,7 +213,7 @@ namespace AHCI
     HBA_PRDT_ENTRY prdt_entry[1];
   } __attribute__((packed));
 
-  void ReadHBA(uint32_t Addr);
+  volatile HBA_MEM* ReadHBA(uint32_t Addr);
 } // namespace AHCI
 
 #endif //KERNOS_AHCI_H
