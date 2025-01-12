@@ -43,7 +43,10 @@ namespace AHCI
 
     for (int i = 0; i < 32; i++)
     {
-      print_hba_port(&hba_mem->ports[i]);
+      if (hba_mem->pi & (1 << i))
+      {
+        print_hba_port(&hba_mem->ports[i]);
+      }
     }
   } 
 

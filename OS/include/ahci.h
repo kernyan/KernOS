@@ -177,41 +177,47 @@ namespace AHCI
     uint8_t rsv[0x100-0xA0];
   } __attribute__((packed));
 
-  struct HBA_CMD_HEADER
-  {
-    uint8_t cfl:5;
-    uint8_t a:1;
-    uint8_t w:1;
-    uint8_t p:1;
-    uint8_t r:1;
-    uint8_t b:1;
-    uint8_t c:1;
-    uint8_t rsv0:1;
-    uint8_t pmp:4;
-    uint16_t prdtl;
-    volatile uint32_t prdbc;
-    uint32_t ctba;
-    uint32_t ctbau;
-    uint32_t rsv1[4];
+  // In AHCI, each port has 32 command headers (one per "command slot")
+  struct HBA_CMD_HEADER {
+      uint8_t  cmdFISLength   : 5;  // Command FIS length in DWORDS
+      uint8_t  atapi          : 1;  // 1: ATAPI
+      uint8_t  write          : 1;  // 1: write, 0: read
+      uint8_t  prefetchable   : 1;  // Prefetchable
+
+      uint8_t  reset          : 1;  // 1: RESET
+      uint8_t  bist           : 1;  // 1: BIST
+      uint8_t  clearBusy      : 1;  // 1: Clear busy upon R_OK
+      uint8_t  reserved0      : 1;  
+      uint8_t  portMult       : 4;  // Port multiplier
+
+      uint16_t prdtLength;          // Physical region descriptor table length
+      volatile uint32_t prdbc;      // Physical region descriptor byte count transferred
+
+      uint32_t ctba;                // Command table descriptor base address
+      uint32_t ctbau;               // Command table descriptor base address upper 32 bits
+
+      uint32_t reserved1[4];        // Reserved
   } __attribute__((packed));
 
-  struct HBA_PRDT_ENTRY
-  {
-    uint32_t dba;
-    uint32_t dbau;
-    uint32_t rsv0;
-    uint32_t dbc:22;
-    uint32_t rsv1:9;
-    uint32_t i:1;
+  // PRDT entry
+  struct HBA_PRDT_ENTRY {
+      uint32_t dataBase;        // Physical base address
+      uint32_t dataBaseUpper;   // Upper 32 bits of base address
+      uint32_t reserved0;       
+      uint32_t byteCount : 22;  // Byte count (0-based: value+1)
+      uint32_t reserved1 : 9;
+      uint32_t interruptOnComplete : 1;
   } __attribute__((packed));
 
-  struct HBA_CMD_TBL
-  {
-    uint8_t cfis[64];
-    uint8_t acmd[16];
-    uint8_t rsv[48];
-    HBA_PRDT_ENTRY prdt_entry[1];
+  // Command Table
+  struct HBA_CMD_TABLE {
+      uint8_t  cfis[64];       // Command FIS
+      uint8_t  acmd[16];       // ATAPI command, if any
+      uint8_t  reserved[48];   
+      HBA_PRDT_ENTRY prdtEntry[1];  // Could be more than one entry if needed
   } __attribute__((packed));
+
+
 
   volatile HBA_MEM* ReadHBA(uint32_t Addr);
 
