@@ -1,0 +1,32 @@
+hba_mem
+
+cap  0xc0141f05
+ghc  0x80000000
+is    0000000000
+pi    0x0000003f  # 111111 -> 0-5 ports implemented
+vs    0x00010000
+ctl   0000000000
+pts   0000000000
+eloc  0000000000
+ectl  0000000000
+cap2  0000000000
+bohc  0000000000
+vend  0000
+
+
+port[0]
+
+clb   0x07fdfc00
+fb    0x07fdfb00
+is    0000000000
+ie    0000000000
+cmd   0x0000c017  # FR=1 (bit 15), CR=1 (bit 14), FRE=1 (bit 4), ST=1 (bit 0)
+tfd   0x00000050  # DRDY=1 (bit 6), DSC=1 (bit 4)
+sig   0x00000101  # SATA HDD
+ssts  0x00000113  # DET=3 (device present, link up), SPD=1 (Gen1), IPM=1 (active)
+sctl  0000000000
+serr  0000000000
+sact  0000000000  # SATA active
+ci    0000000000  # Command issue
+sntf  0000000000
+fbs   0000000000
