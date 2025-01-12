@@ -28,7 +28,7 @@ namespace INIT
         kprintf("\tBAR4: %#06x BAR5: %#010x\n", pci_config.bar4, pci_config.bar5);
 
         volatile AHCI::HBA_MEM& hba_mem = *AHCI::ReadHBA(pci_config.bar5);
-        kprintf("cap  %#010x\n", hba_mem.cap);
+        AHCI::print_hba_mem(&hba_mem);
       }
       else
       {

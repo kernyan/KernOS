@@ -66,25 +66,43 @@ cd Qemu
 ```
 
 ## Build and run
+
 Build kern.bin
 ```bash
-cd KernOS
-mkdir build && cd build
+# build kern.bin
+mkdir build
+pushd build
 cmake ../OS
-make
+make -j$(nproc)
+
+# build disk image
+../Scripts/build-image-qemu.sh   # builds _disk_image and mount at mnt/
+sudo ../Scripts/build-root-filesystem.sh  # upload content in KernOS/Disk to mnt/
+popd
 ```
 
 The kernel is still far from being deployable to actual hardware, but feel free to try. 
 *Disclaimer: do so at your own risk*
 
-Otherwise, here's the script to running it in qemu
+Otherwise, here's the script to running it in qemu. Note that we are mounting _disk_image as AHCI SATA
+
 ```bash
-cd KernOS/build
+cd build
 qemu-system-i386 \
--m 128M \
--d cpu_reset,guest_errors \
--device VGA,vgamem_mb=64 \
--kernel kern.bin
+  -gdb tcp::1234 -S \
+  -m 128M \
+  -d cpu_reset,guest_errors \
+  -device VGA,vgamem_mb=64 \
+  -drive id=disk,file=_disk_image,if=none,format=raw \
+  -device ahci,id=ahci\
+  -device ide-hd,drive=disk,bus=ahci.0 \
+  -kernel ../build/kern.bin
+```
+
+Or use 
+```bash
+cd build
+../Scripts/Mount
 ```
 
 ## Test

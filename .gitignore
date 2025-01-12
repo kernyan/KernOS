@@ -1,5 +1,6 @@
 OS/tags
 OS/compile_commands.json
+OS/.cache
 build/
 Qemu/.gitignore
 Toolchain/.gitignore
@@ -21,3 +22,4 @@ TODO/
 Scripts/_disk_image
 *.log
 notes/
+Qemu/Build/

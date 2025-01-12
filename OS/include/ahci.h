@@ -157,7 +157,7 @@ namespace AHCI
     uint32_t bohc;
     uint8_t  rsv[0xA0-0x2C];
     uint8_t  vendor[0x100-0xA0];
-    HBA_PORT ports[1];
+    HBA_PORT ports[32];
   } __attribute__((packed));
 
   struct HBA_FIS // need to be volatile
@@ -214,6 +214,9 @@ namespace AHCI
   } __attribute__((packed));
 
   volatile HBA_MEM* ReadHBA(uint32_t Addr);
+
+  void print_hba_mem(volatile HBA_MEM* hba_mem);
+  void print_hba_port(volatile HBA_PORT* hba_port);
 } // namespace AHCI
 
 #endif //KERNOS_AHCI_H

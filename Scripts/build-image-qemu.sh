@@ -31,6 +31,7 @@ if [ $USE_EXISTING -ne 1 ]; then
 
     printf "creating new filesystem... "
     if [ -x /sbin/mke2fs ]; then
+      # ext2 filesystem of inode size 128
         /sbin/mke2fs -q -I 128 _disk_image || die "could not create filesystem"
     else
         die "could not create filesystem"
