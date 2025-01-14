@@ -22,4 +22,5 @@ TODO/
 Scripts/_disk_image
 *.log
 notes/
-Qemu/Build/
+Qemu/Build
+**/.cache/
