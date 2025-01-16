@@ -2,6 +2,7 @@
 #include <utilities.hpp>
 #include <ahci.hpp>
 #include <pci.hpp>
+#include <disk_controller.hpp>
 
 namespace AHCI
 {
@@ -46,6 +47,8 @@ namespace AHCI
       if (hba_mem->pi & (1 << i))
       {
         print_hba_port(&hba_mem->ports[i]);
+        size_t maxCmdSlots = (hba_mem->cap >> 8 & 0x1f) + 1;
+        DiskDevice::identifyDevice(&hba_mem->ports[i], i, maxCmdSlots);
       }
     }
   } 
