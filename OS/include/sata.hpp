@@ -5,8 +5,8 @@
 #ifndef KERNOS_SATA_H
 #define KERNOS_SATA_H
 
-#include <common.h>
-#include <pci.h>
+#include <common.hpp>
+#include <pci.hpp>
 
 enum STORAGE_SUB: uint8_t
 {

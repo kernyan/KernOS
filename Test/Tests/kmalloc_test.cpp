@@ -3,7 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include <memoryallocator.h>
+#include <memoryallocator.hpp>
 
 TEST(kmalloc, AllocateFree)
 {

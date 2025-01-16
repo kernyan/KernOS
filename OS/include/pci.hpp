@@ -5,7 +5,7 @@
 #ifndef KERNOS_PCI_H
 #define KERNOS_PCI_H
 
-#include <common.h>
+#include <common.hpp>
 
 namespace PCI
 {

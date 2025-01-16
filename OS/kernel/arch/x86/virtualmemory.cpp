@@ -2,12 +2,12 @@
 // Created on 6/1/20.
 //
 
-#include <virtualmemory.h>
-#include <registers.h>
-#include <interrupt.h>
-#include <kprintf.h>
-#include <memoryallocator.h>
-#include <vga.h>
+#include <virtualmemory.hpp>
+#include <registers.hpp>
+#include <interrupt.hpp>
+#include <kprintf.hpp>
+#include <memoryallocator.hpp>
+#include <vga.hpp>
 
 void *kpagetable;                     // populated in boot.S
 multiboot_info_t *multiboot_info_ptr; // populated in boot.S
@@ -110,7 +110,7 @@ namespace VM // virtual memory
           )
       {
         const auto BaseAddr = (uint32_t) (MMap->addr);
-        const auto Length   = (uint32_t) (MMap->len);
+        const auto Length = (uint32_t) (MMap->len);
 
         if (SizeMax < Length)
         {
@@ -131,7 +131,7 @@ namespace VM // virtual memory
 
    void FlushTLB(const uint32_t Fault_Address)
    {
-      asm volatile( // flush tlb
+      asm volatile( // flu.hpp tlb
       "invlpg %0"
       :
       : "m"(*(char*) Fault_Address)

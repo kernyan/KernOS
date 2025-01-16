@@ -1,7 +1,7 @@
-#include <kprintf.h>
-#include <utilities.h>
-#include <pci.h>
-#include <sata.h>
+#include <kprintf.hpp>
+#include <utilities.hpp>
+#include <pci.hpp>
+#include <sata.hpp>
 
 #define PCI_ADDRESS_PORT 0xCF8
 #define PCI_DATA_PORT    0xCFC
@@ -26,7 +26,7 @@ uint32_t Read(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offset, uint3
 {
   uint32_t out;
 
-  kassert(~(offset & 0x3), "offset must be multiple of 4\n");
+  kassert(!(offset & 0x3), "offset must be multiple of 4\n");
 
   out = 0x80000000 | (bus << 16) | (slot << 11) | (function << 8) | offset;
   out32(PCI_ADDRESS_PORT, out);

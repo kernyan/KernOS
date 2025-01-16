@@ -1,9 +1,9 @@
-#include <test.h>
-#include <common.h>
-#include <Vector.h>
-#include <kprintf.h>
-#include <process.h>
-#include <virtualmemory.h>
+#include <test.hpp>
+#include <common.hpp>
+#include <Vector.hpp>
+#include <kprintf.hpp>
+#include <process.hpp>
+#include <virtualmemory.hpp>
 
 size_t TestCount = 0;
 

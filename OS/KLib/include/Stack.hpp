@@ -1,7 +1,7 @@
-#ifndef stack_h
-#define stach_h
+#ifndef stack_hpp
+#define stach_hpp
 
-#include <common.h>
+#include <common.hpp>
 
 namespace KL
 {
@@ -58,4 +58,4 @@ public:
 } // namespace KL
 
 
-#endif // stack_h
+#endif // stack_hpp

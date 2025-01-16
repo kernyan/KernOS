@@ -2,8 +2,8 @@
 // Created on 5/24/20.
 //
 
-#include <global.h>
-#include <ktypes.h>
+#include <global.hpp>
+#include <ktypes.hpp>
 
 /*! @brief starting address of pointers to global constructors
  *  @details symbol defined in linker.ld.

@@ -2,8 +2,8 @@
 // Created on 8/15/20.
 //
 
-#include <pic.h>
-#include <interrupt.h>
+#include <pic.hpp>
+#include <interrupt.hpp>
 
 namespace PIC
 {

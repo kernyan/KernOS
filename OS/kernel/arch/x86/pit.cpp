@@ -2,10 +2,10 @@
 // Created on 7/5/20.
 //
 
-#include <pit.h>
-#include <utilities.h>
-#include <interrupt.h>
-#include <process.h>
+#include <pit.hpp>
+#include <utilities.hpp>
+#include <interrupt.hpp>
+#include <process.hpp>
 
 namespace INTRP
 {

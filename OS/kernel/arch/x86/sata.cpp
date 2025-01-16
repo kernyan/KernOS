@@ -1,8 +1,8 @@
-#include <kprintf.h>
-#include <utilities.h>
-#include <sata.h>
-#include <ahci.h>
-#include <ide.h>
+#include <kprintf.hpp>
+#include <utilities.hpp>
+#include <sata.hpp>
+#include <ahci.hpp>
+#include <ide.hpp>
 
 namespace SATA
 {

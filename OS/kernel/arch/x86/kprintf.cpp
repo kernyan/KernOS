@@ -2,8 +2,8 @@
 // Created on 5/24/20.
 //
 
-#include <kprintf.h>
-#include <vga.h>
+#include <kprintf.hpp>
+#include <vga.hpp>
 
 namespace VGA
 {

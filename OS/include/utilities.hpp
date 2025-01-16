@@ -1,8 +1,8 @@
 #ifndef KERNOS_UTILITIES_H
 #define KERNOS_UTILITIES_H
 
-#include <common.h>
-#include <kprintf.h>
+#include <common.hpp>
+#include <kprintf.hpp>
 
 size_t Strlen(const char *Str);
 

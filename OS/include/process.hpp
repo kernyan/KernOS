@@ -5,8 +5,8 @@
 #ifndef KERNOS_PROCESS_H
 #define KERNOS_PROCESS_H
 
-#include <common.h>
-#include <utilities.h>
+#include <common.hpp>
+#include <utilities.hpp>
 
 namespace PROCESS
 {

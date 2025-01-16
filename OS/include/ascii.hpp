@@ -5,7 +5,7 @@
 #ifndef ascii_h
 #define ascii_h
 
-#include <common.h>
+#include <common.hpp>
 
 namespace ASCII
 {

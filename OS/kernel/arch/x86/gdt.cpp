@@ -2,11 +2,11 @@
 // Created on 5/20/20.
 //
 
-#include <common.h>
-#include <gdt.h>
-#include <utilities.h>
-#include <registers.h>
-#include <accessright.h>
+#include <common.hpp>
+#include <gdt.hpp>
+#include <utilities.hpp>
+#include <registers.hpp>
+#include <accessright.hpp>
 
 namespace GDT
 {

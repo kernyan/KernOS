@@ -1,7 +1,7 @@
-#include <kprintf.h>
-#include <utilities.h>
-#include <ahci.h>
-#include <pci.h>
+#include <kprintf.hpp>
+#include <utilities.hpp>
+#include <ahci.hpp>
+#include <pci.hpp>
 
 namespace AHCI
 {

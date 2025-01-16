@@ -1,15 +1,15 @@
-#include <common.h>
-#include <vga.h>
-#include <cpu.h>
-#include <interrupt.h>
-#include <gdt.h>
-#include <global.h>
-#include <memoryallocator.h>
-#include <virtualmemory.h>
-#include <pit.h>
-#include <process.h>
-#include <test.h>
-#include <pci.h>
+#include <common.hpp>
+#include <vga.hpp>
+#include <cpu.hpp>
+#include <interrupt.hpp>
+#include <gdt.hpp>
+#include <global.hpp>
+#include <memoryallocator.hpp>
+#include <virtualmemory.hpp>
+#include <pit.hpp>
+#include <process.hpp>
+#include <test.hpp>
+#include <pci.hpp>
 
 #ifndef __i686__
 #error "Failed - use i686 compiler instead"

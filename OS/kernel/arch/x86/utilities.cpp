@@ -1,4 +1,4 @@
-#include <utilities.h>
+#include <utilities.hpp>
 
 /*! @brief Count number of characters in string
  * @param Str

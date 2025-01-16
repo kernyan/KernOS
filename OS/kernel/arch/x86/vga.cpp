@@ -1,5 +1,5 @@
-#include <vga.h>
-#include <ascii.h>
+#include <vga.hpp>
+#include <ascii.hpp>
 
 #ifdef TEST_BUILD
 #include <iostream>

@@ -22,7 +22,7 @@
 #ifndef KERNOS_MULTIBOOT_H
 #define KERNOS_MULTIBOOT_H
 
-#include <common.h>
+#include <common.hpp>
 
 /* The symbol table for a.out.  */
 struct multiboot_aout_symbol_table

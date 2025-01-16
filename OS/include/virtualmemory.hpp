@@ -3,10 +3,10 @@
 #ifndef KERNOS_VIRTUALMEMORY_H
 #define KERNOS_VIRTUALMEMORY_H
 
-#include <common.h>
-#include <utilities.h>
-#include <multiboot.h>
-#include <Bitset.h>
+#include <common.hpp>
+#include <utilities.hpp>
+#include <multiboot.hpp>
+#include <Bitset.hpp>
 
 namespace INIT
 {

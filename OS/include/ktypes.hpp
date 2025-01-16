@@ -5,7 +5,7 @@
 #ifndef KERNOS_TYPES_H
 #define KERNOS_TYPES_H
 
-#include <common.h>
+#include <common.hpp>
 
 #if ARCH_32
 typedef uint32_t ptr_t;

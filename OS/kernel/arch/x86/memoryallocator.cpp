@@ -2,10 +2,10 @@
 // Created on 5/26/20.
 //
 
-#include <memoryallocator.h>
-#include <interrupt.h>
-#include <ktypes.h>
-#include <virtualmemory.h>
+#include <memoryallocator.hpp>
+#include <interrupt.hpp>
+#include <ktypes.hpp>
+#include <virtualmemory.hpp>
 
 void *kheap;             // populated in boot.S
 extern void *kpagetable; // populated in boot.S

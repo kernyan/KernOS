@@ -3,7 +3,7 @@
 #ifndef KERNOS_KPRINTF_H
 #define KERNOS_KPRINTF_H
 
-#include <common.h>
+#include <common.hpp>
 #include <stdarg.h>
 
 namespace util {

@@ -2,10 +2,10 @@
 // Created on 5/19/20.
 //
 
-#include <common.h>
-#include <utilities.h>
-#include <kprintf.h>
-#include <registers.h>
+#include <common.hpp>
+#include <utilities.hpp>
+#include <kprintf.hpp>
+#include <registers.hpp>
 
 namespace INIT
 {

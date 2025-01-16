@@ -1,9 +1,9 @@
-#ifndef vector_h
-#define vector_h
+#ifndef vector_hpp
+#define vector_hpp
 
-#include <common.h>
-#include <memoryallocator.h>
-#include <utilities.h>
+#include <common.hpp>
+#include <memoryallocator.hpp>
+#include <utilities.hpp>
 
 namespace KL
 {
@@ -78,4 +78,4 @@ namespace KL
 } // namespace KL
 
 
-#endif // vector_h
+#endif // vector_hpp

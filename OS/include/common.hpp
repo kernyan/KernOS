@@ -7,6 +7,6 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
-#include <ktypes.h>
+#include <ktypes.hpp>
 
 #endif //KERNOS_COMMON_H

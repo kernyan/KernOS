@@ -1,7 +1,7 @@
-#include <kprintf.h>
-#include <utilities.h>
-#include <ide.h>
-#include <pci.h>
+#include <kprintf.hpp>
+#include <utilities.hpp>
+#include <ide.hpp>
+#include <pci.hpp>
 
 namespace IDE
 {

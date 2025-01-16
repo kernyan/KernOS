@@ -5,7 +5,7 @@
 #ifndef KERNOS_PIT_H
 #define KERNOS_PIT_H
 
-#include <common.h>
+#include <common.hpp>
 
 /*! @brief Timer namespace
  */

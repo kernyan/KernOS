@@ -1,7 +1,7 @@
 #ifndef bitset_h
 #define bitset_h
 
-#include <common.h>
+#include <common.hpp>
 
 namespace KL
 {

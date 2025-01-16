@@ -5,7 +5,7 @@
 #ifndef KERNOS_AHCI_H
 #define KERNOS_AHCI_H
 
-#include <common.h>
+#include <common.hpp>
 
 namespace AHCI
 {

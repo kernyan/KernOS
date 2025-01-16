@@ -5,7 +5,7 @@
 #ifndef KERNOS_MEMORYALLOCATOR_H
 #define KERNOS_MEMORYALLOCATOR_H
 
-#include <common.h>
+#include <common.hpp>
 
 namespace INIT
 {

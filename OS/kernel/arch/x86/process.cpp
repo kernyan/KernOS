@@ -2,9 +2,9 @@
 // Created by osboxes on 8/15/20.
 //
 
-#include <process.h>
-#include <interrupt.h>
-#include <memoryallocator.h>
+#include <process.hpp>
+#include <interrupt.hpp>
+#include <memoryallocator.hpp>
 
 extern "C" void ContextSwitch(void* Old, void* New);
 

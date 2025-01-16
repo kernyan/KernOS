@@ -1,7 +1,7 @@
 #ifndef KERNOS_VGA_H
 #define KERNOS_VGA_H
 
-#include <utilities.h>
+#include <utilities.hpp>
 
 /*! @brief Video Graphics Array namespace
  *  @details

@@ -5,7 +5,7 @@
 #ifndef KERNOS_PIC_H
 #define KERNOS_PIC_H
 
-#include <common.h>
+#include <common.hpp>
 
 /*! @brief 8259 Progammable interrupt controller
  *  @see <a href="http://www.brokenthorn.com/Resources/OSDevPic.html">Broken Thorn's remapping PIC</a>

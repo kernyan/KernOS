@@ -12,14 +12,14 @@ namespace CR0
     enum : uint8_t
     {            //  | name                    | description
         PE = 0,  ///< <pre>Protection enable   | Set to enable protected mode                                          </pre>
-        MP = 1,  ///< <pre>Monitor coprocessor | Set to allow math coprocessor instruction execution                   </pre>
+        MP = 1,  ///< <pre>Monitor coprocessor | Set to allow ma.hpp coprocessor instruction execution                   </pre>
         EM = 2,  ///< <pre>Emulation           | Set to use software emulation for x87 floating-point instruction      </pre>
-        TS = 3,  ///< <pre>Task switched       | Set to delay saving of x87 FPU, SSE on task switch till actually used </pre>
+        TS = 3,  ///< <pre>Task switched       | Set to delay saving of x87 FPU, SSE on task swit.hpp till actually used </pre>
         ET = 4,  ///< <pre>Extension type      | processor dependent flag                                              </pre>
         NE = 5,  ///< <pre>Numeric error       | Set to use native mechanism for reporting x87 FPU error               </pre>
         WP = 16, ///< <pre>Write protect       | Set to inhibit kernel procedures from writing to user read-only pages </pre>
         AM = 18, ///< <pre>Alignment mask      | Set to enable automatic alignment                                     </pre>
-        NW = 29, ///< <pre>Not write-through   | Clear to enable write-back/write-through                              </pre>
+        NW = 29, ///< <pre>Not write-throu.hpp   | Clear to enable write-back/write-throu.hpp                              </pre>
         CD = 30, ///< <pre>Cache disable       | Set to restrict caching                                               </pre>
         PG = 31  ///< <pre>Paging              | Set to enable paging                                                  </pre>
     };

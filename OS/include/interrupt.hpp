@@ -5,11 +5,11 @@
 #ifndef KERNOS_INTERRUPT_H
 #define KERNOS_INTERRUPT_H
 
-#include <common.h>
-#include <utilities.h>
-#include <registers.h>
-#include <ports.h>
-#include <pic.h>
+#include <common.hpp>
+#include <utilities.hpp>
+#include <registers.hpp>
+#include <ports.hpp>
+#include <pic.hpp>
 
 struct [[gnu::packed]] RegState
 {

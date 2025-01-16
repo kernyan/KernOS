@@ -2,13 +2,13 @@
 // Created on 5/19/20.
 //
 
-#include <interrupt.h>
-#include <common.h>
-#include <utilities.h>
-#include <gdt.h>
-#include <accessright.h>
-#include <pic.h>
-#include <virtualmemory.h>
+#include <interrupt.hpp>
+#include <common.hpp>
+#include <utilities.hpp>
+#include <gdt.hpp>
+#include <accessright.hpp>
+#include <pic.hpp>
+#include <virtualmemory.hpp>
 
 #define INTRP_ENTRY(Type)                       \
     extern "C" void Interrupt##Type##Entry();   \
