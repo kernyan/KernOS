@@ -8,7 +8,8 @@ def parse_options():
     return parser.parse_args()
 
 def decode(hex_str: str):
-    return bin(int(hex_str, 16))
+    value = int(hex_str, 16) if hex_str.startswith("0x") else int(hex_str)
+    return bin(value)
 
 def active_bits(bin_str: str):
     active_bits = []

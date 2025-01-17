@@ -6,6 +6,7 @@
 #define KERNOS_MEMORYALLOCATOR_H
 
 #include <common.hpp>
+#include <utilities.hpp>
 
 namespace INIT
 {
@@ -17,10 +18,13 @@ namespace INIT
 namespace KM // kernel memory
 {
     class MemoryAllocator; // forward declare
-    class Allocator4K;     // forward declare
+    template <size_t AlignmentSize>
+    class Allocator;     // forward declare
 
     extern MemoryAllocator mem_alloc;    // unaligned memory
-    extern Allocator4K     mem_alloc_4k; // for 4KB aligned memory
+    extern Allocator<4096> mem_alloc_4k; // for 4KB aligned memory
+    extern Allocator<1024> mem_alloc_1k; // for 1KB aligned memory
+    extern Allocator<256>  mem_alloc_256; // for 256B aligned memory
 
     /*! @brief kernel malloc
      * @param Size
@@ -74,15 +78,52 @@ namespace KM // kernel memory
         void Initialize(const uint32_t StartAdd, const uint32_t EndAdd);
     };
 
-    class Allocator4K
+    template <size_t AlignmentSize>
+    class Allocator
     {
         uint32_t m_StartAdd = 0; ///< range of reserved address for kernel heap memory
         uint32_t m_EndAdd   = 0; ///< range of reserved address for kernel heap memory
         size_t   m_Offset   = 0;
-
+    
     public:
-        void Initialize(const uint32_t StartAdd, const uint32_t EndAdd);
-        void* kmalloc_4k();
+
+        void Initialize(const uint32_t StartAdd, const uint32_t EndAdd)
+        {
+            m_StartAdd = (StartAdd % AlignmentSize)
+                        ? (StartAdd / AlignmentSize + 1) * AlignmentSize
+                  : StartAdd;
+
+            m_EndAdd   = EndAdd;
+            m_Offset = 0; 
+
+            if (m_EndAdd < m_StartAdd)
+            {
+                kpanic("Invalid range for Allocator4K\n");
+            }
+        }
+
+        void* kmalloc()
+        {
+            const uint32_t NextMem = m_StartAdd + m_Offset;
+
+            if (NextMem <= m_EndAdd)
+            {
+                m_Offset += AlignmentSize;
+
+                kassert(!(NextMem & (AlignmentSize - 1)), "Allocated memory is not aligned\n");
+
+                uint32_t* ClearMem = (uint32_t*) NextMem;
+
+                for (size_t i = 0; i < AlignmentSize / sizeof(uint32_t); ++i) // TODO: replace with memset once implemented
+                {
+                    *(ClearMem + i) = 0;
+                }
+
+                return (void*) NextMem;
+            }
+
+            kpanic("Memory allocator ran out of space\n");
+        };
     };
 
 } // namespace KM, kernel memory

@@ -1,5 +1,6 @@
 #include <utilities.hpp>
-
+#include <memoryallocator.hpp>
+#include <ahci.hpp>
 #include <disk_controller.hpp>
 
 namespace DiskDevice
@@ -46,14 +47,12 @@ namespace DiskDevice
         //    In a real OS, you'd have done this once and stored it. 
         //    For demo, let’s assume you have a pre-allocated region for command tables.
         //    Suppose each command table is 256 bytes (or more). We index by slot to get the correct command table.
-        HBA_CMD_TABLE stackTable;
-        //uintptr_t cmdTableAddr = getCmdTableBase(portIndex, slot); // <-- you must implement this
-        uintptr_t cmdTableAddr = (uintptr_t) &stackTable; // <-- you must implement this
-        kmemset(reinterpret_cast<void*>(cmdTableAddr), 0, sizeof(HBA_CMD_TABLE));
+        uintptr_t cmdTableAddr = port->clb + (slot * 256); // <-- you must implement this
+        // kmemset(reinterpret_cast<void*>(cmdTableAddr), 0, sizeof(HBA_CMD_TABLE));
 
-        // Fill in the command table base address into the command header
+        // // Fill in the command table base address into the command header
         header->ctba  = (uint32_t)(cmdTableAddr & 0xFFFFFFFF);
-        header->ctbau = (uint32_t)((cmdTableAddr >> 32) & 0xFFFFFFFF);
+        header->ctbau = 0;
 
         // 4. Build the PRDT entry (point it to a 512-byte buffer)
         HBA_CMD_TABLE* cmdTable = reinterpret_cast<HBA_CMD_TABLE*>(cmdTableAddr);
@@ -125,6 +124,77 @@ namespace DiskDevice
         // If we reach here, we’ve successfully identified the drive.
         // You could parse more fields, e.g. the model, firmware, capabilities, etc.
         return true;
+    }
+
+    // Start command engine
+    void startCmdEngine(volatile HBA_PORT *port)
+    {
+        // Wait until CR (bit15) is cleared
+        while (port->cmd & HBA_CMD_STATUS::HBA_PxCMD_CR)
+            ;
+
+        // Set FRE (bit4) and ST (bit0)
+        port->cmd |= HBA_CMD_STATUS::HBA_PxCMD_FRE;
+        port->cmd |= HBA_CMD_STATUS::HBA_PxCMD_ST; 
+    }
+
+    // Stop command engine
+    void stopCmdEngine(volatile HBA_PORT *port)
+    {
+        // Clear ST (bit0)
+        port->cmd &= ~HBA_CMD_STATUS::HBA_PxCMD_ST;
+
+        // Clear FRE (bit4)
+        port->cmd &= ~HBA_CMD_STATUS::HBA_PxCMD_FRE;
+
+        // Wait until FR (bit14), CR (bit15) are cleared
+        while(1)
+        {
+            if (port->cmd & HBA_CMD_STATUS::HBA_PxCMD_FR)
+                continue;
+            if (port->cmd & HBA_CMD_STATUS::HBA_PxCMD_CR)
+                continue;
+            break;
+        }
+    }
+
+    void initializePort(volatile HBA_PORT* port, uint32_t portIndex)
+    {
+        stopCmdEngine(port);	// Stop command engine
+
+        // Command list offset: 1K*portno
+        // Command list entry size = 32
+        // Command list entry maxim count = 32
+        // Command list maxim size = 32*32 = 1K per port
+
+        void* out = KM::mem_alloc_4k.kmalloc();
+        const uint32_t AHCI_BASE = (uint32_t)out;
+
+
+        port->clb = AHCI_BASE + (portIndex<<10);
+        port->clbu = 0;
+        kmemset((void*)(port->clb), 0, 1024);
+
+        // FIS offset: 32K+256*portno
+        // FIS entry size = 256 bytes per port
+        port->fb = AHCI_BASE + (32<<10) + (portIndex<<8);
+        port->fbu = 0;
+        kmemset((void*)(port->fb), 0, 256);
+
+        // Command table offset: 40K + 8K*portno
+        // Command table size = 256*32 = 8K per port
+        HBA_CMD_HEADER *cmdheader = (HBA_CMD_HEADER*)(port->clb);
+        for (int i=0; i<32; i++)
+        {
+            cmdheader[i].prdtLength = 8;	// 8 prdt entries per command table
+                        // 256 bytes per command table, 64+16+48+16*8
+            // Command table offset: 40K + 8K*portno + cmdheader_index*256
+            cmdheader[i].ctba = AHCI_BASE + (40<<10) + (portIndex<<13) + (i<<8);
+            cmdheader[i].ctbau = 0;
+            kmemset((void*)cmdheader[i].ctba, 0, 256);
+        }
+
+        startCmdEngine(port);	// Start command engine
     }
 
 } // namespace DiskDevice

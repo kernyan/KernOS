@@ -9,6 +9,14 @@
 
 namespace AHCI
 {
+  enum HBA_CMD_STATUS: uint32_t
+  {
+    HBA_PxCMD_ST = (1 << 0),
+    HBA_PxCMD_FRE = (1 << 4),
+    HBA_PxCMD_FR = (1 << 14),
+    HBA_PxCMD_CR = (1 << 15),
+  };
+  
   enum FIS_TYPE: uint8_t
   {
     REG_H2D   = 0x27,

@@ -186,7 +186,7 @@ namespace VM // virtual memory
 
       case PAGE_ATTR::UNMAPPED:
          {
-            void* FreePage = KM::mem_alloc_4k.kmalloc_4k(); // TODO track and manage memory
+            void* FreePage = KM::mem_alloc_4k.kmalloc(); // TODO track and manage memory
             SetPage(VirAttr, kernel_page_directory, (uint32_t*) FreePage);
             FlushTLB(VAddr);
             break;
