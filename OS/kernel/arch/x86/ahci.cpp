@@ -50,7 +50,7 @@ namespace AHCI
         size_t maxCmdSlots = (hba_mem->cap >> 8 & 0x1f) + 1;
 
         DiskDevice::initializePort(&hba_mem->ports[i], i);
-        DiskDevice::identifyDevice(&hba_mem->ports[i], i, maxCmdSlots);
+        // DiskDevice::read();
       }
     }
   } 
